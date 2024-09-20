@@ -7,8 +7,8 @@ void OPCIO1 (){
 	cout << "3. Modifica usuari" << endl;
 	cout << "4. Borrar usuari" << endl;
 	cout << "5. Tornar" << endl;
-	int opcio2;
 	string sobrenom, nom, cog1, cog2;
+	int opcio2;
 	cin >> opcio2;
 	if (opcio2 == 1) {
 		cout << "Escriu el teu sobrenom i nom complet" << endl;
@@ -60,7 +60,7 @@ void OPCIO3() {
 	}
 }
 
-//Canvis
+
 int main () {
 	int opcio;
 	bool acaba = false;
