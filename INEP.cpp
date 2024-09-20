@@ -60,6 +60,7 @@ void OPCIO3() {
 	}
 }
 
+//Canvis
 int main () {
 	int opcio;
 	bool acaba = false;
