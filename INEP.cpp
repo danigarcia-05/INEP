@@ -1,20 +1,30 @@
 using namespace std;
 #include <iostream>
+#include <string>
+#include <sstream>
 
 void registrarUsuari() {
+	cin.ignore();
 	cout << "Escriu el teu sobrenom i nom complet" << endl;
+	string s;
+	getline(cin, s);  
 	string sobrenom, nom, cog1, cog2;
-	cin >> sobrenom >> nom >> cog1 >> cog2;
-	cout << "El registre de l’usuari " << nom << " " << cog1 << " " << cog2 << " (" << sobrenom << ") s’ha processat correctament" << endl << endl;
+	stringstream ss(s);
+	if (ss >> sobrenom >> nom >> cog1 >> cog2) cout << "El registre de l’usuari " << nom << " " << cog1 << " " << cog2 << " (" << sobrenom << ") s’ha processat correctament" << endl << endl;
+	else cout << "Error al registrar usuari" << endl<< endl;
 }
 void consultarUsuari() {
-	cout << "El teu usuari és " << endl << endl;
+	cout << "El teu usuari és ..... ..... ..... ....." << endl << endl;
 }
 void modificarUsuari() {
-	cout << "Escriu el teu nou usuari" << endl;
+	cin.ignore();
+	cout << "Escriu el teu nou usuari (sobrenom i nom complet)" << endl;
+	string s;
+	getline(cin, s);
 	string sobrenom, nom, cog1, cog2;
-	cin >> sobrenom >> nom >> cog1 >> cog2;
-	cout << endl;
+	stringstream ss(s);
+	if (ss >> sobrenom >> nom >> cog1 >> cog2) cout << "El registre de l’usuari " << nom << " " << cog1 << " " << cog2 << " (" << sobrenom << ") s’ha processat correctament" << endl << endl;
+	else cout << "Error al registrar usuari" << endl << endl;
 }
 void borrarUsuari() {
 	cout << "El teu usuari s'ha esborrat correctament" << endl << endl;
