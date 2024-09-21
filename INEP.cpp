@@ -1,31 +1,57 @@
 using namespace std;
 #include <iostream>
 
+void registrarUsuari() {
+	cout << "Escriu el teu sobrenom i nom complet" << endl;
+	string sobrenom, nom, cog1, cog2;
+	cin >> sobrenom >> nom >> cog1 >> cog2;
+	cout << "El registre de l’usuari " << nom << " " << cog1 << " " << cog2 << " (" << sobrenom << ") s’ha processat correctament" << endl << endl;
+}
+void consultarUsuari() {
+	cout << "El teu usuari és " << endl << endl;
+}
+void modificarUsuari() {
+	cout << "Escriu el teu nou usuari" << endl;
+	string sobrenom, nom, cog1, cog2;
+	cin >> sobrenom >> nom >> cog1 >> cog2;
+	cout << endl;
+}
+void borrarUsuari() {
+	cout << "El teu usuari s'ha esborrat correctament" << endl << endl;
+}
+
+void gestioPelicules() {
+	cout << "Gestió pel·lícules" << endl << endl;
+}
+void gestioSeries() {
+	cout << "Gestió sèries" << endl << endl;
+}
+
+void consultesEdat() {
+	cout << "Consulta per qualificació d'edat" << endl << endl;
+}
+void ultimesNovetats() {
+	cout << "Últimes novetats" << endl << endl;
+}
+void proximesEstrenes() {
+	cout << "Pròximes estrenes" << endl << endl;
+}
+
+//_____________________________________________________________
+//_____________________________________________________________
+
 void OPCIO1 (){
 	cout << "1. Resgistre usuari" << endl;
 	cout << "2. Consulta usuari " << endl;
 	cout << "3. Modifica usuari" << endl;
 	cout << "4. Borrar usuari" << endl;
 	cout << "5. Tornar" << endl;
-	string sobrenom, nom, cog1, cog2;
 	int opcio2;
 	cin >> opcio2;
-	if (opcio2 == 1) {
-		cout << "Escriu el teu sobrenom i nom complet" << endl;
-		cin >> sobrenom >> nom >> cog1 >> cog2;
-		cout << "El registre de l’usuari " << nom << " " << cog1 << " " << cog2 << " (" << sobrenom << ") s’ha processat correctament" << endl << endl;
-	}
-	if (opcio2 == 2) {
-		cout << "El teu usuari és "<< endl << endl;
-	}
-	if (opcio2 == 3) {
-		cout << "Escriu el teu nou usuari" << endl;
-		cin >> sobrenom >> nom >> cog1 >> cog2;
-		cout << endl;
-	}
-	if (opcio2 == 4) {
-		cout << "El teu usuari s'ha esborrat correctament" << endl << endl;
-	}
+	if (opcio2 == 1) registrarUsuari();
+	if (opcio2 == 2) consultarUsuari();
+	if (opcio2 == 3) modificarUsuari();
+	if (opcio2 == 4) borrarUsuari();
 }
 
 void OPCIO2() {
@@ -34,12 +60,8 @@ void OPCIO2() {
 	cout << "3. Tornar" << endl;
 	int opcio2;
 	cin >> opcio2;
-	if (opcio2 == 1) {
-		cout << "Gestió pel·lícules" << endl << endl;
-	}
-	if (opcio2 == 2) {
-		cout << "Gestió sèries" << endl << endl;
-	}
+	if (opcio2 == 1) gestioPelicules();
+	if (opcio2 == 2) gestioSeries();
 }
 
 void OPCIO3() {
@@ -49,17 +71,10 @@ void OPCIO3() {
 	cout << "4. Tornar" << endl;
 	int opcio2;
 	cin >> opcio2;
-	if (opcio2 == 1) {
-		cout << "Consulta per qualificació d'edat" << endl << endl;
-	}
-	if (opcio2 == 2) {
-		cout << "Últimes novetats" << endl << endl;
-	}
-	if (opcio2 == 3) {
-		cout << "Pròximes estrenes" << endl << endl;
-	}
+	if (opcio2 == 1) consultesEdat();
+	if (opcio2 == 2) ultimesNovetats();
+	if (opcio2 == 3) proximesEstrenes();
 }
-
 
 int main () {
 	int opcio;
