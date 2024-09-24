@@ -87,6 +87,7 @@ void OPCIO3() {
 }
 
 int main () {
+	//Pablo Martin
 	int opcio;
 	bool acaba = false;
 	while (not acaba) {
