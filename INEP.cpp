@@ -2,32 +2,129 @@ using namespace std;
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <cppconn/driver.h>
+#include <cppconn/exception.h>
+#include <cppconn/statement.h>
+#include <mysql_connection.h>
+#include <mysql_driver.h>
+
+
+struct usuari {
+	string sobrenom;
+	string nom;
+	string correu;
+};
 
 void registrarUsuari() {
-	cin.ignore();
-	cout << "Escriu el teu sobrenom i nom complet" << endl;
-	string s;
-	getline(cin, s);  
-	string sobrenom, nom, cog1, cog2;
-	stringstream ss(s);
-	if (ss >> sobrenom >> nom >> cog1 >> cog2) cout << "El registre de l’usuari " << nom << " " << cog1 << " " << cog2 << " (" << sobrenom << ") s’ha processat correctament" << endl << endl;
-	else cout << "Error al registrar usuari" << endl<< endl;
+	sql::mysql::MySQL_Driver* driver = NULL;
+	sql::Connection* con = NULL;
+	sql::Statement* stmt = NULL;
+	try {
+		driver = sql::mysql::get_mysql_driver_instance();
+		con = driver->connect("ubiwan.epsevg.upc.edu:3306", "inep13", "agheeGak0Ofe4m");
+		con->setSchema("inep13");
+		stmt = con->createStatement();
+		// Sentència SQL per obtenir totes les files de la taula usuari.
+		// S’ha de posar el nom de la taula tal i com el teniu a la base
+		// de dades respectant minúscules i majúscules
+		usuari n;
+		cout << "Registra el teu usuari:" << endl;
+		cin >> n.sobrenom >> n.nom >> n.correu;
+		string sql = "INSERT INTO Usuari (sobrenom, nom, correu_electronic) VALUES(" + n.sobrenom + ", '" + n.nom + "', '" + n.correu + "')";
+		stmt->execute(sql);
+		con->close();
+	}
+	catch (sql::SQLException& e) {
+		std::cerr << "SQL Error: " << e.what() << std::endl;
+		// si hi ha un error es tanca la connexió (si esta oberta)
+		if (con != NULL) con->close();
+	}
 }
 void consultarUsuari() {
-	cout << "El teu usuari és ..... ..... ..... ....." << endl << endl;
+	sql::mysql::MySQL_Driver* driver = NULL;
+	sql::Connection* con = NULL;
+	sql::Statement* stmt = NULL;
+	try {
+		driver = sql::mysql::get_mysql_driver_instance();
+		con = driver->connect("ubiwan.epsevg.upc.edu:3306", "inep13", "agheeGak0Ofe4m");
+		con->setSchema("inep13");
+		stmt = con->createStatement();
+		// Sentència SQL per obtenir totes les files de la taula usuari.
+		// S’ha de posar el nom de la taula tal i com el teniu a la base
+		// de dades respectant minúscules i majúscules
+		usuari n;
+		cout << "Entra un sobrenom:" << endl;
+		cin >> n.sobrenom;
+		string sql = "SELECT * FROM Usuari WHERE sobrenom='" + n.sobrenom + "'";
+		sql::ResultSet* res = stmt->executeQuery(sql);
+		// Bucle per recórrer les dades retornades mostrant les dades de cada fila
+		while (res->next()) {
+			// a la funció getString es fa servir el nom de la columna de la taula
+			cout << "Sobrenom: " << res->getString("sobrenom") << endl;
+			cout << "Nom: " << res->getString("nom") << endl;
+			cout << "Correu: " << res->getString("correu_electronic") << endl;
+		}
+		con->close();
+	}
+	catch (sql::SQLException& e) {
+		std::cerr << "SQL Error: " << e.what() << std::endl;
+		// si hi ha un error es tanca la connexió (si esta oberta)
+		if (con != NULL) con->close();
+	}
 }
 void modificarUsuari() {
-	cin.ignore();
-	cout << "Escriu el teu nou usuari (sobrenom i nom complet)" << endl;
-	string s;
-	getline(cin, s);
-	string sobrenom, nom, cog1, cog2;
-	stringstream ss(s);
-	if (ss >> sobrenom >> nom >> cog1 >> cog2) cout << "El registre de l’usuari " << nom << " " << cog1 << " " << cog2 << " (" << sobrenom << ") s’ha processat correctament" << endl << endl;
-	else cout << "Error al registrar usuari" << endl << endl;
+	sql::mysql::MySQL_Driver* driver = NULL;
+	sql::Connection* con = NULL;
+	sql::Statement* stmt = NULL;
+	try {
+		driver = sql::mysql::get_mysql_driver_instance();
+		con = driver->connect("ubiwan.epsevg.upc.edu:3306", "inep13", "agheeGak0Ofe4m");
+		con->setSchema("inep13");
+		stmt = con->createStatement();
+		// Sentència SQL per obtenir totes les files de la taula usuari.
+		// S’ha de posar el nom de la taula tal i com el teniu a la base
+		// de dades respectant minúscules i majúscules
+		usuari n;
+		cout << "Entra un sobrenom:" << endl;
+		cin >> n.sobrenom;
+		cout << "Entra el nou usuari i correu:" << endl;
+		cin >> n.nom >> n.correu;
+
+		string sql = "UPDATE Usuari SET name = '" + n.nom + "', correu_electronic = '" + n.correu + "' WHERE sobrenom = '" + n.sobrenom + "';";
+		stmt->execute(sql);
+		con->close();
+	}
+	catch (sql::SQLException& e) {
+		std::cerr << "SQL Error: " << e.what() << std::endl;
+		// si hi ha un error es tanca la connexió (si esta oberta)
+		if (con != NULL) con->close();
+	}
 }
 void borrarUsuari() {
-	cout << "El teu usuari s'ha esborrat correctament" << endl << endl;
+	sql::mysql::MySQL_Driver* driver = NULL;
+	sql::Connection* con = NULL;
+	sql::Statement* stmt = NULL;
+	try {
+		driver = sql::mysql::get_mysql_driver_instance();
+		con = driver->connect("ubiwan.epsevg.upc.edu:3306", "inep13", "agheeGak0Ofe4m");
+		con->setSchema("inep13");
+		stmt = con->createStatement();
+		// Sentència SQL per obtenir totes les files de la taula usuari.
+		// S’ha de posar el nom de la taula tal i com el teniu a la base
+		// de dades respectant minúscules i majúscules
+		usuari n;
+		cout << "Entra el sobrenom de l'usuari a esborrar" << endl;
+		cin >> n.sobrenom;
+		string sql = "DELETE FROM Usuari WHERE sobrenom = '" + n.sobrenom + "'";
+
+		stmt->execute(sql);
+		con->close();
+	}
+	catch (sql::SQLException& e) {
+		std::cerr << "SQL Error: " << e.what() << std::endl;
+		// si hi ha un error es tanca la connexió (si esta oberta)
+		if (con != NULL) con->close();
+	}
 }
 
 void gestioPelicules() {
@@ -46,9 +143,6 @@ void ultimesNovetats() {
 void proximesEstrenes() {
 	cout << "Pròximes estrenes" << endl << endl;
 }
-
-//______________________________________________________________
-//______________________________________________________________
 
 void OPCIO1 (){
 	cout << "1. Resgistre usuari" << endl;
