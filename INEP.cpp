@@ -30,7 +30,7 @@ void registrarUsuari() {
 		usuari n;
 		cout << "Registra el teu usuari:" << endl;
 		cin >> n.sobrenom >> n.nom >> n.correu;
-		string sql = "INSERT INTO Usuari (sobrenom, nom, correu_electronic) VALUES(" + n.sobrenom + ", '" + n.nom + "', '" + n.correu + "')";
+		string sql = "INSERT INTO Usuari (sobrenom, nom, correu_electronic) VALUES('" + n.sobrenom + "', '" + n.nom + "', '" + n.correu + "')";
 		stmt->execute(sql);
 		con->close();
 	}
@@ -89,8 +89,7 @@ void modificarUsuari() {
 		cin >> n.sobrenom;
 		cout << "Entra el nou usuari i correu:" << endl;
 		cin >> n.nom >> n.correu;
-
-		string sql = "UPDATE Usuari SET name = '" + n.nom + "', correu_electronic = '" + n.correu + "' WHERE sobrenom = '" + n.sobrenom + "';";
+		string sql = "UPDATE Usuari SET nom = '" + n.nom + "', correu_electronic = '" + n.correu + "' WHERE sobrenom = '" + n.sobrenom + "';";
 		stmt->execute(sql);
 		con->close();
 	}
