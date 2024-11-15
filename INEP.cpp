@@ -186,6 +186,9 @@ void OPCIO3() {
 }
 
 int main () {
+	//Pablo Martín Martín
+	//Eloi Clot Santander
+
 	int opcio;
 	bool acaba = false;
 	while (not acaba) {
