@@ -40,7 +40,6 @@ void registrarUsuari() {
 		if (con != NULL) con->close();
 	}
 }
-
 void consultarUsuari() {
 	sql::mysql::MySQL_Driver* driver = NULL;
 	sql::Connection* con = NULL;
@@ -73,7 +72,6 @@ void consultarUsuari() {
 		if (con != NULL) con->close();
 	}
 }
-
 void modificarUsuari() {
 	sql::mysql::MySQL_Driver* driver = NULL;
 	sql::Connection* con = NULL;
@@ -101,7 +99,6 @@ void modificarUsuari() {
 		if (con != NULL) con->close();
 	}
 }
-
 void borrarUsuari() {
 	sql::mysql::MySQL_Driver* driver = NULL;
 	sql::Connection* con = NULL;
@@ -132,7 +129,6 @@ void borrarUsuari() {
 void gestioPelicules() {
 	cout << "Gestió pel·lícules" << endl << endl;
 }
-
 void gestioSeries() {
 	cout << "Gestió sèries" << endl << endl;
 }
@@ -140,16 +136,14 @@ void gestioSeries() {
 void consultesEdat() {
 	cout << "Consulta per qualificació d'edat" << endl << endl;
 }
-
 void ultimesNovetats() {
 	cout << "Últimes novetats" << endl << endl;
 }
-
 void proximesEstrenes() {
 	cout << "Pròximes estrenes" << endl << endl;
 }
 
-void OPCIO1 (){
+void OPCIO1() {
 	cout << "1. Resgistre usuari" << endl;
 	cout << "2. Consulta usuari " << endl;
 	cout << "3. Modifica usuari" << endl;
@@ -185,10 +179,7 @@ void OPCIO3() {
 	if (opcio2 == 3) proximesEstrenes();
 }
 
-int main () {
-	//Pablo Martín Martín
-	//Eloi Clot Santander
-
+int main() {
 	int opcio;
 	bool acaba = false;
 	while (not acaba) {
