@@ -7,13 +7,14 @@ using namespace std;
 #include <cppconn/statement.h>
 #include <mysql_driver.h>
 
+//Holaaaaaaaaaaaaaaaaaa
 
 class ConnexioBD {
 private:
     sql::mysql::MySQL_Driver* driver;
     sql::Connection* con;
     sql::Statement* stmt;
-
+    
 public:
     ConnexioBD() : driver(nullptr), con(nullptr), stmt(nullptr) {
         driver = sql::mysql::get_mysql_driver_instance();
