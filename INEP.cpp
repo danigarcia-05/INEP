@@ -7,6 +7,8 @@ using namespace std;
 #include <cppconn/statement.h>
 #include <mysql_driver.h>
 
+//Hola
+
 class ConnexioBD {
 private:
     sql::mysql::MySQL_Driver* driver;
