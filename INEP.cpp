@@ -7,7 +7,6 @@ using namespace std;
 #include <cppconn/statement.h>
 #include <mysql_driver.h>
 
-//Holaaaaaaaaaaaaaaaaaa
 
 class ConnexioBD {
 private:
