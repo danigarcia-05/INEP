@@ -1,13 +1,6 @@
+#include "capaDePresentacio.h"
 using namespace std;
-#include <iostream>
-#include <string>
-#include <cppconn/driver.h>
-#include <cppconn/exception.h>
-#include <cppconn/resultset.h>
-#include <cppconn/statement.h>
-#include <mysql_driver.h>
-
-//versió bona
+#include <locale>
 
 class ConnexioBD {
 private:
@@ -36,147 +29,114 @@ public:
     }
 };
 
-struct Usuari {
-    string sobrenom;
-    string nom;
-    string correu;
-};
+void gestioUsuaris() {
+    int op;
+    wcout << "------------------" << endl;
+    wcout << " Gestionar usuari" << endl;
+    wcout << "------------------" << endl;
+    wcout << "1. Consulta usuari" << endl;
+    wcout << "2. Modifica usuari" << endl;
+    wcout << "3. Modifica contrasenya" << endl;
+    wcout << "4. Esborra usuari" << endl;
+    wcout << "5. Tornar" << endl;
+    wcout << "Escriu opció: ";
+    cin >> op;
 
-void registrarUsuari() {
-    try {
-        ConnexioBD db;
-        Usuari n;
-        cout << "Registra el teu usuari:" << endl;
-        cin >> n.sobrenom >> n.nom >> n.correu;
-        string sql = "INSERT INTO Usuari (sobrenom, nom, correu_electronic) VALUES ('" + n.sobrenom + "', '" + n.nom + "', '" + n.correu + "')";
-        db.executarSQL(sql);
-        cout << "L'usuari amb sobrenom " << n.sobrenom << " s'ha registrat correctament." << endl;
-    }
-    catch (sql::SQLException& e) {
-        cerr << "Error en registrar Usuari " << e.what() << endl;
-    }
-}
-
-void consultarUsuari() {
-    try {
-        ConnexioBD db;
-        Usuari n;
-        cout << "Entra el sobrenom de l'usuari a consultar:" << endl;
-        cin >> n.sobrenom;
-        string sql = "SELECT * FROM Usuari WHERE sobrenom='" + n.sobrenom + "'";
-        sql::ResultSet* res = db.consultaSQL(sql);
-        if (res->next()) {
-            cout << "Sobrenom: " << res->getString("sobrenom") << endl;
-            cout << "Nom: " << res->getString("nom") << endl;
-            cout << "Correu: " << res->getString("correu_electronic") << endl;
-        }
-        else cout << "ERROR: No s' ha trobat cap usuari amb el sobrenom " << n.sobrenom << '.' << endl;
-    }
-    catch (sql::SQLException& e) {
-        cerr << "Error en consultar Usuari " << e.what() << endl;
+    switch (op) {
+        case 1: presentacio.consultaUsuari();break;
+        case 2: presentacio.modificaUsuari();break;
+        case 3: presentacio.esborraUsuari();break;
     }
 }
 
-void modificarUsuari() {
-    try {
-        ConnexioBD db;
-        Usuari n;
-        cout << "Entra el sobrenom de l'usuari a modificar:" << endl;
-        cin >> n.sobrenom;
-        cout << "Entra el nou nom i correu:" << endl;
-        cin >> n.nom >> n.correu;
-        string sql = "UPDATE Usuari SET nom = '" + n.nom + "', correu_electronic = '" + n.correu + "' WHERE sobrenom = '" + n.sobrenom + "'";
-        db.executarSQL(sql);
-        cout << "Usuari modificat correctament." << endl;
-    }
-    catch (sql::SQLException& e) {
-        cerr << "Error en modificar Usuari " << e.what() << endl;
-    }
-}
+void gestioContinguts() {
+    int op;
+    wcout << "------------------" << endl;
+    wcout << " Visualitzar" << endl;
+    wcout << "------------------" << endl;
+    wcout << "1. Visualitzar pel·lícula" << endl;
+    wcout << "2. Visualitzar capítol" << endl;
+    wcout << "3. Consultar visualitzacions" << endl;
+    wcout << "4. Tornar" << endl;
+    wcout << "Escriu opció: ";
+    cin >> op;
 
-void borrarUsuari() {
-    try {
-        ConnexioBD db;
-        Usuari n;
-        cout << "Entra el sobrenom de l'usuari a esborrar:" << endl;
-        cin >> n.sobrenom;
-        string sql = "DELETE FROM Usuari WHERE sobrenom = '" + n.sobrenom + "'";
-        db.executarSQL(sql);
-        cout << "Usuari eliminat correctament." << endl;
-    }
-    catch (sql::SQLException& e) {
-        cerr << "Error en esborrar Usuari " << e.what() << endl;
+
+    switch (op) {
+        case 1: presentacio.gestioPelicules();break;
+        case 2: presentacio.gestioSeries();break;
     }
 }
 
-void gestioPelicules() {
-    cout << "gestioPelicules" << endl << endl;
-}
+void consultes() {
+    int op;
+    wcout << "------------------" << endl;
+    wcout << " Consultes" << endl;
+    wcout << "------------------" << endl;
+    wcout << "1. Properes estrenes" << endl;
+    wcout << "2. Últimes novetats" << endl;
+    wcout << "3. Pel·lícules més vistes" << endl;
+    wcout << "4. Tornar" << endl;
+    wcout << "Escriu opció: ";
+    cin >> op;
 
-void gestioSeries() {
-    cout << "gestioSeries" << endl << endl;
-}
-
-void consultesEdat() {
-    cout << "consultesEdat" << endl << endl;
-}
-
-void ultimesNovetats() {
-    cout << "ultimesNovetats" << endl << endl;
-}
-
-void proximesEstrenes() {
-    cout << "proximesEstrenes" << endl << endl;
-}
-
-void OPCIO1() {
-    cout << "1. Registre usuari" << endl;
-    cout << "2. Consulta usuari " << endl;
-    cout << "3. Modifica usuari" << endl;
-    cout << "4. Borra usuari" << endl;
-    cout << "5. Tornar" << endl;
-    int opcio2;
-    cin >> opcio2;
-    if (opcio2 == 1) registrarUsuari();
-    else if (opcio2 == 2) consultarUsuari();
-    else if (opcio2 == 3) modificarUsuari();
-    else if (opcio2 == 4) borrarUsuari();
-}
-
-void OPCIO2() {
-    cout << "1. Gestió pel·lícules" << endl;
-    cout << "2. Gestió sèries" << endl;
-    cout << "3. Tornar" << endl;
-    int opcio2;
-    cin >> opcio2;
-    if (opcio2 == 1) gestioPelicules();
-    else if (opcio2 == 2) gestioSeries();
-}
-
-void OPCIO3() {
-    cout << "1. Consulta per qualificació d'edat" << endl;
-    cout << "2. Últimes novetats" << endl;
-    cout << "3. Pròximes estrenes" << endl;
-    cout << "4. Tornar" << endl;
-    int opcio2;
-    cin >> opcio2;
-    if (opcio2 == 1) consultesEdat();
-    else if (opcio2 == 2) ultimesNovetats();
-    else if (opcio2 == 3) proximesEstrenes();
+    switch (op) {
+        case 1: presentacio.consultesEdat();break;
+        case 2: presentacio.ultimesNovetats();break;
+        case 3: presentacio.proximesEstrenes();break;
+    }
 }
 
 int main() {
-    int opcio;
+    int op;
     bool acaba = false;
+    CapaDePresentacio& presentacio = CapaDePresentacio::getInstance();
     while (not acaba) {
         cout << "1. Gestió usuaris" << endl;
         cout << "2. Gestió continguts" << endl;
         cout << "3. Consultes" << endl;
         cout << "4. Sortir" << endl;
-        cin >> opcio;
-        if (opcio == 1) OPCIO1();
-        else if (opcio == 2) OPCIO2();
-        else if (opcio == 3) OPCIO3();
-        else if (opcio == 4) acaba = true;
+        cin >> op;
+        if (op == 1) gestioUsuaris();
+        else if (op == 2) gestioContinguts();
+        else if (op == 3) consultes();
+        else if (op == 4) acaba = true;
     }
 }
+
+
+
+    int op;
+    bool acaba=false;
+    CapaDePresentacio& presentacio = CapaDePresentacio::getInstance();
+    while (not acaba) {
+        wcout << "*********************" << endl;
+        wcout << " Menu Principal" << endl;
+        wcout << "*********************" << endl;
+        wcout << "1. Iniciar sessió" << endl;
+        wcout << "2. Registrar usuari" << endl;
+        wcout << "3. Consultes" << endl;
+        wcout << "4. Sortir" << endl;
+        wcout << "Escriu opcio: ";
+    
+        cin >> op;
+        switch (op) {
+            case 1: presentacio.gestioUsuaris();break;
+            case 2: presentacio.gestioContinguts();break;
+            case 3: presentacio.consultes();break;
+            case 4: acaba=true; 
+        }
+    }    
+}
+
+
+
+    wcout << "*********************" << endl;
+    wcout << " Menu Principal" << endl;
+    wcout << "*********************" << endl;
+    wcout << "1. Gestió usuaris" << endl;
+    wcout << "2. Visualitzar" << endl;
+    wcout << "3. Consultes" << endl;
+    wcout << "4. Tancar sessió" << endl;
+    wcout << "5. Sortir" << endl;
+    wcout << "Escriu opcio: ";
