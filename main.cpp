@@ -41,7 +41,6 @@ void gestioUsuaris() {
     wcout << "5. Tornar" << endl;
     wcout << "Escriu opció: ";
     cin >> op;
-
     switch (op) {
         case 1: presentacio.consultaUsuari();break;
         case 2: presentacio.modificaUsuari();break;
@@ -60,8 +59,6 @@ void gestioContinguts() {
     wcout << "4. Tornar" << endl;
     wcout << "Escriu opció: ";
     cin >> op;
-
-
     switch (op) {
         case 1: presentacio.gestioPelicules();break;
         case 2: presentacio.gestioSeries();break;
@@ -79,7 +76,6 @@ void consultes() {
     wcout << "4. Tornar" << endl;
     wcout << "Escriu opció: ";
     cin >> op;
-
     switch (op) {
         case 1: presentacio.consultesEdat();break;
         case 2: presentacio.ultimesNovetats();break;
@@ -89,54 +85,51 @@ void consultes() {
 
 int main() {
     int op;
-    bool acaba = false;
-    CapaDePresentacio& presentacio = CapaDePresentacio::getInstance();
-    while (not acaba) {
-        cout << "1. Gestió usuaris" << endl;
-        cout << "2. Gestió continguts" << endl;
-        cout << "3. Consultes" << endl;
-        cout << "4. Sortir" << endl;
-        cin >> op;
-        if (op == 1) gestioUsuaris();
-        else if (op == 2) gestioContinguts();
-        else if (op == 3) consultes();
-        else if (op == 4) acaba = true;
-    }
-}
-
-
-
-    int op;
     bool acaba=false;
+    bool sessioIniciada = false;
     CapaDePresentacio& presentacio = CapaDePresentacio::getInstance();
     while (not acaba) {
-        wcout << "*********************" << endl;
-        wcout << " Menu Principal" << endl;
-        wcout << "*********************" << endl;
-        wcout << "1. Iniciar sessió" << endl;
-        wcout << "2. Registrar usuari" << endl;
-        wcout << "3. Consultes" << endl;
-        wcout << "4. Sortir" << endl;
-        wcout << "Escriu opcio: ";
-    
-        cin >> op;
-        switch (op) {
-            case 1: presentacio.gestioUsuaris();break;
-            case 2: presentacio.gestioContinguts();break;
-            case 3: presentacio.consultes();break;
-            case 4: acaba=true; 
+        if(not sessioIniciada){
+            wcout << "*********************" << endl;
+            wcout << " Menu Principal" << endl;
+            wcout << "*********************" << endl;
+            wcout << "1. Iniciar sessió" << endl;
+            wcout << "2. Registrar usuari" << endl;
+            wcout << "3. Consultes" << endl;
+            wcout << "4. Sortir" << endl;
+            wcout << "Escriu opcio: ";
+            cin >> op;
+            switch (op) {
+                case 1: presentacio.iniciarSessio();break;
+                case 2: presentacio.registrarUsuari();break;
+                case 3: consultes();break;
+                case 4: acaba=true; 
+            }
         }
+        else{
+            wcout << "*********************" << endl;
+            wcout << " Menu Principal" << endl;
+            wcout << "*********************" << endl;
+            wcout << "1. Gestió usuaris" << endl;
+            wcout << "2. Visualitzar" << endl;
+            wcout << "3. Consultes" << endl;
+            wcout << "4. Tancar sessió" << endl;
+            wcout << "5. Sortir" << endl;
+            wcout << "Escriu opcio: ";
+            cin >> op;
+            switch (op) {
+                case 1: gestioUsuaris();break;
+                case 2: gestioContinguts();break;
+                case 3: consultes();break;
+                case 4: sessioIniciada=false; 
+                case 5: acaba=true; 
+                //default: wcout << "Opció no vàlida" << endl; CONSIDERAR
+            }
+        }
+        // system("cls");
     }    
 }
 
 
 
-    wcout << "*********************" << endl;
-    wcout << " Menu Principal" << endl;
-    wcout << "*********************" << endl;
-    wcout << "1. Gestió usuaris" << endl;
-    wcout << "2. Visualitzar" << endl;
-    wcout << "3. Consultes" << endl;
-    wcout << "4. Tancar sessió" << endl;
-    wcout << "5. Sortir" << endl;
-    wcout << "Escriu opcio: ";
+    

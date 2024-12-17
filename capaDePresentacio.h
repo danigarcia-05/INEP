@@ -25,6 +25,8 @@ private:
 public:
     CapaDePresentacio* getins();
 
+    void iniciarSessio();
+
     void registrarUsuari();
     void consultarUsuari();
     void modificarUsuari();
