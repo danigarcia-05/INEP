@@ -1,4 +1,5 @@
 using namespace std;
+#include "ConexioDB.hpp"
 #include <iostream>
 #include <string>
 #include <cppconn/driver.h>
