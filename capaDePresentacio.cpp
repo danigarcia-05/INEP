@@ -1,5 +1,5 @@
-#pragma once
-#include "capaDePresentacio.h"
+#include "CapaDePresentacio.h"
+
 
 CapaDePresentacio* CapaDePresentacio::getInstance(){
     if (ins == nullptr) {
@@ -8,7 +8,15 @@ CapaDePresentacio* CapaDePresentacio::getInstance(){
     return ins;
 }
 
+bool CapaDePresentacio::getInstanceUsuari(){
+    bool res;
+    if (insUsuari == nullptr) res = false;
+    else res = true;
+    return res;
+}
+
 CapaDePresentacio* CapaDePresentacio::ins = nullptr;
+PassarelaUsuari* PassarelaUsuari::insUsuari = nullptr;
 
 void CapaDePresentacio::processarRegistreUsuari(){
     string sobrenomU, nomU, correuU;
@@ -28,6 +36,23 @@ void CapaDePresentacio::processarRegistreUsuari(){
         cout << "Error: " << e.what() << endl;
     }
 }
+
+
+void CapaDePresentacio::processarConsultaUsuari(){
+    std::cout << "Nom usuari:";
+    std::cin >> nomU;
+    try {
+        DTOUsuari usu = cercaUsuari(nomU);
+        std::cout << "Informació usuari: " << usu.obteNom();
+        std::cout << std::endl;
+        std::cout << "Nom: " << usu.obteNom() << std::endl;
+        std::cout << "Correu: " << usu.obteCorreu() << std::endl;
+    }
+    catch (const exception& e) {
+        std::out << "Error: " << e.what() << endl;
+    }
+}
+
 
 
 

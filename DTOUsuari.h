@@ -1,16 +1,24 @@
 #ifndef DTOUSUARI_HPP
-#define CTRLMODIFICAUSUARI_HPP
+#define DTOUSUARI_HPP
 #pragma once
 #include <string>
+using namespace std;
 
-class DTOusuari {
-private:
-    string nom;
-    string sobrenom;
-    string correuElectronic;
-    Data dataNaixament; //No se como se pilla
-    string modalitat;
-
+#include "PassarelaUsuari.h"
+class DTOUsuari{
 public:
+    DTOUsuari() {}
+    DTOUsuari(PassarelaUsuari usu) {
+        sobrenom = usu.obteSobrenom();
+        nom = usu.obteNom();
+        correu = usu.obteCorreuElectronic();
+    }
+    string obteSobrenom() { return sobrenom; }
+    string obteNom() { return nom; }
+    string obteCorreu() { return correu; }
+private:
+    string sobrenom = "";
+    string nom = "";
+    string correu = "";
 };
 #endif

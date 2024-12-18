@@ -20,5 +20,7 @@ public:
     PassarelaUsuari(string sobrenomU, string nomU, string correuElectronicU);
 
     void insereix();
+    void modifica();
+    void esborra();
 };
 #endif

@@ -1,6 +1,8 @@
 #pragma once
 #ifndef CAPADEDOMINI_HPP
-#define TXINFOVISUALITZACIONS_HPP
+#define CAPADEDOMINI_HPP
+#include <string>
+#include "DTOUsuari.h"
 
 class CapaDeDomini {
 private:
