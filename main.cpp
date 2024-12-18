@@ -73,8 +73,8 @@ int main() {
             wcout << "Escriu opcio: ";
             cin >> op;
             switch (op) {
-                case 1: presentacio.iniciarSessio();break;
-                case 2: presentacio.registrarUsuari();break;
+                case 1: presentacio.processarIniciarSessio();break;
+                case 2: presentacio.processarRegistreUsuari();break;
                 case 3: consultes();break;
                 case 4: acaba=true; 
             }

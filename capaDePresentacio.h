@@ -4,28 +4,24 @@
 using namespace std;
 #include <iostream>
 #include <string>
-
+#include "CapaDeDomini.h"
 
 class CapaDePresentacio {
 private:
     static CapaDePresentacio* ins;
+    static PassarelaUsuari* insUsuari;
 
     CapaDePresentacio();
-
-    struct Usuari {
-        string sobrenom;
-        string nom;
-        string correu;
-    };  
-
+ 
 public:
     CapaDePresentacio* getInstance();
+    bool getInstanceUsuari() const;
 
     void processarIniciarSessio();
 
     void processarRegistreUsuari();
-    void processarConsultarUsuari();
-    void processarModificarUsuari();
+    void processarConsultaUsuari();
+    void processarModificaUsuari();
     void processarBorrarUsuari();
 
     void processarGestioPelicules();

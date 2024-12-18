@@ -1,5 +1,5 @@
-#pragma once
-#include "capaDePresentacio.h"
+#include "CapaDePresentacio.h"
+
 
 CapaDePresentacio* CapaDePresentacio::getInstance(){
     if (ins == nullptr) {
@@ -8,7 +8,32 @@ CapaDePresentacio* CapaDePresentacio::getInstance(){
     return ins;
 }
 
+bool CapaDePresentacio::getInstanceUsuari(){
+    bool res;
+    if (insUsuari == nullptr) res = false;
+    else res = true;
+    return res;
+}
+
 CapaDePresentacio* CapaDePresentacio::ins = nullptr;
+PassarelaUsuari* PassarelaUsuari::insUsuari = nullptr;
+
+void CapaDePresentacio::processarIniciarSessio(){
+    string sobrenomU, contrasenyaU;
+    cout << "** Inici sessio **" << endl;
+    cout << "Sobrenom: ";
+    cin >> sobrenomU;
+    cout << "Contrasenya: ";
+    cin >> contrasenyaU;
+    CapaDeDomini& domini = CapaDeDomini::getInstance();
+    try {
+        domini.iniciarSessio(sobrenomU, contrasenyaU);
+        cout << "Sessio iniciada correctament!" << endl;
+    }
+    catch (const exception& e) {
+        cout << "Error: " << e.what() << endl;
+    }
+}
 
 void CapaDePresentacio::processarRegistreUsuari(){
     string sobrenomU, nomU, correuU;
@@ -28,6 +53,23 @@ void CapaDePresentacio::processarRegistreUsuari(){
         cout << "Error: " << e.what() << endl;
     }
 }
+
+
+void CapaDePresentacio::processarConsultaUsuari(){
+    cout << "Nom usuari:";
+    cin >> nomU;
+    try {
+        DTOUsuari usu = cercaUsuari(nomU);
+        cout << "Informació usuari: " << usu.obteNom();
+        cout << ::endl;
+        cout << "Nom: " << usu.obteNom() << ::endl;
+        cout << "Correu: " << usu.obteCorreu() << ::endl;
+    }
+    catch (const exception& e) {
+        out << "Error: " << e.what() << endl;
+    }
+}
+
 
 
 

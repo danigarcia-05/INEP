@@ -1,3 +1,5 @@
+#ifndef CERCADORAVISUALITZACIOSERIE_HPP
+#define CERCADORAVISUALITZACIOSERIE_HPP
 #pragma once
 
 class CercadoraVisualitzaSerie {
