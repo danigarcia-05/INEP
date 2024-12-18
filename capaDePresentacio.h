@@ -1,13 +1,9 @@
+#ifndef CAPADEPRESENTACIO_HPP
+#define CAPADEPRESENTACIO_HPP
 #pragma once
 using namespace std;
 #include <iostream>
 #include <string>
-#include <cppconn/driver.h>
-#include <cppconn/exception.h>
-#include <cppconn/resultset.h>
-#include <cppconn/statement.h>
-#include <mysql_driver.h>
-
 
 
 class CapaDePresentacio {
@@ -23,20 +19,21 @@ private:
     };  
 
 public:
-    CapaDePresentacio* getins();
+    CapaDePresentacio* getInstance();
 
-    void iniciarSessio();
+    void processarIniciarSessio();
 
-    void registrarUsuari();
-    void consultarUsuari();
-    void modificarUsuari();
-    void borrarUsuari();
+    void processarRegistreUsuari();
+    void processarConsultarUsuari();
+    void processarModificarUsuari();
+    void processarBorrarUsuari();
 
-    void gestioPelicules();
-    void gestioSeries();
-    void consultesEdat();
+    void processarGestioPelicules();
+    void processarGestioSeries();
+    void processarConsultesEdat();
 
-    void ultimesNovetats();
-    void proximesEstrenes();
+    void processarUltimesNovetats();
+    void processarProximesEstrenes();
 };
+#endif
 

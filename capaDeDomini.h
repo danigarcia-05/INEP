@@ -1,4 +1,6 @@
 #pragma once
+#ifndef CAPADEDOMINI_HPP
+#define TXINFOVISUALITZACIONS_HPP
 
 class CapaDeDomini {
 private:
@@ -10,5 +12,8 @@ private:
 public:
     CapaDeDomini* getins();
 
+    registrarUsuari(string sobrenomU, string nomU, string correuU);
     
 };
+
+#endif

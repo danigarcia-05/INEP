@@ -1,0 +1,5 @@
+#ifndef CTRLMODIFICAUSUARI_HPP
+#define CERCADORAVISUALITZACIOSERIE_HPP
+#pragma once
+
+#endif

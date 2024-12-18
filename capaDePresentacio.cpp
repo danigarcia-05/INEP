@@ -1,7 +1,7 @@
 #pragma once
 #include "capaDePresentacio.h"
 
-CapaDePresentacio* CapaDePresentacio::getins(){
+CapaDePresentacio* CapaDePresentacio::getInstance(){
     if (ins == nullptr) {
         ins = new CapaDePresentacio();
     }
@@ -9,6 +9,47 @@ CapaDePresentacio* CapaDePresentacio::getins(){
 }
 
 CapaDePresentacio* CapaDePresentacio::ins = nullptr;
+
+void CapaDePresentacio::processarRegistreUsuari(){
+    string sobrenomU, nomU, correuU;
+    cout << "** Registra usuari **" << endl;
+    cout << "Sobrenom: ";
+    cin >> sobrenomU;
+    cout << "Nom: ";
+    cin >> nomU;
+    cout << "Correu electrònic: ";
+    cin >> correuU;
+    CapaDeDomini& domini = CapaDeDomini::getInstance();
+    try {
+        domini.registrarUsuari(sobrenomU, nomU, correuU)
+        cout << "Usuari registrat correctament!" << endl;
+    }
+    catch (const exception& e) {
+        cout << "Error: " << e.what() << endl;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 
 void CapaDePresentacio::registrarUsuari() {
     try {
@@ -96,3 +137,5 @@ void CapaDePresentacio::ultimesNovetats() {
 void CapaDePresentacio::proximesEstrenes() {
     cout << "proximesEstrenes" << endl << endl;
 }
+
+*/
