@@ -1,6 +1,8 @@
 #ifndef CERCADORAUSUARI_HPP
 #define CERCADORAUSUARI_HPP
 #pragma once
+#include<string>
+#include "PassarelaUsuari.h"
 
 class CercadoraUsuari {
 private:
@@ -8,9 +10,9 @@ private:
 
 public:
 
-    static Usuari cercaUsuari(string sobrenomU);
+    CercadoraUsuari();
 
-    PassarelaUsuari cercaPerSobrenom(string sobrenomU);
+    PassarelaUsuari cercaUsuari(string sobrenomU) const;
 
 };
 #endif

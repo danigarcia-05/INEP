@@ -1,11 +1,7 @@
+#include "CercadoraUsuari.h"
+#include "PassarelaUsuari.h"
 
-
-static CercadoraUsuari::Usuari cercaUsuari(string sobrenomU) {
-    
-}
-
-
-PassarelaUsuari CercadoraUsuari::cercaPerSobrenom(std::string sobrenomU) {
+PassarelaUsuari CercadoraUsuari::cercaUSuari(string sobrenomU) {
     PassarelaUsuari u;
     ConnexioBD& con = ConnexioBD::getInstance();
     string sql = "SELECT * FROM Usuari WHERE sobrenom = '" +

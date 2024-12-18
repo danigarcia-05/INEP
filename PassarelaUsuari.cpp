@@ -15,3 +15,4 @@ void PassarelaUsuari::insereix(){
     sobrenom + "', '" + nom + "', '" + correu_electronic + "')";
     con.executar(query);
 }
+

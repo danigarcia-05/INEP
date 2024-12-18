@@ -10,11 +10,21 @@ private:
 
     CapaDeDomini();
 
-
 public:
+
+    static CapaDeDomini* getInstance() {
+        if (ins == nullptr) {
+            ins = new CapaDeDomini();  // Crear la instancia si aún no existe
+        }
+        return ins;
+    }
+
     CapaDeDomini* getins();
 
-    registrarUsuari(string sobrenomU, string nomU, string correuU);
+    void iniciarSessio(string sobrenomU, string contrasenyaU);
+
+    void registrarUsuari(string sobrenomU, string nomU, string correuU);
+    
     
 };
 

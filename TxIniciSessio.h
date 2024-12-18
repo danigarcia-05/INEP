@@ -1,6 +1,7 @@
 #ifndef TXINICISESSIO_HPP
 #define TXINICISESSIO_HPP
 #pragma once
+#include <string>
 
 class TxIniciSessio {
 private:
@@ -8,7 +9,9 @@ private:
     string ContrasenyaU;
 
 public:
-    voidstatic crear(string sU, string cU);
+    void crear(string sU, string cU);
+
+    void executar();
 };
 
 #endif

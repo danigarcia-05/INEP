@@ -12,13 +12,7 @@ private:
     static PassarelaUsuari* insUsuari;
 
     CapaDePresentacio();
-
-    struct Usuari {
-        string sobrenom;
-        string nom;
-        string correu;
-    };  
-
+ 
 public:
     CapaDePresentacio* getInstance();
     bool getInstanceUsuari() const;
