@@ -7,7 +7,6 @@
 #include <cppconn/statement.h>
 #include <mysql_driver.h>
 
-
 class ConnexioBD {
 private:
     sql::mysql::MySQL_Driver* driver;

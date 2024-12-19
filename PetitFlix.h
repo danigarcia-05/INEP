@@ -2,21 +2,25 @@
 #define PETITFLIX_HPP
 #pragma once
 
-#include "Passarel·laUsuari.h"
+#include "PassarelaUsuari.h"
 
 class PetitFlix {
 private:
-    static PetitFlix* ins; 
+    static PetitFlix* _ins; 
 
     PetitFlix(); 
 
-    Passarel·laUsuari* passarel·laUsuari; // Puntero para 0..1 multiplicidad
+    static PassarelaUsuari* _usuari;
 
 public:
-    static PetitFlix* getins();
+    //Constructors
+    static PetitFlix& getInstance();
 
-    Passarel·laUsuari* obteUsuari();
-    void iniciaSessio(); 
+    //Consultors
+    PassarelaUsuari* obteUsuari() const;
+    
+    //Modificadors
+    static void iniciaSessio(PassarelaUsuari u); 
     void tancaSessio();                 
 };
 

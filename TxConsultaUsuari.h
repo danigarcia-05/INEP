@@ -5,6 +5,8 @@
 class TxConsultaUsuari {
 private:
 
+    
+
 public:
     
 };

@@ -6,13 +6,12 @@
 
 class TxEsborraUsuari {
 private:
-    string contrau; 
+    string _contraU; 
 
 public:
     
-    TxEsborraUsuari();
+    TxEsborraUsuari(string contraU);
 
-    void crear(const string& contrau);
     void executar();
 };
 

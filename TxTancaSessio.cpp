@@ -1,8 +1,15 @@
-#pragma once
+#include "TxTancaSessio.h"
+#include "PetitFlix.h"
 
-class TxTancaSessio {
-private:
-
-public:
+TxTancaSessio::TxTancaSessio(){
     
-};
+}
+
+//Destructor
+TxTancaSessio::~TxTancaSessio(){
+}
+
+void TxTancaSessio::executar(){
+   PetitFlix& petitFlix = PetitFlix::getInstance();
+   petitFlix.tancaSessio();
+}

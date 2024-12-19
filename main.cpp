@@ -1,4 +1,6 @@
-#include "capaDePresentacio.h"
+#include "CapaDePresentacio.h"
+#include "PetitFlix.h"
+#include "connexioDB.h"
 using namespace std;
 #include <locale>
 
@@ -57,12 +59,13 @@ void consultes() {
 }
 
 int main() {
+    PetitFlix& petitFlix = PetitFlix::getInstance();
     int op;
-    bool acaba=false;
+    bool acaba = false;
     bool sessioIniciada = false;
     CapaDePresentacio& presentacio = CapaDePresentacio::getInstance();
-    while (not acaba) {
-        if(not sessioIniciada){
+    while (acaba == false) {
+        if(petitFlix.obteUsuari() == nullptr){
             wcout << "*********************" << endl;
             wcout << " Menu Principal" << endl;
             wcout << "*********************" << endl;

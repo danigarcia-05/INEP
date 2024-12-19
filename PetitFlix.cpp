@@ -1,10 +1,24 @@
 #include "PetitFlix.h"
 
-PetitFlix* PetitFlix::getins(){
-    if (ins == nullptr) {
-        ins = new PetitFlix();
+PetitFlix& PetitFlix::getInstance(){
+    if (_ins == nullptr) {
+        _ins = new PetitFlix();
     }
-    return ins;
+    return *_ins;
 }
 
-PetitFlix* PetitFlix::ins = nullptr;
+PetitFlix* PetitFlix::_ins = nullptr;
+PassarelaUsuari* PetitFlix::_usuari = nullptr;
+
+
+PassarelaUsuari* PetitFlix::obteUsuari() const{
+   return _usuari;
+}
+
+void PetitFlix::iniciaSessio(PassarelaUsuari u){
+    *_usuari = u;
+}
+
+void PetitFlix::tancaSessio(){
+    _usuari = nullptr;
+}

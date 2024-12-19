@@ -5,12 +5,17 @@
 
 class TxIniciSessio {
 private:
-    string SobrenomU;
-    string ContrasenyaU;
+    string _sobrenomU;
+    string _contrasenyaU;
 
 public:
-    void crear(string sU, string cU);
+    //Constructors
+    TxIniciSessio(string sU, string cU);
 
+    //Destructors
+    ~TxIniciSessio();
+
+    //Modificadors
     void executar();
 };
 
