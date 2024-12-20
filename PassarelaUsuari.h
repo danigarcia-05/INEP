@@ -16,13 +16,13 @@ private:
     string _contrasenya;
     string _correuElectronic;
     Data _dataNaixament;
-    subscripcio _modalitatSubscripcio;
+    string _modalitatSubscripcio;
 
 public:
     PassarelaUsuari();
 
     PassarelaUsuari(string sobrenomU, string nomU, string correuElectronicU);
-    PassarelaUsuar(string nomU, string sobrenomU, string contrasenyaU, string correuElectronicU, string dataNaixementU, subscripcio modalitatU);
+    PassarelaUsuar(string nomU, string sobrenomU, string contrasenyaU, string correuElectronicU, string dataNaixementU, string modalitatU);
 
     string obteSobrenom();
     string obteNom();
