@@ -17,9 +17,9 @@ void TxRegistraUsuari::executar() {
     }
     catch (const exception& e) {
         string error_msg = e.what();
-        if(error_msg == "SobrenomExisteix") runtime_error();
-        else if(error_msg == "CorreuExisteix") runtime_error();
-        else if(error_msg == "ModalitatNoExisteix") runtime_error();
+        if(error_msg == "SobrenomExisteix") runtime_error("");
+        else if(error_msg == "CorreuExisteix") runtime_error("");
+        else if(error_msg == "ModalitatNoExisteix") runtime_error("");
     }
     
 }

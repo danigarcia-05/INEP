@@ -139,22 +139,41 @@ void CapaDePresentacio::processarModificaUsuari() {
         cout<<"Data naixement (DD/MM/AAAA): "<<infoU.obteDataN()<<endl;
         cout<<"Modalitat subscripcio: "<<infoU.obteSubscripcio()<<endl;
 
-        string nomU, contraU, correuU, neixU, subsU;
-        cin>>nomU>>contraU>>correuU>>neixU>>subsU;
+        cout<<"Omplir la informació que es vol modificar ..."
+        string nomU, nomU2, nomU3, contraU, correuU, neixU, subsU;
+        
+        
+        cout << "Nom complet: ";
+        getline(cin, nomU); 
+        cout<<nomU<<endl;
 
-        CtrlModificaUsuari.
+        cout << "Introduce contraU: ";
+        getline(cin, contraU);
+        cout<<contraU<<endl;
 
-		// Establim la sentència SQL.
-		string sql = "UPDATE Usuari SET nom = '" + nom + "', correu_electronic = '" + correu + "' WHERE sobrenom = '" + sobrenom + "'";
+        cout << "Introduce correuU: ";
+        getline(cin, correuU);
+        cout<<correuU<<endl;
 
+        cout << "Introduce neixU: ";
+        getline(cin, neixU);
+        cout<<neixU<<endl;
 
-		// Executem la modificació d' usuari a la base de dades.
-		connexio.executarSQL(sql);
-		cout << "Usuari modificat correctament." << endl;
-	}
-	catch (sql::SQLException& e) {
-		cerr << "SQL Error: " << e.what() << endl;
-	}
+        cout << "Introduce subsU: ";
+        getline(cin, subsU);
+        cout<<subS<<endl;
+
+        CtrlModificaUsuari.modificaUsuari(nomU, contraU, correuU, neixU, subsU);
+        //
+        //excepció s'ha de fer(CorreuExisteix)
+        //
+        infoU = CtrlModificaUsuari.consultaUsuari();
+        cout<<"Nom complet: "<<infoU.obteNom()<<endl;
+        cout<<"Sobrenom: "<<infoU.obteSobrenom()<<endl;
+        cout<<"Correu electronic: "<<infoU.obteCorreu()<<endl;
+        cout<<"Data naixement (DD/MM/AAAA): "<<infoU.obteDataN()<<endl;
+        cout<<"Modalitat subscripcio: "<<infoU.obteSubscripcio()<<endl;
+
 }
 
 //-------------------------------------------------------------------

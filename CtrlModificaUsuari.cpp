@@ -6,19 +6,18 @@
     }
 
     DTOUsuari CtrlModificaUsuauri::consultaUsuari() {
-        string nom=_usuari.obteNom();
-        string sobrenom=_usuari.obteSobrenom();
-        string correu=_usuari.obteCorreuElectronic();
-        string dataN=_usuari.obteDataNaixament();
-        string modalitatN=_usuari.obteModalitatSubscripcio();
-        DTOUsuari infoU(nom, sobrenom, correu, dataN, modalitatN);
-        return infoU;
+        TxConsultaUsuari TxConsultaUsuari();
+        TxConsultaUsuari.executar();
+        DTOUsuari infoUsu = TxConsultaUsuari.obteResultat()  
+        PassarelaUsuari usuari = TxConsultaUsuari.obteUsuari();       //revisar això
+        return infoUsu;
     }
     
     void CtrlModificaUsuauri::modificaUsuari(string nomU, string contraU, string correuU, date neixU, subscripcio subsU) {
-        
-    }
-
-    void CtrlModificaUsuauri::executar() {
-
+        if (nomU!="") _usuari.entraNom(nomU);
+        if (contraU!="") _usuari.entraContrasenya(contraU);
+        if (correuU!="") _usuari.entraCorreuElectronic(correuU);
+        if (neixU!="") _usuari.entraDataNaixament(neixU);
+        if (subsU!="") _usuari.entraModalitatSubscripcio(subsU);
+        if (nomU!="" or contraU!="" or correuU!="" or neixU!="" or subsU!="") _usuari.modifica();
     }
