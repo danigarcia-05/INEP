@@ -5,7 +5,7 @@
 #include <string>     // Para std::string
 using namespace std;
 
-PassarelaUsuari CercadoraUsuari::cercaUSuari(string sobrenomU) {
+PassarelaUsuari CercadoraUsuari::cercaUsuari(string sobrenomU) {
     PassarelaUsuari u;
     ConnexioBD& con = ConnexioBD::getInstance();
     string sql = "SELECT * FROM Usuari WHERE sobrenom = '" +

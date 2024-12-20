@@ -1,14 +1,16 @@
 #ifndef CERCADORAVISUALITZACIOPEL_HPP
 #define CERCADORAVISUALITZACIOPEL_HPP
 #pragma once
+#include "PassarelaVisualitzaPel.h"
 
 class CercadoraVisualitzaPel {
 private:
     
 
 public:
+    CercadoraVisualitzaPel();
 
-    static int cercaVisualitzaPel(string sobrenom);
+    PassarelaVisualitzaPel cercaVisualitzaPel(string sobrenomU);
 
 };
 #endif

@@ -95,40 +95,54 @@ void CapaDePresentacio::processarRegistreUsuari(){
     }
 }
 
-//-------------------------------------------------------------------
+
 
 void CapaDePresentacio::processarConsultaUsuari()
 {
-	try {
-		ConnexioBD connexio;
-        cout << "** Consulta usuari **" << endl
+	TxConsultaUsuari txConsultaUsuari();
+    txConsultaUsuari.executar();
+    DTOUsuari resultat;
+    resultat txConsultaUsuari.obteResultat();
+    TxInfoVisualitzacions txInfoVisualitzacions();
+    txInfoVisualitzacions.executar();
 
-res = connexio.consultaSQL(sql);
+    struct Visualitzacions
+    {
+        int numVisualitzacioP;
+        int numVisualitzacioS;
+    };
 
-		// Mirem si existeix un usuari amb el sobrenom.
-		if (res->next()) {
-		  	cout << "Sobrenom: " << res->getString("sobrenom") << endl;
-			cout << "Nom: " << res->getString("nom") << endl;
-			cout << "Correu: " << res->getString("correu_electronic") << endl;
-			}
-	catch (sql::SQLException& e) {
-		std::cerr << "SQL Error: " << e.what() << std::endl;
-	}
+    Visualitzacions vis = txInfoVisualitzacions.obteResultat();
+
+    cout << "** Consulta usuari **" << endl;
+    cout << "Nom Complet: " << resultat.obteNom() << endl;
+    cout << "Sobrenom: " << resultat.obteSobrenom() << endl;
+    cout << "Correu electronic: " << resultat.obteCorreu() << endl;
+    cout << "Data naixement (DD/MM/AAAA): " << resultat.obteDataN() << endl;
+    cout << "Modalitat subscripció: " << resultat.obteModalitatS() << endl;
+    cout << endl;
+    cout << vis.numVisualitzacioP << " pel·licules visualitzades" << endl;
+    cout << vis.numVisualitzacioS << "  capitols visualitzats" << endl;
 }
+
+//-------------------------------------------------------------------
 
 void CapaDePresentacio::processarModificaUsuari() {
 	try {
 		ConnexioBD connexio;
+        cout << "** Modifica usuari **" << endl;
+        CtrlModificaUsuari CtrlModificaUsuari();
+        infoU = CtrlModificaUsuari.consultaUsuari();
+        cout<<"Nom complet: "<<infoU.obteNom()<<endl;
+        cout<<"Sobrenom: "<<infoU.obteSobrenom()<<endl;
+        cout<<"Correu electronic: "<<infoU.obteCorreu()<<endl;
+        cout<<"Data naixement (DD/MM/AAAA): "<<infoU.obteDataN()<<endl;
+        cout<<"Modalitat subscripcio: "<<infoU.obteSubscripcio()<<endl;
 
-		// Obtener datos del usuario
-		string sobrenom, nom, correu;
-		cout << "Introdueix el sobrenom: ";
-		cin >> sobrenom;
-		cout << "Introdueix el nom: ";
-		cin.ignore(); 
-		getline(cin, nom);
-		cout << "Introdueix el correu electrònic: ";
-		cin >> correu;
+        string nomU, contraU, correuU, neixU, subsU;
+        cin>>nomU>>contraU>>correuU>>neixU>>subsU;
+
+        CtrlModificaUsuari.
 
 		// Establim la sentència SQL.
 		string sql = "UPDATE Usuari SET nom = '" + nom + "', correu_electronic = '" + correu + "' WHERE sobrenom = '" + sobrenom + "'";

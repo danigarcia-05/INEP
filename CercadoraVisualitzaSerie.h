@@ -1,14 +1,15 @@
 #ifndef CERCADORAVISUALITZACIOSERIE_HPP
 #define CERCADORAVISUALITZACIOSERIE_HPP
 #pragma once
+#include "PassarelaVisualitzaSerie.h"
 
 class CercadoraVisualitzaSerie {
 private:
     
 
 public:
+    CercadoraVisualitzaSerie();
 
-    static int cercaVisualitzaSerie(string sobrenom);
-
+    PassarelaVisualitzaSerie cercaVisualitzaSerie(string sobrenomU);
 };
 #endif

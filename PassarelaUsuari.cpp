@@ -52,6 +52,33 @@ string PassarelaUsuari::obteModalitatSubscripcio(){
 
 /*
 *****************************************************
+                   SETTERS
+*****************************************************
+*/
+
+
+void PassarelaUsuari::entraSobrenom(string sobrenom) {
+    _sobrenom=sobrenom;
+}
+void PassarelaUsuari::entraNom(string nom) {
+    _nom=nom;
+}
+void PassarelaUsuari::entraContrasenya(string contrasenya) {
+    _contrasenya=contrasenya;
+}
+void PassarelaUsuari::entraCorreuElectronic(string correuElectornic) {
+    _correuElectronic=correuElectornic;
+}
+void PassarelaUsuari::entraDataNaixament(data dataNaixement) {
+    _dataNaixament=dataNaixement;
+}
+void PassarelaUsuari::entraModalitatSubscripcio(dubscripcio modalitatSubscripcio) {
+    _modalitatSubscripcio=modalitatSubscripcio;
+}
+
+
+/*
+*****************************************************
                    MODIFICADORS
 *****************************************************
 */

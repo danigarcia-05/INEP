@@ -1,6 +1,7 @@
+#include "CercadoraVisualitzaPel.h"
 
+//ACABAR DE MIRAR !!!!!!!!!!!!!!!!!!
 
-static CercadoraVisualitzaPel::int cercaVisualitzacions(string sobrenom) {
-
+PassarelaVisualitzaPel CercadoraVisualitzaPel::cercaVisualitzaPel(string sobrenomU){
 
 }

@@ -21,9 +21,7 @@ void TxIniciSessio::executar()
     PassarelaUsuari u = cercadora.cercaUsuari(_sobrenomU);
     string contrasenya = u.obteContrasenya();
 
-    //HAY QUE MIRAR COMO SE MANEJAN LOS ERRORES
-    if (contrasenya != _contrasenyaU)
-        throw runtime_error("ErrorContrasenya");
+    if (contrasenya != _contrasenyaU) throw runtime_error("ErrorContrasenya");
 
     PetitFlix& petitFlix = PetitFlix::getInstance();
     petitFlix.iniciaSessio(u);

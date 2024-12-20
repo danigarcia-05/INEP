@@ -11,8 +11,12 @@ using namespace std;
 #include "TxTancaSessio.h"
 #include "TxEsborraUsuari.h"
 #include "TxRegistraUsuari.h"
+#include "TxConsultaUsuari.h"
+#include "TxInfoVisualitzacions.h"
+#include "CtrlModificaUsuari.h"
 #include "utils.h"
-#include <stdexcept>  
+#include <stdexcept>
+#include <utility>
 
 class CapaDePresentacio {
 private:

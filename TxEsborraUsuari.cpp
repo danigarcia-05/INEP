@@ -15,7 +15,7 @@ void TxEsborraUsuari::executar(){
     string c = usu.obteContrasenya();
     
     if (c != _contraU) {
-         throw runtime_error("ErrorContrasenya");
+        throw runtime_error("ErrorContrasenya");
     }
     usu.esborra();  
 }

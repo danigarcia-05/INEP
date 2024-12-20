@@ -1,21 +1,34 @@
 #pragma once
 #ifndef TXINFOVISUALITZACIONS_HPP
 #define TXINFOVISUALITZACIONS_HPP
+#include "PassarelaUsuari.h"
+#include "CercadoraVisualitzaPel.h"
+#include "CercadoraVisualitzaSerie.h"
+#include "PassarelaVisualitzaSerie.h"
+#include "PassarelaVisualitzaPel.h"
+using namespace std;
+#include <iostream>
+#include <unistd.h>
+#include <string>
+#include <stdexcept> 
+#include <utility>
 
 class TxInfoVisualitzacions {
-private:
-    //Acabar de mirar el resultat!! No se nom :/
-    struct resultat{
-        int x;
-        int y;
+public:
+    struct Resultat {
+        int _numVisualitzacioPelicula;
+        int _numVisualitzacioSerie;
     };
 
-public:
+
     TxInfoVisualitzacions();
 
-    void crear();
-    void executar();
-    int obteResultat() const;
+    Resultat obteResultat() const;
+
+private:
+    int _numVisualitzacioPelicula;
+    int _numVisualitzacioSerie;
 };
+
 
 #endif

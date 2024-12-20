@@ -7,7 +7,6 @@
 #include <string>
 using namespace std;
 
-
 class PassarelaUsuari {
 private:
     static PassarelaUsuari* ins;
@@ -31,6 +30,14 @@ public:
     string obteCorreuElectronic();
     Data obteDataNaixament();
     string obteModalitatSubscripcio();
+
+    void entraSobrenom(string sobrenom);
+    void entraNom(string nom);
+    void entraContrasenya(string contrasenya);
+    void entraCorreuElectronic(string correuElectornic);
+    void entraDataNaixament(data dataNaixement);
+    void entraModalitatSubscripcio(dubscripcio modalitatSubscripcio);
+
 
     void insereix();
     void modifica();
