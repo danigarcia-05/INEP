@@ -15,6 +15,7 @@ private:
     
     static ConnexioBD* ins;
     ConnexioBD() : driver(nullptr), con(nullptr), stmt(nullptr);
+
 public:
     ConnexioBD* getInstance();
 

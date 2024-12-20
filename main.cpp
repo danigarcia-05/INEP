@@ -35,7 +35,7 @@ void gestioContinguts() {
     wcout << "Escriu opció: ";
     cin >> op;
     switch (op) {
-        case 1: presentacio.   ();break;
+        //case 1: presentacio.   ();break;
         case 2: presentacio.gestioSeries();break;
     }
 }

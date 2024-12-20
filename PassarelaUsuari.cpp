@@ -57,22 +57,22 @@ string PassarelaUsuari::obteModalitatSubscripcio(){
 */
 
 
-void PassarelaUsuari::entraSobrenom(string sobrenom) {
+void PassarelaUsuari::setSobrenom(string sobrenom) {
     _sobrenom=sobrenom;
 }
-void PassarelaUsuari::entraNom(string nom) {
+void PassarelaUsuari::setNom(string nom) {
     _nom=nom;
 }
-void PassarelaUsuari::entraContrasenya(string contrasenya) {
+void PassarelaUsuari::setContrasenya(string contrasenya) {
     _contrasenya=contrasenya;
 }
-void PassarelaUsuari::entraCorreuElectronic(string correuElectornic) {
+void PassarelaUsuari::setCorreuElectronic(string correuElectornic) {
     _correuElectronic=correuElectornic;
 }
-void PassarelaUsuari::entraDataNaixament(data dataNaixement) {
+void PassarelaUsuari::setDataNaixament(data dataNaixement) {
     _dataNaixament=dataNaixement;
 }
-void PassarelaUsuari::entraModalitatSubscripcio(dubscripcio modalitatSubscripcio) {
+void PassarelaUsuari::setModalitatSubscripcio(dubscripcio modalitatSubscripcio) {
     _modalitatSubscripcio=modalitatSubscripcio;
 }
 

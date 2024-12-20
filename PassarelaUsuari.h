@@ -24,6 +24,7 @@ public:
     PassarelaUsuari(string sobrenomU, string nomU, string correuElectronicU);
     PassarelaUsuar(string nomU, string sobrenomU, string contrasenyaU, string correuElectronicU, string dataNaixementU, string modalitatU);
 
+    //SETTERS
     string obteSobrenom();
     string obteNom();
     string obteContrasenya();
@@ -31,13 +32,13 @@ public:
     Data obteDataNaixament();
     string obteModalitatSubscripcio();
 
-    void entraSobrenom(string sobrenom);
-    void entraNom(string nom);
-    void entraContrasenya(string contrasenya);
-    void entraCorreuElectronic(string correuElectornic);
-    void entraDataNaixament(data dataNaixement);
-    void entraModalitatSubscripcio(dubscripcio modalitatSubscripcio);
-
+    //GETTERS
+    void setSobrenom(string sobrenom);
+    void setNom(string nom);
+    void setContrasenya(string contrasenya);
+    void setCorreuElectronic(string correuElectornic);
+    void setDataNaixament(data dataNaixement);
+    void setModalitatSubscripcio(string modalitatSubscripcio);
 
     void insereix();
     void modifica();

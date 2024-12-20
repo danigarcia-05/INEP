@@ -12,6 +12,9 @@ DTOUsuari::DTOUsuari(string nomU, string sobrenomU, string  correuElectronicU, ?
     _modalitat = modalitatU;
 }
 
+//-------------
+//GETTERS
+//-------------
 string DTOUsuari::obteNom() {
     return _nom; 
 }
@@ -30,6 +33,29 @@ string DTOUsuari::obteDataN() {
     
 string DTOUsuari::obteModalitatS() {
     return __modalitat;
+}
+
+//-------------
+//SETTERS
+//-------------
+void DTOUsuari::setNom(string nom) {
+    _nom=nom;
+}
+
+void DTOUsuari::setSobrenom(string sobrenom) {
+    _sobrenom=sobrenom;
+}
+
+void DTOUsuari::setCorreu(string correuElectronic) {
+    _correuElectronic=correuElectronic;
+}
+
+void DTOUsuari::setDataN(data dataNaixement) {
+    _dataNaixement=dataNaixement;
+}
+
+void DTOUsuari::setModalitatS(string modalitat) {
+    _modalitat=modalitat;
 }
 
 DTOUsuari& DTOUsuari::operator=(const DTOUsuari& obj) {

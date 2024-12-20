@@ -128,8 +128,8 @@ void CapaDePresentacio::processarConsultaUsuari()
 //-------------------------------------------------------------------
 
 void CapaDePresentacio::processarModificaUsuari() {
-	try {
-		ConnexioBD connexio;
+		
+        ConnexioBD connexio;
         cout << "** Modifica usuari **" << endl;
         CtrlModificaUsuari CtrlModificaUsuari();
         infoU = CtrlModificaUsuari.consultaUsuari();
@@ -140,26 +140,28 @@ void CapaDePresentacio::processarModificaUsuari() {
         cout<<"Modalitat subscripcio: "<<infoU.obteSubscripcio()<<endl;
 
         cout<<"Omplir la informació que es vol modificar ..."
-        string nomU, nomU2, nomU3, contraU, correuU, neixU, subsU;
-        
+        string nomU, contraU, correuU, subsU;
         
         cout << "Nom complet: ";
         getline(cin, nomU); 
         cout<<nomU<<endl;
 
-        cout << "Introduce contraU: ";
+        cout << "Contrasenya: ";
         getline(cin, contraU);
         cout<<contraU<<endl;
 
-        cout << "Introduce correuU: ";
+        cout << "Correu electronic: ";
         getline(cin, correuU);
         cout<<correuU<<endl;
 
-        cout << "Introduce neixU: ";
+        cout << "Data naixement (DD/MM/AAAA): ";
         getline(cin, neixU);
         cout<<neixU<<endl;
 
-        cout << "Introduce subsU: ";
+        //
+        //s'ha de fer(modalitat subscripcio ha de ser vàlid)
+        //
+        cout << "Modalitat subscripcio: ";
         getline(cin, subsU);
         cout<<subS<<endl;
 
@@ -173,7 +175,6 @@ void CapaDePresentacio::processarModificaUsuari() {
         cout<<"Correu electronic: "<<infoU.obteCorreu()<<endl;
         cout<<"Data naixement (DD/MM/AAAA): "<<infoU.obteDataN()<<endl;
         cout<<"Modalitat subscripcio: "<<infoU.obteSubscripcio()<<endl;
-
 }
 
 //-------------------------------------------------------------------
