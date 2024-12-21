@@ -51,19 +51,18 @@ void CapaDePresentacio::processarTancaSessio(){
     cout << "Vols tancar la sessio (S/N): ";
     cin >> tanca;
     if(tanca == 'S'){
-        TxTancaSessio txTancaSessio();
+        TxTancaSessio txTancaSessio;
         txTancaSessio.executar();
         cout << "Sessio tancada correctament!" << endl;
     }
-    
 }
 
 void CapaDePresentacio::processarRegistreUsuari(){
-    string nU, sU, cU, ceU, msU;
-    Data dnU;
-    cout << "** Inici sessio **" << endl;
+    string nU, sU, cU, ceU, msU, dnU;
+    cout << "** Registrar usuari **" << endl;
     cout << "Nom complet: ";
-    cin >> nU;
+    cin.ignore(); //Revisar
+    getline(cin, nU);
     cout << endl << "Sobrenom: ";
     cin >> sU;
     cout << endl <<  "Contrasenya: ";
@@ -73,74 +72,88 @@ void CapaDePresentacio::processarRegistreUsuari(){
     cout << endl << "Correu Electrònic: ";
     cin >> ceU;
     cout << endl << "Data naixement (DD/MM/AAAA): ";
-    cin >> dnU;
+    string data;
+    cin>>data;
+    
+    string dia = data[0]+data[1];
+    string mes = data[3]+data[4];
+    string any = data[6]+data[7]+data[8]+data[9];
+    
+    dnU = utils::convertirData(dia, mes, any);
     cout << endl << "Modalitats de subscripció disponibles ";
     cout << endl << " > 1. Completa ";
     cout << endl << " > 2. Cinèfil ";
     cout << endl << " > 3. Infantil ";
     cout << endl << "Escull modalitat: ";
     cin >> msU;
-    cout << endl;
-    
+
+    switch (msU) {
+    case 1:
+        msU = "Completa";
+        break;
+    case 2:
+        msU = "Cinèfil";
+        break;
+    case 3:
+        msU = "Infantil";
+        break;
+    }
+
     TxRegistraUsuari txRegistraUsuari(nU, sU, cU, ceU, dnU, msU);
     try {
         txRegistraUsuari.executar();
-        cout << "Nou usuari registrat correctament!" << endl;
-    }
-    catch (const exception& e) {
-        string error_msg = e.what();
-        if(error_msg == "SobrenomExisteix") cout << "Ja existeix un usuari amb aquest sobrenom"  << endl;
-        else if(error_msg == "CorreuExisteix") cout << "Ja existeix un usuari amb aquest correu electrònic"  << endl;
-        else if(error_msg == "ModalitatNoExisteix") cout << "Modalitat no existeix"  << endl;
-    }
+        cout << "Usuari registrat correctament!" << endl;
+    }   
+    catch (sql::SQLException& e) {
+        string errorMsg = e.what();
+        if (e.getErrorCode() == 1062) { //error no es pot insertar per clau primaria o unique repetit
+            if (errorMsg.find("sobrenom") != string::npos) {
+                cout << "Ja existeix un usuari amb aquest sobrnom" << endl;
+            } 
+            else if (errorMsg.find("correu_electronic") != string::npos) {
+                cout << "Ja existeix un usuari amb aquest correu electrònic" << endl;
+            } 
+        }
+        if (e.getErrorCode() == 1452) { //el valor de la columna que està associada a la clau foràna no coincideix amb cap entrada de la taula pare
+            cout << "Modalitat no existeix" << endl;
+        }
+    }    
 }
-
-
 
 void CapaDePresentacio::processarConsultaUsuari()
 {
-	TxConsultaUsuari txConsultaUsuari();
+	TxConsultaUsuari txConsultaUsuari;
     txConsultaUsuari.executar();
     DTOUsuari resultat;
     resultat = txConsultaUsuari.obteResultat();
-    TxInfoVisualitzacions txInfoVisualitzacions();
+    TxInfoVisualitzacions txInfoVisualitzacions;
     txInfoVisualitzacions.executar();
 
-    struct Visualitzacions
-    {
-        int numVisualitzacioP;
-        int numVisualitzacioS;
-    };
-
-    Visualitzacions vis = txInfoVisualitzacions.obteResultat();
+    pair<int, int> vis = txInfoVisualitzacions.obteResultat();;
 
     cout << "** Consulta usuari **" << endl;
     cout << "Nom Complet: " << resultat.obteNom() << endl;
     cout << "Sobrenom: " << resultat.obteSobrenom() << endl;
     cout << "Correu electronic: " << resultat.obteCorreu() << endl;
-    cout << "Data naixement (DD/MM/AAAA): " << resultat.obteDataN() << endl;
+    cout << "Data naixement (DD/MM/AAAA): " << resultat.obteDataN() << endl; 
     cout << "Modalitat subscripció: " << resultat.obteModalitatS() << endl;
     cout << endl;
-    cout << vis.numVisualitzacioP << " pel·licules visualitzades" << endl;
-    cout << vis.numVisualitzacioS << "  capitols visualitzats" << endl;
+    cout << vis.first << " pel·licules visualitzades" << endl;
+    cout << vis.second << "  capitols visualitzats" << endl;
 }
 
-//-------------------------------------------------------------------
-
 void CapaDePresentacio::processarModificaUsuari() {
-		
-        ConnexioBD;
         cout << "** Modifica usuari **" << endl;
-        CtrlModificaUsuari ctrlModificaUsuari;
+        CtrlModifica ctrlModificaUsuari; //No pilla constructora
         DTOUsuari infoU = ctrlModificaUsuari.consultaUsuari();
         cout<<"Nom complet: "<<infoU.obteNom()<<endl;
         cout<<"Sobrenom: "<<infoU.obteSobrenom()<<endl;
         cout<<"Correu electronic: "<<infoU.obteCorreu()<<endl;
-        //cout<<"Data naixement (DD/MM/AAAA): " << infoU.obteDataN()<<endl; DATA
+        cout<<"Data naixement (DD/MM/AAAA): " << infoU.obteDataN()<<endl; 
         cout<<"Modalitat subscripcio: "<<infoU.obteSubscripcio()<<endl;
 
         cout << "Omplir la informació que es vol modificar ...";
-        string nomU, contraU, correuU, subsU;
+        string nomU, contraU, correuU, subsU, neixU;
         
         cout << "Nom complet: ";
         getline(cin, nomU); 
@@ -165,7 +178,7 @@ void CapaDePresentacio::processarModificaUsuari() {
         getline(cin, subsU);
         cout<<subS<<endl;
 
-        //CtrlModificaUsuari.modificaUsuari(nomU, contraU, correuU, neixU, subsU); DATA
+        //CtrlModificaUsuari.modificaUsuari(nomU, contraU, correuU, neixU, subsU); 
         //
         //excepció s'ha de fer(CorreuExisteix)
         //
@@ -173,8 +186,8 @@ void CapaDePresentacio::processarModificaUsuari() {
         cout<<"Nom complet: "<<infoU.obteNom()<<endl;
         cout<<"Sobrenom: "<<infoU.obteSobrenom()<<endl;
         cout<<"Correu electronic: "<<infoU.obteCorreu()<<endl;
-        //cout<<"Data naixement (DD/MM/AAAA): "<<infoU.obteDataN()<<endl; DATA
-        //cout<<"Modalitat subscripcio: "<<infoU.obteSubscripcio()<<endl; SUBSCRIPCIO
+        cout<<"Data naixement (DD/MM/AAAA): "<<infoU.obteDataN()<<endl; 
+        cout<<"Modalitat subscripcio: "<<infoU.obteSubscripcio()<<endl;
 }
 
 //-------------------------------------------------------------------

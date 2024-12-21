@@ -4,8 +4,7 @@
 #include<string>
 #include "PassarelaUsuari.h"
 #include "connexioDB.h"
-#include <stdexcept>  // Para std::runtime_error
-#include <string>     // Para std::string
+#include <stdexcept>  // Para std::runtime_error 
 using namespace std;
 
 
@@ -15,7 +14,7 @@ private:
 
 public:
 
-    //CercadoraUsuari();
+    CercadoraUsuari();
 
     PassarelaUsuari cercaUsuari(string sobrenomU) const;
 

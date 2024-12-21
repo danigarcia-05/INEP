@@ -7,8 +7,7 @@
 using namespace std;
 #include <iostream>
 #include <string>
-#include <stdexcept> 
-#include "Data.h"
+#include <stdexcept>
 
 class CtrlModificaUsuari {
 private:
@@ -21,7 +20,7 @@ public:
 
     DTOUsuari consultaUsuari();
     
-    void modificaUsuari(string nomU, string contraU, string correuU, Data neixU, string subsU);
+    void modificaUsuari(string nomU, string contraU, string correuU, string neixU, string subsU);
 
 };
 

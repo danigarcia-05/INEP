@@ -4,7 +4,7 @@ DTOUsuari::DTOUsuari() {
 
 }
 
-DTOUsuari::DTOUsuari(string nomU, string sobrenomU, string  correuElectronicU, Data dataNaixementU, string  modalitatU){
+DTOUsuari::DTOUsuari(string nomU, string sobrenomU, string  correuElectronicU, string dataNaixementU, string  modalitatU){
     _nom = nomU;
     _sobrenom = sobrenomU;
     _correuElectronic = correuElectronicU;
@@ -27,7 +27,7 @@ string DTOUsuari::obteCorreu(){
     return _correuElectronic; 
 }
 
-Data DTOUsuari::obteDataN() {
+string DTOUsuari::obteDataN() {
     return _dataNaixement;
 }
     
@@ -50,7 +50,7 @@ void DTOUsuari::setCorreu(string correuElectronic) {
     _correuElectronic=correuElectronic;
 }
 
-void DTOUsuari::setDataN(Data dataNaixement) {
+void DTOUsuari::setDataN(string dataNaixement) {
     _dataNaixement=dataNaixement;
 }
 

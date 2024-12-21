@@ -2,15 +2,16 @@
 #define CERCADORAVISUALITZACIOPEL_HPP
 #pragma once
 #include "PassarelaVisualitzaPel.h"
+#include <vector>
 
 class CercadoraVisualitzaPel {
 private:
     
 public:
 
-    //CercadoraVisualitzaPel();
+    CercadoraVisualitzaPel();
 
-    PassarelaVisualitzaPel cercaVisualitzaPel(string sobrenomU);
+    vector<PassarelaVisualitzaPel> cercaVisualitzaPel(string sobrenomU);
 
 };
 #endif

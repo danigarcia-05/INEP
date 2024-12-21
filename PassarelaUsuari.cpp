@@ -40,13 +40,12 @@ string PassarelaUsuari::obteNom(){
 
 string PassarelaUsuari::obteContrasenya(){
     return _contrasenya;
-
 }
 string PassarelaUsuari::obteCorreuElectronic(){
     return _correuElectronic;
 }
 
-Data PassarelaUsuari::obteDataNaixament(){
+string PassarelaUsuari::obteDataNaixament(){
     return _dataNaixament;
 }
 
@@ -73,7 +72,7 @@ void PassarelaUsuari::setContrasenya(string contrasenya) {
 void PassarelaUsuari::setCorreuElectronic(string correuElectornic) {
     _correuElectronic=correuElectornic;
 }
-void PassarelaUsuari::setDataNaixament(Data dataNaixement) {
+void PassarelaUsuari::setDataNaixament(string dataNaixement) {
     _dataNaixament=dataNaixement;
 }
 void PassarelaUsuari::setModalitatSubscripcio(string modalitatSubscripcio) {
@@ -100,8 +99,8 @@ void PassarelaUsuari::insereix()
 {
     ConnexioDB &con = ConnexioDB::getInstance();
     string query = "INSERT INTO usuari (sobrenom, nom, contrasenya, correu_electronic, data_naixement, subscripcio) VALUES('" +
-                   _sobrenom + "', '" + _nom + "', '" + _contrasenya + "','" + _correuElectronic + "', '" + _dataNaixament + "', '" + _modalitatSubscripcio + "')";
-    con.executar(query);
+        _sobrenom + "', '" + _nom + "', '" + _contrasenya + "','" + _correuElectronic + "', '" + _dataNaixament + "', '" + _modalitatSubscripcio + "')";
+    con.executarSQL(query);
 }
 
 void PassarelaUsuari::modifica()
@@ -109,10 +108,10 @@ void PassarelaUsuari::modifica()
     ConnexioDB &con = ConnexioDB::getInstance();
 
 	// Establim la sentència SQL.
-	string sql = "UPDATE Usuari SET nom = '" + _nom + "', correu_electronic = '" + _correuElectronic + "' WHERE sobrenom = '" + _sobrenom + "'";
+	string query = "UPDATE Usuari SET nom = '" + _nom + "', correu_electronic = '" + _correuElectronic + "' WHERE sobrenom = '" + _sobrenom + "'";
 
 	// Executem la modificació d' usuari a la base de dades.
-	con.executar(sql);
+	con.executarSQL(query);
 	
 }
 
@@ -121,8 +120,8 @@ void PassarelaUsuari::esborra()
 	ConnexioDB &con = ConnexioDB::getInstance();
 
 	// Establim la sentència SQL.
-	string sql = "DELETE FROM usuari WHERE sobrenom = '" + _sobrenom + "'";
+	string query = "DELETE FROM usuari WHERE sobrenom = '" + _sobrenom + "'";
 
 	// Executem la modificació d' usuari a la base de dades.
-	con.executar(sql);
+	con.executarSQL(query);
 }

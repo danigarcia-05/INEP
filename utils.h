@@ -2,6 +2,7 @@
 #define UTILS_H
 
 #include <windows.h>
+#include <string>
 
 namespace utils {
     // Desactiva el eco de la consola
@@ -18,6 +19,10 @@ namespace utils {
         DWORD mode;
         GetConsoleMode(hStdin, &mode);
         SetConsoleMode(hStdin, mode | ENABLE_ECHO_INPUT);
+    }
+
+    string convertirData(dia, mes, any) {
+        return any + "-" + mes + "-" + dia;
     }
 }
 #endif

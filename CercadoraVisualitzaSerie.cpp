@@ -1,26 +1,28 @@
+#include "CercadoraVisualitzaSerie.h"
 
-#include "connexioDB.h"
 
 CercadoraVisualitzaSerie::CercadoraVisualitzaSerie(){
     
 }
 
-PassarelaVisualitzaSerie CercadoraVisualitzaSerie::cercaVisualitzaSerie(string sobrenomU){
-    PassarelaVisualitzaSerie pu;
+vector<PassarelaVisualitzaSerie> CercadoraVisualitzaSerie::cercaVisualitzaSerie(string sobrenomU){
     try {
         ConnexioDB& con = ConnexioDB::getInstance();
+        vector<PassarelaVisualitzaSerie> cjVisualitzacionsSerie;
 
-        string comanda = "SELECT * FROM Usuari WHERE sobrenom='" + sobrenomU + "'";
-        sql::ResultSet* res = con.consultaSQL(sql);
+        string comanda = "SELECT * FROM visualitzacio_capitol WHERE sobrenom_usuari='" + sobrenomU + "'";
+        sql::ResultSet* res = con.consultaSQL(comanda);
 
         // Mirem si existeix un usuari amb el sobrenom.
-        if (res->next()) {
-            pu.setSobrenom(res->getString("sobrenom"));
-            pu.setTitolSerie(res->getString("titol_serie"));
-            pu.setNumVisualitzacions(res->getInt("num_visualitzacions"));
-            pu.setNumTemporada(res->getInt("num_temporada"));
-            pu.setNumCapitol(res->getInt("num_capitol"));
-            pu.setData(res->getData("data"));
+        while (res->next()) {
+            PassarelaVisualitzaSerie pvs;
+            pvs.setSobrenom(res->getString("sobrenom"));
+            pvs.setTitolSerie(res->getString("titol_serie"));
+            pvs.setNumVisualitzacions(res->getInt("num_visualitzacions"));
+            pvs.setNumTemporada(res->getInt("num_temporada"));
+            pvs.setNumCapitol(res->getInt("num_capitol"));
+            pvs.setData(res->getString("data"));
+            cjVisualitzacionsSerie.push_back(pvs);
         }
         else {
             throw std::runtime_error("");
@@ -29,5 +31,5 @@ PassarelaVisualitzaSerie CercadoraVisualitzaSerie::cercaVisualitzaSerie(string s
     catch (sql::SQLException& e) {
         std::cerr << "SQL Error: " << e.what() << std::endl;
     }
-    return pu;
+    return cjVisualitzacionsSerie;
 }

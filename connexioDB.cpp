@@ -24,7 +24,7 @@ sql::ResultSet* consultaSQL(const string& sql) {
 		if (stmt != nullptr) {
 			return stmt->executeQuery(sql);
 		}
-	}
+}
 
 	void executarSQL(const string& sql) {
 		if (stmt != nullptr) {

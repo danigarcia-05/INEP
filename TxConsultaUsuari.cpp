@@ -8,8 +8,7 @@ void TxConsultaUsuari::executar(){
     PetitFlix& petitFlix = PetitFlix::getInstance();
     PassarelaUsuari usuari = petitFlix.obteUsuari();
     
-    Data dataNaixementU;
-    string nomU, sobrenomU, correuU, modalitatU;
+    string nomU, sobrenomU, correuU, modalitatU, dataNaixementU;
     nomU = usuari.obteNom();
     sobrenomU = usuari.obteSobrenom();
     correuU = usuari.obteCorreuElectronic();

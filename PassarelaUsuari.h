@@ -5,7 +5,6 @@
 #include <stdexcept>
 #include <iostream>
 #include <string>
-#include "Data.h"
 using namespace std;
 
 class PassarelaUsuari {
@@ -16,31 +15,31 @@ private:
     string _nom;
     string _contrasenya;
     string _correuElectronic;
-    Data _dataNaixament;
+    string _dataNaixament;
     string _modalitatSubscripcio;
 
 public:
     PassarelaUsuari();
 
     PassarelaUsuari(string sobrenomU, string nomU, string correuElectronicU);
-    PassarelaUsuari(string nomU, string sobrenomU, string contrasenyaU, string correuElectronicU, Data dataNaixementU, string modalitatU);
+    PassarelaUsuari(string nomU, string sobrenomU, string contrasenyaU, string correuElectronicU, string dataNaixementU, string modalitatU);
 
-    //SETTERS
+    //GETTERS
     string obteSobrenom();
     string obteNom();
     string obteContrasenya();
     string obteCorreuElectronic();
-    Data obteDataNaixament();
+    string obteDataNaixament();
     string obteModalitatSubscripcio();
 
     PassarelaUsuari& operator=(const PassarelaUsuari& obj);
 
-    //GETTERS
+    //SETTERS
     void setSobrenom(string sobrenom);
     void setNom(string nom);
     void setContrasenya(string contrasenya);
     void setCorreuElectronic(string correuElectornic);
-    void setDataNaixament(Data dataNaixement);
+    void setDataNaixament(string dataNaixement);
     void setModalitatSubscripcio(string modalitatSubscripcio);
 
     void insereix();

@@ -5,7 +5,7 @@ PassarelaVisualitzaPel::PassarelaVisualitzaPel()
     : _sobrenom(""), _titolPelicula(""), _numVisualitzacions(0) {}
 
 
-PassarelaVisualitzaPel::PassarelaVisualitzaPel(string sobrenomU, string titolPeliculaU, Data dataU, int numVisualitzacionsU)
+PassarelaVisualitzaPel::PassarelaVisualitzaPel(string sobrenomU, string titolPeliculaU, string dataU, int numVisualitzacionsU)
     : _sobrenom(sobrenomU), _titolPelicula(titolPeliculaU), _data(dataU), _numVisualitzacions(numVisualitzacionsU) {}
 
 
@@ -27,11 +27,11 @@ void PassarelaVisualitzaPel::setTitolPelicula(const string& titolPeliculaU) {
 }
 
 
-Data PassarelaVisualitzaPel::obteData() const {
+string PassarelaVisualitzaPel::obteData() const {
     return _data;
 }
 
-void PassarelaVisualitzaPel::setData(const Data& dataU) {
+void PassarelaVisualitzaPel::setData(const string& dataU) {
     _data = dataU;
 }
 

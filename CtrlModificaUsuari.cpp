@@ -13,11 +13,11 @@
         return infoUsu;
     }
     
-    void CtrlModificaUsuari::modificaUsuari(string nomU, string contraU, string correuU, Data neixU, string subsU) {
+    void CtrlModificaUsuari::modificaUsuari(string nomU, string contraU, string correuU, string neixU, string subsU) {
         if (nomU!="") _usuari.setNom(nomU);
         if (contraU!="") _usuari.setContrasenya(contraU);
         if (correuU!="") _usuari.setCorreuElectronic(correuU);
-        if (neixU!="") _usuari.setDataNaixament(neixU);
+        if (neixU!="") _usuari.setStringNaixament(neixU);
         if (subsU!="") _usuari.setModalitatSubscripcio(subsU);
         if (nomU!="" or contraU!="" or correuU!="" or neixU!="" or subsU!="") _usuari.modifica();
     }

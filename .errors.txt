@@ -1,0 +1,7 @@
+---ERRORS QUE UTILITZEM AL PROJECTE---
+    - 1062: error no es pot insertar per clau primaria o unique repetit
+
+    - 1452: error a l'inserir un valor en una taula que té una clau forana (foreign key) 
+            que no coincideix amb cap valor de la taula referenciada.
+    
+    -

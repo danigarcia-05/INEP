@@ -6,7 +6,7 @@
 #include <string>
 using namespace std;
 #include "PassarelaUsuari.h"
-#include "Data.h"
+
 
 class TxRegistraUsuari {
 private:
@@ -15,12 +15,12 @@ private:
     string _sobrenomU;
     string _contrasenyaU;
     string _correuElectronicU;
-    Data _dataNaixement;
+    string _dataNaixement;
     string _modalitatSubscripcio;
 
 public:
     
-    TxRegistraUsuari(string nU, string sU, string cU, string ceU, Data dnU, string msU);
+    TxRegistraUsuari(string nU, string sU, string cU, string ceU, string dnU, string msU);
 
     void executar();
 };

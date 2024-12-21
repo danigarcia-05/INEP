@@ -1,6 +1,6 @@
 #include "TxRegistraUsuari.h"
 
-TxRegistraUsuari::TxRegistraUsuari(string nU, string sU, string cU, string ceU, Data dnU, string msU) {
+TxRegistraUsuari::TxRegistraUsuari(string nU, string sU, string cU, string ceU, string dnU, string msU) {
     _nomU = nU;
     _sobrenomU = sU;
     _contrasenyaU = cU;
@@ -9,17 +9,7 @@ TxRegistraUsuari::TxRegistraUsuari(string nU, string sU, string cU, string ceU, 
     _modalitatSubscripcio = msU;
 }
 
-
 void TxRegistraUsuari::executar() {
-    try{
-        PassarelaUsuari u(_nomU, _sobrenomU, _contrasenyaU, _correuElectronicU, _dataNaixement, _modalitatSubscripcio); 
-        u.insereix();
-    }
-    catch (const exception& e) {
-        string error_msg = e.what();
-        if(error_msg == "SobrenomExisteix") runtime_error("");
-        else if(error_msg == "CorreuExisteix") runtime_error("");
-        else if(error_msg == "ModalitatNoExisteix") runtime_error("");
-    }
-    
+    PassarelaUsuari u(_nomU, _sobrenomU, _contrasenyaU, _correuElectronicU, _dataNaixement, _modalitatSubscripcio); 
+    u.insereix();
 }

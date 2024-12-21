@@ -5,7 +5,7 @@ PassarelaVisualitzaSerie::PassarelaVisualitzaSerie()
     : _sobrenom(""), _titolSerie(""), _numVisualitzacions(0), _numTemporada(0), _numCapitol(0), _data("") {}
 
 
-PassarelaVisualitzaSerie::PassarelaVisualitzaSerie(string sobrenomU, string titolSerieU, int numVisualitzacionsU, int numTemporadaU, int numCapitolU, Data dataU)
+PassarelaVisualitzaSerie::PassarelaVisualitzaSerie(string sobrenomU, string titolSerieU, int numVisualitzacionsU, int numTemporadaU, int numCapitolU, string dataU)
     : _sobrenom(sobrenomU), _titolSerie(titolSerieU), _numVisualitzacions(numVisualitzacionsU), _numTemporada(numTemporadaU), _numCapitol(numCapitolU), _data(dataU) {}
 
 
@@ -54,11 +54,11 @@ void PassarelaVisualitzaSerie::setNumCapitol(int numCapitolU) {
 }
 
 
-Data PassarelaVisualitzaSerie::obteData() const {
+string PassarelaVisualitzaSerie::obteData() const {
     return _data;
 }
 
-void PassarelaVisualitzaSerie::setData(const Data& dataU) {
+void PassarelaVisualitzaSerie::setData(const string& dataU) {
     _data = dataU;
 }
 

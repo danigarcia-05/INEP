@@ -12,6 +12,7 @@ using namespace std;
 #include <string>
 #include <stdexcept> 
 #include <utility>
+#include <vector>
 
 class TxInfoVisualitzacions {
 public:

@@ -12,12 +12,11 @@ void TxInfoVisualitzacions::executar(){
     CercadoraVisualitzaPel cercadoraPel;
     CercadoraVisualitzaSerie cercadoraSerie;
     
-    PassarelaVisualitzaPel visualitzacionsPel = cercadoraPel.cercaVisualitzaPel(sobrenomU);
-    Passare visualitzacionsS = cercadoraSerie.cercaVisualitzaSerie(sobrenomU);
+    vector<PassarelaVisualitzaPel> visualitzacionsPel = cercadoraPel.cercaVisualitzaPel(sobrenomU);
+    vector<PassarelaVisualitzaSerie> visualitzacionsS = cercadoraSerie.cercaVisualitzaSerie(sobrenomU);
 
-    
-    _numVisualitzacions.first = visualitzacionsPel.obteNumVisualitzacions();
-    _numVisualitzacions.second = visualitzacionsS.obteNumVisualitzacions();
+    for (int i = 0; i < visualitzacionsPel.size(); i++) _numVisualitzacions.first += visualitzacionsPel[i].obteNumVisualitzacions();
+    for (int i = 0; i < visualitzacionsS.size(); i++) _numVisualitzacions.second += visualitzacionsS[i].obteNumVisualitzacions();
 }
 
 pair<int,int> TxInfoVisualitzacions::obteResultat() const {

@@ -3,8 +3,7 @@
 PetitFlix* PetitFlix::_ins = nullptr;
 PassarelaUsuari* PetitFlix::_usuari = nullptr;
 
-PetitFlix::PetitFlix() : _usuari(nullptr){
-}
+PetitFlix::PetitFlix(){}
 
 PetitFlix& PetitFlix::getInstance() {
     if (_ins == nullptr) {

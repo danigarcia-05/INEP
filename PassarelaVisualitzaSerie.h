@@ -6,7 +6,6 @@
 #include <stdexcept>
 #include <iostream>
 #include <string>
-#include "Data.h"
 using namespace std;
 
 class PassarelaVisualitzaSerie {
@@ -16,19 +15,19 @@ private:
     int _numVisualitzacions;
     int _numTemporada;
     int _numCapitol;
-    Data _data;
+    string _data;
 
 public:
     
     PassarelaVisualitzaSerie(); 
-    PassarelaVisualitzaSerie(string sobrenomU, string titolSerieU, int numVisualitzacionsU, int numTemporadaU, int numCapitolU, Data dataU);
+    PassarelaVisualitzaSerie(string sobrenomU, string titolSerieU, int numVisualitzacionsU, int numTemporadaU, int numCapitolU, string dataU);
 
     
     string obteSobrenom() const;
-    void setSobrenom(const string& sobrenomU);
+    void setSobrenom(const string sobrenomU);
 
     string obteTitolSerie() const;
-    void setTitolSerie(const string& titolSerieU);
+    void setTitolSerie(const string titolSerieU);
 
     int obteNumVisualitzacions() const;
     void setNumVisualitzacions(int numVisualitzacionsU);
@@ -40,7 +39,7 @@ public:
     void setNumCapitol(int numCapitolU);
 
     Data obteData() const;
-    void setData(const Data& dataU);
+    void setData(const string dataU);
 
     void insereix();
     void modifica();
