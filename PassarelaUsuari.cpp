@@ -5,6 +5,10 @@
                    CONSTRUCTORS
 *****************************************************
 */
+PassarelaUsuari::PassarelaUsuari() {
+
+}
+
 PassarelaUsuari::PassarelaUsuari(string sobrenomU, string nomU, string correuElectronicU)
 {
     _sobrenom = sobrenomU;                 // sobrenom atribut privat de la classe
@@ -12,8 +16,8 @@ PassarelaUsuari::PassarelaUsuari(string sobrenomU, string nomU, string correuEle
     _correuElectronic = correuElectronicU; // correuElectronic atribut
 }
 
-PassarelaUsuari::PassarelaUsuari(string nomU, string sobrenomU, string contraseinyaU, string correuElectronicU, 
-                                                                    string dataNaixementU, subscripcio modalitatU){
+PassarelaUsuari::PassarelaUsuari(string nomU, string sobrenomU, string contrasenyaU, string correuElectronicU, 
+                                                                    string dataNaixementU, string modalitatU){
     _nom = nomU;
     _sobrenom = sobrenomU;
     _contrasenya = contrasenyaU;
@@ -69,7 +73,7 @@ void PassarelaUsuari::setContrasenya(string contrasenya) {
 void PassarelaUsuari::setCorreuElectronic(string correuElectornic) {
     _correuElectronic=correuElectornic;
 }
-void PassarelaUsuari::setDataNaixament(data dataNaixement) {
+void PassarelaUsuari::setDataNaixament(Data dataNaixement) {
     _dataNaixament=dataNaixement;
 }
 void PassarelaUsuari::setModalitatSubscripcio(string modalitatSubscripcio) {
@@ -94,7 +98,7 @@ PassarelaUsuari& PassarelaUsuari::operator=(const PassarelaUsuari& obj) {
 */
 void PassarelaUsuari::insereix()
 {
-    ConnexioBD &con = ConnexioBD::getInstance();
+    ConnexioDB &con = ConnexioDB::getInstance();
     string query = "INSERT INTO usuari (sobrenom, nom, contrasenya, correu_electronic, data_naixement, subscripcio) VALUES('" +
                    _sobrenom + "', '" + _nom + "', '" + _contrasenya + "','" + _correuElectronic + "', '" + _dataNaixament + "', '" + _modalitatSubscripcio + "')";
     con.executar(query);
@@ -102,10 +106,10 @@ void PassarelaUsuari::insereix()
 
 void PassarelaUsuari::modifica()
 {
-    ConnexioBD &con = ConnexioBD::getInstance();
+    ConnexioDB &con = ConnexioDB::getInstance();
 
 	// Establim la sentència SQL.
-	string sql = "UPDATE Usuari SET nom = '" + _nom + "', correu_electronic = '" + _correu + "' WHERE sobrenom = '" + _sobrenom + "'";
+	string sql = "UPDATE Usuari SET nom = '" + _nom + "', correu_electronic = '" + _correuElectronic + "' WHERE sobrenom = '" + _sobrenom + "'";
 
 	// Executem la modificació d' usuari a la base de dades.
 	con.executar(sql);
@@ -114,7 +118,7 @@ void PassarelaUsuari::modifica()
 
 void PassarelaUsuari::esborra()
 {
-	ConnexioBD &con = ConnexioBD::getInstance();
+	ConnexioDB &con = ConnexioDB::getInstance();
 
 	// Establim la sentència SQL.
 	string sql = "DELETE FROM usuari WHERE sobrenom = '" + _sobrenom + "'";

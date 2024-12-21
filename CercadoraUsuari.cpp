@@ -5,7 +5,7 @@
 #include <string>     // Para std::string
 using namespace std;
 
-PassarelaUsuari CercadoraUsuari::cercaUsuari(string sobrenomU) {
+PassarelaUsuari CercadoraUsuari::cercaUsuari(string sobrenomU) const {
     PassarelaUsuari u;
     ConnexioBD& con = ConnexioBD::getInstance();
     string sql = "SELECT * FROM Usuari WHERE sobrenom = '" +
@@ -16,9 +16,9 @@ PassarelaUsuari CercadoraUsuari::cercaUsuari(string sobrenomU) {
         throw runtime_error("UsuariNoExisteix");
     }
     else {
-        u.posaSobrenom(res->getString("sobrenom"));
-        u.posaNom(res->getString("nom"));
-        u.posaCorreuElectronic(res->getString("correu_electronic"));
+        u.setSobrenom(res->getString("sobrenom"));
+        u.setNom(res->getString("nom"));
+        u.setCorreuElectronic(res->getString("correu_electronic"));
         delete res;
     }
     return u;

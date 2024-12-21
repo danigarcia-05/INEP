@@ -129,10 +129,9 @@ void CapaDePresentacio::processarConsultaUsuari()
 
 void CapaDePresentacio::processarModificaUsuari() {
 		
-        ConnexioBD connexio;
         cout << "** Modifica usuari **" << endl;
-        CtrlModificaUsuari CtrlModificaUsuari();
-        infoU = CtrlModificaUsuari.consultaUsuari();
+        ctrlModificaUsuari CtrlModificaUsuari();
+        infoU = ctrlModificaUsuari.consultaUsuari();
         cout<<"Nom complet: "<<infoU.obteNom()<<endl;
         cout<<"Sobrenom: "<<infoU.obteSobrenom()<<endl;
         cout<<"Correu electronic: "<<infoU.obteCorreu()<<endl;
@@ -141,6 +140,7 @@ void CapaDePresentacio::processarModificaUsuari() {
 
         cout << "Omplir la informació que es vol modificar ...";
         string nomU, contraU, correuU, subsU;
+        Data neixU;
         
         cout << "Nom complet: ";
         getline(cin, nomU); 
@@ -163,13 +163,13 @@ void CapaDePresentacio::processarModificaUsuari() {
         //
         cout << "Modalitat subscripcio: ";
         getline(cin, subsU);
-        cout<<subS<<endl;
+        cout<<subsU<<endl;
 
-        CtrlModificaUsuari.modificaUsuari(nomU, contraU, correuU, neixU, subsU);
+        ctrlModificaUsuari.modificaUsuari(nomU, contraU, correuU, neixU, subsU);
         //
         //excepció s'ha de fer(CorreuExisteix)
         //
-        infoU = CtrlModificaUsuari.consultaUsuari();
+        infoU = ctrlModificaUsuari.consultaUsuari();
         cout<<"Nom complet: "<<infoU.obteNom()<<endl;
         cout<<"Sobrenom: "<<infoU.obteSobrenom()<<endl;
         cout<<"Correu electronic: "<<infoU.obteCorreu()<<endl;

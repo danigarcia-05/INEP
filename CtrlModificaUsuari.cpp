@@ -1,19 +1,19 @@
-#include "CtrlModificaUsuauri.h"
+#include "CtrlModificaUsuari.h"
     
 
-    CtrlModificaUsuauri::CtrlModificaUsuauri() {
+    CtrlModificaUsuari::CtrlModificaUsuari() {
         
     }
 
-    DTOUsuari CtrlModificaUsuauri::consultaUsuari() {
-        TxConsultaUsuari TxConsultaUsuari();
-        TxConsultaUsuari.executar();
-        DTOUsuari infoUsu = TxConsultaUsuari.obteResultat()  
-        PassarelaUsuari usuari = TxConsultaUsuari.obteUsuari();       //revisar això
+    DTOUsuari CtrlModificaUsuari::consultaUsuari() {
+        txConsultaUsuari TxConsultaUsuari();
+        txConsultaUsuari.executar();
+        DTOUsuari infoUsu = txConsultaUsuari.obteResultat();
+        PassarelaUsuari usuari = txConsultaUsuari.obteUsuari();       //revisar això
         return infoUsu;
     }
     
-    void CtrlModificaUsuauri::modificaUsuari(string nomU, string contraU, string correuU, data neixU, subscripcio subsU) {
+    void CtrlModificaUsuari::modificaUsuari(string nomU, string contraU, string correuU, Data neixU, string subsU) {
         if (nomU!="") _usuari.setNom(nomU);
         if (contraU!="") _usuari.setContrasenya(contraU);
         if (correuU!="") _usuari.setCorreuElectronic(correuU);

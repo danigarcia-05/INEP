@@ -12,6 +12,6 @@ private:
 public:
     CercadoraVisualitzaSerie();
 
-   // PassarelaVisualitzaSerie cercaVisualitzaSerie(string sobrenomU);
+    PassarelaVisualitzaSerie cercaVisualitzaSerie(string sobrenomU);
 };
 #endif

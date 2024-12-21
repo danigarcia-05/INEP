@@ -10,7 +10,7 @@ private:
 
 public:
 
-    CercadoraUsuari();
+    //CercadoraUsuari();
 
     PassarelaUsuari cercaUsuari(string sobrenomU) const;
 

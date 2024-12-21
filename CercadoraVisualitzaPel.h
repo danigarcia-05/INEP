@@ -7,7 +7,8 @@ class CercadoraVisualitzaPel {
 private:
     
 public:
-    CercadoraVisualitzaPel();
+
+    //CercadoraVisualitzaPel();
 
     PassarelaVisualitzaPel cercaVisualitzaPel(string sobrenomU);
 

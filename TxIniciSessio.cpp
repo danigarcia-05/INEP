@@ -11,6 +11,7 @@ TxIniciSessio::TxIniciSessio(string sU, string cU)
     _sobrenomU = sU;
     _contrasenyaU = cU;
 }
+
 //Destructor
 TxIniciSessio::~TxIniciSessio(){
 }

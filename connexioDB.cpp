@@ -1,22 +1,22 @@
 #include "connexioDB.h"
 
-ConnexioBD* ConnexioBD::getInstance(){
+ConnexioDB* ConnexioDB::getInstance(){
     if (ins == nullptr) {
-        ins = new ConnexioBD();
+        ins = new ConnexioDB();
     }
     return ins;
 }
 
-ConnexioBD& ConnexioBD::ins = nullptr;
+ConnexioDB& ConnexioDB::ins = nullptr;
 
-ConnexioDB::ConnexioBD() : driver(nullptr), con(nullptr), stmt(nullptr) {
+ConnexioDB::ConnexioDB() : driver(nullptr), con(nullptr), stmt(nullptr) {
     driver = sql::mysql::get_mysql_driver_instance();
     con = driver->connect("ubiwan.epsevg.upc.edu:3306", "inep13", "agheeGak0Ofe4m");
     con->setSchema("inep13");
     stmt = con->createStatement();
 }
 
-~ConnexioDB::ConnexioBD() {
+~ConnexioDB::ConnexioDB() {
     con->close();
 }
 

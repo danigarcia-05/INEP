@@ -32,7 +32,7 @@ public:
     void processarConsultaUsuari();
     void processarModificaUsuari();
     void processarModificaContrasenya();
-    void processarBorrarUsuari();
+    void processarEsborraUsuari();
 
     void processarVisualitzarPelicula();
     void processarVisualitzarCapitol();

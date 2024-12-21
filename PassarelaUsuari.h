@@ -23,7 +23,7 @@ public:
     PassarelaUsuari();
 
     PassarelaUsuari(string sobrenomU, string nomU, string correuElectronicU);
-    PassarelaUsuari(string nomU, string sobrenomU, string contrasenyaU, string correuElectronicU, string dataNaixementU, string modalitatU);
+    PassarelaUsuari(string nomU, string sobrenomU, string contrasenyaU, string correuElectronicU, Data dataNaixementU, string modalitatU);
 
     //SETTERS
     string obteSobrenom();

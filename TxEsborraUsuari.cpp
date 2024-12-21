@@ -4,10 +4,10 @@
 #include <string>  // Para usar std::string
 using namespace std;
 
+
 TxEsborraUsuari::TxEsborraUsuari(string contraU){
     _contraU = contraU;
 }
-
 
 void TxEsborraUsuari::executar(){
     PetitFlix& petitFlix = PetitFlix::getInstance();

@@ -8,8 +8,14 @@
 #include <stdexcept>
 using namespace std;
 
+//CAL FER OPERADOR "=" I OPERADOR "!="
+//------------------------------------
+//------------------------------------
+//------------------------------------
+
 class Data {
 public:
+
     static string fechaActual() {
         /**
          * Obtiene la fecha y hora actual en formato SQL.

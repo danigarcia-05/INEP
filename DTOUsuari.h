@@ -10,7 +10,7 @@ class DTOUsuari{
 public:
 
     DTOUsuari();
-    DTOUsuari(string nomU, string sobrenomU, string  correuElectronicU, Data dataNaixementU, string  modalitatU);
+    DTOUsuari(string nomU, string sobrenomU, string  correuElectronicU, Data dataNaixementU, string modalitatU);
     
     //GETTERS
     string obteNom();

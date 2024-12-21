@@ -19,8 +19,9 @@ public:
         int _numVisualitzacioSerie;
     };
 
-
     TxInfoVisualitzacions();
+
+    void executar();
 
     Resultat obteResultat() const;
 

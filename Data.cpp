@@ -1,4 +1,5 @@
 #include "Data.h"
+
 string Data::fechaActual()
 {
     /**
@@ -37,7 +38,7 @@ string Data::transformarFechaConHora(const string &fechaHora)
      * Transforma una fecha y hora en formato 'DD-MM-YYYY HH:MM:SS' a formato SQL.
      * @param fechaHora Fecha y hora en formato 'DD-MM-YYYY HH:MM:SS'.
      * @return Fecha y hora en formato 'YYYY-MM-DD HH:MM:SS'.
-     */
+     **/
     tm t = {};
     istringstream iss(fechaHora);
     iss >> get_time(&t, "%d-%m-%Y %H:%M:%S");
