@@ -1,5 +1,5 @@
-#ifndef PASSARELAPEL_HPP
-#define PASSARELAPEL_HPP
+#ifndef PASSARELASERIE_HPP
+#define PASSARELASERIE_HPP
 #pragma once
 
 #include "connexioDB.h"

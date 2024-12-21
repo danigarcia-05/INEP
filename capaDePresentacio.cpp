@@ -1,4 +1,4 @@
-#include "CapaDePresentacio.h"
+#include "capaDePresentacio.h"
 
 
 /*
@@ -129,18 +129,18 @@ void CapaDePresentacio::processarConsultaUsuari()
 
 void CapaDePresentacio::processarModificaUsuari() {
 		
+        ConnexioBD;
         cout << "** Modifica usuari **" << endl;
-        ctrlModificaUsuari CtrlModificaUsuari();
-        infoU = ctrlModificaUsuari.consultaUsuari();
+        CtrlModificaUsuari ctrlModificaUsuari;
+        DTOUsuari infoU = ctrlModificaUsuari.consultaUsuari();
         cout<<"Nom complet: "<<infoU.obteNom()<<endl;
         cout<<"Sobrenom: "<<infoU.obteSobrenom()<<endl;
         cout<<"Correu electronic: "<<infoU.obteCorreu()<<endl;
-        cout<<"Data naixement (DD/MM/AAAA): "<<infoU.obteDataN()<<endl;
+        //cout<<"Data naixement (DD/MM/AAAA): " << infoU.obteDataN()<<endl; DATA
         cout<<"Modalitat subscripcio: "<<infoU.obteSubscripcio()<<endl;
 
         cout << "Omplir la informació que es vol modificar ...";
         string nomU, contraU, correuU, subsU;
-        Data neixU;
         
         cout << "Nom complet: ";
         getline(cin, nomU); 
@@ -154,27 +154,27 @@ void CapaDePresentacio::processarModificaUsuari() {
         getline(cin, correuU);
         cout<<correuU<<endl;
 
-        cout << "Data naixement (DD/MM/AAAA): ";
+        /*cout << "Data naixement (DD/MM/AAAA): ";
         getline(cin, neixU);
-        cout<<neixU<<endl;
+        cout<<neixU<<endl;*/
 
         //
         //s'ha de fer(modalitat subscripcio ha de ser vàlid)
         //
         cout << "Modalitat subscripcio: ";
         getline(cin, subsU);
-        cout<<subsU<<endl;
+        cout<<subS<<endl;
 
-        ctrlModificaUsuari.modificaUsuari(nomU, contraU, correuU, neixU, subsU);
+        //CtrlModificaUsuari.modificaUsuari(nomU, contraU, correuU, neixU, subsU); DATA
         //
         //excepció s'ha de fer(CorreuExisteix)
         //
-        infoU = ctrlModificaUsuari.consultaUsuari();
+        DTOUsuari infoU(ctrlModificaUsuari.consultaUsuari());
         cout<<"Nom complet: "<<infoU.obteNom()<<endl;
         cout<<"Sobrenom: "<<infoU.obteSobrenom()<<endl;
         cout<<"Correu electronic: "<<infoU.obteCorreu()<<endl;
-        cout<<"Data naixement (DD/MM/AAAA): "<<infoU.obteDataN()<<endl;
-        cout<<"Modalitat subscripcio: "<<infoU.obteSubscripcio()<<endl;
+        //cout<<"Data naixement (DD/MM/AAAA): "<<infoU.obteDataN()<<endl; DATA
+        //cout<<"Modalitat subscripcio: "<<infoU.obteSubscripcio()<<endl; SUBSCRIPCIO
 }
 
 //-------------------------------------------------------------------

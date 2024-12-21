@@ -3,6 +3,11 @@
 #pragma once
 #include<string>
 #include "PassarelaUsuari.h"
+#include "connexioDB.h"
+#include <stdexcept>  // Para std::runtime_error
+#include <string>     // Para std::string
+using namespace std;
+
 
 class CercadoraUsuari {
 private:

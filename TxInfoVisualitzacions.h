@@ -6,6 +6,7 @@
 #include "CercadoraVisualitzaSerie.h"
 #include "PassarelaVisualitzaSerie.h"
 #include "PassarelaVisualitzaPel.h"
+#include "PetitFlix.h"
 using namespace std;
 #include <iostream>
 #include <string>
@@ -14,20 +15,14 @@ using namespace std;
 
 class TxInfoVisualitzacions {
 public:
-    struct Resultat {
-        int _numVisualitzacioPelicula;
-        int _numVisualitzacioSerie;
-    };
-
     TxInfoVisualitzacions();
 
     void executar();
 
-    Resultat obteResultat() const;
+    pair<int, int> obteResultat() const;
 
 private:
-    int _numVisualitzacioPelicula;
-    int _numVisualitzacioSerie;
+    pair<int, int> _numVisualitzacions;
 };
 
 

@@ -1,12 +1,12 @@
 #include "CtrlModificaUsuari.h"
     
 
-    CtrlModificaUsuari::CtrlModificaUsuari() {
+    CtrlModificaUsuari::CtrlModificaUsuari() : _usuari(){
         
     }
 
     DTOUsuari CtrlModificaUsuari::consultaUsuari() {
-        txConsultaUsuari TxConsultaUsuari();
+        TxConsultaUsuari txConsultaUsuari;
         txConsultaUsuari.executar();
         DTOUsuari infoUsu = txConsultaUsuari.obteResultat();
         PassarelaUsuari usuari = txConsultaUsuari.obteUsuari();       //revisar això

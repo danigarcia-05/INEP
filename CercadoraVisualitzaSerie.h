@@ -4,6 +4,7 @@
 #include "PassarelaVisualitzaSerie.h"
 #include <string>
 using namespace std;
+using namespace sql;
 
 class CercadoraVisualitzaSerie {
 private:

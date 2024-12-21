@@ -2,7 +2,7 @@
 
 
 PassarelaVisualitzaSerie::PassarelaVisualitzaSerie()
-    : _sobrenom(""), _titolSerie(""), _numVisualitzacions(0), _numTemporada(0), _numCapitol(0) {}
+    : _sobrenom(""), _titolSerie(""), _numVisualitzacions(0), _numTemporada(0), _numCapitol(0), _data("") {}
 
 
 PassarelaVisualitzaSerie::PassarelaVisualitzaSerie(string sobrenomU, string titolSerieU, int numVisualitzacionsU, int numTemporadaU, int numCapitolU, Data dataU)

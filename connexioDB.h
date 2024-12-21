@@ -17,11 +17,11 @@ private:
     Connection* con;
     Statement* stmt;
     
-    static ConnexioDB* ins;  // Corregido: el puntero estático debe ser de tipo ConnexioBD*
+    static ConnexioDB* _ins;  // Corregido: el puntero estático debe ser de tipo ConnexioBD*
     ConnexioDB();  // Constructor privado
 
 public:
-    static ConnexioDB* getInstance();  // Método estático que retorna un puntero de tipo ConnexioBD*
+    static ConnexioDB& getInstance();  // Método estático que retorna un puntero de tipo ConnexioBD*
 
     ~ConnexioDB();  // Destructor
 

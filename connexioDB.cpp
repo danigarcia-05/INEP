@@ -1,13 +1,13 @@
 #include "connexioDB.h"
 
-ConnexioDB* ConnexioDB::getInstance(){
-    if (ins == nullptr) {
-        ins = new ConnexioDB();
+ConnexioDB& ConnexioDB::getInstance(){
+    if (_ins == nullptr) {
+        _ins = new ConnexioDB();
     }
-    return ins;
+    return *_ins;
 }
 
-ConnexioDB& ConnexioDB::ins = nullptr;
+ConnexioDB* ConnexioDB::_ins = nullptr;
 
 ConnexioDB::ConnexioDB() : driver(nullptr), con(nullptr), stmt(nullptr) {
     driver = sql::mysql::get_mysql_driver_instance();
