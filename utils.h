@@ -1,25 +1,23 @@
 #ifndef UTILS_H
 #define UTILS_H
 
-#include <termios.h>
-#include <unistd.h>
+#include <windows.h>
 
 namespace utils {
-    // Desactiva el eco de la terminal
+    // Desactiva el eco de la consola
     inline void desactivarEco() {
-        struct termios t;
-        tcgetattr(STDIN_FILENO, &t);  // Obtener configuración actual de la terminal
-        t.c_lflag &= ~ECHO;           // Desactivar eco
-        tcsetattr(STDIN_FILENO, TCSANOW, &t);  // Aplicar la nueva configuración
+        HANDLE hStdin = GetStdHandle(STD_INPUT_HANDLE);
+        DWORD mode;
+        GetConsoleMode(hStdin, &mode);
+        SetConsoleMode(hStdin, mode & ~ENABLE_ECHO_INPUT);
     }
 
-    // Reactiva el eco de la terminal
+    // Reactiva el eco de la consola
     inline void activarEco() {
-        struct termios t;
-        tcgetattr(STDIN_FILENO, &t);  // Obtener configuración actual de la terminal
-        t.c_lflag |= ECHO;            // Activar eco
-        tcsetattr(STDIN_FILENO, TCSANOW, &t);  // Aplicar la nueva configuración
+        HANDLE hStdin = GetStdHandle(STD_INPUT_HANDLE);
+        DWORD mode;
+        GetConsoleMode(hStdin, &mode);
+        SetConsoleMode(hStdin, mode | ENABLE_ECHO_INPUT);
     }
 }
-
-#endif 
+#endif

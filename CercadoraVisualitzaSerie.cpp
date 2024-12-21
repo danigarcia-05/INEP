@@ -1,7 +1,9 @@
 #include "CercadoraVisualitzaSerie.h"
 #include "connexioDB.h"
 
-//ACABAR DE MIRAR !!!!!!!!!!!!!!!!!!
+CercadoraVisualitzaSerie::CercadoraVisualitzaSerie(){
+    
+}
 
 PassarelaVisualitzaSerie CercadoraVisualitzaSerie::cercaVisualitzaSerie(string sobrenomU){
     PassarelaVisualitzaSerie pu;

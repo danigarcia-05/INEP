@@ -8,7 +8,6 @@
 #include "PassarelaVisualitzaPel.h"
 using namespace std;
 #include <iostream>
-#include <unistd.h>
 #include <string>
 #include <stdexcept> 
 #include <utility>

@@ -46,7 +46,7 @@ void CapaDePresentacio::processarIniciarSessio(){
 }
 
 void CapaDePresentacio::processarTancaSessio(){
-    char tanca
+    char tanca;
     cout << "** Tancar sessio **" << endl;
     cout << "Vols tancar la sessio (S/N): ";
     cin >> tanca;
@@ -102,7 +102,7 @@ void CapaDePresentacio::processarConsultaUsuari()
 	TxConsultaUsuari txConsultaUsuari();
     txConsultaUsuari.executar();
     DTOUsuari resultat;
-    resultat txConsultaUsuari.obteResultat();
+    resultat = txConsultaUsuari.obteResultat();
     TxInfoVisualitzacions txInfoVisualitzacions();
     txInfoVisualitzacions.executar();
 
@@ -139,7 +139,7 @@ void CapaDePresentacio::processarModificaUsuari() {
         cout<<"Data naixement (DD/MM/AAAA): "<<infoU.obteDataN()<<endl;
         cout<<"Modalitat subscripcio: "<<infoU.obteSubscripcio()<<endl;
 
-        cout<<"Omplir la informació que es vol modificar ..."
+        cout << "Omplir la informació que es vol modificar ...";
         string nomU, contraU, correuU, subsU;
         
         cout << "Nom complet: ";
@@ -195,4 +195,16 @@ void CapaDePresentacio::processarEsborraUsuari(){
     catch (const exception& e) {
        cout << "La contrasenya no és correcta, l'usuari no s'esborrat!"  << endl;
     }
+}
+
+void CapaDePresentacio::processarUltimesNovetats(){
+    cout << "HOla" << endl;
+}
+
+void CapaDePresentacio::processarProperesEstrenes(){
+     cout << "HOla" << endl;
+}
+
+void CapaDePresentacio::processarPeliculesMesVistes(){
+     cout << "HOla" << endl;
 }

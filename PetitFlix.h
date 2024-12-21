@@ -17,11 +17,12 @@ public:
     static PetitFlix& getInstance();
 
     //Consultors
-    PassarelaUsuari* obteUsuari() const;
-    
+    PassarelaUsuari* obteUsuari();
+
     //Modificadors
     static void iniciaSessio(PassarelaUsuari u); 
-    void tancaSessio();                 
+    void tancaSessio(); 
+          
 };
 
 #endif 

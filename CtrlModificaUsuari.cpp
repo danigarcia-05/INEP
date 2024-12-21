@@ -13,7 +13,7 @@
         return infoUsu;
     }
     
-    void CtrlModificaUsuauri::modificaUsuari(string nomU, string contraU, string correuU, date neixU, subscripcio subsU) {
+    void CtrlModificaUsuauri::modificaUsuari(string nomU, string contraU, string correuU, data neixU, subscripcio subsU) {
         if (nomU!="") _usuari.setNom(nomU);
         if (contraU!="") _usuari.setContrasenya(contraU);
         if (correuU!="") _usuari.setCorreuElectronic(correuU);

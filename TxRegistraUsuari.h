@@ -20,7 +20,7 @@ private:
 
 public:
     
-    TxRegistraUsuari(string nU, string sU, string cU, string ceU, data dnU, string msU);
+    TxRegistraUsuari(string nU, string sU, string cU, string ceU, Data dnU, string msU);
 
     void executar();
 };

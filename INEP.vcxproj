@@ -19,7 +19,46 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="capaDePresentacio.cpp" />
+    <ClCompile Include="CercadoraUsuari.cpp" />
+    <ClCompile Include="CercadoraVisualitzaPel.cpp" />
+    <ClCompile Include="CercadoraVisualitzaSerie.cpp" />
+    <ClCompile Include="connexioDB.cpp" />
+    <ClCompile Include="CtrlModificaUsuari.cpp" />
+    <ClCompile Include="Data.cpp" />
+    <ClCompile Include="DTOUsuari.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PassarelaUsuari.cpp" />
+    <ClCompile Include="PassarelaVisualitzaPel.cpp" />
+    <ClCompile Include="PassarelaVisualitzaSerie.cpp" />
+    <ClCompile Include="PetitFlix.cpp" />
+    <ClCompile Include="TxConsultaUsuari.cpp" />
+    <ClCompile Include="TxEsborraUsuari.cpp" />
+    <ClCompile Include="TxInfoVisualitzacions.cpp" />
+    <ClCompile Include="TxIniciSessio.cpp" />
+    <ClCompile Include="TxRegistraUsuari.cpp" />
+    <ClCompile Include="TxTancaSessio.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="capaDePresentacio.h" />
+    <ClInclude Include="CercadoraUsuari.h" />
+    <ClInclude Include="CercadoraVisualitzaPel.h" />
+    <ClInclude Include="CercadoraVisualitzaSerie.h" />
+    <ClInclude Include="connexioDB.h" />
+    <ClInclude Include="CtrlModificaUsuari.h" />
+    <ClInclude Include="Data.h" />
+    <ClInclude Include="DTOUsuari.h" />
+    <ClInclude Include="PassarelaUsuari.h" />
+    <ClInclude Include="PassarelaVisualitzaPel.h" />
+    <ClInclude Include="PassarelaVisualitzaSerie.h" />
+    <ClInclude Include="PetitFlix.h" />
+    <ClInclude Include="TxConsultaUsuari.h" />
+    <ClInclude Include="TxEsborraUsuari.h" />
+    <ClInclude Include="TxInfoVisualitzacions.h" />
+    <ClInclude Include="TxIniciSessio.h" />
+    <ClInclude Include="TxRegistraUsuari.h" />
+    <ClInclude Include="TxTancaSessio.h" />
+    <ClInclude Include="utils.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

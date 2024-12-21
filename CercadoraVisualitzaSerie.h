@@ -2,6 +2,8 @@
 #define CERCADORAVISUALITZACIOSERIE_HPP
 #pragma once
 #include "PassarelaVisualitzaSerie.h"
+#include <string>
+using namespace std;
 
 class CercadoraVisualitzaSerie {
 private:
@@ -10,6 +12,6 @@ private:
 public:
     CercadoraVisualitzaSerie();
 
-    PassarelaVisualitzaSerie cercaVisualitzaSerie(string sobrenomU);
+   // PassarelaVisualitzaSerie cercaVisualitzaSerie(string sobrenomU);
 };
 #endif

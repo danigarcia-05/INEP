@@ -72,11 +72,21 @@ void PassarelaUsuari::setCorreuElectronic(string correuElectornic) {
 void PassarelaUsuari::setDataNaixament(data dataNaixement) {
     _dataNaixament=dataNaixement;
 }
-void PassarelaUsuari::setModalitatSubscripcio(dubscripcio modalitatSubscripcio) {
+void PassarelaUsuari::setModalitatSubscripcio(string modalitatSubscripcio) {
     _modalitatSubscripcio=modalitatSubscripcio;
 }
 
-
+PassarelaUsuari& PassarelaUsuari::operator=(const PassarelaUsuari& obj) {
+    if (this != &obj) {  // Comprobación de autorasignación
+        _sobrenom = obj._sobrenom;
+        _nom = obj._nom;
+        _contrasenya = obj._contrasenya;
+        _correuElectronic = obj._correuElectronic;
+        _dataNaixament = obj._dataNaixament;  // Asumimos que Data tiene su propio operador=
+        _modalitatSubscripcio = obj._modalitatSubscripcio;
+    }
+    return *this;  // Devolver la referencia al objeto actual
+}
 /*
 *****************************************************
                    MODIFICADORS

@@ -1,6 +1,6 @@
 #include "TxRegistraUsuari.h"
 
-TxRegistraUsuari::TxRegistraUsuari(string nU, string sU, string cU, string ceU, data dnU, subscripcio msU) {
+TxRegistraUsuari::TxRegistraUsuari(string nU, string sU, string cU, string ceU, Data dnU, string msU) {
     _nomU = nU;
     _sobrenomU = sU;
     _contrasenyaU = cU;

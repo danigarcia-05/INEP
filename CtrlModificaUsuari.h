@@ -20,9 +20,7 @@ public:
 
     DTOUsuari consultaUsuari();
     
-    void modificaUsuari(string nomU, string contraU, string correuU, date neixU);
-
-    void executar();
+    void modificaUsuari(string nomU, string contraU, string correuU, data neixU);
 
 };
 

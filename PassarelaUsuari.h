@@ -23,7 +23,7 @@ public:
     PassarelaUsuari();
 
     PassarelaUsuari(string sobrenomU, string nomU, string correuElectronicU);
-    PassarelaUsuar(string nomU, string sobrenomU, string contrasenyaU, string correuElectronicU, string dataNaixementU, string modalitatU);
+    PassarelaUsuari(string nomU, string sobrenomU, string contrasenyaU, string correuElectronicU, string dataNaixementU, string modalitatU);
 
     //SETTERS
     string obteSobrenom();
@@ -33,12 +33,14 @@ public:
     Data obteDataNaixament();
     string obteModalitatSubscripcio();
 
+    PassarelaUsuari& operator=(const PassarelaUsuari& obj);
+
     //GETTERS
     void setSobrenom(string sobrenom);
     void setNom(string nom);
     void setContrasenya(string contrasenya);
     void setCorreuElectronic(string correuElectornic);
-    void setDataNaixament(data dataNaixement);
+    void setDataNaixament(Data dataNaixement);
     void setModalitatSubscripcio(string modalitatSubscripcio);
 
     void insereix();

@@ -4,8 +4,6 @@
 #include "PassarelaUsuari.h"
 using namespace std;
 #include <iostream>
-#include <termios.h>
-#include <unistd.h>
 #include <string>
 #include "TxIniciSessio.h"
 #include "TxTancaSessio.h"

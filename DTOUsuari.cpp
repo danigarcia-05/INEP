@@ -28,11 +28,11 @@ string DTOUsuari::obteCorreu(){
 }
 
 string DTOUsuari::obteDataN() {
-    return __dataNaixement;
+    return _dataNaixement;
 }
     
 string DTOUsuari::obteModalitatS() {
-    return __modalitat;
+    return _modalitat;
 }
 
 //-------------

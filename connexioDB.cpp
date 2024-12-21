@@ -7,7 +7,7 @@ ConnexioBD* ConnexioBD::getInstance(){
     return ins;
 }
 
-ConnexioBD* ConnexioBD::ins = nullptr;
+ConnexioBD& ConnexioBD::ins = nullptr;
 
 ConnexioDB::ConnexioBD() : driver(nullptr), con(nullptr), stmt(nullptr) {
     driver = sql::mysql::get_mysql_driver_instance();
@@ -20,10 +20,14 @@ ConnexioDB::ConnexioBD() : driver(nullptr), con(nullptr), stmt(nullptr) {
     con->close();
 }
 
-sql::ResultSet* ConnexioDB::consultaSQL(const string& sql) {
-    if (stmt != nullptr) return stmt->executeQuery(sql);
-}
+sql::ResultSet* consultaSQL(const string& sql) {
+		if (stmt != nullptr) {
+			return stmt->executeQuery(sql);
+		}
+	}
 
-void ConnexioDB::executarSQL(const string& sql) {
-    if (stmt != nullptr) stmt->execute(sql);
-}
+	void executarSQL(const string& sql) {
+		if (stmt != nullptr) {
+			stmt->execute(sql);
+		}
+	}
