@@ -1,7 +1,7 @@
 #include "CercadoraVisualitzaPel.h"
 
-//ACABAR DE MIRAR !!!!!!!!!!!!!!!!!!
+CercadoraVisualitzaPel::CercadoraVisualitzaPel(){}
 
-PassarelaVisualitzaPel CercadoraVisualitzaPel::cercaVisualitzaPel(string sobrenomU){
-
+vector<PassarelaVisualitzaPel> CercadoraVisualitzaPel::cercaVisualitzaPel(string sobrenomU){
+ //SQL
 }

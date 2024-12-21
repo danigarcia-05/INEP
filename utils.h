@@ -21,7 +21,7 @@ namespace utils {
         SetConsoleMode(hStdin, mode | ENABLE_ECHO_INPUT);
     }
 
-    string convertirData(dia, mes, any) {
+    string convertirData(string dia, string mes, string any) {
         return any + "-" + mes + "-" + dia;
     }
 }

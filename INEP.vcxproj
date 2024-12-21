@@ -25,7 +25,6 @@
     <ClCompile Include="CercadoraVisualitzaSerie.cpp" />
     <ClCompile Include="connexioDB.cpp" />
     <ClCompile Include="CtrlModificaUsuari.cpp" />
-    <ClCompile Include="Data.cpp" />
     <ClCompile Include="DTOUsuari.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PassarelaUsuari.cpp" />
@@ -46,7 +45,6 @@
     <ClInclude Include="CercadoraVisualitzaSerie.h" />
     <ClInclude Include="connexioDB.h" />
     <ClInclude Include="CtrlModificaUsuari.h" />
-    <ClInclude Include="Data.h" />
     <ClInclude Include="DTOUsuari.h" />
     <ClInclude Include="PassarelaUsuari.h" />
     <ClInclude Include="PassarelaVisualitzaPel.h" />

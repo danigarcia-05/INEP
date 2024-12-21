@@ -1,5 +1,7 @@
 #include "CercadoraUsuari.h"
 
+CercadoraUsuari::CercadoraUsuari(){}
+
 PassarelaUsuari CercadoraUsuari::cercaUsuari(string sobrenomU) const {
     PassarelaUsuari u;
     ConnexioDB& con = ConnexioDB::getInstance();

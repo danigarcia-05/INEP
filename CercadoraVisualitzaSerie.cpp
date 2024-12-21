@@ -2,11 +2,9 @@
 
 
 CercadoraVisualitzaSerie::CercadoraVisualitzaSerie(){
-    
 }
 
 vector<PassarelaVisualitzaSerie> CercadoraVisualitzaSerie::cercaVisualitzaSerie(string sobrenomU){
-    try {
         ConnexioDB& con = ConnexioDB::getInstance();
         vector<PassarelaVisualitzaSerie> cjVisualitzacionsSerie;
 
@@ -25,11 +23,8 @@ vector<PassarelaVisualitzaSerie> CercadoraVisualitzaSerie::cercaVisualitzaSerie(
             cjVisualitzacionsSerie.push_back(pvs);
         }
         else {
-            throw std::runtime_error("");
+            throw 
         }
-    }
-    catch (sql::SQLException& e) {
-        std::cerr << "SQL Error: " << e.what() << std::endl;
     }
     return cjVisualitzacionsSerie;
 }

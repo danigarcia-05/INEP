@@ -15,8 +15,8 @@ void TxInfoVisualitzacions::executar(){
     vector<PassarelaVisualitzaPel> visualitzacionsPel = cercadoraPel.cercaVisualitzaPel(sobrenomU);
     vector<PassarelaVisualitzaSerie> visualitzacionsS = cercadoraSerie.cercaVisualitzaSerie(sobrenomU);
 
-    for (int i = 0; i < visualitzacionsPel.size(); i++) _numVisualitzacions.first += visualitzacionsPel[i].obteNumVisualitzacions();
-    for (int i = 0; i < visualitzacionsS.size(); i++) _numVisualitzacions.second += visualitzacionsS[i].obteNumVisualitzacions();
+    for (int i = 0; i < visualitzacionsPel.size(); ++i) _numVisualitzacions.first += visualitzacionsPel[i].obteNumVisualitzacions();
+    for (int i = 0; i < visualitzacionsS.size(); ++i) _numVisualitzacions.second += visualitzacionsS[i].obteNumVisualitzacions();
 }
 
 pair<int,int> TxInfoVisualitzacions::obteResultat() const {

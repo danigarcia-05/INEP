@@ -71,23 +71,23 @@ void CapaDePresentacio::processarRegistreUsuari(){
     utils::activarEco();
     cout << endl << "Correu Electrònic: ";
     cin >> ceU;
+    
     cout << endl << "Data naixement (DD/MM/AAAA): ";
     string data;
-    cin>>data;
-    
-    string dia = data[0]+data[1];
-    string mes = data[3]+data[4];
-    string any = data[6]+data[7]+data[8]+data[9];
-    
+    cin >> data;
+    string dia = string(1, data[0]) + string(1, data[1]);
+    string mes = string(1, data[3]) + string(1, data[4]);
+    string any = string(1, data[6]) + string(1, data[7]) + string(1, data[8]) + string(1, data[9]);
     dnU = utils::convertirData(dia, mes, any);
+
     cout << endl << "Modalitats de subscripció disponibles ";
     cout << endl << " > 1. Completa ";
     cout << endl << " > 2. Cinèfil ";
     cout << endl << " > 3. Infantil ";
     cout << endl << "Escull modalitat: ";
-    cin >> msU;
-
-    switch (msU) {
+    int mod;
+    cin >> mod;
+    switch (mod) {
     case 1:
         msU = "Completa";
         break;
@@ -120,17 +120,16 @@ void CapaDePresentacio::processarRegistreUsuari(){
     }    
 }
 
-void CapaDePresentacio::processarConsultaUsuari()
-{
+//Cercadores pelis i series.
+void CapaDePresentacio::processarConsultaUsuari() {
 	TxConsultaUsuari txConsultaUsuari;
     txConsultaUsuari.executar();
     DTOUsuari resultat;
     resultat = txConsultaUsuari.obteResultat();
+
     TxInfoVisualitzacions txInfoVisualitzacions;
     txInfoVisualitzacions.executar();
-
-    pair<int, int> vis = txInfoVisualitzacions.obteResultat();;
-
+    pair<int, int> vis = txInfoVisualitzacions.obteResultat();
     cout << "** Consulta usuari **" << endl;
     cout << "Nom Complet: " << resultat.obteNom() << endl;
     cout << "Sobrenom: " << resultat.obteSobrenom() << endl;
@@ -139,7 +138,7 @@ void CapaDePresentacio::processarConsultaUsuari()
     cout << "Modalitat subscripció: " << resultat.obteModalitatS() << endl;
     cout << endl;
     cout << vis.first << " pel·licules visualitzades" << endl;
-    cout << vis.second << "  capitols visualitzats" << endl;
+    cout << vis.second << " capitols visualitzats" << endl;
 }
 
 void CapaDePresentacio::processarModificaUsuari() {

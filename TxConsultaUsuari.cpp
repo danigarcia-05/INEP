@@ -6,14 +6,14 @@ TxConsultaUsuari::TxConsultaUsuari(){
 
 void TxConsultaUsuari::executar(){
     PetitFlix& petitFlix = PetitFlix::getInstance();
-    PassarelaUsuari usuari = petitFlix.obteUsuari();
+    _usuari = *(petitFlix.obteUsuari());
     
     string nomU, sobrenomU, correuU, modalitatU, dataNaixementU;
-    nomU = usuari.obteNom();
-    sobrenomU = usuari.obteSobrenom();
-    correuU = usuari.obteCorreuElectronic();
-    dataNaixementU = usuari.obteDataNaixament();
-    modalitatU = usuari.obteModalitatSubscripcio();
+    nomU = _usuari.obteNom();
+    sobrenomU = _usuari.obteSobrenom();
+    correuU = _usuari.obteCorreuElectronic();
+    dataNaixementU = _usuari.obteDataNaixament();
+    modalitatU = _usuari.obteModalitatSubscripcio();
 
     DTOUsuari resultat(nomU, sobrenomU, correuU, dataNaixementU, modalitatU);
     _resultat = resultat;

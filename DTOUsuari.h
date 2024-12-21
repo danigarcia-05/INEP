@@ -3,9 +3,8 @@
 #pragma once
 #include <string>
 using namespace std;
-#include "Data.h"
-
 #include "PassarelaUsuari.h"
+
 class DTOUsuari{
 public:
 

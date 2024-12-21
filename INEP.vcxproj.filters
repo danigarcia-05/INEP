@@ -36,9 +36,6 @@
     <ClCompile Include="CtrlModificaUsuari.cpp">
       <Filter>Archivos de recursos</Filter>
     </ClCompile>
-    <ClCompile Include="Data.cpp">
-      <Filter>Archivos de recursos</Filter>
-    </ClCompile>
     <ClCompile Include="DTOUsuari.cpp">
       <Filter>Archivos de recursos</Filter>
     </ClCompile>
@@ -90,9 +87,6 @@
       <Filter>Archivos de recursos</Filter>
     </ClInclude>
     <ClInclude Include="CtrlModificaUsuari.h">
-      <Filter>Archivos de recursos</Filter>
-    </ClInclude>
-    <ClInclude Include="Data.h">
       <Filter>Archivos de recursos</Filter>
     </ClInclude>
     <ClInclude Include="DTOUsuari.h">
