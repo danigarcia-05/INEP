@@ -33,14 +33,16 @@ public:
     void processarRegistreUsuari();
     void processarConsultaUsuari();
     void processarModificaUsuari();
+    void processarModificaContrasenya();
     void processarBorrarUsuari();
 
-    void processarGestioPelicules();
-    void processarGestioSeries();
-    void processarConsultesEdat();
+    void processarVisualitzarPelicula();
+    void processarVisualitzarCapitol();
+    void processarConsultarVisualitzacions();
 
     void processarUltimesNovetats();
-    void processarProximesEstrenes();
+    void processarProperesEstrenes();
+    void processarPeliculesMesVistes();
 
     
 };

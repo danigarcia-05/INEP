@@ -6,6 +6,7 @@
 #include <stdexcept>
 #include <iostream>
 #include <string>
+#include "Data.h"
 using namespace std;
 
 class PassarelaVisualitzaSerie {

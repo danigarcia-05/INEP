@@ -5,6 +5,7 @@ using namespace std;
 #include <locale>
 
 void gestioUsuaris() {
+    CapaDePresentacio& presentacio = CapaDePresentacio::getInstance();
     int op;
     wcout << "------------------" << endl;
     wcout << " Gestionar usuari" << endl;
@@ -16,14 +17,25 @@ void gestioUsuaris() {
     wcout << "5. Tornar" << endl;
     wcout << "Escriu opció: ";
     cin >> op;
+    cout << endl;
     switch (op) {
-        case 1: presentacio.consultarUsuari();break;
-        case 2: presentacio.modificaUsuari();break;
-        case 3: presentacio.esborraUsuari();break;
+        case 1: presentacio.processarConsultaUsuari(); 
+            break;
+        case 2: presentacio.processarModificaUsuari(); 
+            break;
+        case 3: presentacio.processarModificaContrasenya(); 
+            break;
+        case 4: presentacio.processarBorrarUsuari(); 
+            break;
+        case 5: break;
+        default: wcout << "Error: Opció no vàlida" << endl;
+            gestioUsuaris();
+            break;   
     }
 }
 
 void gestioContinguts() {
+    CapaDePresentacio& presentacio = CapaDePresentacio::getInstance();
     int op;
     wcout << "------------------" << endl;
     wcout << " Visualitzar" << endl;
@@ -34,13 +46,23 @@ void gestioContinguts() {
     wcout << "4. Tornar" << endl;
     wcout << "Escriu opció: ";
     cin >> op;
+    cout << endl;
     switch (op) {
-        //case 1: presentacio.   ();break;
-        case 2: presentacio.gestioSeries();break;
+        case 1: presentacio.processarVisualitzarPelicula();
+            break;
+        case 2: presentacio.processarVisualitzarCapitol();
+            break;
+        case 3: presentacio.processarConsultarVisualitzacions();
+            break;
+        case 4: break;
+        default: wcout << "Error: Opció no vàlida" << endl;
+            gestioContinguts();
+            break;    
     }
 }
 
 void consultes() {
+    CapaDePresentacio& presentacio = CapaDePresentacio::getInstance();
     int op;
     wcout << "------------------" << endl;
     wcout << " Consultes" << endl;
@@ -51,10 +73,15 @@ void consultes() {
     wcout << "4. Tornar" << endl;
     wcout << "Escriu opció: ";
     cin >> op;
+    cout << endl;
     switch (op) {
-        case 1: presentacio.consultesEdat();break;
-        case 2: presentacio.ultimesNovetats();break;
-        case 3: presentacio.proximesEstrenes();break;
+        case 1: presentacio.processarProperesEstrenes();break;
+        case 2: presentacio.processarUltimesNovetats();break;
+        case 3: presentacio.processarPeliculesMesVistes();break;
+        case 4: break;
+        default: wcout << "Error: Opció no vàlida" << endl;
+            consultes();
+            break;    
     }
 }
 
@@ -75,11 +102,17 @@ int main() {
             wcout << "4. Sortir" << endl;
             wcout << "Escriu opcio: ";
             cin >> op;
+            cout << endl;
             switch (op) {
-                case 1: presentacio.processarIniciarSessio();break;
-                case 2: presentacio.processarRegistreUsuari();break;
-                case 3: consultes();break;
-                case 4: acaba=true; 
+                case 1: presentacio.processarIniciarSessio();
+                    break;
+                case 2: presentacio.processarRegistreUsuari();
+                    break;
+                case 3: consultes();
+                    break;
+                case 4: acaba = true; 
+                default: wcout << "Error: Opció no vàlida" << endl;
+                    break;  
             }
         }
         else{
@@ -93,13 +126,15 @@ int main() {
             wcout << "5. Sortir" << endl;
             wcout << "Escriu opcio: ";
             cin >> op;
+            cout << endl;
             switch (op) {
                 case 1: gestioUsuaris();break;
                 case 2: gestioContinguts();break;
                 case 3: consultes();break;
-                case 4: sessioIniciada=false; 
-                case 5: acaba=true; 
-                //default: wcout << "Opció no vàlida" << endl; CONSIDERAR
+                case 4: presentacio.processarTancaSessio(); 
+                case 5: acaba = true; 
+                default: wcout << "Error: Opció no vàlida" << endl;
+                    break;  
             }
         }
         // system("cls");

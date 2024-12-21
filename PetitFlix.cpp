@@ -20,5 +20,6 @@ void PetitFlix::iniciaSessio(PassarelaUsuari u){
 }
 
 void PetitFlix::tancaSessio(){
+    delete _usuari;
     _usuari = nullptr;
 }
