@@ -1,10 +1,5 @@
-#include <stdexcept>
-#include <iostream>
-using namespace std;
 #include "TxIniciSessio.h"
-#include "CercadoraUsuari.h"
-#include "PassarelaUsuari.h"
-#include "PetitFlix.h"
+
 
 TxIniciSessio::TxIniciSessio(string sU, string cU)
 {

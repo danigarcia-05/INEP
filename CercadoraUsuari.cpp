@@ -1,5 +1,6 @@
 #include "CercadoraUsuari.h"
 
+
 CercadoraUsuari::CercadoraUsuari(){}
 
 PassarelaUsuari CercadoraUsuari::cercaUsuari(string sobrenomU) const {

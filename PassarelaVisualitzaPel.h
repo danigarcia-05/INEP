@@ -20,18 +20,17 @@ public:
     PassarelaVisualitzaPel();  // Constructor por defecto
     PassarelaVisualitzaPel(string sobrenomU, string titolPeliculaU, string dataU, int numVisualitzacionsU);
 
-    // Getters y Setters
-    string obteSobrenom() const;
-    void setSobrenom(const string& sobrenomU);
+    //GETTERS
+    string obteSobrenom();
+    string obteTitolPelicula();
+    string obteData();
+    int obteNumVisualitzacions();
 
-    string obteTitolPelicula() const;
-    void setTitolPelicula(const string& titolPeliculaU);
-
-    string obteData() const;
-    void setData(const string& dataU);
-
-    int obteNumVisualitzacions() const;
-    void setNumVisualitzacions(int numVisualitzacionsU);
+    //SETTERS
+    void setSobrenom(string sobrenom);
+    void setTitolPelicula(string titolP);
+    void setData(string data);
+    void setNumVisualitzacions(int nVis);
 
     // Métodos adicionales
     void insereix();

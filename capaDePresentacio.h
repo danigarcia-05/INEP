@@ -13,8 +13,12 @@ using namespace std;
 #include "TxInfoVisualitzacions.h"
 #include "CtrlModificaUsuari.h"
 #include "utils.h"
+using namespace utils;
 #include <stdexcept>
 #include <utility>
+#include "PetitFlix.h"
+#include "connexioDB.h"
+#include <locale>
 
 class CapaDePresentacio {
 private:

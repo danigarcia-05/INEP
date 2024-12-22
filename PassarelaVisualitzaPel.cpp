@@ -9,41 +9,33 @@ PassarelaVisualitzaPel::PassarelaVisualitzaPel(string sobrenomU, string titolPel
     : _sobrenom(sobrenomU), _titolPelicula(titolPeliculaU), _data(dataU), _numVisualitzacions(numVisualitzacionsU) {}
 
 
-string PassarelaVisualitzaPel::obteSobrenom() const {
+//GETTERS
+string PassarelaVisualitzaPel::obteSobrenom(){
     return _sobrenom;
 }
-
-void PassarelaVisualitzaPel::setSobrenom(const string& sobrenomU) {
-    _sobrenom = sobrenomU;
-}
-
-
-string PassarelaVisualitzaPel::obteTitolPelicula() const {
+string PassarelaVisualitzaPel::obteTitolPelicula() {
     return _titolPelicula;
 }
-
-void PassarelaVisualitzaPel::setTitolPelicula(const string& titolPeliculaU) {
-    _titolPelicula = titolPeliculaU;
-}
-
-
-string PassarelaVisualitzaPel::obteData() const {
+string PassarelaVisualitzaPel::obteData() {
     return _data;
 }
-
-void PassarelaVisualitzaPel::setData(const string& dataU) {
-    _data = dataU;
-}
-
-// Getter y Setter para _numVisualitzacions
-int PassarelaVisualitzaPel::obteNumVisualitzacions() const {
+int PassarelaVisualitzaPel::obteNumVisualitzacions() {
     return _numVisualitzacions;
 }
 
-void PassarelaVisualitzaPel::setNumVisualitzacions(int numVisualitzacionsU) {
-    _numVisualitzacions = numVisualitzacionsU;
+//SETTERS
+void PassarelaVisualitzaPel::setSobrenom(string sobrenom) {
+    _sobrenom = sobrenom;
 }
-
+void PassarelaVisualitzaPel::setTitolPelicula(string titolP) {
+    _titolPelicula = titolP;
+}
+void PassarelaVisualitzaPel::setData(string data){
+    _data = data;
+}
+void PassarelaVisualitzaPel::setNumVisualitzacions(int nVis) {
+    _numVisualitzacions = nVis;
+}
 
 void PassarelaVisualitzaPel::insereix() {
     

@@ -1,12 +1,10 @@
 #include "TxEsborraUsuari.h"
-#include "PetitFlix.h"
-#include <stdexcept>  // Para runtime_error
-#include <string>  // Para usar std::string
-using namespace std;
 
 
-TxEsborraUsuari::TxEsborraUsuari(string contraU){
-    _contraU = contraU;
+TxEsborraUsuari::TxEsborraUsuari() {
+}
+
+TxEsborraUsuari::TxEsborraUsuari(string contraU) : _contraU(contraU){ 
 }
 
 void TxEsborraUsuari::executar(){

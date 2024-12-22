@@ -37,6 +37,7 @@
     <ClCompile Include="TxIniciSessio.cpp" />
     <ClCompile Include="TxRegistraUsuari.cpp" />
     <ClCompile Include="TxTancaSessio.cpp" />
+    <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="capaDePresentacio.h" />

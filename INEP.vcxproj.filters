@@ -19,111 +19,114 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="capaDePresentacio.cpp">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="CercadoraUsuari.cpp">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="CercadoraVisualitzaPel.cpp">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="CercadoraVisualitzaSerie.cpp">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="connexioDB.cpp">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="CtrlModificaUsuari.cpp">
-      <Filter>Archivos de recursos</Filter>
-    </ClCompile>
-    <ClCompile Include="DTOUsuari.cpp">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="PassarelaUsuari.cpp">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="DTOUsuari.cpp">
+      <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="PassarelaVisualitzaPel.cpp">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="PassarelaVisualitzaSerie.cpp">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="PetitFlix.cpp">
-      <Filter>Archivos de recursos</Filter>
-    </ClCompile>
-    <ClCompile Include="TxConsultaUsuari.cpp">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="TxEsborraUsuari.cpp">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="TxConsultaUsuari.cpp">
+      <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="TxInfoVisualitzacions.cpp">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="TxIniciSessio.cpp">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="TxRegistraUsuari.cpp">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="TxTancaSessio.cpp">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="utils.cpp">
+      <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="capaDePresentacio.h">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="CercadoraUsuari.h">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="CercadoraVisualitzaPel.h">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="CercadoraVisualitzaSerie.h">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="connexioDB.h">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="CtrlModificaUsuari.h">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="DTOUsuari.h">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="PassarelaUsuari.h">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="PassarelaVisualitzaPel.h">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="PassarelaVisualitzaSerie.h">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="PetitFlix.h">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="TxConsultaUsuari.h">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="TxEsborraUsuari.h">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="TxInfoVisualitzacions.h">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="TxIniciSessio.h">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="TxRegistraUsuari.h">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="TxTancaSessio.h">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="utils.h">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,8 +1,5 @@
 #include "CapaDePresentacio.h"
-#include "PetitFlix.h"
-#include "connexioDB.h"
-using namespace std;
-#include <locale>
+
 
 void gestioUsuaris() {
     CapaDePresentacio& presentacio = CapaDePresentacio::getInstance();
@@ -25,7 +22,7 @@ void gestioUsuaris() {
             break;
         case 3: presentacio.processarModificaContrasenya(); 
             break;
-        case 4: presentacio.processarBorrarUsuari(); 
+        case 4: presentacio.processarEsborraUsuari(); 
             break;
         case 5: break;
         default: wcout << "Error: Opció no vàlida" << endl;

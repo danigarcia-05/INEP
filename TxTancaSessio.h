@@ -2,6 +2,8 @@
 #define TXTANCASSESIO_HPP
 #pragma once
 
+#include "PetitFlix.h"
+
 class TxTancaSessio {
 private:
 

@@ -9,57 +9,45 @@ PassarelaVisualitzaSerie::PassarelaVisualitzaSerie(string sobrenomU, string tito
     : _sobrenom(sobrenomU), _titolSerie(titolSerieU), _numVisualitzacions(numVisualitzacionsU), _numTemporada(numTemporadaU), _numCapitol(numCapitolU), _data(dataU) {}
 
 
-string PassarelaVisualitzaSerie::obteSobrenom() const {
+//GETTERS
+string PassarelaVisualitzaSerie::obteSobrenom(){
     return _sobrenom;
 }
-
-void PassarelaVisualitzaSerie::setSobrenom(const string& sobrenomU) {
-    _sobrenom = sobrenomU;
-}
-
-
-string PassarelaVisualitzaSerie::obteTitolSerie() const {
+string PassarelaVisualitzaSerie::obteTitolSerie(){
     return _titolSerie;
 }
-
-void PassarelaVisualitzaSerie::setTitolSerie(const string& titolSerieU) {
-    _titolSerie = titolSerieU;
-}
-
-
-int PassarelaVisualitzaSerie::obteNumVisualitzacions() const {
+int PassarelaVisualitzaSerie::obteNumVisualitzacions(){
     return _numVisualitzacions;
 }
-
-void PassarelaVisualitzaSerie::setNumVisualitzacions(int numVisualitzacionsU) {
-    _numVisualitzacions = numVisualitzacionsU;
-}
-
-
-int PassarelaVisualitzaSerie::obteNumTemporada() const {
+int PassarelaVisualitzaSerie::numTemporada(){
     return _numTemporada;
 }
-
-void PassarelaVisualitzaSerie::setNumTemporada(int numTemporadaU) {
-    _numTemporada = numTemporadaU;
-}
-
-
-int PassarelaVisualitzaSerie::obteNumCapitol() const {
+int PassarelaVisualitzaSerie::numCapitol(){
     return _numCapitol;
 }
-
-void PassarelaVisualitzaSerie::setNumCapitol(int numCapitolU) {
-    _numCapitol = numCapitolU;
-}
-
-
-string PassarelaVisualitzaSerie::obteData() const {
+string PassarelaVisualitzaSerie::obteData(){
     return _data;
 }
 
-void PassarelaVisualitzaSerie::setData(const string& dataU) {
-    _data = dataU;
+
+//SETTERS
+void PassarelaVisualitzaSerie::setSobrenom(string sobrenom){
+    _sobrenom = sobrenom;
+}
+void PassarelaVisualitzaSerie::setTitolSerie(string titolS){
+    _titolSerie = titolS;
+}
+void PassarelaVisualitzaSerie::setNumVisualitzacions(int nVis){
+    _numVisualitzacions = nVis;
+}
+void PassarelaVisualitzaSerie::setNumTemporada(int temp){
+    _numTemporada = temp;
+}
+void PassarelaVisualitzaSerie::setNumCapitol(int cap){
+    _numCapitol = cap;
+}
+void PassarelaVisualitzaSerie::setData(string data){
+    _data = data;
 }
 
 

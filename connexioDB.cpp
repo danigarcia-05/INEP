@@ -1,13 +1,14 @@
 #include "connexioDB.h"
 
-ConnexioDB& ConnexioDB::getInstance(){
+// Inicialización del puntero estático
+ConnexioDB* ConnexioDB::_ins = nullptr;
+
+ConnexioDB& ConnexioDB::getInstance() {
     if (_ins == nullptr) {
         _ins = new ConnexioDB();
     }
     return *_ins;
 }
-
-ConnexioDB* ConnexioDB::_ins = nullptr;
 
 ConnexioDB::ConnexioDB() : driver(nullptr), con(nullptr), stmt(nullptr) {
     driver = sql::mysql::get_mysql_driver_instance();
@@ -16,18 +17,23 @@ ConnexioDB::ConnexioDB() : driver(nullptr), con(nullptr), stmt(nullptr) {
     stmt = con->createStatement();
 }
 
-~ConnexioDB::ConnexioDB() {
-    con->close();
+ConnexioDB::~ConnexioDB() {
+    if (stmt) delete stmt;
+    if (con) {
+        con->close();
+        delete con;
+    }
 }
 
-sql::ResultSet* consultaSQL(const string& sql) {
-		if (stmt != nullptr) {
-			return stmt->executeQuery(sql);
-		}
+sql::ResultSet* ConnexioDB::consultaSQL(const std::string& sql) {
+    if (stmt != nullptr) {
+        return stmt->executeQuery(sql);
+    }
+    return nullptr;
 }
 
-	void executarSQL(const string& sql) {
-		if (stmt != nullptr) {
-			stmt->execute(sql);
-		}
-	}
+void ConnexioDB::executarSQL(const std::string& sql) {
+    if (stmt != nullptr) {
+        stmt->execute(sql);
+    }
+}

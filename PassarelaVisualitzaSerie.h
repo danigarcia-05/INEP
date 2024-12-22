@@ -22,24 +22,23 @@ public:
     PassarelaVisualitzaSerie(); 
     PassarelaVisualitzaSerie(string sobrenomU, string titolSerieU, int numVisualitzacionsU, int numTemporadaU, int numCapitolU, string dataU);
 
+    //GETTERS
+    string obteSobrenom();
+    string obteTitolSerie();
+    int obteNumVisualitzacions();
+    int numTemporada();
+    int numCapitol();
+    string obteData();
     
-    string obteSobrenom() const;
-    void setSobrenom(const string sobrenomU);
 
-    string obteTitolSerie() const;
-    void setTitolSerie(const string titolSerieU);
-
-    int obteNumVisualitzacions() const;
-    void setNumVisualitzacions(int numVisualitzacionsU);
-
-    int obteNumTemporada() const;
-    void setNumTemporada(int numTemporadaU);
-
-    int obteNumCapitol() const;
-    void setNumCapitol(int numCapitolU);
-
-    Data obteData() const;
-    void setData(const string dataU);
+    //SETTERS
+    void setSobrenom(string sobrenom);
+    void setTitolSerie(string titolS);
+    void setNumVisualitzacions(int nVis);
+    void setNumTemporada(int temp);
+    void setNumCapitol(int cap);
+    void setData(string data);
+    
 
     void insereix();
     void modifica();

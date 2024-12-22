@@ -2,6 +2,12 @@
 #define TXINICISESSIO_HPP
 #pragma once
 #include <string>
+#include "CercadoraUsuari.h"
+#include "PassarelaUsuari.h"
+#include "PetitFlix.h"
+#include <stdexcept>
+#include <iostream>
+using namespace std;
 
 class TxIniciSessio {
 private:

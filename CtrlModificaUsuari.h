@@ -1,5 +1,5 @@
-#ifndef CONSULTAUSUARI_HPP
-#define CONSULTAUSUARI_HPP  
+#ifndef CTRLMODIFICAUSUARI_HPP
+#define CTRLMODIFICAUSUARI_HPP
 #pragma once
 #include "DTOUsuari.h"
 #include "PassarelaUsuari.h"
@@ -19,9 +19,8 @@ public:
     CtrlModificaUsuari();
 
     DTOUsuari consultaUsuari();
-    
-    void modificaUsuari(string nomU, string contraU, string correuU, string neixU, string subsU);
+
+    void modificaUsuari(string nomU, string contraU, string correuU, string neixU, string modalitatU);
 
 };
-
 #endif

@@ -143,13 +143,14 @@ void CapaDePresentacio::processarConsultaUsuari() {
 
 void CapaDePresentacio::processarModificaUsuari() {
         cout << "** Modifica usuari **" << endl;
-        CtrlModifica ctrlModificaUsuari; //No pilla constructora
+        CtrlModificaUsuari ctrlModificaUsuari; //No pilla constructora       
         DTOUsuari infoU = ctrlModificaUsuari.consultaUsuari();
+
         cout<<"Nom complet: "<<infoU.obteNom()<<endl;
         cout<<"Sobrenom: "<<infoU.obteSobrenom()<<endl;
         cout<<"Correu electronic: "<<infoU.obteCorreu()<<endl;
         cout<<"Data naixement (DD/MM/AAAA): " << infoU.obteDataN()<<endl; 
-        cout<<"Modalitat subscripcio: "<<infoU.obteSubscripcio()<<endl;
+        cout << "Modalitat subscripcio: " << infoU.obteModalitatS() << endl;
 
         cout << "Omplir la informació que es vol modificar ...";
         string nomU, contraU, correuU, subsU, neixU;
@@ -166,27 +167,35 @@ void CapaDePresentacio::processarModificaUsuari() {
         getline(cin, correuU);
         cout<<correuU<<endl;
 
-        /*cout << "Data naixement (DD/MM/AAAA): ";
-        getline(cin, neixU);
-        cout<<neixU<<endl;*/
+        cout << "Data naixement (DD/MM/AAAA): ";
+        cin >> neixU;
+        cout<<neixU<<endl;
 
-        //
-        //s'ha de fer(modalitat subscripcio ha de ser vàlid)
-        //
         cout << "Modalitat subscripcio: ";
         getline(cin, subsU);
-        cout<<subS<<endl;
+        cout<<subsU<<endl;
 
-        //CtrlModificaUsuari.modificaUsuari(nomU, contraU, correuU, neixU, subsU); 
-        //
-        //excepció s'ha de fer(CorreuExisteix)
-        //
-        DTOUsuari infoU(ctrlModificaUsuari.consultaUsuari());
-        cout<<"Nom complet: "<<infoU.obteNom()<<endl;
-        cout<<"Sobrenom: "<<infoU.obteSobrenom()<<endl;
-        cout<<"Correu electronic: "<<infoU.obteCorreu()<<endl;
-        cout<<"Data naixement (DD/MM/AAAA): "<<infoU.obteDataN()<<endl; 
-        cout<<"Modalitat subscripcio: "<<infoU.obteSubscripcio()<<endl;
+        try {
+            ctrlModificaUsuari.modificaUsuari(nomU, contraU, correuU, neixU, subsU);
+            
+            infoU = ctrlModificaUsuari.consultaUsuari();
+            cout << "** Dades usuari modificades **" << endl;
+            cout << "Nom complet: " << infoU.obteNom() << endl;
+            cout << "Sobrenom: " << infoU.obteSobrenom() << endl;
+            cout << "Correu electronic: " << infoU.obteCorreu() << endl;
+            cout << "Data naixement (DD/MM/AAAA): " << infoU.obteDataN() << endl;
+            cout << "Modalitat subscripcio: " << infoU.obteModalitatS() << endl;
+        }
+        catch(sql::SQLException& e){
+            string errorMsg = e.what();
+            if (e.getErrorCode() == 1062) { //error no es pot insertar per clau primaria o unique repetit
+                if (errorMsg.find("correu_electronic") != string::npos) {
+                    cout << "El nou correu electrònic ja existeix" << endl;
+                }
+            }
+        }
+            
+        
 }
 
 //-------------------------------------------------------------------
@@ -219,4 +228,17 @@ void CapaDePresentacio::processarProperesEstrenes(){
 
 void CapaDePresentacio::processarPeliculesMesVistes(){
      cout << "HOla" << endl;
+}
+
+void CapaDePresentacio::processarVisualitzarPelicula() {
+
+}
+void CapaDePresentacio::processarVisualitzarCapitol() {
+
+}
+void CapaDePresentacio::processarConsultarVisualitzacions() {
+
+}
+void CapaDePresentacio::processarModificaContrasenya() {
+
 }

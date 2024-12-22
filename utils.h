@@ -3,26 +3,18 @@
 
 #include <windows.h>
 #include <string>
+using namespace std;
 
 namespace utils {
     // Desactiva el eco de la consola
-    inline void desactivarEco() {
-        HANDLE hStdin = GetStdHandle(STD_INPUT_HANDLE);
-        DWORD mode;
-        GetConsoleMode(hStdin, &mode);
-        SetConsoleMode(hStdin, mode & ~ENABLE_ECHO_INPUT);
-    }
+    inline void desactivarEco();
 
     // Reactiva el eco de la consola
-    inline void activarEco() {
-        HANDLE hStdin = GetStdHandle(STD_INPUT_HANDLE);
-        DWORD mode;
-        GetConsoleMode(hStdin, &mode);
-        SetConsoleMode(hStdin, mode | ENABLE_ECHO_INPUT);
-    }
+    inline void activarEco();
 
-    string convertirData(string dia, string mes, string any) {
-        return any + "-" + mes + "-" + dia;
-    }
+    string convertirData(string dia, string mes, string any);
 }
 #endif
+
+
+

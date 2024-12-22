@@ -22,9 +22,6 @@ vector<PassarelaVisualitzaSerie> CercadoraVisualitzaSerie::cercaVisualitzaSerie(
             pvs.setData(res->getString("data"));
             cjVisualitzacionsSerie.push_back(pvs);
         }
-        else {
-            throw 
-        }
+        return cjVisualitzacionsSerie;
     }
-    return cjVisualitzacionsSerie;
-}
+    
