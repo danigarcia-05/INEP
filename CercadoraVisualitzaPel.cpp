@@ -3,5 +3,6 @@
 CercadoraVisualitzaPel::CercadoraVisualitzaPel(){}
 
 vector<PassarelaVisualitzaPel> CercadoraVisualitzaPel::cercaVisualitzaPel(string sobrenomU){
- //SQL
+	vector<PassarelaVisualitzaPel> cjVisualitzaPel;
+	return cjVisualitzaPel;
 }

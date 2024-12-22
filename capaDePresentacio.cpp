@@ -14,14 +14,16 @@ CapaDePresentacio& CapaDePresentacio::getInstance(){
 }
 
 CapaDePresentacio* CapaDePresentacio::ins = nullptr;
+CapaDePresentacio::CapaDePresentacio() {
+
+}
 
 /*
 *****************************************************
                    DESTRUCTORS
 *****************************************************
 */
-TxIniciSessio::~TxIniciSessio(){
-}
+
 
 /*
 *****************************************************
