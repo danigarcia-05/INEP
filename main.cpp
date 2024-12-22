@@ -1,5 +1,5 @@
 #include "CapaDePresentacio.h"
-
+#include "utils.h"
 
 void gestioUsuaris() {
     CapaDePresentacio& presentacio = CapaDePresentacio::getInstance();
