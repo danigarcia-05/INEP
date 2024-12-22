@@ -35,8 +35,11 @@ void CapaDePresentacio::processarIniciarSessio(){
     cout << "** Inici sessio **" << endl;
     cout << "Sobrenom: ";
     cin >> sobrenomU;
+    //utils::desactivarEco();
     cout << "Contrasenya: ";
-    cin >> contrasenyaU;
+    utils::desactivarEco(contrasenyaU); 
+    utils::activarEco(); 
+
     TxIniciSessio txIniciSessio(sobrenomU, contrasenyaU);
     try {
         txIniciSessio.executar();
@@ -65,24 +68,23 @@ void CapaDePresentacio::processarRegistreUsuari(){
     cout << "Nom complet: ";
     cin.ignore(); //Revisar
     getline(cin, nU);
-    cout << endl << "Sobrenom: ";
+    cout  << "Sobrenom: ";
     cin >> sU;
-    cout << endl <<  "Contrasenya: ";
-    utils::desactivarEco();
-    cin >> cU;
-    utils::activarEco();
+    cout  <<  "Contrasenya: ";
+    utils::desactivarEco(cU); 
+    utils::activarEco(); 
     cout << endl << "Correu Electrònic: ";
     cin >> ceU;
     
-    cout << endl << "Data naixement (DD/MM/AAAA): ";
+    cout << "Data naixement (DD/MM/AAAA): ";
     string data;
     cin >> data;
     string dia = string(1, data[0]) + string(1, data[1]);
     string mes = string(1, data[3]) + string(1, data[4]);
     string any = string(1, data[6]) + string(1, data[7]) + string(1, data[8]) + string(1, data[9]);
-    dnU = utils::convertirData(dia, mes, any);
+    dnU = any + "-" + mes + "-" + dia;
 
-    cout << endl << "Modalitats de subscripció disponibles ";
+    cout << "Modalitats de subscripció disponibles ";
     cout << endl << " > 1. Completa ";
     cout << endl << " > 2. Cinèfil ";
     cout << endl << " > 3. Infantil ";
@@ -104,7 +106,7 @@ void CapaDePresentacio::processarRegistreUsuari(){
     TxRegistraUsuari txRegistraUsuari(nU, sU, cU, ceU, dnU, msU);
     try {
         txRegistraUsuari.executar();
-        cout << "Usuari registrat correctament!" << endl;
+        cout << endl << "Usuari registrat correctament!" << endl;
     }   
     catch (sql::SQLException& e) {
         string errorMsg = e.what();
@@ -205,15 +207,14 @@ void CapaDePresentacio::processarModificaUsuari() {
 void CapaDePresentacio::processarEsborraUsuari(){
     string contrasenyaU;
     cout << "** Esborrar usuari **" << endl;
-    cout << "Per confirmar l'esborrat, s'ha d'entrar la contrasenya ... ";
+    cout << "Per confirmar l'esborrat, s'ha d'entrar la contrasenya ... " << endl;
     cout << "Contrasenya: ";
-    utils::desactivarEco();
-    cin >> contrasenyaU;
-    utils::activarEco();
+    utils::desactivarEco(contrasenyaU); 
+    utils::activarEco(); 
     TxEsborraUsuari txEsborraUsuari(contrasenyaU);
     try {
         txEsborraUsuari.executar();
-        cout << "Usuari esborrat correctament!" << endl;
+        cout << endl << "Usuari esborrat correctament!" << endl;
     }
     catch (const exception& e) {
        cout << "La contrasenya no és correcta, l'usuari no s'esborrat!"  << endl;

@@ -14,7 +14,7 @@ void gestioUsuaris() {
     wcout << "5. Tornar" << endl;
     wcout << "Escriu opció: ";
     cin >> op;
-    cout << endl;
+    wcout << endl;
     switch (op) {
         case 1: presentacio.processarConsultaUsuari(); 
             break;
@@ -43,7 +43,7 @@ void gestioContinguts() {
     wcout << "4. Tornar" << endl;
     wcout << "Escriu opció: ";
     cin >> op;
-    cout << endl;
+    wcout << endl;
     switch (op) {
         case 1: presentacio.processarVisualitzarPelicula();
             break;
@@ -70,7 +70,7 @@ void consultes() {
     wcout << "4. Tornar" << endl;
     wcout << "Escriu opció: ";
     cin >> op;
-    cout << endl;
+    wcout << endl;
     switch (op) {
         case 1: presentacio.processarProperesEstrenes();break;
         case 2: presentacio.processarUltimesNovetats();break;
@@ -86,7 +86,6 @@ int main() {
     PetitFlix& petitFlix = PetitFlix::getInstance();
     int op;
     bool acaba = false;
-    bool sessioIniciada = false;
     CapaDePresentacio& presentacio = CapaDePresentacio::getInstance();
     while (acaba == false) {
         if(petitFlix.obteUsuari() == nullptr){
@@ -99,7 +98,6 @@ int main() {
             wcout << "4. Sortir" << endl;
             wcout << "Escriu opcio: ";
             cin >> op;
-            cout << endl;
             switch (op) {
                 case 1: presentacio.processarIniciarSessio();
                     break;
@@ -107,7 +105,7 @@ int main() {
                     break;
                 case 3: consultes();
                     break;
-                case 4: acaba = true; 
+                case 4: acaba = true;  break;
                 default: wcout << "Error: Opció no vàlida" << endl;
                     break;  
             }
@@ -123,18 +121,17 @@ int main() {
             wcout << "5. Sortir" << endl;
             wcout << "Escriu opcio: ";
             cin >> op;
-            cout << endl;
             switch (op) {
                 case 1: gestioUsuaris();break;
                 case 2: gestioContinguts();break;
                 case 3: consultes();break;
-                case 4: presentacio.processarTancaSessio(); 
-                case 5: acaba = true; 
+                case 4: presentacio.processarTancaSessio(); break;
+                case 5: acaba = true;  break;
                 default: wcout << "Error: Opció no vàlida" << endl;
                     break;  
             }
         }
-        // system("cls");
+        utils::clearConsole();
     }    
 }
 

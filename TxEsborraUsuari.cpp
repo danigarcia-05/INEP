@@ -15,5 +15,6 @@ void TxEsborraUsuari::executar(){
     if (c != _contraU) {
         throw runtime_error("ErrorContrasenya");
     }
-    usu.esborra();  
+    usu.esborra();
+    petitFlix.tancaSessio();
 }
