@@ -25,3 +25,10 @@
             petitFlix.modificaUsuari(_usuari.obteNom(), _usuari.obteContrasenya(), _usuari.obteDataNaixament(), _usuari.obteCorreuElectronic(), _usuari.obteModalitatSubscripcio());
         }
     }
+
+    void CtrlModificaUsuari::modificaContrasenya(string contraU) {
+        _usuari.setContrasenya(contraU);
+        _usuari.modifica();
+        PetitFlix& petitFlix = PetitFlix::getInstance();
+        petitFlix.modificaContrasenya(_usuari.obteContrasenya());
+    }

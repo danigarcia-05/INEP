@@ -23,7 +23,8 @@ public:
     static void iniciaSessio(PassarelaUsuari u); 
     void tancaSessio(); 
     void modificaUsuari(string nom, string contrasenya, string dataN, string correuE, string modalitatS);
-         
+    void modificaContrasenya(string contrasenya);
+
 };
 
 #endif 

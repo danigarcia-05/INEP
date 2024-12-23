@@ -22,5 +22,7 @@ public:
 
     void modificaUsuari(string nomU, string contraU, string correuU, string neixU, string modalitatU);
 
+    void modificaContrasenya(string contraU);
+
 };
 #endif

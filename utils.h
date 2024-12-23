@@ -4,6 +4,9 @@
 #include <windows.h>
 #include <string>
 #include <iostream>
+#include <limits>
+#include <thread>  
+#include <chrono> 
 using namespace std;
 
 namespace utils {
@@ -53,17 +56,47 @@ namespace utils {
         system("cls"); // Windows command to clear the console
     }
 
-    inline void enter() {
-        cout << endl << "Pressiona la tecla Enter per continuar" << endl;
-        cin.ignore();
-        while (true) {
-            char c = cin.get();
-            if (c == '\n') {
-                break;
-            }
+    inline void espera(int miliseg) {
+        this_thread::sleep_for(chrono::milliseconds(miliseg));
+    }
+
+    inline void missatgeAnimacio(const std::string& msg, int entreLletres) {
+        for (char c : msg) {
+            cout << c << flush; 
+            espera(entreLletres);
         }
+    }
+
+    inline void enter() {
+        cout << endl;
+        missatgeAnimacio("Presiona ENTER per continuar... ", 25);
+        cin.ignore(); 
+        cin.get();
         clearConsole();
     }
+
+    inline void ensenyaLogo() {
+        clearConsole();
+        missatgeAnimacio(" /$$$$$$$    /$$$$$$$$", 10);
+        cout << endl;
+        missatgeAnimacio("| $$__  $$  | $$_____/", 10);
+        cout << endl;
+        missatgeAnimacio("| $$  | $$  | $$", 10);
+        cout << endl;
+        missatgeAnimacio("| $$$$$$$/  | $$$$$", 10);
+        cout << endl;
+        missatgeAnimacio("| $$____/   | $$__/", 10);
+        cout << endl;
+        missatgeAnimacio("| $$        | $$", 10);
+        cout << endl;
+        missatgeAnimacio("| $$        | $$", 10);
+        cout << endl;
+        missatgeAnimacio("|__/        |__/", 10);
+        espera(1500);
+        clearConsole();
+    }
+
+    
 };
 
 #endif

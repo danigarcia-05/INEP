@@ -38,3 +38,7 @@ void PetitFlix::modificaUsuari(string nom, string contrasenya, string dataN, str
     _usuari->setModalitatSubscripcio(modalitatS);
 }
 
+void PetitFlix::modificaContrasenya(string contrasenya) {
+    _usuari->setContrasenya(contrasenya);
+}
+

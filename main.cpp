@@ -1,9 +1,10 @@
 #include "CapaDePresentacio.h"
 #include "utils.h"
 
+
 void gestioUsuaris() {
     CapaDePresentacio& presentacio = CapaDePresentacio::getInstance();
-    int op;
+    string op;
     cout << "------------------" << endl;
     cout << " Gestionar usuari" << endl;
     cout << "------------------" << endl;
@@ -14,26 +15,22 @@ void gestioUsuaris() {
     cout << "5. Tornar" << endl;
     cout << "Escriu opció: ";
     cin >> op;
+    cout << endl;
     utils::clearConsole();
-    switch (op) {
-        case 1: presentacio.processarConsultaUsuari(); 
-            break;
-        case 2: presentacio.processarModificaUsuari(); 
-            break;
-        case 3: presentacio.processarModificaContrasenya(); 
-            break;
-        case 4: presentacio.processarEsborraUsuari(); 
-            break;
-        case 5: break;
-        default: cout << "Error: Opció no vàlida" << endl;
-            gestioUsuaris();
-            break;   
+    if (op == "1") presentacio.processarConsultaUsuari(); 
+    else if (op == "2") presentacio.processarModificaUsuari(); 
+    else if (op == "3") presentacio.processarModificaContrasenya(); 
+    else if (op == "4") presentacio.processarEsborraUsuari();
+    else if (op != "5") {
+        cout << "Error: Opció no vàlida" << endl;
+        utils::enter();
+        gestioUsuaris();       
     }
 }
 
 void gestioContinguts() {
     CapaDePresentacio& presentacio = CapaDePresentacio::getInstance();
-    int op;
+    string op;
     cout << "------------------" << endl;
     cout << " Visualitzar" << endl;
     cout << "------------------" << endl;
@@ -44,23 +41,19 @@ void gestioContinguts() {
     cout << "Escriu opció: ";
     cin >> op;
     cout << endl;
-    switch (op) {
-        case 1: presentacio.processarVisualitzarPelicula();
-            break;
-        case 2: presentacio.processarVisualitzarCapitol();
-            break;
-        case 3: presentacio.processarConsultarVisualitzacions();
-            break;
-        case 4: break;
-        default: cout << "Error: Opció no vàlida" << endl;
-            gestioContinguts();
-            break;    
-    }
+    if(op == "1") presentacio.processarVisualitzarPelicula(); 
+    else if(op == "2") presentacio.processarVisualitzarCapitol();
+    else if(op == "3") presentacio.processarConsultarVisualitzacions();
+    else if(op != "4"){
+        cout << "Opció no vàlida" << endl;
+        utils::enter();
+        gestioContinguts();
+    } 
 }
 
 void consultes() {
     CapaDePresentacio& presentacio = CapaDePresentacio::getInstance();
-    int op;
+    string op;
     cout << "------------------" << endl;
     cout << " Consultes" << endl;
     cout << "------------------" << endl;
@@ -71,23 +64,26 @@ void consultes() {
     cout << "Escriu opció: ";
     cin >> op;
     cout << endl;
-    switch (op) {
-        case 1: presentacio.processarProperesEstrenes();break;
-        case 2: presentacio.processarUltimesNovetats();break;
-        case 3: presentacio.processarPeliculesMesVistes();break;
-        case 4: break;
-        default: cout << "Error: Opció no vàlida" << endl;
-            consultes();
-            break;    
-    }
+
+    if(op == "1") presentacio.processarProperesEstrenes(); 
+    else if(op == "2") presentacio.processarUltimesNovetats();
+    else if(op == "3") presentacio.processarPeliculesMesVistes();
+    else if(op != "4"){
+        cout << "Opció no vàlida" << endl;
+        utils::enter();
+        consultes();
+    } 
 }
 
 int main() {
     std::locale::global(std::locale("ca_ES.utf8"));
     std::cout.imbue(std::locale()); // Aplicar la configuración a std::cout
     std::cout.imbue(std::locale()); // Aplicar la configuración a std::cout
+    
+    utils::ensenyaLogo();
+
     PetitFlix& petitFlix = PetitFlix::getInstance();
-    int op;
+    string op;
     bool acaba = false;
     CapaDePresentacio& presentacio = CapaDePresentacio::getInstance();
     while (acaba == false) {
@@ -102,17 +98,14 @@ int main() {
             cout << "Escriu opció: ";
             cin >> op;
             utils::clearConsole();
-            switch (op) {
-                case 1: presentacio.processarIniciarSessio(); 
-                    break;
-                case 2: presentacio.processarRegistreUsuari();
-                    break;
-                case 3:  consultes();
-                    break;
-                case 4:  acaba = true;  break;
-                default: cout << "Error: Opció no vàlida" << endl;
-                    break;  
-            }
+            if(op == "1") presentacio.processarIniciarSessio(); 
+            else if(op == "2") presentacio.processarRegistreUsuari();
+            else if(op == "3") consultes();
+            else if(op == "4") acaba = true;
+            else{
+               cout << "Opció no vàlida" << endl; 
+               utils::enter();
+            } 
         }
         else{
             cout << "*********************" << endl;
@@ -120,23 +113,24 @@ int main() {
             cout << "*********************" << endl;
             cout << "1. Gestió usuaris" << endl;
             cout << "2. Visualitzar" << endl;
-            cout << "3. Consultes" << endl;
+            cout << "3. Consultes / Ensenya Logo" << endl;
             cout << "4. Tancar sessió" << endl;
             cout << "5. Sortir" << endl;
             cout << "Escriu opció: ";
             cin >> op;
             utils::clearConsole();
-            switch (op) {
-                case 1: gestioUsuaris();break;
-                case 2: gestioContinguts();break;
-                case 3: consultes();break;
-                case 4: presentacio.processarTancaSessio(); break;
-                case 5: acaba = true;  break;
-                default: cout << "Error: Opció no vàlida" << endl;
-                    break;  
-            }
+            if (op == "1") gestioUsuaris();
+            else if (op == "2") gestioContinguts();
+            else if (op == "3") utils::ensenyaLogo();
+            else if (op == "4") presentacio.processarTancaSessio();
+            else if (op == "5") acaba = true;
+            else{
+               cout << "Opció no vàlida" << endl; 
+               utils::enter();
+            } 
         }
-    }    
+    }
+    utils::ensenyaLogo();   
 }
 
 

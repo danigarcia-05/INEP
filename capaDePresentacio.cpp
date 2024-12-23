@@ -175,7 +175,9 @@ void CapaDePresentacio::processarModificaUsuari() {
     getline(cin, nomU);
 
     cout << "Contrasenya: ";
-    getline(cin, contraU);
+    utils::desactivarEco(contraU);
+    utils::activarEco();
+    cout << endl;
 
     cout << "Correu electrònic: ";
     getline(cin, correuU);
@@ -254,5 +256,29 @@ void CapaDePresentacio::processarConsultarVisualitzacions() {
 
 }
 void CapaDePresentacio::processarModificaContrasenya() {
+    cout << "** Modifica contrasenya **" << endl;
+    CtrlModificaUsuari ctrlModificaUsuari;
+    DTOUsuari infoU = ctrlModificaUsuari.consultaUsuari();
 
+    cout << "Entra la nova contrasenya ..." << endl;
+    string contraU;
+
+    cout << "Contrasenya: ";
+    utils::desactivarEco(contraU);
+    utils::activarEco();
+
+    try {
+        ctrlModificaUsuari.modificaContrasenya(contraU);
+        DTOUsuari infoUsu(ctrlModificaUsuari.consultaUsuari());
+        utils::enter();
+    }
+    catch (sql::SQLException& e) {
+        string errorMsg = e.what();
+        if (e.getErrorCode() == 1062) { //error no es pot insertar per clau primaria o unique repetit
+            if (errorMsg.find("correu_electronic") != string::npos) {
+                cout << "El nou correu electrònic ja existeix" << endl;
+            }
+        }
+        utils::enter();
+    }
 }
