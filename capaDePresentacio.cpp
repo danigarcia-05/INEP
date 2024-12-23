@@ -92,7 +92,7 @@ void CapaDePresentacio::processarRegistreUsuari(){
     cout << endl << " > 2. Cinèfil ";
     cout << endl << " > 3. Infantil ";
     cout << endl << "Escull modalitat: ";
-    int mod;
+    string mod;
     cin >> mod;
     switch (mod) {
     case 1:
@@ -105,6 +105,7 @@ void CapaDePresentacio::processarRegistreUsuari(){
         msU = "Infantil";
         break;
     }
+    if(mod == "1") msU = "Completa";
     utils::clearConsole();
 
     TxRegistraUsuari txRegistraUsuari(nU, sU, cU, ceU, dnU, msU);
