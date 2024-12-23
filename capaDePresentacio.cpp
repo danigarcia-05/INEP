@@ -32,33 +32,36 @@ CapaDePresentacio::CapaDePresentacio() {
 */
 void CapaDePresentacio::processarIniciarSessio(){
     string sobrenomU, contrasenyaU;
-    cout << "** Inici sessio **" << endl;
+    cout << "** Inici sessió **" << endl;
     cout << "Sobrenom: ";
     cin >> sobrenomU;
-    //utils::desactivarEco();
     cout << "Contrasenya: ";
     utils::desactivarEco(contrasenyaU); 
     utils::activarEco(); 
-
+    utils::clearConsole();
     TxIniciSessio txIniciSessio(sobrenomU, contrasenyaU);
     try {
         txIniciSessio.executar();
-        cout << "Sessio iniciada correctament!" << endl;
+        cout << "Sessió iniciada correctament!" << endl;
+        utils::enter();
     }
     catch (const exception& e) {
         cout << "Error: Hi ha hagut un error amb el sobrenom o la contrasenya"  << endl;
+        utils::enter();
     }
 }
 
 void CapaDePresentacio::processarTancaSessio(){
     char tanca;
-    cout << "** Tancar sessio **" << endl;
-    cout << "Vols tancar la sessio (S/N): ";
+    cout << "** Tancar sessió **" << endl;
+    cout << "Vols tancar la sessió (S/N): ";
     cin >> tanca;
+    utils::clearConsole();
     if(tanca == 'S'){
         TxTancaSessio txTancaSessio;
         txTancaSessio.executar();
-        cout << "Sessio tancada correctament!" << endl;
+        cout << "Sessió tancada correctament!" << endl;
+        utils::enter();
     }
 }
 
@@ -68,12 +71,12 @@ void CapaDePresentacio::processarRegistreUsuari(){
     cout << "Nom complet: ";
     cin.ignore(); //Revisar
     getline(cin, nU);
-    cout  << "Sobrenom: ";
+    cout << "Sobrenom: ";
     cin >> sU;
-    cout  <<  "Contrasenya: ";
+    cout << "Contrasenya: ";
     utils::desactivarEco(cU); 
     utils::activarEco(); 
-    cout << endl << "Correu Electrònic: ";
+    cout << endl << "Correu electrònic: ";
     cin >> ceU;
     
     cout << "Data naixement (DD/MM/AAAA): ";
@@ -102,17 +105,19 @@ void CapaDePresentacio::processarRegistreUsuari(){
         msU = "Infantil";
         break;
     }
+    utils::clearConsole();
 
     TxRegistraUsuari txRegistraUsuari(nU, sU, cU, ceU, dnU, msU);
     try {
         txRegistraUsuari.executar();
         cout << endl << "Usuari registrat correctament!" << endl;
+        utils::enter();
     }   
     catch (sql::SQLException& e) {
         string errorMsg = e.what();
         if (e.getErrorCode() == 1062) { //error no es pot insertar per clau primaria o unique repetit
             if (errorMsg.find("sobrenom") != string::npos) {
-                cout << "Ja existeix un usuari amb aquest sobrnom" << endl;
+                cout << "Ja existeix un usuari amb aquest sobrenom" << endl;
             } 
             else if (errorMsg.find("correu_electronic") != string::npos) {
                 cout << "Ja existeix un usuari amb aquest correu electrònic" << endl;
@@ -121,7 +126,8 @@ void CapaDePresentacio::processarRegistreUsuari(){
         if (e.getErrorCode() == 1452) { //el valor de la columna que està associada a la clau foràna no coincideix amb cap entrada de la taula pare
             cout << "Modalitat no existeix" << endl;
         }
-    }    
+        utils::enter();
+    }  
 }
 
 //Cercadores pelis i series.
@@ -131,78 +137,78 @@ void CapaDePresentacio::processarConsultaUsuari() {
     DTOUsuari resultat;
     resultat = txConsultaUsuari.obteResultat();
 
+    utils::clearConsole();
+    
     TxInfoVisualitzacions txInfoVisualitzacions;
     txInfoVisualitzacions.executar();
     pair<int, int> vis = txInfoVisualitzacions.obteResultat();
     cout << "** Consulta usuari **" << endl;
     cout << "Nom Complet: " << resultat.obteNom() << endl;
     cout << "Sobrenom: " << resultat.obteSobrenom() << endl;
-    cout << "Correu electronic: " << resultat.obteCorreu() << endl;
+    cout << "Correu electrònic: " << resultat.obteCorreu() << endl;
     cout << "Data naixement (DD/MM/AAAA): " << resultat.obteDataN() << endl; 
     cout << "Modalitat subscripció: " << resultat.obteModalitatS() << endl;
     cout << endl;
-    cout << vis.first << " pel·licules visualitzades" << endl;
-    cout << vis.second << " capitols visualitzats" << endl;
+    cout << vis.first << " pel·lícules visualitzades" << endl;
+    cout << vis.second << " capítols visualitzats" << endl << endl;
+    
+    utils::enter();
 }
 
 void CapaDePresentacio::processarModificaUsuari() {
-        cout << "** Modifica usuari **" << endl;
-        CtrlModificaUsuari ctrlModificaUsuari; //No pilla constructora       
-        DTOUsuari infoU = ctrlModificaUsuari.consultaUsuari();
+    cout << "** Modifica usuari **" << endl;
+    CtrlModificaUsuari ctrlModificaUsuari;      
+    DTOUsuari infoU = ctrlModificaUsuari.consultaUsuari();
 
-        cout<<"Nom complet: "<<infoU.obteNom()<<endl;
-        cout<<"Sobrenom: "<<infoU.obteSobrenom()<<endl;
-        cout<<"Correu electronic: "<<infoU.obteCorreu()<<endl;
-        cout<<"Data naixement (DD/MM/AAAA): " << infoU.obteDataN()<<endl; 
-        cout << "Modalitat subscripcio: " << infoU.obteModalitatS() << endl;
+    cout << "Nom complet: " << infoU.obteNom() << endl;
+    cout << "Sobrenom: " << infoU.obteSobrenom() << endl;
+    cout << "Correu electrònic: " << infoU.obteCorreu() << endl;
+    cout << "Data naixement (DD/MM/AAAA): " << infoU.obteDataN() << endl;
+    cout << "Modalitat subscripció: " << infoU.obteModalitatS() << endl;
 
-        cout << "Omplir la informació que es vol modificar ...";
-        string nomU, contraU, correuU, subsU, neixU;
-        
-        cout << "Nom complet: ";
-        getline(cin, nomU); 
-        cout<<nomU<<endl;
+    utils::enter();
 
-        cout << "Contrasenya: ";
-        getline(cin, contraU);
-        cout<<contraU<<endl;
+    cout << "Omplir la informació que es vol modificar ..." << endl;
+    string nomU, contraU, correuU, subsU, neixU;
 
-        cout << "Correu electronic: ";
-        getline(cin, correuU);
-        cout<<correuU<<endl;
+    cout << "Nom complet: ";
+    getline(cin, nomU);
 
-        cout << "Data naixement (DD/MM/AAAA): ";
-        cin >> neixU;
-        cout<<neixU<<endl;
+    cout << "Contrasenya: ";
+    getline(cin, contraU);
 
-        cout << "Modalitat subscripcio: ";
-        getline(cin, subsU);
-        cout<<subsU<<endl;
+    cout << "Correu electrònic: ";
+    getline(cin, correuU);
 
-        try {
-            ctrlModificaUsuari.modificaUsuari(nomU, contraU, correuU, neixU, subsU);
-            
-            infoU = ctrlModificaUsuari.consultaUsuari();
-            cout << "** Dades usuari modificades **" << endl;
-            cout << "Nom complet: " << infoU.obteNom() << endl;
-            cout << "Sobrenom: " << infoU.obteSobrenom() << endl;
-            cout << "Correu electronic: " << infoU.obteCorreu() << endl;
-            cout << "Data naixement (DD/MM/AAAA): " << infoU.obteDataN() << endl;
-            cout << "Modalitat subscripcio: " << infoU.obteModalitatS() << endl;
-        }
-        catch(sql::SQLException& e){
-            string errorMsg = e.what();
-            if (e.getErrorCode() == 1062) { //error no es pot insertar per clau primaria o unique repetit
-                if (errorMsg.find("correu_electronic") != string::npos) {
-                    cout << "El nou correu electrònic ja existeix" << endl;
-                }
+    cout << "Data naixement (DD/MM/AAAA): ";
+    getline(cin, neixU);
+
+    cout << "Modalitat subscripció: ";
+    getline(cin, subsU);
+
+    utils::clearConsole();
+
+    try {
+        ctrlModificaUsuari.modificaUsuari(nomU, contraU, correuU, neixU, subsU);
+        DTOUsuari infoUsu(ctrlModificaUsuari.consultaUsuari());
+        cout << "** Dades usuari modificades **" << endl;
+        cout << "Nom complet: " << infoUsu.obteNom() << endl;
+        cout << "Sobrenom: " << infoUsu.obteSobrenom() << endl;
+        cout << "Correu electrònic: " << infoUsu.obteCorreu() << endl;
+        cout << "Data naixement (DD/MM/AAAA): " << infoUsu.obteDataN() << endl;
+        cout << "Modalitat subscripció: " << infoUsu.obteModalitatS() << endl;
+        utils::enter();
+    }
+    catch (sql::SQLException& e) {
+        string errorMsg = e.what();
+        if (e.getErrorCode() == 1062) { //error no es pot insertar per clau primaria o unique repetit
+            if (errorMsg.find("correu_electronic") != string::npos) {
+                cout << "El nou correu electrònic ja existeix" << endl; 
             }
         }
-            
-        
+        utils::enter();
+    }
 }
-
-//-------------------------------------------------------------------
 
 void CapaDePresentacio::processarEsborraUsuari(){
     string contrasenyaU;
@@ -211,14 +217,19 @@ void CapaDePresentacio::processarEsborraUsuari(){
     cout << "Contrasenya: ";
     utils::desactivarEco(contrasenyaU); 
     utils::activarEco(); 
+    
+    utils::clearConsole();
+
     TxEsborraUsuari txEsborraUsuari(contrasenyaU);
     try {
         txEsborraUsuari.executar();
         cout << endl << "Usuari esborrat correctament!" << endl;
+        utils::enter();
     }
     catch (const exception& e) {
        cout << "La contrasenya no és correcta, l'usuari no s'esborrat!"  << endl;
-    }
+       utils::enter();
+    }   
 }
 
 void CapaDePresentacio::processarUltimesNovetats(){

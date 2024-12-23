@@ -109,14 +109,13 @@ void PassarelaUsuari::insereix()
 
 void PassarelaUsuari::modifica()
 {
-    ConnexioDB &con = ConnexioDB::getInstance();
+    ConnexioDB& con = ConnexioDB::getInstance();
 
-	// Establim la sentència SQL.
-	string query = "UPDATE Usuari SET nom = '" + _nom + "', correu_electronic = '" + _correuElectronic + "' WHERE sobrenom = '" + _sobrenom + "'";
+    // Establim la sentència SQL.
+    string query = "UPDATE usuari SET nom = '" + _nom + "', contrasenya = '" + _contrasenya + "', correu_electronic = '" + _correuElectronic + "', data_naixement = '" + _dataNaixament + "', subscripcio = '" + _modalitatSubscripcio + "' WHERE sobrenom = '" + _sobrenom + "';";
 
-	// Executem la modificació d' usuari a la base de dades.
-	con.executarSQL(query);
-	
+    // Executem la modificació d' usuari a la base de dades.
+    con.executarSQL(query);
 }
 
 void PassarelaUsuari::esborra()

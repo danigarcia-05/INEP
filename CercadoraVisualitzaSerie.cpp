@@ -14,7 +14,7 @@ vector<PassarelaVisualitzaSerie> CercadoraVisualitzaSerie::cercaVisualitzaSerie(
         // Mirem si existeix un usuari amb el sobrenom.
         while (res->next()) {
             PassarelaVisualitzaSerie pvs;
-            pvs.setSobrenom(res->getString("sobrenom"));
+            pvs.setSobrenom(res->getString("sobrenom_usuari"));
             pvs.setTitolSerie(res->getString("titol_serie"));
             pvs.setNumVisualitzacions(res->getInt("num_visualitzacions"));
             pvs.setNumTemporada(res->getInt("num_temporada"));

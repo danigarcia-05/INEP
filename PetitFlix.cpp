@@ -29,3 +29,12 @@ void PetitFlix::tancaSessio(){
     delete _usuari;
     _usuari = nullptr;
 }
+
+void PetitFlix::modificaUsuari(string nom, string contrasenya, string dataN, string correuE, string modalitatS) {
+    _usuari->setNom(nom);
+    _usuari->setContrasenya(contrasenya);
+    _usuari->setCorreuElectronic(correuE);
+    _usuari->setDataNaixament(dataN);
+    _usuari->setModalitatSubscripcio(modalitatS);
+}
+

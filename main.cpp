@@ -4,17 +4,17 @@
 void gestioUsuaris() {
     CapaDePresentacio& presentacio = CapaDePresentacio::getInstance();
     int op;
-    wcout << "------------------" << endl;
-    wcout << " Gestionar usuari" << endl;
-    wcout << "------------------" << endl;
-    wcout << "1. Consulta usuari" << endl;
-    wcout << "2. Modifica usuari" << endl;
-    wcout << "3. Modifica contrasenya" << endl;
-    wcout << "4. Esborra usuari" << endl;
-    wcout << "5. Tornar" << endl;
-    wcout << "Escriu opció: ";
+    cout << "------------------" << endl;
+    cout << " Gestionar usuari" << endl;
+    cout << "------------------" << endl;
+    cout << "1. Consulta usuari" << endl;
+    cout << "2. Modifica usuari" << endl;
+    cout << "3. Modifica contrasenya" << endl;
+    cout << "4. Esborra usuari" << endl;
+    cout << "5. Tornar" << endl;
+    cout << "Escriu opció: ";
     cin >> op;
-    wcout << endl;
+    utils::clearConsole();
     switch (op) {
         case 1: presentacio.processarConsultaUsuari(); 
             break;
@@ -25,7 +25,7 @@ void gestioUsuaris() {
         case 4: presentacio.processarEsborraUsuari(); 
             break;
         case 5: break;
-        default: wcout << "Error: Opció no vàlida" << endl;
+        default: cout << "Error: Opció no vàlida" << endl;
             gestioUsuaris();
             break;   
     }
@@ -34,16 +34,16 @@ void gestioUsuaris() {
 void gestioContinguts() {
     CapaDePresentacio& presentacio = CapaDePresentacio::getInstance();
     int op;
-    wcout << "------------------" << endl;
-    wcout << " Visualitzar" << endl;
-    wcout << "------------------" << endl;
-    wcout << "1. Visualitzar pel·lícula" << endl;
-    wcout << "2. Visualitzar capítol" << endl;
-    wcout << "3. Consultar visualitzacions" << endl;
-    wcout << "4. Tornar" << endl;
-    wcout << "Escriu opció: ";
+    cout << "------------------" << endl;
+    cout << " Visualitzar" << endl;
+    cout << "------------------" << endl;
+    cout << "1. Visualitzar pel·lícula" << endl;
+    cout << "2. Visualitzar capítol" << endl;
+    cout << "3. Consultar visualitzacions" << endl;
+    cout << "4. Tornar" << endl;
+    cout << "Escriu opció: ";
     cin >> op;
-    wcout << endl;
+    cout << endl;
     switch (op) {
         case 1: presentacio.processarVisualitzarPelicula();
             break;
@@ -52,7 +52,7 @@ void gestioContinguts() {
         case 3: presentacio.processarConsultarVisualitzacions();
             break;
         case 4: break;
-        default: wcout << "Error: Opció no vàlida" << endl;
+        default: cout << "Error: Opció no vàlida" << endl;
             gestioContinguts();
             break;    
     }
@@ -61,77 +61,81 @@ void gestioContinguts() {
 void consultes() {
     CapaDePresentacio& presentacio = CapaDePresentacio::getInstance();
     int op;
-    wcout << "------------------" << endl;
-    wcout << " Consultes" << endl;
-    wcout << "------------------" << endl;
-    wcout << "1. Properes estrenes" << endl;
-    wcout << "2. Últimes novetats" << endl;
-    wcout << "3. Pel·lícules més vistes" << endl;
-    wcout << "4. Tornar" << endl;
-    wcout << "Escriu opció: ";
+    cout << "------------------" << endl;
+    cout << " Consultes" << endl;
+    cout << "------------------" << endl;
+    cout << "1. Properes estrenes" << endl;
+    cout << "2. Últimes novetats" << endl;
+    cout << "3. Pel·lícules més vistes" << endl;
+    cout << "4. Tornar" << endl;
+    cout << "Escriu opció: ";
     cin >> op;
-    wcout << endl;
+    cout << endl;
     switch (op) {
         case 1: presentacio.processarProperesEstrenes();break;
         case 2: presentacio.processarUltimesNovetats();break;
         case 3: presentacio.processarPeliculesMesVistes();break;
         case 4: break;
-        default: wcout << "Error: Opció no vàlida" << endl;
+        default: cout << "Error: Opció no vàlida" << endl;
             consultes();
             break;    
     }
 }
 
 int main() {
+    std::locale::global(std::locale("ca_ES.utf8"));
+    std::cout.imbue(std::locale()); // Aplicar la configuración a std::cout
+    std::cout.imbue(std::locale()); // Aplicar la configuración a std::cout
     PetitFlix& petitFlix = PetitFlix::getInstance();
     int op;
     bool acaba = false;
     CapaDePresentacio& presentacio = CapaDePresentacio::getInstance();
     while (acaba == false) {
         if(petitFlix.obteUsuari() == nullptr){
-            wcout << "*********************" << endl;
-            wcout << " Menu Principal" << endl;
-            wcout << "*********************" << endl;
-            wcout << "1. Iniciar sessió" << endl;
-            wcout << "2. Registrar usuari" << endl;
-            wcout << "3. Consultes" << endl;
-            wcout << "4. Sortir" << endl;
-            wcout << "Escriu opcio: ";
+            cout << "*********************" << endl;
+            cout << " Menu Principal" << endl;
+            cout << "*********************" << endl;
+            cout << "1. Iniciar sessió" << endl;
+            cout << "2. Registrar usuari" << endl;
+            cout << "3. Consultes" << endl;
+            cout << "4. Sortir" << endl;
+            cout << "Escriu opció: ";
             cin >> op;
+            utils::clearConsole();
             switch (op) {
-                case 1: presentacio.processarIniciarSessio();
+                case 1: presentacio.processarIniciarSessio(); 
                     break;
                 case 2: presentacio.processarRegistreUsuari();
                     break;
-                case 3: consultes();
+                case 3:  consultes();
                     break;
-                case 4: acaba = true;  break;
-                default: wcout << "Error: Opció no vàlida" << endl;
+                case 4:  acaba = true;  break;
+                default: cout << "Error: Opció no vàlida" << endl;
                     break;  
             }
         }
         else{
-            wcout << "*********************" << endl;
-            wcout << " Menu Principal" << endl;
-            wcout << "*********************" << endl;
-            wcout << "1. Gestió usuaris" << endl;
-            wcout << "2. Visualitzar" << endl;
-            wcout << "3. Consultes" << endl;
-            wcout << "4. Tancar sessió" << endl;
-            wcout << "5. Sortir" << endl;
-            wcout << "Escriu opcio: ";
+            cout << "*********************" << endl;
+            cout << " Menu Principal" << endl;
+            cout << "*********************" << endl;
+            cout << "1. Gestió usuaris" << endl;
+            cout << "2. Visualitzar" << endl;
+            cout << "3. Consultes" << endl;
+            cout << "4. Tancar sessió" << endl;
+            cout << "5. Sortir" << endl;
+            cout << "Escriu opció: ";
             cin >> op;
+            utils::clearConsole();
             switch (op) {
                 case 1: gestioUsuaris();break;
                 case 2: gestioContinguts();break;
                 case 3: consultes();break;
                 case 4: presentacio.processarTancaSessio(); break;
                 case 5: acaba = true;  break;
-                default: wcout << "Error: Opció no vàlida" << endl;
+                default: cout << "Error: Opció no vàlida" << endl;
                     break;  
             }
         }
-        utils::clearConsole();
     }    
 }
 

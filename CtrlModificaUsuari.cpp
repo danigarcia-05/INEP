@@ -9,15 +9,19 @@
         TxConsultaUsuari txConsultaUsuari;
         txConsultaUsuari.executar();
         DTOUsuari infoUsu = txConsultaUsuari.obteResultat();
-        PassarelaUsuari usuari = txConsultaUsuari.obteUsuari();
+        _usuari = txConsultaUsuari.obteUsuari();
         return infoUsu;
     }
     
     void CtrlModificaUsuari::modificaUsuari(string nomU, string contraU, string correuU, string neixU, string modalitatU) {
-        if (nomU!="") _usuari.setNom(nomU);
-        if (contraU!="") _usuari.setContrasenya(contraU);
+        if (nomU != "") _usuari.setNom(nomU);
+        if (contraU != "") _usuari.setContrasenya(contraU);
         if (correuU!="") _usuari.setCorreuElectronic(correuU);
         if (neixU!="") _usuari.setDataNaixament(neixU);
         if (modalitatU != "") _usuari.setModalitatSubscripcio(modalitatU);
-        if (nomU!="" or contraU!="" or correuU!="" or neixU!="" or modalitatU != "") _usuari.modifica();
+        if (nomU != "" or contraU != "" or correuU != "" or neixU != "" or modalitatU != "") {
+            _usuari.modifica();
+            PetitFlix& petitFlix = PetitFlix::getInstance();
+            petitFlix.modificaUsuari(_usuari.obteNom(), _usuari.obteContrasenya(), _usuari.obteDataNaixament(), _usuari.obteCorreuElectronic(), _usuari.obteModalitatSubscripcio());
+        }
     }

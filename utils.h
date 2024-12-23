@@ -52,6 +52,18 @@ namespace utils {
     inline void clearConsole() {
         system("cls"); // Windows command to clear the console
     }
-}
+
+    inline void enter() {
+        cout << endl << "Pressiona la tecla Enter per continuar" << endl;
+        cin.ignore();
+        while (true) {
+            char c = cin.get();
+            if (c == '\n') {
+                break;
+            }
+        }
+        clearConsole();
+    }
+};
 
 #endif
