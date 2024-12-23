@@ -3,6 +3,7 @@
 #pragma once
 
 #include "PassarelaUsuari.h"
+#include "PassarelaVisualitzaSerie.h"
 
 class PetitFlix {
 private:
@@ -18,6 +19,8 @@ public:
 
     //Consultors
     PassarelaUsuari* obteUsuari();
+
+    PassarelaVisualitzaSerie* obteSerie();
 
     //Modificadors
     static void iniciaSessio(PassarelaUsuari u); 

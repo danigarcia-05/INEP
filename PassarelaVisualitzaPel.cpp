@@ -37,14 +37,35 @@ void PassarelaVisualitzaPel::setNumVisualitzacions(int nVis) {
     _numVisualitzacions = nVis;
 }
 
-void PassarelaVisualitzaPel::insereix() {
-    
+void PassarelaVisualitzaPel::insereix()
+{
+    ConnexioDB& con = ConnexioDB::getInstance();
+    string query = "INSERT INTO visualitzacio_pelicula (sobrenom_usuari, titol_pelicula, data, num_visualitzacions) VALUES('" +
+        _sobrenom + "', '" + _titolPelicula + "', '" + _data + "', '" + to_string(_numVisualitzacions) + "')";
+    con.executarSQL(query);
 }
 
-void PassarelaVisualitzaPel::modifica() {
-    
+void PassarelaVisualitzaPel::modifica()
+{
+    _numVisualitzacions += 1;
+    _data = utils::dataActual();
+    ConnexioDB& con = ConnexioDB::getInstance();
+
+    // Establim la sentència SQL.
+    string query = "UPDATE visualitzacio_pelicula SET data = '" +
+         _data + "', num_visualitzacions'" + "', num_visualitzacions'" + to_string(_numVisualitzacions) + "', '" + "WHERE sobrenom_usuari = '" + _sobrenom + "' AND titol_pelicula = '" + _titolPelicula + "';";
+
+    // Executem la modificació d' usuari a la base de dades.
+    con.executarSQL(query);
 }
 
-void PassarelaVisualitzaPel::esborra() {
-    
+void PassarelaVisualitzaPel::esborra()
+{
+    ConnexioDB& con = ConnexioDB::getInstance();
+
+    // Establim la sentència SQL.
+    string query = "DELETE FROM visualitzacio_pelicula WHERE sobrenom_usuari = '" + _sobrenom + "'";
+
+    // Executem la modificació d' usuari a la base de dades.
+    con.executarSQL(query);
 }

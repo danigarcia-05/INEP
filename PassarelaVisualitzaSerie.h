@@ -3,10 +3,12 @@
 #pragma once
 
 #include "connexioDB.h"
+#include "utils.h"
 #include <stdexcept>
 #include <iostream>
 #include <string>
 using namespace std;
+using namespace utils;
 
 class PassarelaVisualitzaSerie {
 private:

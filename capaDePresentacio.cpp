@@ -91,21 +91,12 @@ void CapaDePresentacio::processarRegistreUsuari(){
     cout << endl << " > 1. Completa ";
     cout << endl << " > 2. Cinèfil ";
     cout << endl << " > 3. Infantil ";
-    cout << endl << "Escull modalitat: ";
+    cout << endl << "Escull número de modalitat: ";
     string mod;
     cin >> mod;
-    switch (mod) {
-    case 1:
-        msU = "Completa";
-        break;
-    case 2:
-        msU = "Cinèfil";
-        break;
-    case 3:
-        msU = "Infantil";
-        break;
-    }
     if(mod == "1") msU = "Completa";
+    else if (mod == "2") msU = "Cinèfil";
+    else if (mod == "3") msU = "Infantil";
     utils::clearConsole();
 
     TxRegistraUsuari txRegistraUsuari(nU, sU, cU, ceU, dnU, msU);
@@ -113,8 +104,8 @@ void CapaDePresentacio::processarRegistreUsuari(){
         txRegistraUsuari.executar();
         cout << endl << "Usuari registrat correctament!" << endl;
         utils::enter();
-    }   
-    catch (sql::SQLException& e) {
+    }  
+    catch (sql::SQLException& e) { //No funciona
         string errorMsg = e.what();
         if (e.getErrorCode() == 1062) { //error no es pot insertar per clau primaria o unique repetit
             if (errorMsg.find("sobrenom") != string::npos) {
@@ -236,26 +227,39 @@ void CapaDePresentacio::processarEsborraUsuari(){
 }
 
 void CapaDePresentacio::processarUltimesNovetats(){
-    cout << "HOla" << endl;
+   
 }
 
 void CapaDePresentacio::processarProperesEstrenes(){
-     cout << "HOla" << endl;
+     
 }
 
 void CapaDePresentacio::processarPeliculesMesVistes(){
-     cout << "HOla" << endl;
+     
 }
 
 void CapaDePresentacio::processarVisualitzarPelicula() {
-
+    cout << "** Visualitzar Pel·lícula **" << endl;
+    cout << "Nom pel·lícula: ";
+    string nomP;
+    getline(cin, nomP);
+    utils::clearConsole();
 }
-void CapaDePresentacio::processarVisualitzarCapitol() {
 
+void CapaDePresentacio::processarVisualitzarCapitol() {
+    cout << "** Visualitzar capitol **" << endl;
+    cout << "Nom de la sèrie: ";
+    string nomS;
+    getline(cin, nomS);
+    utils::clearConsole();
+
+    
 }
 void CapaDePresentacio::processarConsultarVisualitzacions() {
 
 }
+
+//NO ACABAT
 void CapaDePresentacio::processarModificaContrasenya() {
     cout << "** Modifica contrasenya **" << endl;
     CtrlModificaUsuari ctrlModificaUsuari;

@@ -2,6 +2,7 @@
 
 PetitFlix* PetitFlix::_ins = nullptr;
 PassarelaUsuari* PetitFlix::_usuari = nullptr;
+PassarelaVisualitzaSerie* PetitFlix::_serie = nullptr;
 
 PetitFlix::PetitFlix(){}
 
@@ -15,6 +16,10 @@ PetitFlix& PetitFlix::getInstance() {
 // En PetitFlix.cpp
 PassarelaUsuari* PetitFlix::obteUsuari() {
     return _usuari;  // O la lógica que desees aquí
+}
+
+PassarelaUsuari* PetitFlix::obteSerie() {
+    return _serie;  
 }
 
 void PetitFlix::iniciaSessio(PassarelaUsuari u){

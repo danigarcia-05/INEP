@@ -109,11 +109,11 @@ int main() {
         }
         else{
             cout << "*********************" << endl;
-            cout << " Menu Principal" << endl;
+            cout << " Menú Principal" << endl;
             cout << "*********************" << endl;
             cout << "1. Gestió usuaris" << endl;
             cout << "2. Visualitzar" << endl;
-            cout << "3. Consultes / Ensenya Logo" << endl;
+            cout << "3. Consultes" << endl;
             cout << "4. Tancar sessió" << endl;
             cout << "5. Sortir" << endl;
             cout << "Escriu opció: ";
@@ -121,7 +121,7 @@ int main() {
             utils::clearConsole();
             if (op == "1") gestioUsuaris();
             else if (op == "2") gestioContinguts();
-            else if (op == "3") utils::ensenyaLogo();
+            else if (op == "3") consultes();
             else if (op == "4") presentacio.processarTancaSessio();
             else if (op == "5") acaba = true;
             else{
