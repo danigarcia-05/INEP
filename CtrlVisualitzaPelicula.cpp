@@ -5,12 +5,13 @@ CtrlVisualitzaPelicula::CtrlVisualitzaPelicula(){
         
 }
 
+//Falta TxVisualitzaPelicula
 DTOVisualitzacioPelicula CtrlVisualitzaPelicula::consultaVisualitzacioPelicula() {
     TxConsultaUsuari txConsultaUsuari;
     txConsultaUsuari.executar();
-    DTOPelicula infoUsu = txConsultaUsuari.obteResultat();
+    DTOVisualitzacioPelicula infoP = txConsultaUsuari.obteResultat();
     _pelicula = txConsultaUsuari.obteUsuari();
-    return infoUsu;
+    return infoP;
 }
     
 void CtrlVisualitzaPelicula::modificaVisualitzacioPelicula(){
