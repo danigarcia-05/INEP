@@ -3,7 +3,6 @@
 #pragma once
 #include "PassarelaUsuari.h"
 #include "DTOUsuari.h"
-#include "PassarelaUsuari.h"
 #include "PetitFlix.h"
 using namespace std;
 #include <iostream>

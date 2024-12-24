@@ -96,6 +96,9 @@
     <ClCompile Include="TxVisualitzaPelicula.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="DTOVisualitzacioPelicula.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CercadoraUsuari.h">
@@ -165,6 +168,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="TxVisualitzaPelicula.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="DTOVisualitzacioPelicula.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

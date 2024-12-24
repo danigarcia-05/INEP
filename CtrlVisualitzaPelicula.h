@@ -1,9 +1,9 @@
 #ifndef CTRLMODIFICAUSUARI_HPP
 #define CTRLMODIFICAUSUARI_HPP
 #pragma once
-#include "DTOPelicula.h"
-#include "PassarelaPelicula.h"
+#include "PassarelaVisualitzaPel.h"
 #include "TxConsultaPelicula.h"
+#include "DTOVisualitzacioPelicula.h"
 using namespace std;
 #include <iostream>
 #include <string>
@@ -12,14 +12,14 @@ using namespace std;
 class CtrlVisualitzaPelicula {
 private:
 
-    PassarelaPelicula _pelicula;
+    PassarelaVisualitzaPel _pelicula;
 
 public:
 
     CtrlVisualitzaPelicula();
 
-    DTOPelicula consultaVisualitzacioPelicula();
+    DTOVisualitzacioPelicula consultaVisualitzacioPelicula();
 
-    void modificaVisualitzacioPelicula(string sobrenomU, string titolP, string dataVisualitzacioU, string numVisualitzacionsU);
+    void modificaVisualitzacioPelicula();
 };
 #endif

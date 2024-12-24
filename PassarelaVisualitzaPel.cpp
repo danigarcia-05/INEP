@@ -47,8 +47,6 @@ void PassarelaVisualitzaPel::insereix()
 
 void PassarelaVisualitzaPel::modifica()
 {
-    _numVisualitzacions += 1;
-    _data = utils::dataActual();
     ConnexioDB& con = ConnexioDB::getInstance();
 
     // Establim la sentència SQL.
