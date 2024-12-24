@@ -262,7 +262,14 @@ void CapaDePresentacio::processarVisualitzarPelicula() {
     if (op == 'S') {
         try {
             ctrlVisualitzaPelicula.modificaVisualitzacioPelicula(titolP);
-            
+            cout << "Visualització registrada! " << utils::dataActual << endl;
+            cout<<"Pel·lícules relacionades:"<<endl;
+            vector<DTOPelicula> pelRelacionades;
+            pelRelacionades=ctrlVisualitzaPelicula.consultaPeliculesRelacionades(titolP);
+            for (int i=0; i<pelRelacionades.size(); ++i) {
+                DTOPelicula p(pelRelacionades[i]);
+                cout<<"- "<<p.obteTitol()<<"; "<<p.obteDescripcio()<<"; "<<p.obteQualificacio()<<"; "<<p.obteDuracio()<<"; "<<p.obteDataP()<<endl;
+            }
             utils::enter();
         }
         catch (sql::SQLException& e) {

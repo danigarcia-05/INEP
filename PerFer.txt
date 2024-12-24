@@ -4,6 +4,7 @@
 		- Menu no va bien
 		- Enter
 	- connexioDB --> No incluir el archivo de configuracion. (gitignore)
+	- Para cada tabla una cercadora y una tabla
 
 
 

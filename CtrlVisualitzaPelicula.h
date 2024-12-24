@@ -9,6 +9,7 @@ using namespace std;
 #include <iostream>
 #include <string>
 #include <stdexcept>
+#include <vector>
 
 class CtrlVisualitzaPelicula {
 private:
@@ -24,5 +25,7 @@ public:
     DTOPelicula consultaPelicula(string titolP);
 
     void modificaVisualitzacioPelicula(string titolP);
+
+    vector<DTOPelicula> consultaPeliculesRelacionades(string titolP);
 };
 #endif

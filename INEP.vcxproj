@@ -41,6 +41,7 @@
     <ClCompile Include="TxEsborraUsuari.cpp" />
     <ClCompile Include="TxInfoVisualitzacions.cpp" />
     <ClCompile Include="TxIniciSessio.cpp" />
+    <ClCompile Include="TxPeliculesRelacionades.cpp" />
     <ClCompile Include="TxRegistraUsuari.cpp" />
     <ClCompile Include="TxTancaSessio.cpp" />
     <ClCompile Include="TxConsultaVisualitzacioPelicula.cpp" />
@@ -67,6 +68,7 @@
     <ClInclude Include="TxEsborraUsuari.h" />
     <ClInclude Include="TxInfoVisualitzacions.h" />
     <ClInclude Include="TxIniciSessio.h" />
+    <ClInclude Include="TxPeliculesRelacionades.h" />
     <ClInclude Include="TxRegistraUsuari.h" />
     <ClInclude Include="TxTancaSessio.h" />
     <ClInclude Include="TxConsultaVisualitzacioPelicula.h" />

@@ -13,62 +13,44 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Archivos de origen\cassosUsUsuari">
-      <UniqueIdentifier>{2d0fa0b7-edf1-4f36-8e6e-1e8e37d3a6a5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\cassosUsUsuari">
-      <UniqueIdentifier>{2ff79c1b-7e1e-4b27-9f11-660c62064575}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Archivos de encabezado\general">
       <UniqueIdentifier>{460b14ea-33b0-4821-ac77-8650d204c8cf}</UniqueIdentifier>
     </Filter>
     <Filter Include="Archivos de origen\general">
       <UniqueIdentifier>{69fe77cd-fac0-463b-b372-1f60898db5a4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\Passareles">
+      <UniqueIdentifier>{0dbf61eb-3c1b-46d7-b4e2-9ca3aa43979e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Cercadores">
+      <UniqueIdentifier>{9524f14b-3441-411e-a1ce-10823d607b9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Tx">
+      <UniqueIdentifier>{fbee326d-c0a7-4fa2-a573-eb129e0be9e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Ctrl">
+      <UniqueIdentifier>{00ea4491-3852-459e-953d-68f42adce027}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\DTO">
+      <UniqueIdentifier>{2ff79c1b-7e1e-4b27-9f11-660c62064575}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\DTO">
+      <UniqueIdentifier>{28913a9c-cd1f-4b0d-a209-d3f38db17a2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Cercadores">
+      <UniqueIdentifier>{7ec61cb9-31ca-4531-9188-b82ce4f9f54e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Ctrl">
+      <UniqueIdentifier>{1e18665a-fa73-4181-8714-640905135f18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Tx">
+      <UniqueIdentifier>{3385d90f-a0e3-4063-b19c-e104103e1cc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Passareles">
+      <UniqueIdentifier>{89d080dc-a3c7-4755-95ec-a23bc1e301f1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CercadoraUsuari.cpp">
-      <Filter>Archivos de origen\cassosUsUsuari</Filter>
-    </ClCompile>
-    <ClCompile Include="CercadoraVisualitzaPel.cpp">
-      <Filter>Archivos de origen\cassosUsUsuari</Filter>
-    </ClCompile>
-    <ClCompile Include="CercadoraVisualitzaSerie.cpp">
-      <Filter>Archivos de origen\cassosUsUsuari</Filter>
-    </ClCompile>
-    <ClCompile Include="CtrlModificaUsuari.cpp">
-      <Filter>Archivos de origen\cassosUsUsuari</Filter>
-    </ClCompile>
-    <ClCompile Include="DTOUsuari.cpp">
-      <Filter>Archivos de origen\cassosUsUsuari</Filter>
-    </ClCompile>
-    <ClCompile Include="PassarelaUsuari.cpp">
-      <Filter>Archivos de origen\cassosUsUsuari</Filter>
-    </ClCompile>
-    <ClCompile Include="PassarelaVisualitzaPel.cpp">
-      <Filter>Archivos de origen\cassosUsUsuari</Filter>
-    </ClCompile>
-    <ClCompile Include="PassarelaVisualitzaSerie.cpp">
-      <Filter>Archivos de origen\cassosUsUsuari</Filter>
-    </ClCompile>
-    <ClCompile Include="TxConsultaUsuari.cpp">
-      <Filter>Archivos de origen\cassosUsUsuari</Filter>
-    </ClCompile>
-    <ClCompile Include="TxEsborraUsuari.cpp">
-      <Filter>Archivos de origen\cassosUsUsuari</Filter>
-    </ClCompile>
-    <ClCompile Include="TxInfoVisualitzacions.cpp">
-      <Filter>Archivos de origen\cassosUsUsuari</Filter>
-    </ClCompile>
-    <ClCompile Include="TxIniciSessio.cpp">
-      <Filter>Archivos de origen\cassosUsUsuari</Filter>
-    </ClCompile>
-    <ClCompile Include="TxRegistraUsuari.cpp">
-      <Filter>Archivos de origen\cassosUsUsuari</Filter>
-    </ClCompile>
-    <ClCompile Include="TxTancaSessio.cpp">
-      <Filter>Archivos de origen\cassosUsUsuari</Filter>
-    </ClCompile>
     <ClCompile Include="capaDePresentacio.cpp">
       <Filter>Archivos de origen\general</Filter>
     </ClCompile>
@@ -81,70 +63,76 @@
     <ClCompile Include="PetitFlix.cpp">
       <Filter>Archivos de origen\general</Filter>
     </ClCompile>
-    <ClCompile Include="PassarelaPelicula.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="CercadoraPelicula.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de origen\Cercadores</Filter>
     </ClCompile>
-    <ClCompile Include="DTOPelicula.cpp">
-      <Filter>Archivos de origen</Filter>
+    <ClCompile Include="CercadoraUsuari.cpp">
+      <Filter>Archivos de origen\Cercadores</Filter>
+    </ClCompile>
+    <ClCompile Include="CercadoraVisualitzaPel.cpp">
+      <Filter>Archivos de origen\Cercadores</Filter>
+    </ClCompile>
+    <ClCompile Include="CercadoraVisualitzaSerie.cpp">
+      <Filter>Archivos de origen\Cercadores</Filter>
+    </ClCompile>
+    <ClCompile Include="PassarelaUsuari.cpp">
+      <Filter>Archivos de origen\Passareles</Filter>
+    </ClCompile>
+    <ClCompile Include="PassarelaVisualitzaPel.cpp">
+      <Filter>Archivos de origen\Passareles</Filter>
+    </ClCompile>
+    <ClCompile Include="PassarelaVisualitzaSerie.cpp">
+      <Filter>Archivos de origen\Passareles</Filter>
+    </ClCompile>
+    <ClCompile Include="TxConsultaUsuari.cpp">
+      <Filter>Archivos de origen\Tx</Filter>
+    </ClCompile>
+    <ClCompile Include="TxEsborraUsuari.cpp">
+      <Filter>Archivos de origen\Tx</Filter>
+    </ClCompile>
+    <ClCompile Include="TxInfoVisualitzacions.cpp">
+      <Filter>Archivos de origen\Tx</Filter>
+    </ClCompile>
+    <ClCompile Include="TxIniciSessio.cpp">
+      <Filter>Archivos de origen\Tx</Filter>
+    </ClCompile>
+    <ClCompile Include="TxRegistraUsuari.cpp">
+      <Filter>Archivos de origen\Tx</Filter>
+    </ClCompile>
+    <ClCompile Include="TxTancaSessio.cpp">
+      <Filter>Archivos de origen\Tx</Filter>
+    </ClCompile>
+    <ClCompile Include="CtrlModificaUsuari.cpp">
+      <Filter>Archivos de origen\Ctrl</Filter>
+    </ClCompile>
+    <ClCompile Include="DTOUsuari.cpp">
+      <Filter>Archivos de origen\DTO</Filter>
     </ClCompile>
     <ClCompile Include="CtrlVisualitzaPelicula.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de origen\Ctrl</Filter>
     </ClCompile>
-    <ClCompile Include="TxConsultaVisualitzacioPelicula.cpp">
-      <Filter>Archivos de origen</Filter>
+    <ClCompile Include="DTOPelicula.cpp">
+      <Filter>Archivos de origen\DTO</Filter>
     </ClCompile>
     <ClCompile Include="DTOVisualitzacioPelicula.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de origen\DTO</Filter>
+    </ClCompile>
+    <ClCompile Include="PassarelaPelicula.cpp">
+      <Filter>Archivos de origen\Passareles</Filter>
     </ClCompile>
     <ClCompile Include="TxConsultaPelicula.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de origen\Tx</Filter>
+    </ClCompile>
+    <ClCompile Include="TxConsultaVisualitzacioPelicula.cpp">
+      <Filter>Archivos de origen\Tx</Filter>
+    </ClCompile>
+    <ClCompile Include="TxPeliculesRelacionades.cpp">
+      <Filter>Archivos de origen\Tx</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CercadoraUsuari.h">
-      <Filter>Archivos de encabezado\cassosUsUsuari</Filter>
-    </ClInclude>
-    <ClInclude Include="CercadoraVisualitzaPel.h">
-      <Filter>Archivos de encabezado\cassosUsUsuari</Filter>
-    </ClInclude>
-    <ClInclude Include="CercadoraVisualitzaSerie.h">
-      <Filter>Archivos de encabezado\cassosUsUsuari</Filter>
-    </ClInclude>
-    <ClInclude Include="CtrlModificaUsuari.h">
-      <Filter>Archivos de encabezado\cassosUsUsuari</Filter>
-    </ClInclude>
     <ClInclude Include="DTOUsuari.h">
-      <Filter>Archivos de encabezado\cassosUsUsuari</Filter>
-    </ClInclude>
-    <ClInclude Include="PassarelaUsuari.h">
-      <Filter>Archivos de encabezado\cassosUsUsuari</Filter>
-    </ClInclude>
-    <ClInclude Include="PassarelaVisualitzaPel.h">
-      <Filter>Archivos de encabezado\cassosUsUsuari</Filter>
-    </ClInclude>
-    <ClInclude Include="PassarelaVisualitzaSerie.h">
-      <Filter>Archivos de encabezado\cassosUsUsuari</Filter>
-    </ClInclude>
-    <ClInclude Include="TxConsultaUsuari.h">
-      <Filter>Archivos de encabezado\cassosUsUsuari</Filter>
-    </ClInclude>
-    <ClInclude Include="TxEsborraUsuari.h">
-      <Filter>Archivos de encabezado\cassosUsUsuari</Filter>
-    </ClInclude>
-    <ClInclude Include="TxInfoVisualitzacions.h">
-      <Filter>Archivos de encabezado\cassosUsUsuari</Filter>
-    </ClInclude>
-    <ClInclude Include="TxIniciSessio.h">
-      <Filter>Archivos de encabezado\cassosUsUsuari</Filter>
-    </ClInclude>
-    <ClInclude Include="TxRegistraUsuari.h">
-      <Filter>Archivos de encabezado\cassosUsUsuari</Filter>
-    </ClInclude>
-    <ClInclude Include="TxTancaSessio.h">
-      <Filter>Archivos de encabezado\cassosUsUsuari</Filter>
+      <Filter>Archivos de encabezado\DTO</Filter>
     </ClInclude>
     <ClInclude Include="capaDePresentacio.h">
       <Filter>Archivos de encabezado\general</Filter>
@@ -158,26 +146,68 @@
     <ClInclude Include="connexioDB.h">
       <Filter>Archivos de encabezado\general</Filter>
     </ClInclude>
-    <ClInclude Include="DTOPelicula.h">
-      <Filter>Archivos de encabezado</Filter>
+    <ClInclude Include="PassarelaVisualitzaSerie.h">
+      <Filter>Archivos de encabezado\Passareles</Filter>
     </ClInclude>
-    <ClInclude Include="CercadoraPelicula.h">
-      <Filter>Archivos de encabezado</Filter>
+    <ClInclude Include="PassarelaVisualitzaPel.h">
+      <Filter>Archivos de encabezado\Passareles</Filter>
+    </ClInclude>
+    <ClInclude Include="PassarelaUsuari.h">
+      <Filter>Archivos de encabezado\Passareles</Filter>
     </ClInclude>
     <ClInclude Include="PassarelaPelicula.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Archivos de encabezado\Passareles</Filter>
     </ClInclude>
-    <ClInclude Include="CtrlVisualitzaPelicula.h">
-      <Filter>Archivos de encabezado</Filter>
+    <ClInclude Include="CercadoraUsuari.h">
+      <Filter>Archivos de encabezado\Cercadores</Filter>
     </ClInclude>
-    <ClInclude Include="TxConsultaVisualitzacioPelicula.h">
-      <Filter>Archivos de encabezado</Filter>
+    <ClInclude Include="CercadoraVisualitzaPel.h">
+      <Filter>Archivos de encabezado\Cercadores</Filter>
     </ClInclude>
-    <ClInclude Include="DTOVisualitzacioPelicula.h">
-      <Filter>Archivos de encabezado</Filter>
+    <ClInclude Include="CercadoraVisualitzaSerie.h">
+      <Filter>Archivos de encabezado\Cercadores</Filter>
+    </ClInclude>
+    <ClInclude Include="CercadoraPelicula.h">
+      <Filter>Archivos de encabezado\Cercadores</Filter>
+    </ClInclude>
+    <ClInclude Include="TxConsultaUsuari.h">
+      <Filter>Archivos de encabezado\Tx</Filter>
+    </ClInclude>
+    <ClInclude Include="TxEsborraUsuari.h">
+      <Filter>Archivos de encabezado\Tx</Filter>
+    </ClInclude>
+    <ClInclude Include="TxInfoVisualitzacions.h">
+      <Filter>Archivos de encabezado\Tx</Filter>
+    </ClInclude>
+    <ClInclude Include="TxIniciSessio.h">
+      <Filter>Archivos de encabezado\Tx</Filter>
+    </ClInclude>
+    <ClInclude Include="TxRegistraUsuari.h">
+      <Filter>Archivos de encabezado\Tx</Filter>
+    </ClInclude>
+    <ClInclude Include="TxTancaSessio.h">
+      <Filter>Archivos de encabezado\Tx</Filter>
     </ClInclude>
     <ClInclude Include="TxConsultaPelicula.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Archivos de encabezado\Tx</Filter>
+    </ClInclude>
+    <ClInclude Include="TxConsultaVisualitzacioPelicula.h">
+      <Filter>Archivos de encabezado\Tx</Filter>
+    </ClInclude>
+    <ClInclude Include="TxPeliculesRelacionades.h">
+      <Filter>Archivos de encabezado\Tx</Filter>
+    </ClInclude>
+    <ClInclude Include="CtrlVisualitzaPelicula.h">
+      <Filter>Archivos de encabezado\Ctrl</Filter>
+    </ClInclude>
+    <ClInclude Include="CtrlModificaUsuari.h">
+      <Filter>Archivos de encabezado\Ctrl</Filter>
+    </ClInclude>
+    <ClInclude Include="DTOPelicula.h">
+      <Filter>Archivos de encabezado\DTO</Filter>
+    </ClInclude>
+    <ClInclude Include="DTOVisualitzacioPelicula.h">
+      <Filter>Archivos de encabezado\DTO</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -28,5 +28,12 @@ void CtrlVisualitzaPelicula::modificaVisualitzacioPelicula(string titolP){
         _peliculaUsuari.setData(utils::dataActual());
         _peliculaUsuari.modifica();
     }    
-    utils::enter();
+}
+
+vector<DTOPelicula> consultaPeliculesRelacionades(string titolP) {
+    TxConsultaVisualitzacioPelicula txConsultaVisualitzacioPelicula;
+    txConsultaVisualitzacioPelicula.executar(titolP);
+    vector<PassarelaPelicula> cjPelicules = tx;
+    
+    return resultat;
 }
