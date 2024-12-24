@@ -274,7 +274,8 @@ void CapaDePresentacio::processarModificaContrasenya() {
 
     try {
         ctrlModificaUsuari.modificaContrasenya(contraU);
-        DTOUsuari infoUsu(ctrlModificaUsuari.consultaUsuari());
+        utils::clearConsole();
+        cout << "Contrasenya modificada correctament!" << endl;
         utils::enter();
     }
     catch (sql::SQLException& e) {

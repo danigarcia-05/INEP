@@ -25,21 +25,18 @@
     <ClCompile Include="CercadoraVisualitzaSerie.cpp" />
     <ClCompile Include="connexioDB.cpp" />
     <ClCompile Include="CtrlModificaUsuari.cpp" />
-    <ClCompile Include="DTOPelicula.cpp" />
     <ClCompile Include="DTOUsuari.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PassarelaUsuari.cpp" />
     <ClCompile Include="PassarelaVisualitzaPel.cpp" />
     <ClCompile Include="PassarelaVisualitzaSerie.cpp" />
     <ClCompile Include="PetitFlix.cpp" />
-    <ClCompile Include="TxConsultaSerie.cpp" />
     <ClCompile Include="TxConsultaUsuari.cpp" />
     <ClCompile Include="TxEsborraUsuari.cpp" />
     <ClCompile Include="TxInfoVisualitzacions.cpp" />
     <ClCompile Include="TxIniciSessio.cpp" />
     <ClCompile Include="TxRegistraUsuari.cpp" />
     <ClCompile Include="TxTancaSessio.cpp" />
-    <ClCompile Include="TxConsultaPel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="capaDePresentacio.h" />
@@ -48,20 +45,17 @@
     <ClInclude Include="CercadoraVisualitzaSerie.h" />
     <ClInclude Include="connexioDB.h" />
     <ClInclude Include="CtrlModificaUsuari.h" />
-    <ClInclude Include="DTOPelicula.h" />
     <ClInclude Include="DTOUsuari.h" />
     <ClInclude Include="PassarelaUsuari.h" />
     <ClInclude Include="PassarelaVisualitzaPel.h" />
     <ClInclude Include="PassarelaVisualitzaSerie.h" />
     <ClInclude Include="PetitFlix.h" />
-    <ClInclude Include="TxConsultaSerie.h" />
     <ClInclude Include="TxConsultaUsuari.h" />
     <ClInclude Include="TxEsborraUsuari.h" />
     <ClInclude Include="TxInfoVisualitzacions.h" />
     <ClInclude Include="TxIniciSessio.h" />
     <ClInclude Include="TxRegistraUsuari.h" />
     <ClInclude Include="TxTancaSessio.h" />
-    <ClInclude Include="TxConsultaPel.h" />
     <ClInclude Include="utils.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

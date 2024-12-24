@@ -20,8 +20,6 @@ public:
     //Consultors
     PassarelaUsuari* obteUsuari();
 
-    PassarelaVisualitzaSerie* obteSerie();
-
     //Modificadors
     static void iniciaSessio(PassarelaUsuari u); 
     void tancaSessio(); 
