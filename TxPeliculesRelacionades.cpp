@@ -4,7 +4,7 @@ TxPeliculesRelacionades::TxPeliculesRelacionades() {
 
 }
 
-void TxPeliculesRelacionades::executar(string titolP) {
+/*void TxPeliculesRelacionades::executar(string titolP) {
     CercadoraPelicula cercadoraPel;
     _pelicula = cercadoraPel.cercaPeliculesRelacionades(titolP);
 
@@ -22,6 +22,7 @@ void TxPeliculesRelacionades::executar(string titolP) {
     DTOVisualitzacioPelicula resultat(sobrenom, titolPelicula, data, numVisualitzacions);
     _resultat = resultat;
 }
+*/
 
 vector<DTOPelicula> TxPeliculesRelacionades::obteResultat() {
     return _resultat;
