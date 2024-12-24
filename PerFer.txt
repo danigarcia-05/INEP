@@ -1,0 +1,14 @@
+---- OBLIGATORIAS ----
+	- Arreglar menu usuari
+		- EXC
+		- Menu no va bien
+		- Enter
+	- connexioDB --> No incluir el archivo de configuracion. (gitignore)
+
+
+
+
+
+
+---- OPCIONALES----
+	- Poner contraseña antes de cambiar contraseña.

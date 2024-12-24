@@ -132,4 +132,7 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="PerFer.txt" />
+  </ItemGroup>
 </Project>
