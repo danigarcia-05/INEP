@@ -21,3 +21,24 @@ vector<PassarelaVisualitzaPel> CercadoraVisualitzaPel::cercaVisualitzaPel(string
         }
 	return cjVisualitzaPel;
 }
+
+PassarelaVisualitzaPel CercadoraVisualitzaPel::cercaVisualitzaPelEspecifica(string sobrenomU, string titolP){
+	
+	ConnexioDB& con = ConnexioDB::getInstance();
+    PassarelaVisualitzaPel resultat; 
+
+    string comanda = "SELECT * FROM visualitzacio_pelicula WHERE sobrenom_usuari='" + sobrenomU + "' AND titol_pelicula '" + titolP;
+    sql::ResultSet* res = con.consultaSQL(comanda);
+
+    // Mirem si existeix un usuari amb el sobrenom.
+    if (res->next()) {
+        resultat.setSobrenom(res->getString("sobrenom_usuari"));
+        resultat.setTitolPelicula(res->getString("titol_pelicula"));
+        resultat.setNumVisualitzacions(res->getInt("num_visualitzacions"));
+        resultat.setData(res->getString("data"));
+    }
+    else {
+        //EXCEPCIÓN
+    }
+	return resultat;
+}

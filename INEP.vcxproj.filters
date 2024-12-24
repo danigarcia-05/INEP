@@ -19,6 +19,12 @@
     <Filter Include="Archivos de encabezado\cassosUsUsuari">
       <UniqueIdentifier>{2ff79c1b-7e1e-4b27-9f11-660c62064575}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\general">
+      <UniqueIdentifier>{460b14ea-33b0-4821-ac77-8650d204c8cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\general">
+      <UniqueIdentifier>{69fe77cd-fac0-463b-b372-1f60898db5a4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CercadoraUsuari.cpp">
@@ -64,15 +70,30 @@
       <Filter>Archivos de origen\cassosUsUsuari</Filter>
     </ClCompile>
     <ClCompile Include="capaDePresentacio.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de origen\general</Filter>
     </ClCompile>
     <ClCompile Include="connexioDB.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de origen\general</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de origen\general</Filter>
     </ClCompile>
     <ClCompile Include="PetitFlix.cpp">
+      <Filter>Archivos de origen\general</Filter>
+    </ClCompile>
+    <ClCompile Include="PassarelaPelicula.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="CercadoraPelicula.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="DTOPelicula.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="CtrlVisualitzaPelicula.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="TxVisualitzaPelicula.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -120,19 +141,35 @@
       <Filter>Archivos de encabezado\cassosUsUsuari</Filter>
     </ClInclude>
     <ClInclude Include="capaDePresentacio.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="connexioDB.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="PetitFlix.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Archivos de encabezado\general</Filter>
     </ClInclude>
     <ClInclude Include="utils.h">
+      <Filter>Archivos de encabezado\general</Filter>
+    </ClInclude>
+    <ClInclude Include="PetitFlix.h">
+      <Filter>Archivos de encabezado\general</Filter>
+    </ClInclude>
+    <ClInclude Include="connexioDB.h">
+      <Filter>Archivos de encabezado\general</Filter>
+    </ClInclude>
+    <ClInclude Include="DTOPelicula.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="CercadoraPelicula.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="PassarelaPelicula.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="CtrlVisualitzaPelicula.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="TxVisualitzaPelicula.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="PerFer.txt" />
+    <Text Include="PseudoCodi.txt" />
   </ItemGroup>
 </Project>

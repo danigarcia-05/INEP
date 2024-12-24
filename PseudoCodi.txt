@@ -1,0 +1,46 @@
+*** VISUALITZAR PEL·LÍCULA ***
+** CapaPresentacio **
+	- Crea CtrlVisualitzaPelicula
+	- DTOPelicula = consultaPelicula --> titolP
+	- Enseñas pelicula
+	- ? Vols continuar amb la visualitzacio? S/N
+	--- CAS 'S' ---
+	- ModificaPelicula --> dataActual (dia i hora)
+	- vector<DTOPelicula> relacionades
+	- ensenya Relacionades.
+
+** CtrlVisualitzaPelicula **
+	- 
+
+** TxConsultaPelicula **
+--- FALTAN MAS FUNCIONES ---
+	CercadoraPelicula cp
+    _usuari = cp.cercaPelicula(titolP)
+    
+    string ... (atributs)
+    at = _usuari.obteAt();
+    ...
+
+    DTOPelicula resultat(titolP, descripcioP, qualificacioP, dataP, duracioP);
+    _resultat = resultat;
+
+** CercadoraPelicula **
+	- CercaPelicula
+	- vector CercaRelacionades
+
+** PassarelaPelicula **
+	
+	Titol, descripcio, qualificacio, data estrena, duracio.
+
+	- get
+	- set
+	- insereix
+	- esborra
+	- modifica
+
+** DTOPelicula **
+	
+	Titol, descripcio, qualificacio, data estrena, duracio.
+
+	- get
+	- set

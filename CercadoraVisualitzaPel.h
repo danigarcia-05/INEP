@@ -13,5 +13,7 @@ public:
 
     vector<PassarelaVisualitzaPel> cercaVisualitzaPel(string sobrenomU);
 
+    PassarelaVisualitzaPel cercaVisualitzaPelEspecifica(string sobrenomU, string titolP);
+
 };
 #endif

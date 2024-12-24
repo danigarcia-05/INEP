@@ -54,7 +54,7 @@ void CapaDePresentacio::processarIniciarSessio(){
 void CapaDePresentacio::processarTancaSessio(){
     char tanca;
     cout << "** Tancar sessió **" << endl;
-    cout << "Vols tancar la sessió (S/N): ";
+    cout << endl << "Vols tancar la sessió (S/N): ";
     cin >> tanca;
     utils::clearConsole();
     if(tanca == 'S'){
@@ -244,6 +244,58 @@ void CapaDePresentacio::processarVisualitzarPelicula() {
     string nomP;
     getline(cin, nomP);
     utils::clearConsole();
+    CtrlVisualitzaPelicula ctrlVisualitzaPelicula;
+    DTOPelicula infoP = ctrlVisualitzaPelicula.consultaUsuari();
+
+    cout << "Nom complet: " << infoP.obteNom() << endl;
+    cout << "Sobrenom: " << infoP.obteSobrenom() << endl;
+    cout << "Correu electrònic: " << infoP.obteCorreu() << endl;
+    cout << "Data naixement (DD/MM/AAAA): " << infoP.obteDataN() << endl;
+    cout << "Modalitat subscripció: " << infoP.obteModalitatS() << endl;
+
+    char op;
+    cout << endl << "Vols continuar amb la visualitzacio? (S/N): ";
+    cin >> op;
+    utils::clearConsole();
+    if (op == 'S') {
+        try {
+            ctrlVisualitzaPelicula.modificaUsuari(nomU, contraU, correuU, neixU, subsU);
+            DTOUsuari infoUsu(ctrlModificaUsuari.consultaUsuari());
+            cout << "** Dades usuari modificades **" << endl;
+            cout << "Nom complet: " << infoUsu.obteNom() << endl;
+            cout << "Sobrenom: " << infoUsu.obteSobrenom() << endl;
+            cout << "Correu electrònic: " << infoUsu.obteCorreu() << endl;
+            cout << "Data naixement (DD/MM/AAAA): " << infoUsu.obteDataN() << endl;
+            cout << "Modalitat subscripció: " << infoUsu.obteModalitatS() << endl;
+            utils::enter();
+        }
+        catch (sql::SQLException& e) {
+            string errorMsg = e.what();
+            if (e.getErrorCode() == 1062) { //error no es pot insertar per clau primaria o unique repetit
+                if (errorMsg.find("correu_electronic") != string::npos) {
+                    cout << "El nou correu electrònic ja existeix" << endl;
+                }
+            }
+            utils::enter();
+        }
+    }
+
+    // MOSTRAR PELICULES RELACIONADES
+
+    
+
+    
+
+/*
+    -Crea CtrlVisualitzaPelicula
+        - DTOPelicula = consultaPelicula-- > titolP
+        - Enseñas pelicula
+        - ? Vols continuar amb la visualitzacio ? S / N
+        -- - CAS 'S' -- -
+        -ModificaPelicula-- > dataActual(dia i hora)
+        - vector<DTOPelicula> relacionades
+        - ensenya Relacionades.
+        */
 }
 
 void CapaDePresentacio::processarVisualitzarCapitol() {

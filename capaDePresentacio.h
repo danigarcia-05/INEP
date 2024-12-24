@@ -19,6 +19,8 @@ using namespace utils;
 #include "PetitFlix.h"
 #include "connexioDB.h"
 #include <locale>
+#include "DTOUsuari.h"
+#include "DTOPelicula.h"
 
 class CapaDePresentacio {
 private:
