@@ -2,27 +2,31 @@
     
 
 CtrlVisualitzaPelicula::CtrlVisualitzaPelicula(){
-        
+    PetitFlix& petitFlix = PetitFlix::getInstance();
+    _usuari = *(petitFlix.obteUsuari());
 }
 
 //Falta TxVisualitzaPelicula
-DTOVisualitzacioPelicula CtrlVisualitzaPelicula::consultaVisualitzacioPelicula() {
-    TxConsultaUsuari txConsultaUsuari;
-    txConsultaUsuari.executar();
-    DTOVisualitzacioPelicula infoP = txConsultaUsuari.obteResultat();
-    _pelicula = txConsultaUsuari.obteUsuari();
+DTOPelicula CtrlVisualitzaPelicula::consultaPelicula(string titolP) {
+    TxConsultaPelicula txConsultaPelicula;
+    txConsultaPelicula.executar(titolP);
+    DTOPelicula infoP = txConsultaPelicula.obteResultat();
+    _pelicula = txConsultaPelicula.obtePelicula();
     return infoP;
 }
     
-void CtrlVisualitzaPelicula::modificaVisualitzacioPelicula(){
-    if ("No existe") {
-        //HACER LO MISMO QUE EL ELSE
-        
+void CtrlVisualitzaPelicula::modificaVisualitzacioPelicula(string titolP){
+    TxConsultaVisualitzacioPelicula txConsultaVisualitzacioPelicula;
+    txConsultaVisualitzacioPelicula.executar(titolP);
+    _peliculaUsuari = txConsultaVisualitzacioPelicula.obteVisualitzacioPelicula();
+    if (_peliculaUsuari.obteTitolPelicula() == "") {
+        PassarelaVisualitzaPel visualitzacio(_usuari.obteSobrenom(), titolP, utils::dataActual(), 1);
+        visualitzacio.insereix();
     }
     else {
-        _pelicula.setNumVisualitzacions(_pelicula.obteNumVisualitzacions() + 1);
-        _pelicula.setData(utils::dataActual());
-
-        _pelicula.modifica();
+        _peliculaUsuari.setNumVisualitzacions(_peliculaUsuari.obteNumVisualitzacions() + 1);
+        _peliculaUsuari.setData(utils::dataActual());
+        _peliculaUsuari.modifica();
     }    
+    utils::enter();
 }

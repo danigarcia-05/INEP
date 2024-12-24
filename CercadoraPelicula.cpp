@@ -3,25 +3,36 @@
 CercadoraPelicula::CercadoraPelicula() {
 }
 
-PassarelaPelicula cercaPelicula(string titolP) {
+PassarelaPelicula CercadoraPelicula::cercaPelicula(string titolP) {
 	ConnexioDB& connexio = ConnexioDB::getInstance();
     PassarelaPelicula resultat;
 
 	// Establim la sentència SQL.
-	string sql = "SELECT * FROM pelicula WHERE titol='" + titolP + "'";
+	string sql = "SELECT * FROM pelicula WHERE titol ='" + titolP + "'";
 	sql::ResultSet* res = connexio.consultaSQL(sql);
 
 	// Mirem si existeix un usuari amb el sobrenom.
 	if (res->next()) {
         resultat.setTitol(res->getString("titol"));
+        resultat.setDataEstrena(res->getString("data_estrena"));
+        resultat.setDuracio(res->getInt("duracio"));
+	}
+    else {
+        cout << "Error" << endl;
+    }
+
+    sql = "SELECT * FROM contingut WHERE titol ='" + titolP + "'";
+    res = connexio.consultaSQL(sql);
+
+    // Mirem si existeix un usuari amb el sobrenom.
+    if (res->next()) {
+        resultat.setTitol(res->getString("titol"));
         resultat.setDescripcio(res->getString("descripcio"));
         resultat.setQualificacio(res->getString("qualificacio"));
         resultat.setTipus(res->getString("tipus"));
-        resultat.setDataEstrena(res->getString("data_estrena"));
-        resultat.setDuracio(res->getString("duracio"));
-	}
+    }
     else {
-        //EXCEPCIÓN
+        cout << "Error" << endl;
     }
     return resultat;
 }
@@ -42,7 +53,7 @@ vector<PassarelaPelicula> CercadoraPelicula::cercaPeliculesRelacionades(string t
         pelicula.setQualificacio(res->getString("qualificacio"));
         pelicula.setTipus(res->getString("tipus"));
         pelicula.setDataEstrena(res->getString("data_estrena"));
-        pelicula.setDuracio(res->getString("duracio"));
+        pelicula.setDuracio(res->getInt("duracio"));
         cjPelicules.push_back(pelicula);
     }
     return cjPelicules;

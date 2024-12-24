@@ -93,10 +93,13 @@
     <ClCompile Include="CtrlVisualitzaPelicula.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="TxVisualitzaPelicula.cpp">
+    <ClCompile Include="TxConsultaVisualitzacioPelicula.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="DTOVisualitzacioPelicula.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="TxConsultaPelicula.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -167,10 +170,13 @@
     <ClInclude Include="CtrlVisualitzaPelicula.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="TxVisualitzaPelicula.h">
+    <ClInclude Include="TxConsultaVisualitzacioPelicula.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="DTOVisualitzacioPelicula.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="TxConsultaPelicula.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

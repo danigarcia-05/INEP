@@ -241,32 +241,28 @@ void CapaDePresentacio::processarPeliculesMesVistes(){
 void CapaDePresentacio::processarVisualitzarPelicula() {
     cout << "** Visualitzar Pel·lícula **" << endl;
     cout << "Nom pel·lícula: ";
-    string nomP;
-    getline(cin, nomP);
+    cin.ignore();
+    string titolP;
+    getline(cin, titolP);
     utils::clearConsole();
     CtrlVisualitzaPelicula ctrlVisualitzaPelicula;
-    DTOPelicula infoP = ctrlVisualitzaPelicula.consultaUsuari();
+    DTOPelicula infoP = ctrlVisualitzaPelicula.consultaPelicula(titolP);
 
-    cout << "Nom complet: " << infoP.obteNom() << endl;
-    cout << "Sobrenom: " << infoP.obteSobrenom() << endl;
-    cout << "Correu electrònic: " << infoP.obteCorreu() << endl;
-    cout << "Data naixement (DD/MM/AAAA): " << infoP.obteDataN() << endl;
-    cout << "Modalitat subscripció: " << infoP.obteModalitatS() << endl;
+    cout << "Nom pel·lícula: " << infoP.obteTitol() << endl;
+    cout << "Descripció: " << infoP.obteDescripcio() << endl;
+    cout << "Qualificació: " << infoP.obteQualificacio() << endl;
+    cout << "Data estrena: " << infoP.obteDataP() << endl;
+    cout << "Duració: " << infoP.obteDuracio() << endl;
 
     char op;
     cout << endl << "Vols continuar amb la visualitzacio? (S/N): ";
     cin >> op;
     utils::clearConsole();
+    
     if (op == 'S') {
         try {
-            ctrlVisualitzaPelicula.modificaUsuari(nomU, contraU, correuU, neixU, subsU);
-            DTOUsuari infoUsu(ctrlModificaUsuari.consultaUsuari());
-            cout << "** Dades usuari modificades **" << endl;
-            cout << "Nom complet: " << infoUsu.obteNom() << endl;
-            cout << "Sobrenom: " << infoUsu.obteSobrenom() << endl;
-            cout << "Correu electrònic: " << infoUsu.obteCorreu() << endl;
-            cout << "Data naixement (DD/MM/AAAA): " << infoUsu.obteDataN() << endl;
-            cout << "Modalitat subscripció: " << infoUsu.obteModalitatS() << endl;
+            ctrlVisualitzaPelicula.modificaVisualitzacioPelicula(titolP);
+            
             utils::enter();
         }
         catch (sql::SQLException& e) {

@@ -89,7 +89,7 @@ void PassarelaPelicula::insereix()
 {
     ConnexioDB &con = ConnexioDB::getInstance();
     string query = "INSERT INTO pelicula (titol, data_estrena, duracio, descripcio, qualificacio, tipus) VALUES('" +
-        _titol + "', '" + _dataEstrena + "', '" + _duracio + "','" + _descripcio + "', '" + _qualificacio + "', '" + _tipus + "')";
+        _titol + "', '" + _dataEstrena + "', '" + to_string(_duracio) + "','" + _descripcio + "', '" + _qualificacio + "', '" + _tipus + "')";
     con.executarSQL(query);
 }
 
@@ -98,7 +98,7 @@ void PassarelaPelicula::modifica()
     ConnexioDB& con = ConnexioDB::getInstance();
 
     // Establim la sentència SQL.
-    string query = "UPDATE pelicula SET tipus = '" + _tipus + "', data_estrena = '" + _dataEstrena + "', duracio = '" + _duracio + "', descripcio = '" + _descripcio + "', qualificacio = '" + _qualificacio + "' WHERE titol = '" + _titol + "';";
+    string query = "UPDATE pelicula SET tipus = '" + _tipus + "', data_estrena = '" + _dataEstrena + "', duracio = '" + to_string(_duracio) + "', descripcio = '" + _descripcio + "', qualificacio = '" + _qualificacio + "' WHERE titol = '" + _titol + "';";
 
     // Executem la modificació d' usuari a la base de dades.
     con.executarSQL(query);

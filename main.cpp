@@ -41,6 +41,7 @@ void gestioContinguts() {
     cout << "Escriu opció: ";
     cin >> op;
     cout << endl;
+    utils::clearConsole();
     if(op == "1") presentacio.processarVisualitzarPelicula(); 
     else if(op == "2") presentacio.processarVisualitzarCapitol();
     else if(op == "3") presentacio.processarConsultarVisualitzacions();

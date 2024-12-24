@@ -27,9 +27,8 @@ PassarelaVisualitzaPel CercadoraVisualitzaPel::cercaVisualitzaPelEspecifica(stri
 	ConnexioDB& con = ConnexioDB::getInstance();
     PassarelaVisualitzaPel resultat; 
 
-    string comanda = "SELECT * FROM visualitzacio_pelicula WHERE sobrenom_usuari='" + sobrenomU + "' AND titol_pelicula '" + titolP;
+    string comanda = "SELECT * FROM visualitzacio_pelicula WHERE sobrenom_usuari = '" + sobrenomU + "' AND titol_pelicula = '" + titolP + "'";
     sql::ResultSet* res = con.consultaSQL(comanda);
-
     // Mirem si existeix un usuari amb el sobrenom.
     if (res->next()) {
         resultat.setSobrenom(res->getString("sobrenom_usuari"));
@@ -38,7 +37,6 @@ PassarelaVisualitzaPel CercadoraVisualitzaPel::cercaVisualitzaPelEspecifica(stri
         resultat.setData(res->getString("data"));
     }
     else {
-        //EXCEPCIÓN
     }
 	return resultat;
 }

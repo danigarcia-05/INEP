@@ -18,7 +18,7 @@ string DTOVisualitzacioPelicula::obteTitol() {
 }
 
 string DTOVisualitzacioPelicula::obteSobrenom() {
-    return _descripcio; 
+    return _sobrenom; 
 }
 
 string DTOVisualitzacioPelicula::obteDataVP(){
@@ -45,7 +45,7 @@ void DTOVisualitzacioPelicula::setDataVP(string dataVP) {
     _dataVP=dataVP;
 }
 
-void DTOVisualitzacioPelicula::setDataP(string visualitzacions) {
+void DTOVisualitzacioPelicula::setVisualitzacions(int visualitzacions) {
     _visualitzacions=visualitzacions;
 }
 

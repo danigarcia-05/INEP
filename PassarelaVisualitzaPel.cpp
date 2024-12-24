@@ -50,8 +50,10 @@ void PassarelaVisualitzaPel::modifica()
     ConnexioDB& con = ConnexioDB::getInstance();
 
     // Establim la sentència SQL.
-    string query = "UPDATE visualitzacio_pelicula SET data = '" +
-         _data + "', num_visualitzacions'" + "', num_visualitzacions'" + to_string(_numVisualitzacions) + "', '" + "WHERE sobrenom_usuari = '" + _sobrenom + "' AND titol_pelicula = '" + _titolPelicula + "';";
+    string query = "UPDATE visualitzacio_pelicula SET data = '" + _data +
+        "', num_visualitzacions = " + to_string(_numVisualitzacions) +
+        " WHERE sobrenom_usuari = '" + _sobrenom +
+        "' AND titol_pelicula = '" + _titolPelicula + "';";
 
     // Executem la modificació d' usuari a la base de dades.
     con.executarSQL(query);
