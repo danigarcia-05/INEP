@@ -6,6 +6,8 @@
 	- connexioDB --> No incluir el archivo de configuracion. (gitignore)
 	- Para cada tabla una cercadora y una tabla
 
+	- Todos los getters cson const
+
 
 	- modificar usuari: modalitat subscripcio cinèfil no va bè 
 
