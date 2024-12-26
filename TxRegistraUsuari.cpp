@@ -5,11 +5,11 @@ TxRegistraUsuari::TxRegistraUsuari(string nU, string sU, string cU, string ceU, 
     _sobrenomU = sU;
     _contrasenyaU = cU;
     _correuElectronicU = ceU;
-    _dataNaixement = dnU;
+    _dataNaixement = utils::convertToDatetime(dnU);
     _modalitatSubscripcio = msU;
 }
 
 void TxRegistraUsuari::executar() {
-    PassarelaUsuari u(_nomU, _sobrenomU, _contrasenyaU, _correuElectronicU, _dataNaixement, _modalitatSubscripcio); 
+    PassarelaUsuari u(_nomU, _sobrenomU, _contrasenyaU, _correuElectronicU, _dataNaixement, _modalitatSubscripcio);
     u.insereix();
 }

@@ -257,16 +257,15 @@ void CapaDePresentacio::processarVisualitzarPelicula() {
     
     if (op == 'S') {
         try {
-            ctrlVisualitzaPelicula.consultaPeliculaUsuari(titolP);
-            ctrlVisualitzaPelicula.modificaVisualitzacioPelicula(titolP);
+            string sobrenom = ctrlVisualitzaPelicula.consultaPeliculaUsuari(titolP);
+            ctrlVisualitzaPelicula.modificaVisualitzacioPelicula(titolP, sobrenom);
 
             cout << "Visualització registrada: " << utils::dataActual() << endl;
-
             cout<<"Pel·lícules relacionades:"<<endl;
             vector<string> pelRelacionades = ctrlVisualitzaPelicula.consultaRelacionades(titolP);
             for (int i=0; i < pelRelacionades.size(); ++i) {
                 DTOPelicula p = ctrlVisualitzaPelicula.consultaPelicula(pelRelacionades[i]);
-                cout<< "- " << p.obteTitol() << "; " << p.obteDescripcio() << "; " << p.obteQualificacio() << "; "<<p.obteDuracio() << " min ; " << utils::convertitADDMMYYYY(p.obteDataP()) << endl;
+                cout<< "- " << p.obteTitol() << "; " << p.obteDescripcio() << "; " << p.obteQualificacio() << "; "<<p.obteDuracio() << " min; " << utils::convertitADDMMYYYY(p.obteDataP()) << endl;
             }
             utils::enter();
         }
@@ -283,14 +282,49 @@ void CapaDePresentacio::processarVisualitzarPelicula() {
 }
 
 void CapaDePresentacio::processarVisualitzarCapitol() {
-    cout << "** Visualitzar capitol **" << endl;
+    cout << "** Visualitzar Capitol **" << endl;
     cout << "Nom de la sèrie: ";
     string nomS;
     getline(cin, nomS);
     utils::clearConsole();
+    CtrlVisualitzarCapitol ctrlVisualitzarCapitol;
+    int numTemp = ctrlVisualitzarCapitol.obteNumTemporades(nomS);
+    cout << "La sèrie té " << numTemp << " temporades.";
+    cout << "Escull temporada: ";
+    int temporada; 
+    cin >> temporada;
+    ctrlVisualitzarCapitol.seleccionarTemporada(temporada);
+    vector<DTOCapitol> capitols = ctrlVisualitzarCapitol.obteCapitols();
+    cout << "Llista capítols:" << endl; 
+    for(int i = capitols.size(); i > 0; --i){
+        cout << capitols[i].numCapitol << ". " << capitols[i].titol << "; " << capitols[i].dataEstrena << "; " << "Visualitzacio CAMBIAR!!!" << endl; 
+    }
+    cout << "Número de capítol a visualitzar: ";
+    int capitol;
+    cin >> capitol;
+    utils::clearConsole();
 
+    cout << "Número de capítol a visualitzar: " << capitol << endl;
+    cout << endl << "Vols continuar amb la visualització? (S/N): ";
+    string op;
+    cin >> op;
+    utils::clearConsole();
+    if(op == "S"){
+        ctrlVisualitzarCapitol.visualitzaCapitol(capitol);
+        cout << "Visualització registrada: " << utils::dataActual() << endl;
+        utils::enter();
+    }
     
+   /*
+   ---CTRL VISUALTIZAR CAPITOL---
+    - TX CONSULTA TEMPORADA
+    - TX CONSULTA CAPITOL
+       
+    
+    
+    */
 }
+
 void CapaDePresentacio::processarConsultarVisualitzacions() {
 
 }

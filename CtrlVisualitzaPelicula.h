@@ -23,9 +23,9 @@ public:
     CtrlVisualitzaPelicula();
 
     DTOPelicula consultaPelicula(string titolP);
-    void consultaPeliculaUsuari(string titolP);
+    string consultaPeliculaUsuari(string titolP);
 
-    void modificaVisualitzacioPelicula(string titolP);
+    void modificaVisualitzacioPelicula(string titolP, string sobrenom);
 
     vector<string> consultaRelacionades(string titolP);
 };

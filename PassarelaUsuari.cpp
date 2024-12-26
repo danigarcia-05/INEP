@@ -16,8 +16,7 @@ PassarelaUsuari::PassarelaUsuari(string sobrenomU, string nomU, string correuEle
     _correuElectronic = correuElectronicU; // correuElectronic atribut
 }
 
-PassarelaUsuari::PassarelaUsuari(string nomU, string sobrenomU, string contrasenyaU, string correuElectronicU, 
-                                                                    string dataNaixementU, string modalitatU){
+PassarelaUsuari::PassarelaUsuari(string nomU, string sobrenomU, string contrasenyaU, string correuElectronicU, string dataNaixementU, string modalitatU){
     _nom = nomU;
     _sobrenom = sobrenomU;
     _contrasenya = contrasenyaU;
@@ -46,8 +45,7 @@ string PassarelaUsuari::obteCorreuElectronic(){
 }
 
 string PassarelaUsuari::obteDataNaixament(){
-    
-    return utils::convertitADDMMYYYY(_dataNaixament);
+    return _dataNaixament;
 }
 
 string PassarelaUsuari::obteModalitatSubscripcio(){
@@ -85,7 +83,7 @@ void PassarelaUsuari::setCorreuElectronic(string correuElectornic) {
     _correuElectronic=correuElectornic;
 }
 void PassarelaUsuari::setDataNaixament(string dataNaixement) {
-    _dataNaixament=utils::convertToDatetime(dataNaixement);
+    _dataNaixament=dataNaixement;
 }
 void PassarelaUsuari::setModalitatSubscripcio(string modalitatSubscripcio) {
     _modalitatSubscripcio=modalitatSubscripcio;
@@ -100,7 +98,8 @@ void PassarelaUsuari::setModalitatSubscripcio(string modalitatSubscripcio) {
 void PassarelaUsuari::insereix()
 {
     ConnexioDB &con = ConnexioDB::getInstance();
-    string query = "INSERT INTO usuari (sobrenom, nom, contrasenya, correu_electronic, data_naixement, subscripcio) VALUES('" +
+
+    string query = "INSERT INTO usuari (sobrenom, nom, contrasenya, correu_electronic, data_naixement, subscripcio) VALUES ('" +
         _sobrenom + "', '" + _nom + "', '" + _contrasenya + "','" + _correuElectronic + "', '" + _dataNaixament + "', '" + _modalitatSubscripcio + "')";
     con.executarSQL(query);
 }

@@ -17,7 +17,7 @@
         if (nomU != "") _usuari.setNom(nomU);
         if (contraU != "") _usuari.setContrasenya(contraU);
         if (correuU!="") _usuari.setCorreuElectronic(correuU);
-        if (neixU!="") _usuari.setDataNaixament(neixU);
+        if (neixU!="") _usuari.setDataNaixament(utils::convertToDatetime(neixU));
         if (modalitatU != "") _usuari.setModalitatSubscripcio(modalitatU);
         if (nomU != "" or contraU != "" or correuU != "" or neixU != "" or modalitatU != "") {
             _usuari.modifica();

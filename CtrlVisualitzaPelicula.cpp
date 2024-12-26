@@ -14,18 +14,19 @@ DTOPelicula CtrlVisualitzaPelicula::consultaPelicula(string titolP) {
 }
 
 //Mirar si vale la pena conservarlo
-void CtrlVisualitzaPelicula::consultaPeliculaUsuari(string titolP) {
+string CtrlVisualitzaPelicula::consultaPeliculaUsuari(string titolP) {
     TxConsultaVisualitzacioPelicula txConsultaVisualitzacioPelicula;
     PetitFlix& petitFlix = PetitFlix::getInstance();
     PassarelaUsuari usuari = *(petitFlix.obteUsuari());
-    _sobrenom = usuari.obteSobrenom();
-    txConsultaVisualitzacioPelicula.executar(titolP, _sobrenom);
+    string sobrenom = usuari.obteSobrenom();
+    txConsultaVisualitzacioPelicula.executar(titolP, sobrenom);
     _peliculaUsuari = txConsultaVisualitzacioPelicula.obteVisualitzacioPelicula();
+    return sobrenom;
 }
 
-void CtrlVisualitzaPelicula::modificaVisualitzacioPelicula(string titolP){
+void CtrlVisualitzaPelicula::modificaVisualitzacioPelicula(string titolP, string sobrenom){
     if (_peliculaUsuari.obteTitolPelicula() == "") {
-        PassarelaVisualitzaPel visualitzacio(_sobrenom, titolP, utils::dataActual(), 1);
+        PassarelaVisualitzaPel visualitzacio(sobrenom, titolP, utils::dataActual(), 1);
         visualitzacio.insereix();
     }
     else {

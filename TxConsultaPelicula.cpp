@@ -16,7 +16,7 @@ void TxConsultaPelicula::executar(string titolP) {
     titol = _pelicula.obteTitol();
     descripcio = _contingut.obteDescripcio();
     qualificacio = _contingut.obteQualificacio();
-    data = _pelicula.obteDataEstrena();
+    data = utils::convertToDatetime(_pelicula.obteDataEstrena());
     duracio = _pelicula.obteDuracio();
     tipus = _contingut.obteTipus();
 

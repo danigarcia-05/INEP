@@ -13,7 +13,8 @@ void TxConsultaUsuari::executar(){
     nomU = _usuari.obteNom();
     sobrenomU = _usuari.obteSobrenom();
     correuU = _usuari.obteCorreuElectronic();
-    dataNaixementU = _usuari.obteDataNaixament(); // DOBRE BARRA --> FUNCION?
+
+    dataNaixementU = utils::convertitADDMMYYYY(_usuari.obteDataNaixament()); // DOBRE BARRA --> FUNCION?
     modalitatU = _usuari.obteModalitatSubscripcio();
 
     DTOUsuari resultat(nomU, sobrenomU, correuU, dataNaixementU, modalitatU);
