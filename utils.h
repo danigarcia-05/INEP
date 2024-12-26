@@ -9,6 +9,7 @@
 #include <chrono>
 #include <iomanip>  
 #include <sstream>  
+#include <ctime>
 using namespace std;
 
 namespace utils {
@@ -62,7 +63,7 @@ namespace utils {
         this_thread::sleep_for(chrono::milliseconds(miliseg));
     }
 
-    inline void missatgeAnimacio(const std::string& msg, int entreLletres) {
+    inline void missatgeAnimacio(const string& msg, int entreLletres) {
         for (char c : msg) {
             cout << c << flush; 
             espera(entreLletres);
@@ -99,15 +100,35 @@ namespace utils {
     }
 
     inline string dataActual() {
-        auto now = std::chrono::system_clock::now();  // Obté data actual
-        std::time_t now_time = std::chrono::system_clock::to_time_t(now);  // conversio per ctime
+        // Obtener la fecha y hora actual
+        time_t now = time(nullptr);
+        tm* localTime = localtime(&now);
 
-        std::stringstream ss;
-        ss << std::put_time(std::localtime(&now_time), "%Y-%m-%d %H:%M:%S");
-        std::string dateTimeStr = ss.str();  // ctime a string
+        // Formatear la fecha y hora en un string
+        char buffer[20]; // YYYY-MM-DD HH:MM:SS = 19 caracteres + 1 para '\0'
+        strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", localTime);
 
-        return dateTimeStr;
-    }   
+        return string(buffer);
+    }
+
+    inline string convertToDatetime(const string& data) {
+        string year = data.substr(6, 4);  // Extrae el año
+        string month = data.substr(3, 2); // Extrae el mes
+        string day = data.substr(0, 2);   // Extrae el día
+
+        return year + "-" + month + "-" + day;  // Devuelve en formato YYYY-MM-DD
+    }
+
+    inline string convertitADDMMYYYY(const string& data) {
+        cout << data << endl;
+        string year = data.substr(0, 4);  // "YYYY"
+        string month = data.substr(5, 2); // "MM"
+        string day = data.substr(8, 2);   // "DD"
+
+        // Construir el formato "DD/MM/YYYY"
+        return day + "/" + month + "/" + year;
+    }
+
 };
 
 #endif

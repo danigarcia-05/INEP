@@ -2,10 +2,12 @@
 #define PASSARELAUSUARI_HPP
 #pragma once
 #include "connexioDB.h"
+#include "utils.h"
 #include <stdexcept>
 #include <iostream>
 #include <string>
 using namespace std;
+using namespace utils;
 
 class PassarelaUsuari {
 private:

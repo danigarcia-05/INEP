@@ -12,12 +12,11 @@ using namespace std;
 
 class TxConsultaVisualitzacioPelicula {
 private:
-    DTOVisualitzacioPelicula _resultat;
-    PassarelaVisualitzaPel _pelicula;
+    PassarelaVisualitzaPel _peliculaV;
+
 public:
     TxConsultaVisualitzacioPelicula();
-    void executar(string titolP);
-    DTOVisualitzacioPelicula obteResultat();
+    void executar(string titolP, string usuari);
     PassarelaVisualitzaPel obteVisualitzacioPelicula();
 };
 

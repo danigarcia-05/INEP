@@ -41,7 +41,7 @@ void PassarelaVisualitzaPel::insereix()
 {
     ConnexioDB& con = ConnexioDB::getInstance();
     string query = "INSERT INTO visualitzacio_pelicula (sobrenom_usuari, titol_pelicula, data, num_visualitzacions) VALUES('" +
-        _sobrenom + "', '" + _titolPelicula + "', '" + _data + "', '" + to_string(_numVisualitzacions) + "')";
+        _sobrenom + "', '" + _titolPelicula + "', '" + _data +"', '" + to_string(_numVisualitzacions) + "');";
     con.executarSQL(query);
 }
 

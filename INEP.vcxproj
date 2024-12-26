@@ -22,6 +22,7 @@
     <ClCompile Include="capaDePresentacio.cpp" />
     <ClCompile Include="CercadoraContingut.cpp" />
     <ClCompile Include="CercadoraPelicula.cpp" />
+    <ClCompile Include="CercadoraRelacionades.cpp" />
     <ClCompile Include="CercadoraUsuari.cpp" />
     <ClCompile Include="CercadoraVisualitzaPel.cpp" />
     <ClCompile Include="CercadoraVisualitzaSerie.cpp" />
@@ -43,7 +44,7 @@
     <ClCompile Include="TxEsborraUsuari.cpp" />
     <ClCompile Include="TxInfoVisualitzacions.cpp" />
     <ClCompile Include="TxIniciSessio.cpp" />
-    <ClCompile Include="TxPeliculesRelacionades.cpp" />
+    <ClCompile Include="TxConsultaRelacionades.cpp" />
     <ClCompile Include="TxRegistraUsuari.cpp" />
     <ClCompile Include="TxTancaSessio.cpp" />
     <ClCompile Include="TxConsultaVisualitzacioPelicula.cpp" />
@@ -52,6 +53,7 @@
     <ClInclude Include="capaDePresentacio.h" />
     <ClInclude Include="CercadoraContingut.h" />
     <ClInclude Include="CercadoraPelicula.h" />
+    <ClInclude Include="CercadoraRelacionades.h" />
     <ClInclude Include="CercadoraUsuari.h" />
     <ClInclude Include="CercadoraVisualitzaPel.h" />
     <ClInclude Include="CercadoraVisualitzaSerie.h" />
@@ -68,17 +70,18 @@
     <ClInclude Include="PassarelaVisualitzaSerie.h" />
     <ClInclude Include="PetitFlix.h" />
     <ClInclude Include="TxConsultaPelicula.h" />
+    <ClInclude Include="TxConsultaRelacionades.h" />
     <ClInclude Include="TxConsultaUsuari.h" />
     <ClInclude Include="TxEsborraUsuari.h" />
     <ClInclude Include="TxInfoVisualitzacions.h" />
     <ClInclude Include="TxIniciSessio.h" />
-    <ClInclude Include="TxPeliculesRelacionades.h" />
     <ClInclude Include="TxRegistraUsuari.h" />
     <ClInclude Include="TxTancaSessio.h" />
     <ClInclude Include="TxConsultaVisualitzacioPelicula.h" />
     <ClInclude Include="utils.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="Errors.txt" />
     <Text Include="PerFer.txt" />
     <Text Include="PseudoCodi.txt" />
   </ItemGroup>

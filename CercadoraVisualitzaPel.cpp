@@ -3,8 +3,7 @@
 CercadoraVisualitzaPel::CercadoraVisualitzaPel(){}
 
 vector<PassarelaVisualitzaPel> CercadoraVisualitzaPel::cercaVisualitzaPel(string sobrenomU){
-	
-	ConnexioDB& con = ConnexioDB::getInstance();
+	    ConnexioDB& con = ConnexioDB::getInstance();
         vector<PassarelaVisualitzaPel> cjVisualitzaPel;
 
 		string comanda = "SELECT * FROM visualitzacio_pelicula WHERE sobrenom_usuari='" + sobrenomU + "'";
@@ -19,7 +18,7 @@ vector<PassarelaVisualitzaPel> CercadoraVisualitzaPel::cercaVisualitzaPel(string
             pvp.setData(res->getString("data"));
             cjVisualitzaPel.push_back(pvp);
         }
-	return cjVisualitzaPel;
+	    return cjVisualitzaPel;
 }
 
 PassarelaVisualitzaPel CercadoraVisualitzaPel::cercaVisualitzaPelEspecifica(string sobrenomU, string titolP){
@@ -35,8 +34,6 @@ PassarelaVisualitzaPel CercadoraVisualitzaPel::cercaVisualitzaPelEspecifica(stri
         resultat.setTitolPelicula(res->getString("titol_pelicula"));
         resultat.setNumVisualitzacions(res->getInt("num_visualitzacions"));
         resultat.setData(res->getString("data"));
-    }
-    else {
     }
 	return resultat;
 }

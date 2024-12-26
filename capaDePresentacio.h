@@ -20,6 +20,7 @@ using namespace utils;
 #include "PetitFlix.h"
 #include "connexioDB.h"
 #include <locale>
+#include <vector>
 #include "DTOUsuari.h"
 #include "DTOPelicula.h"
 

@@ -2,7 +2,7 @@
 	- Arreglar menu usuari
 		- EXC
 		- Menu no va bien
-		- Enter
+		- Enter (cualquier tecla)
 	- connexioDB --> No incluir el archivo de configuracion. (gitignore)
 	- Para cada tabla una cercadora y una tabla
 

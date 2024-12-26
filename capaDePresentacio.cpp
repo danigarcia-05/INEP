@@ -80,12 +80,8 @@ void CapaDePresentacio::processarRegistreUsuari(){
     cin >> ceU;
     
     cout << "Data naixement (DD/MM/AAAA): ";
-    string data;
-    cin >> data;
-    string dia = string(1, data[0]) + string(1, data[1]);
-    string mes = string(1, data[3]) + string(1, data[4]);
-    string any = string(1, data[6]) + string(1, data[7]) + string(1, data[8]) + string(1, data[9]);
-    dnU = any + "-" + mes + "-" + dia;
+    cin >> dnU;
+    dnU = utils::convertToDatetime(dnU);
 
     cout << "Modalitats de subscripció disponibles ";
     cout << endl << " > 1. Completa ";
@@ -155,7 +151,7 @@ void CapaDePresentacio::processarModificaUsuari() {
     cout << "Nom complet: " << infoU.obteNom() << endl;
     cout << "Sobrenom: " << infoU.obteSobrenom() << endl;
     cout << "Correu electrònic: " << infoU.obteCorreu() << endl;
-    cout << "Data naixement (DD/MM/AAAA): " << infoU.obteDataN() << endl;
+    cout << "Data naixement (DD/MM/AAAA): " << utils::convertitADDMMYYYY(infoU.obteDataN()) << endl;
     cout << "Modalitat subscripció: " << infoU.obteModalitatS() << endl;
 
     utils::enter();
@@ -176,6 +172,7 @@ void CapaDePresentacio::processarModificaUsuari() {
 
     cout << "Data naixement (DD/MM/AAAA): ";
     getline(cin, neixU);
+    neixU = utils::convertToDatetime(neixU);
 
     cout << "Modalitat subscripció: ";
     getline(cin, subsU);
@@ -189,7 +186,9 @@ void CapaDePresentacio::processarModificaUsuari() {
         cout << "Nom complet: " << infoUsu.obteNom() << endl;
         cout << "Sobrenom: " << infoUsu.obteSobrenom() << endl;
         cout << "Correu electrònic: " << infoUsu.obteCorreu() << endl;
-        cout << "Data naixement (DD/MM/AAAA): " << infoUsu.obteDataN() << endl;
+        string data = infoUsu.obteDataN();
+        utils::convertitADDMMYYYY(data);
+        cout << "Data naixement (DD/MM/AAAA): " << data << endl;
         cout << "Modalitat subscripció: " << infoUsu.obteModalitatS() << endl;
         utils::enter();
     }
@@ -251,7 +250,8 @@ void CapaDePresentacio::processarVisualitzarPelicula() {
     cout << "Nom pel·lícula: " << infoP.obteTitol() << endl;
     cout << "Descripció: " << infoP.obteDescripcio() << endl;
     cout << "Qualificació: " << infoP.obteQualificacio() << endl;
-    cout << "Data estrena: " << infoP.obteDataP() << endl;
+    string data = utils::convertitADDMMYYYY(infoP.obteDataP());
+    cout << "Data estrena: " << data << endl;
     cout << "Duració: " << infoP.obteDuracio() << endl;
 
     char op;
@@ -261,14 +261,16 @@ void CapaDePresentacio::processarVisualitzarPelicula() {
     
     if (op == 'S') {
         try {
+            ctrlVisualitzaPelicula.consultaPeliculaUsuari(titolP);
             ctrlVisualitzaPelicula.modificaVisualitzacioPelicula(titolP);
-            cout << "Visualització registrada! " << utils::dataActual << endl;
+
+            cout << "Visualització registrada: " << utils::dataActual() << endl;
+
             cout<<"Pel·lícules relacionades:"<<endl;
-            vector<DTOPelicula> pelRelacionades;
-            pelRelacionades=ctrlVisualitzaPelicula.consultaPeliculesRelacionades(titolP);
-            for (int i=0; i<pelRelacionades.size(); ++i) {
-                DTOPelicula p(pelRelacionades[i]);
-                cout<<"- "<<p.obteTitol()<<"; "<<p.obteDescripcio()<<"; "<<p.obteQualificacio()<<"; "<<p.obteDuracio()<<"; "<<p.obteDataP()<<endl;
+            vector<string> pelRelacionades = ctrlVisualitzaPelicula.consultaRelacionades(titolP);
+            for (int i=0; i < pelRelacionades.size(); ++i) {
+                DTOPelicula p = ctrlVisualitzaPelicula.consultaPelicula(pelRelacionades[i]);
+                cout<< "- " << p.obteTitol() << "; " << p.obteDescripcio() << "; " << p.obteQualificacio() << "; "<<p.obteDuracio() << " min ; " << utils::convertitADDMMYYYY(p.obteDataP()) << endl;
             }
             utils::enter();
         }
@@ -282,23 +284,6 @@ void CapaDePresentacio::processarVisualitzarPelicula() {
             utils::enter();
         }
     }
-
-    // MOSTRAR PELICULES RELACIONADES
-
-    
-
-    
-
-/*
-    -Crea CtrlVisualitzaPelicula
-        - DTOPelicula = consultaPelicula-- > titolP
-        - Enseñas pelicula
-        - ? Vols continuar amb la visualitzacio ? S / N
-        -- - CAS 'S' -- -
-        -ModificaPelicula-- > dataActual(dia i hora)
-        - vector<DTOPelicula> relacionades
-        - ensenya Relacionades.
-        */
 }
 
 void CapaDePresentacio::processarVisualitzarCapitol() {

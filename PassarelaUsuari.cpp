@@ -46,11 +46,8 @@ string PassarelaUsuari::obteCorreuElectronic(){
 }
 
 string PassarelaUsuari::obteDataNaixament(){
-    string any = string(1, _dataNaixament[0]) + string(1, _dataNaixament[1]) + string(1, _dataNaixament[2]) + string(1, _dataNaixament[3]);
-    string mes = string(1, _dataNaixament[5]) + string(1, _dataNaixament[6]);
-    string dia = string(1, _dataNaixament[8]) + string(1, _dataNaixament[9]);
-    string dataNaixement = dia + "/" + mes + "/" + any;
-    return dataNaixement;
+    
+    return utils::convertitADDMMYYYY(_dataNaixament);
 }
 
 string PassarelaUsuari::obteModalitatSubscripcio(){

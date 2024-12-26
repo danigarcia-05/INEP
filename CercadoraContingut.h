@@ -11,7 +11,7 @@ public:
     CercadoraContingut();
 
     PassarelaContingut cercaContingut(string titolC);
-    //vector<PassarelaContingut> cercaContingutRelacionat(string titolC);
+    vector<PassarelaContingut> cercaContingutRelacionat(string titolC);
 };
 #endif
 

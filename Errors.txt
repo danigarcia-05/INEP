@@ -1,0 +1,47 @@
+﻿
+INICIAR SESSIO
+	● L’usuari no existeix o la contrasenya no és correcta. 
+
+REGISTAR USUARI
+	● El sobrenom o el correu electrònic ja existeixen. El sistema mostra un missatg d’error i s’acaba el cas d’ús.
+	● Modalitat no existeix. El sistema mostra un missatge d’error i s’acaba el cas d’ús.
+
+MODIFICAR USUARI
+	● El correu electrònic ja existeix. El sistema mostra un missatge d’error i finalitza el cas d’ús.
+	● Modalitat no existeix. El sistema mostra un missatge d’error i finalitza el cas d’ús.
+
+ESBORRAR USUARI
+	● La contrasenya no és correcta. El sistema mostra un missatge d’error i finalitza el cas d’ús
+
+VISUALITZACIO PELICULA
+	● La pel·lícula no existeix. El sistema mostra un missatge d’error i acaba el cas d’ús.
+	● La pel·lícula no és apropiada per l’edat de l’usuari. El sistema mostra un missatge d’error i acaba el cas d’ús.
+	● La pel·lícula no ha sigut estrenada. El sistema mostra un missatge amb la data d’estrena i es finalitza el cas d’ús.
+	● L’usuari no confirma la visualització. El cas d’ús finalitza.
+
+VISUALITZAR CAPITOL
+	● La sèrie no existeix. El sistema mostra un missatge d’error i finalitza el cas d’ús.
+	● La sèrie no és apropiada per l’edat de l’usuari. El sistema mostra un missatge d’error i finalitza el cas d’ús.
+	● El número de temporada no existeix. El sistema mostra un missatge d’error i finalitza	el cas d’ús..
+	● El número de capítol no existeix. El sistema mostra un missatge d’error i finalitza el cas d’ús.
+	● El capítol no ha sigut estrenat. El sistema mostra un missatge i i finalitza el cas d’ús..
+	● L’usuari no confirma la visualització. El cas d’ús finalitza.
+
+CONSULTAR VISUALITZACIONS
+	● No hi ha visualitzacions. El sistema mostra un missatge d’error i finalitza el cas d’ús.
+
+throw runtime_error("UsuariExisteix");
+
+ try {
+        autenticarUsuario(false, true); // Simula que el usuario no existe
+ } 
+ catch (const std::runtime_error& e) {
+        std::string mensaje = e.what();
+        if (mensaje == "UsuariExisteix") {
+            std::cerr << "Error: El usuario no existe." << std::endl;
+        } else if (mensaje == "ContrasenyaIncorrecta") {
+            std::cerr << "Error: La contraseña es incorrecta." << std::endl;
+        } else {
+            std::cerr << "Error desconocido: " << mensaje << std::endl;
+        }
+    }

@@ -21,7 +21,7 @@ PassarelaContingut CercadoraContingut::cercaContingut(string titolC) {
         resultat.setTipus(res->getString("tipus"));
     }
     else {
-        cout << "Error" << endl;
+        throw runtime_error("");
     }
     return resultat;
 }

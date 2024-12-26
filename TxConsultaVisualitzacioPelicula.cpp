@@ -4,28 +4,11 @@ TxConsultaVisualitzacioPelicula::TxConsultaVisualitzacioPelicula() {
     
 }
 
-void TxConsultaVisualitzacioPelicula::executar(string titolP) {
-    PetitFlix& petitFlix = PetitFlix::getInstance();
-    PassarelaUsuari usuari = *(petitFlix.obteUsuari());
+void TxConsultaVisualitzacioPelicula::executar(string titolP, string usuari) {
     CercadoraVisualitzaPel cercadoraPel;
-    _pelicula = cercadoraPel.cercaVisualitzaPelEspecifica(usuari.obteSobrenom(), titolP);
-
-    string sobrenom, titolPelicula, data;
-    int numVisualitzacions;
-
-    sobrenom = _pelicula.obteSobrenom();
-    titolPelicula = _pelicula.obteTitolPelicula();
-    data = _pelicula.obteData();
-    numVisualitzacions = _pelicula.obteNumVisualitzacions();
-
-    DTOVisualitzacioPelicula resultat(sobrenom, titolPelicula, data, numVisualitzacions);
-    _resultat = resultat;
-}
-
-DTOVisualitzacioPelicula TxConsultaVisualitzacioPelicula::obteResultat() {
-    return _resultat;
+    _peliculaV = cercadoraPel.cercaVisualitzaPelEspecifica(usuari, titolP);
 }
 
 PassarelaVisualitzaPel TxConsultaVisualitzacioPelicula::obteVisualitzacioPelicula() {
-    return _pelicula;
+    return _peliculaV;
 }

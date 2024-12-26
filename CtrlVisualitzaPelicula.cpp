@@ -3,7 +3,6 @@
 
 CtrlVisualitzaPelicula::CtrlVisualitzaPelicula(){
     PetitFlix& petitFlix = PetitFlix::getInstance();
-    _usuari = *(petitFlix.obteUsuari());
 }
 
 //Falta TxVisualitzaPelicula
@@ -11,29 +10,35 @@ DTOPelicula CtrlVisualitzaPelicula::consultaPelicula(string titolP) {
     TxConsultaPelicula txConsultaPelicula;
     txConsultaPelicula.executar(titolP);
     DTOPelicula infoP = txConsultaPelicula.obteResultat();
-    _pelicula = txConsultaPelicula.obtePelicula();
     return infoP;
 }
-    
-void CtrlVisualitzaPelicula::modificaVisualitzacioPelicula(string titolP){
+
+//Mirar si vale la pena conservarlo
+void CtrlVisualitzaPelicula::consultaPeliculaUsuari(string titolP) {
     TxConsultaVisualitzacioPelicula txConsultaVisualitzacioPelicula;
-    txConsultaVisualitzacioPelicula.executar(titolP);
+    PetitFlix& petitFlix = PetitFlix::getInstance();
+    PassarelaUsuari usuari = *(petitFlix.obteUsuari());
+    _sobrenom = usuari.obteSobrenom();
+    txConsultaVisualitzacioPelicula.executar(titolP, _sobrenom);
     _peliculaUsuari = txConsultaVisualitzacioPelicula.obteVisualitzacioPelicula();
+}
+
+void CtrlVisualitzaPelicula::modificaVisualitzacioPelicula(string titolP){
     if (_peliculaUsuari.obteTitolPelicula() == "") {
-        PassarelaVisualitzaPel visualitzacio(_usuari.obteSobrenom(), titolP, utils::dataActual(), 1);
+        PassarelaVisualitzaPel visualitzacio(_sobrenom, titolP, utils::dataActual(), 1);
         visualitzacio.insereix();
     }
     else {
         _peliculaUsuari.setNumVisualitzacions(_peliculaUsuari.obteNumVisualitzacions() + 1);
         _peliculaUsuari.setData(utils::dataActual());
         _peliculaUsuari.modifica();
-    }    
+    }   
 }
 
-vector<DTOPelicula> consultaPeliculesRelacionades(string titolP) {
-    TxConsultaVisualitzacioPelicula txConsultaVisualitzacioPelicula;
-    txConsultaVisualitzacioPelicula.executar(titolP);
-    vector<PassarelaPelicula> cjPelicules = tx;
-    
-    return resultat;
+vector<string> CtrlVisualitzaPelicula::consultaRelacionades(string titolP) {
+    vector<string> cjTitolPelicules;
+    TxConsultaRelacionades txConsultaRelacionades;
+    txConsultaRelacionades.executar(titolP);
+    cjTitolPelicules = txConsultaRelacionades.obteRelacionades();
+    return cjTitolPelicules;
 }
