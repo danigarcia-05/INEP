@@ -2,6 +2,7 @@
 #define PASSARELAPELICULA_HPP
 #pragma once
 #include "connexioDB.h"
+#include "utils.h"
 #include <stdexcept>
 #include <iostream>
 #include <string>

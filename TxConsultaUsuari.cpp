@@ -4,6 +4,7 @@ TxConsultaUsuari::TxConsultaUsuari(){
 
 }
 
+//DOBLE BARRA
 void TxConsultaUsuari::executar(){
     PetitFlix& petitFlix = PetitFlix::getInstance();
     _usuari = *(petitFlix.obteUsuari());
@@ -12,7 +13,7 @@ void TxConsultaUsuari::executar(){
     nomU = _usuari.obteNom();
     sobrenomU = _usuari.obteSobrenom();
     correuU = _usuari.obteCorreuElectronic();
-    dataNaixementU = _usuari.obteDataNaixament();
+    dataNaixementU = _usuari.obteDataNaixament(); // DOBRE BARRA --> FUNCION?
     modalitatU = _usuari.obteModalitatSubscripcio();
 
     DTOUsuari resultat(nomU, sobrenomU, correuU, dataNaixementU, modalitatU);

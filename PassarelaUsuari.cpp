@@ -85,7 +85,7 @@ void PassarelaUsuari::setCorreuElectronic(string correuElectornic) {
     _correuElectronic=correuElectornic;
 }
 void PassarelaUsuari::setDataNaixament(string dataNaixement) {
-    _dataNaixament=dataNaixement;
+    _dataNaixament=utils::convertToDatetime(dataNaixement);
 }
 void PassarelaUsuari::setModalitatSubscripcio(string modalitatSubscripcio) {
     _modalitatSubscripcio=modalitatSubscripcio;

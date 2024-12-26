@@ -120,7 +120,6 @@ namespace utils {
     }
 
     inline string convertitADDMMYYYY(const string& data) {
-        cout << data << endl;
         string year = data.substr(0, 4);  // "YYYY"
         string month = data.substr(5, 2); // "MM"
         string day = data.substr(8, 2);   // "DD"

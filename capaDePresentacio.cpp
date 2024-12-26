@@ -81,7 +81,6 @@ void CapaDePresentacio::processarRegistreUsuari(){
     
     cout << "Data naixement (DD/MM/AAAA): ";
     cin >> dnU;
-    dnU = utils::convertToDatetime(dnU);
 
     cout << "Modalitats de subscripció disponibles ";
     cout << endl << " > 1. Completa ";
@@ -151,7 +150,7 @@ void CapaDePresentacio::processarModificaUsuari() {
     cout << "Nom complet: " << infoU.obteNom() << endl;
     cout << "Sobrenom: " << infoU.obteSobrenom() << endl;
     cout << "Correu electrònic: " << infoU.obteCorreu() << endl;
-    cout << "Data naixement (DD/MM/AAAA): " << utils::convertitADDMMYYYY(infoU.obteDataN()) << endl;
+    cout << "Data naixement (DD/MM/AAAA): " << infoU.obteDataN() << endl;
     cout << "Modalitat subscripció: " << infoU.obteModalitatS() << endl;
 
     utils::enter();
@@ -172,7 +171,6 @@ void CapaDePresentacio::processarModificaUsuari() {
 
     cout << "Data naixement (DD/MM/AAAA): ";
     getline(cin, neixU);
-    neixU = utils::convertToDatetime(neixU);
 
     cout << "Modalitat subscripció: ";
     getline(cin, subsU);
@@ -186,9 +184,7 @@ void CapaDePresentacio::processarModificaUsuari() {
         cout << "Nom complet: " << infoUsu.obteNom() << endl;
         cout << "Sobrenom: " << infoUsu.obteSobrenom() << endl;
         cout << "Correu electrònic: " << infoUsu.obteCorreu() << endl;
-        string data = infoUsu.obteDataN();
-        utils::convertitADDMMYYYY(data);
-        cout << "Data naixement (DD/MM/AAAA): " << data << endl;
+        cout << "Data naixement (DD/MM/AAAA): " << infoUsu.obteDataN() << endl;
         cout << "Modalitat subscripció: " << infoUsu.obteModalitatS() << endl;
         utils::enter();
     }
@@ -247,11 +243,11 @@ void CapaDePresentacio::processarVisualitzarPelicula() {
     CtrlVisualitzaPelicula ctrlVisualitzaPelicula;
     DTOPelicula infoP = ctrlVisualitzaPelicula.consultaPelicula(titolP);
 
+    cout << "Informació pel·lícula ..." << endl;
     cout << "Nom pel·lícula: " << infoP.obteTitol() << endl;
     cout << "Descripció: " << infoP.obteDescripcio() << endl;
     cout << "Qualificació: " << infoP.obteQualificacio() << endl;
-    string data = utils::convertitADDMMYYYY(infoP.obteDataP());
-    cout << "Data estrena: " << data << endl;
+    cout << "Data estrena: " << infoP.obteDataP() << endl;
     cout << "Duració: " << infoP.obteDuracio() << endl;
 
     char op;
