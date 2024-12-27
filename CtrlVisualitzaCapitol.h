@@ -4,6 +4,9 @@
 #include "DTOCapitol.h"
 #include "PassarelaCapitol.h"
 #include "TxConsultaPelicula.h"
+#include "CercadoraTemporada.h"
+#include "TxConsultaCapitols.h"
+#include "TxConsultaVisualitzacioCapitol.h"
 #include "PetitFlix.h"
 using namespace std;
 #include <iostream>
@@ -14,8 +17,6 @@ using namespace std;
 class CtrlVisualitzaCapitol {
 private:
 
-    PassarelaCapitol _capitol;
-    vector<DTOCapitol> _capitols;
     PassarelaVisualitzaCapitol _capitolUsuari;
 
 public:
@@ -23,9 +24,7 @@ public:
 
     int obteNumTemporades(string nomS);
 
-    vector<DTOCapitol> obteCapitols(int numTemporada);
-
-    vector<DTOCapitol> obteResultatCapitols();
+    vector<DTOCapitol> obteCapitolsTemp(string nomS, int numTemporada);
 
     string consultaSerieUsuari(string titolS, int numTemporada, int numCapitol);
 

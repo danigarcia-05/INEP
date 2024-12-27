@@ -20,13 +20,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="capaDePresentacio.cpp" />
+    <ClCompile Include="CercadoraCapitol.cpp" />
     <ClCompile Include="CercadoraContingut.cpp" />
     <ClCompile Include="CercadoraPelicula.cpp" />
     <ClCompile Include="CercadoraRelacionades.cpp" />
     <ClCompile Include="CercadoraTemporada.cpp" />
     <ClCompile Include="CercadoraUsuari.cpp" />
     <ClCompile Include="CercadoraVisualitzaPel.cpp" />
-    <ClCompile Include="CercadoraVisualitzaSerie.cpp" />
+    <ClCompile Include="CercadoraVisualitzaCapitol.cpp" />
     <ClCompile Include="connexioDB.cpp" />
     <ClCompile Include="CtrlModificaUsuari.cpp" />
     <ClCompile Include="CtrlVisualitzaCapitol.cpp" />
@@ -36,17 +37,19 @@
     <ClCompile Include="DTOUsuari.cpp" />
     <ClCompile Include="DTOVisualitzacioPelicula.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PassarelaCapitol.cpp" />
     <ClCompile Include="PassarelaContingut.cpp" />
     <ClCompile Include="PassarelaPelicula.cpp" />
     <ClCompile Include="PassarelaTemporada.cpp" />
     <ClCompile Include="PassarelaUsuari.cpp" />
     <ClCompile Include="PassarelaVisualitzaPel.cpp" />
-    <ClCompile Include="PassarelaVisualitzaSerie.cpp" />
+    <ClCompile Include="PassarelaVisualitzaCapitol.cpp" />
     <ClCompile Include="PetitFlix.cpp" />
     <ClCompile Include="TxConsultaPelicula.cpp" />
     <ClCompile Include="TxConsultaCapitols.cpp" />
     <ClCompile Include="TxConsultaCapitols.h" />
     <ClCompile Include="TxConsultaUsuari.cpp" />
+    <ClCompile Include="TxConsultaVisualitzacioCapitol.cpp" />
     <ClCompile Include="TxEsborraUsuari.cpp" />
     <ClCompile Include="TxInfoVisualitzacions.cpp" />
     <ClCompile Include="TxIniciSessio.cpp" />
@@ -57,13 +60,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="capaDePresentacio.h" />
+    <ClInclude Include="CercadoraCapitol.h" />
     <ClInclude Include="CercadoraContingut.h" />
     <ClInclude Include="CercadoraPelicula.h" />
     <ClInclude Include="CercadoraRelacionades.h" />
     <ClInclude Include="CercadoraTemporada.h" />
     <ClInclude Include="CercadoraUsuari.h" />
     <ClInclude Include="CercadoraVisualitzaPel.h" />
-    <ClInclude Include="CercadoraVisualitzaSerie.h" />
+    <ClInclude Include="CercadoraVisualitzaCapitol.h" />
     <ClInclude Include="connexioDB.h" />
     <ClInclude Include="CtrlModificaUsuari.h" />
     <ClInclude Include="CtrlVisualitzaCapitol.h" />
@@ -72,16 +76,18 @@
     <ClInclude Include="DTOPelicula.h" />
     <ClInclude Include="DTOUsuari.h" />
     <ClInclude Include="DTOVisualitzacioPelicula.h" />
+    <ClInclude Include="PassarelaCapitol.h" />
     <ClInclude Include="PassarelaContingut.h" />
     <ClInclude Include="PassarelaPelicula.h" />
     <ClInclude Include="PassarelaTemporada.h" />
     <ClInclude Include="PassarelaUsuari.h" />
     <ClInclude Include="PassarelaVisualitzaPel.h" />
-    <ClInclude Include="PassarelaVisualitzaSerie.h" />
+    <ClInclude Include="PassarelaVisualitzaCapitol.h" />
     <ClInclude Include="PetitFlix.h" />
     <ClInclude Include="TxConsultaPelicula.h" />
     <ClInclude Include="TxConsultaRelacionades.h" />
     <ClInclude Include="TxConsultaUsuari.h" />
+    <ClInclude Include="TxConsultaVisualitzacioCapitol.h" />
     <ClInclude Include="TxEsborraUsuari.h" />
     <ClInclude Include="TxInfoVisualitzacions.h" />
     <ClInclude Include="TxIniciSessio.h" />

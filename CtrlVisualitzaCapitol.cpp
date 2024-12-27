@@ -5,24 +5,17 @@ CtrlVisualitzaCapitol::CtrlVisualitzaCapitol() {
 
 }
 
-
 int CtrlVisualitzaCapitol::obteNumTemporades(string nomS){
     CercadoraTemporada cercadoraTemporada;
-    vector<PassarelaTemporada> vP = cercadoraTemporada.cercaTemporades(titolS);
+    vector<PassarelaTemporada> vP = cercadoraTemporada.cercaTemporades(nomS);
     return vP.size();
 }
 
-
-void CtrlVisualitzaCapitol::obteCapitols(string titolS, int numTemporada){
+vector<DTOCapitol> CtrlVisualitzaCapitol::obteCapitolsTemp(string nomS, int numTemporada) {
     TxConsultaCapitols txConsultaCapitols;
-    _capitols = txConsultaCapitols.consulta(titolS, numTemporada);
+    txConsultaCapitols.executar(nomS, numTemporada);
+    return txConsultaCapitols.obteResultat();
 }
-
-
-vector<DTOCapitol> CtrlVisualitzaCapitol::obteResultatCapitols() {
-    return _capitols;
-}
-
 
 string CtrlVisualitzaCapitol::consultaSerieUsuari(string titolS, int numTemporada, int numCapitol) {
     PetitFlix& petitFlix = PetitFlix::getInstance();
@@ -30,13 +23,13 @@ string CtrlVisualitzaCapitol::consultaSerieUsuari(string titolS, int numTemporad
     string sobrenomU = usuari.obteSobrenom();
     TxConsultaVisualitzacioCapitol txConsultaVisualitzacioCapitol;
     txConsultaVisualitzacioCapitol.executar(sobrenomU, titolS, numTemporada, numCapitol);
-    _capitolUsuari = txConsultaVisualitzacioCapitol.obteCapitol();
+    _capitolUsuari = txConsultaVisualitzacioCapitol.obteVisualitzacioCapitol();
     return sobrenomU;
 }
 
 void CtrlVisualitzaCapitol::visualitzaCapitol(string sobrenomU, string titolS, int numTemporada, int numCapitol){
     if (_capitolUsuari.obteTitolSerie() == "") {
-        PassarelaVisualitzaSerie visualitzacio(sobrenomU, titolS, numTemporada, numCapitol, utils::dataActual(), 1);
+        PassarelaVisualitzaCapitol visualitzacio(sobrenomU, titolS, 1, numTemporada, numCapitol, utils::dataActual());
         visualitzacio.insereix();
     }
     else {

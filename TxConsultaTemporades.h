@@ -1,7 +1,7 @@
 #ifndef CONSULTATEMPORADES_HPP
 #define CONSULTATEMPORADES_HPP
 #pragma once
-#include "DTOPelicula.h"
+#include "DTOTemporada.h"
 #include "CercadoraTemporada.h"
 #include "PetitFlix.h"
 using namespace std;

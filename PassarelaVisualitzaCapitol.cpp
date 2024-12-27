@@ -1,57 +1,57 @@
-#include "PassarelaVisualitzaSerie.h"
+#include "PassarelaVisualitzaCapitol.h"
 
 
-PassarelaVisualitzaSerie::PassarelaVisualitzaSerie()
+PassarelaVisualitzaCapitol::PassarelaVisualitzaCapitol()
     : _sobrenom(""), _titolSerie(""), _numVisualitzacions(0), _numTemporada(0), _numCapitol(0), _data("") {}
 
 
-PassarelaVisualitzaSerie::PassarelaVisualitzaSerie(string sobrenomU, string titolSerieU, int numVisualitzacionsU, int numTemporadaU, int numCapitolU, string dataU)
+PassarelaVisualitzaCapitol::PassarelaVisualitzaCapitol(string sobrenomU, string titolSerieU, int numVisualitzacionsU, int numTemporadaU, int numCapitolU, string dataU)
     : _sobrenom(sobrenomU), _titolSerie(titolSerieU), _numVisualitzacions(numVisualitzacionsU), _numTemporada(numTemporadaU), _numCapitol(numCapitolU), _data(dataU) {}
 
 
 //GETTERS
-string PassarelaVisualitzaSerie::obteSobrenom(){
+string PassarelaVisualitzaCapitol::obteSobrenom(){
     return _sobrenom;
 }
-string PassarelaVisualitzaSerie::obteTitolSerie(){
+string PassarelaVisualitzaCapitol::obteTitolSerie(){
     return _titolSerie;
 }
-int PassarelaVisualitzaSerie::obteNumVisualitzacions(){
+int PassarelaVisualitzaCapitol::obteNumVisualitzacions(){
     return _numVisualitzacions;
 }
-int PassarelaVisualitzaSerie::numTemporada(){
+int PassarelaVisualitzaCapitol::numTemporada(){
     return _numTemporada;
 }
-int PassarelaVisualitzaSerie::numCapitol(){
+int PassarelaVisualitzaCapitol::numCapitol(){
     return _numCapitol;
 }
-string PassarelaVisualitzaSerie::obteData(){
+string PassarelaVisualitzaCapitol::obteData(){
     return _data;
 }
 
 
 //SETTERS
-void PassarelaVisualitzaSerie::setSobrenom(string sobrenom){
+void PassarelaVisualitzaCapitol::setSobrenom(string sobrenom){
     _sobrenom = sobrenom;
 }
-void PassarelaVisualitzaSerie::setTitolSerie(string titolS){
+void PassarelaVisualitzaCapitol::setTitolSerie(string titolS){
     _titolSerie = titolS;
 }
-void PassarelaVisualitzaSerie::setNumVisualitzacions(int nVis){
+void PassarelaVisualitzaCapitol::setNumVisualitzacions(int nVis){
     _numVisualitzacions = nVis;
 }
-void PassarelaVisualitzaSerie::setNumTemporada(int temp){
+void PassarelaVisualitzaCapitol::setNumTemporada(int temp){
     _numTemporada = temp;
 }
-void PassarelaVisualitzaSerie::setNumCapitol(int cap){
+void PassarelaVisualitzaCapitol::setNumCapitol(int cap){
     _numCapitol = cap;
 }
-void PassarelaVisualitzaSerie::setData(string data){
+void PassarelaVisualitzaCapitol::setData(string data){
     _data = data;
 }
 
 
-void PassarelaVisualitzaSerie::insereix()
+void PassarelaVisualitzaCapitol::insereix()
 {
     ConnexioDB& con = ConnexioDB::getInstance();
     string query = "INSERT INTO visualitzacio_capitol (sobrenom_usuari, titol_serie, num_temporada, num_capitol, data, num_visualitzacions) VALUES('" +
@@ -59,7 +59,7 @@ void PassarelaVisualitzaSerie::insereix()
     con.executarSQL(query);
 }
 
-void PassarelaVisualitzaSerie::modifica()
+void PassarelaVisualitzaCapitol::modifica()
 {
     _numVisualitzacions += 1;
     _data = utils::dataActual();
@@ -73,7 +73,7 @@ void PassarelaVisualitzaSerie::modifica()
     con.executarSQL(query);
 }
 
-void PassarelaVisualitzaSerie::esborra()
+void PassarelaVisualitzaCapitol::esborra()
 {
     ConnexioDB& con = ConnexioDB::getInstance();
 

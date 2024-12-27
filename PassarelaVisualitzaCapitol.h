@@ -1,5 +1,5 @@
-#ifndef PASSARELASERIE_HPP
-#define PASSARELASERIE_HPP
+#ifndef PASSARELAVISUALITZACAPITOL_HPP
+#define PASSARELAVISUALITZACAPITOL_HPP
 #pragma once
 
 #include "connexioDB.h"
@@ -10,7 +10,7 @@
 using namespace std;
 using namespace utils;
 
-class PassarelaVisualitzaSerie {
+class PassarelaVisualitzaCapitol {
 private:
     string _sobrenom;
     string _titolSerie;
@@ -21,8 +21,8 @@ private:
 
 public:
     
-    PassarelaVisualitzaSerie(); 
-    PassarelaVisualitzaSerie(string sobrenomU, string titolSerieU, int numVisualitzacionsU, int numTemporadaU, int numCapitolU, string dataU);
+    PassarelaVisualitzaCapitol(); 
+    PassarelaVisualitzaCapitol(string sobrenomU, string titolSerieU, int numVisualitzacionsU, int numTemporadaU, int numCapitolU, string dataU);
 
     //GETTERS
     string obteSobrenom();
@@ -41,7 +41,6 @@ public:
     void setNumCapitol(int cap);
     void setData(string data);
     
-
     void insereix();
     void modifica();
     void esborra();

@@ -1,23 +1,22 @@
-#ifndef CONSULTATEMPORADES_HPP
-#define CONSULTATEMPORADES_HPP
+#ifndef CONSULTACAPITOLS_HPP
+#define CONSULTACAPITOLS_HPP
 #pragma once
-#include "DTOPelicula.h"
-#include "CercadoraTemporada.h"
+#include "CercadoraCapitol.h"
 #include "PetitFlix.h"
+#include "DTOCapitol.h"
 using namespace std;
 #include <iostream>
 #include <string>
 #include <stdexcept>  
 
-class TxConsultaTemporada {
+class TxConsultaCapitols {
 private:
-    PassarelaTemporada _temporada;
+   vector<DTOCapitol> _capitols;
 
 public:
-    TxConsultaTemporades();
-    void executar(string titolT);
-    DTOPelicula obteResultat();
-    PassarelaTemporada obteTemporada();
+    TxConsultaCapitols();
+    void executar(string titolS, int numTemporada);
+    vector<DTOCapitol> obteResultat();
 };
 
 #endif

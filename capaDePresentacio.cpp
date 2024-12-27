@@ -285,20 +285,25 @@ void CapaDePresentacio::processarVisualitzarCapitol() {
     cout << "** Visualitzar Capitol **" << endl;
     cout << "Nom de la sèrie: ";
     string nomS;
+    cin.ignore();
     getline(cin, nomS);
     utils::clearConsole();
-    CtrlVisualitzarCapitol ctrlVisualitzarCapitol;
-    int numTemp = ctrlVisualitzarCapitol.obteNumTemporades(nomS);
-    cout << "La sèrie té " << numTemp << " temporades.";
+    CtrlVisualitzaCapitol ctrlVisualitzaCapitol;
+    int numTemp = ctrlVisualitzaCapitol.obteNumTemporades(nomS);
+    cout << "La sèrie té " << numTemp << " temporades." << endl << endl;
     cout << "Escull temporada: ";
     int temporada; 
     cin >> temporada;
-    ctrlVisualitzarCapitol.seleccionarTemporada(temporada);
-    vector<DTOCapitol> capitols = ctrlVisualitzarCapitol.obteCapitols();
+    if (temporada > numTemp) cout << "error" << endl; 
+    utils::clearConsole();
+    vector<DTOCapitol> capitols = ctrlVisualitzaCapitol.obteCapitolsTemp(nomS, temporada);
+
     cout << "Llista capítols:" << endl; 
-    for(int i = capitols.size(); i > 0; --i){
-        cout << capitols[i].numCapitol << ". " << capitols[i].titol << "; " << capitols[i].dataEstrena << "; " << "Visualitzacio CAMBIAR!!!" << endl; 
+
+    for (int i = capitols.size() - 1; i >= 0; --i) {
+        cout << capitols[i].obteNumCap() << ". " << capitols[i].obteTitolC() << "; " << capitols[i].obteDataEstrena() << "; " << "Visualitzacio CAMBIAR!!!" << endl;
     }
+
     cout << "Número de capítol a visualitzar: ";
     int capitol;
     cin >> capitol;
@@ -310,19 +315,11 @@ void CapaDePresentacio::processarVisualitzarCapitol() {
     cin >> op;
     utils::clearConsole();
     if(op == "S"){
-        ctrlVisualitzarCapitol.visualitzaCapitol(capitol);
+        string sobrenomU = ctrlVisualitzaCapitol.consultaSerieUsuari(nomS, temporada, capitol);
+        ctrlVisualitzaCapitol.visualitzaCapitol(sobrenomU, nomS, temporada, capitol);
         cout << "Visualització registrada: " << utils::dataActual() << endl;
         utils::enter();
     }
-    
-   /*
-   ---CTRL VISUALTIZAR CAPITOL---
-    - TX CONSULTA TEMPORADA
-    - TX CONSULTA CAPITOL
-       
-    
-    
-    */
 }
 
 void CapaDePresentacio::processarConsultarVisualitzacions() {

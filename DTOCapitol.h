@@ -6,26 +6,35 @@ using namespace std;
 #include "PassarelaCapitol.h"
 
 class DTOCapitol {
+private:
+    string _titolSerie;
+    int _numTemporada;
+    int _numero;
+    string _titol;
+    string _dataEstrena;
+    string _qualificacio;
 public:
 
     DTOCapitol();
-    DTOCapitol(string titolC, string dataEstrenaC, string visualitzatC);
+    DTOCapitol(string titolS, int numTemporada, int numero, string titol, string dataEstrena, string qualificacio);
 
     //GETTERS
-    string obteTitol();
+    string obteTitolS();
+    int obteNumTemp();
+    int obteNumCap();
+    string obteTitolC();
     string obteDataEstrena();
-    string obteDataVisualitzat();
+    string obteQualificacio();
     
     //SETTERS
-    void setTitol(string titol);
+    void setTitolS(string titolS);
+    void setNumTemp(int numTemp);
+    void setNumCap(int NumCap);
+    void setTitolC(string titolC);
     void setDataEstrena(string dataEstrena);
-    void setDataVisualitzat(string dataVisualitzat);
+    void setQualificacio(string qualificacio);
+
 
     DTOCapitol& operator=(const DTOCapitol& obj);
-
-private:
-    string _titol;
-    string _dataEstrena;
-    string _dataVisualitzat;
 };
 #endif

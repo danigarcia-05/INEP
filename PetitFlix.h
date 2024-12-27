@@ -3,7 +3,7 @@
 #pragma once
 
 #include "PassarelaUsuari.h"
-#include "PassarelaVisualitzaSerie.h"
+#include "PassarelaVisualitzaCapitol.h"
 
 class PetitFlix {
 private:

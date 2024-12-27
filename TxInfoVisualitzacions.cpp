@@ -10,10 +10,10 @@ void TxInfoVisualitzacions::executar(){
     string sobrenomU = u->obteSobrenom();
 
     CercadoraVisualitzaPel cercadoraPel;
-    CercadoraVisualitzaSerie cercadoraSerie;
+    CercadoraVisualitzaCapitol cercadoraCapitol;
     
     vector<PassarelaVisualitzaPel> visualitzacionsPel = cercadoraPel.cercaVisualitzaPel(sobrenomU);
-    vector<PassarelaVisualitzaSerie> visualitzacionsS = cercadoraSerie.cercaVisualitzaSerie(sobrenomU);
+    vector<PassarelaVisualitzaCapitol> visualitzacionsS = cercadoraCapitol.cercaVisualitzaCapitolsUsuari(sobrenomU);
 
     for (int i = 0; i < visualitzacionsPel.size(); ++i) _numVisualitzacions.first += visualitzacionsPel[i].obteNumVisualitzacions();
     for (int i = 0; i < visualitzacionsS.size(); ++i) _numVisualitzacions.second += visualitzacionsS[i].obteNumVisualitzacions();

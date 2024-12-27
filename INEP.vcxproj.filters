@@ -72,7 +72,7 @@
     <ClCompile Include="CercadoraVisualitzaPel.cpp">
       <Filter>Archivos de origen\Cercadores</Filter>
     </ClCompile>
-    <ClCompile Include="CercadoraVisualitzaSerie.cpp">
+    <ClCompile Include="CercadoraVisualitzaCapitol.cpp">
       <Filter>Archivos de origen\Cercadores</Filter>
     </ClCompile>
     <ClCompile Include="PassarelaUsuari.cpp">
@@ -81,7 +81,7 @@
     <ClCompile Include="PassarelaVisualitzaPel.cpp">
       <Filter>Archivos de origen\Passareles</Filter>
     </ClCompile>
-    <ClCompile Include="PassarelaVisualitzaSerie.cpp">
+    <ClCompile Include="PassarelaVisualitzaCapitol.cpp">
       <Filter>Archivos de origen\Passareles</Filter>
     </ClCompile>
     <ClCompile Include="TxConsultaUsuari.cpp">
@@ -126,8 +126,44 @@
     <ClCompile Include="TxConsultaVisualitzacioPelicula.cpp">
       <Filter>Archivos de origen\Tx</Filter>
     </ClCompile>
-    <ClCompile Include="TxPeliculesRelacionades.cpp">
+    <ClCompile Include="TxConsultaCapitols.h">
+      <Filter>Archivos de encabezado\Tx</Filter>
+    </ClCompile>
+    <ClCompile Include="CercadoraContingut.cpp">
+      <Filter>Archivos de origen\Cercadores</Filter>
+    </ClCompile>
+    <ClCompile Include="CercadoraRelacionades.cpp">
+      <Filter>Archivos de origen\Cercadores</Filter>
+    </ClCompile>
+    <ClCompile Include="CercadoraTemporada.cpp">
+      <Filter>Archivos de origen\Cercadores</Filter>
+    </ClCompile>
+    <ClCompile Include="CtrlVisualitzaCapitol.cpp">
+      <Filter>Archivos de origen\Ctrl</Filter>
+    </ClCompile>
+    <ClCompile Include="PassarelaContingut.cpp">
+      <Filter>Archivos de origen\Passareles</Filter>
+    </ClCompile>
+    <ClCompile Include="PassarelaTemporada.cpp">
+      <Filter>Archivos de origen\Passareles</Filter>
+    </ClCompile>
+    <ClCompile Include="TxConsultaCapitols.cpp">
       <Filter>Archivos de origen\Tx</Filter>
+    </ClCompile>
+    <ClCompile Include="TxConsultaRelacionades.cpp">
+      <Filter>Archivos de origen\Tx</Filter>
+    </ClCompile>
+    <ClCompile Include="CercadoraCapitol.cpp">
+      <Filter>Archivos de origen\Cercadores</Filter>
+    </ClCompile>
+    <ClCompile Include="TxConsultaVisualitzacioCapitol.cpp">
+      <Filter>Archivos de origen\Tx</Filter>
+    </ClCompile>
+    <ClCompile Include="DTOCapitol.cpp">
+      <Filter>Archivos de origen\DTO</Filter>
+    </ClCompile>
+    <ClCompile Include="PassarelaCapitol.cpp">
+      <Filter>Archivos de origen\Passareles</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -146,7 +182,7 @@
     <ClInclude Include="connexioDB.h">
       <Filter>Archivos de encabezado\general</Filter>
     </ClInclude>
-    <ClInclude Include="PassarelaVisualitzaSerie.h">
+    <ClInclude Include="PassarelaVisualitzaCapitol.h">
       <Filter>Archivos de encabezado\Passareles</Filter>
     </ClInclude>
     <ClInclude Include="PassarelaVisualitzaPel.h">
@@ -164,7 +200,7 @@
     <ClInclude Include="CercadoraVisualitzaPel.h">
       <Filter>Archivos de encabezado\Cercadores</Filter>
     </ClInclude>
-    <ClInclude Include="CercadoraVisualitzaSerie.h">
+    <ClInclude Include="CercadoraVisualitzaCapitol.h">
       <Filter>Archivos de encabezado\Cercadores</Filter>
     </ClInclude>
     <ClInclude Include="CercadoraPelicula.h">
@@ -194,9 +230,6 @@
     <ClInclude Include="TxConsultaVisualitzacioPelicula.h">
       <Filter>Archivos de encabezado\Tx</Filter>
     </ClInclude>
-    <ClInclude Include="TxPeliculesRelacionades.h">
-      <Filter>Archivos de encabezado\Tx</Filter>
-    </ClInclude>
     <ClInclude Include="CtrlVisualitzaPelicula.h">
       <Filter>Archivos de encabezado\Ctrl</Filter>
     </ClInclude>
@@ -209,9 +242,43 @@
     <ClInclude Include="DTOVisualitzacioPelicula.h">
       <Filter>Archivos de encabezado\DTO</Filter>
     </ClInclude>
+    <ClInclude Include="CercadoraContingut.h">
+      <Filter>Archivos de encabezado\Cercadores</Filter>
+    </ClInclude>
+    <ClInclude Include="CercadoraRelacionades.h">
+      <Filter>Archivos de encabezado\Cercadores</Filter>
+    </ClInclude>
+    <ClInclude Include="CercadoraTemporada.h">
+      <Filter>Archivos de encabezado\Cercadores</Filter>
+    </ClInclude>
+    <ClInclude Include="CtrlVisualitzaCapitol.h">
+      <Filter>Archivos de encabezado\Ctrl</Filter>
+    </ClInclude>
+    <ClInclude Include="DTOCapitol.h">
+      <Filter>Archivos de encabezado\DTO</Filter>
+    </ClInclude>
+    <ClInclude Include="PassarelaContingut.h">
+      <Filter>Archivos de encabezado\Passareles</Filter>
+    </ClInclude>
+    <ClInclude Include="PassarelaTemporada.h">
+      <Filter>Archivos de encabezado\Passareles</Filter>
+    </ClInclude>
+    <ClInclude Include="TxConsultaRelacionades.h">
+      <Filter>Archivos de encabezado\Tx</Filter>
+    </ClInclude>
+    <ClInclude Include="CercadoraCapitol.h">
+      <Filter>Archivos de encabezado\Cercadores</Filter>
+    </ClInclude>
+    <ClInclude Include="TxConsultaVisualitzacioCapitol.h">
+      <Filter>Archivos de encabezado\Tx</Filter>
+    </ClInclude>
+    <ClInclude Include="PassarelaCapitol.h">
+      <Filter>Archivos de encabezado\Passareles</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="PerFer.txt" />
     <Text Include="PseudoCodi.txt" />
+    <Text Include="Errors.txt" />
   </ItemGroup>
 </Project>

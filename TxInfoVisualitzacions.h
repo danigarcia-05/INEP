@@ -3,8 +3,7 @@
 #define TXINFOVISUALITZACIONS_HPP
 #include "PassarelaUsuari.h"
 #include "CercadoraVisualitzaPel.h"
-#include "CercadoraVisualitzaSerie.h"
-#include "PassarelaVisualitzaSerie.h"
+#include "CercadoraVisualitzaCapitol.h"
 #include "PassarelaVisualitzaPel.h"
 #include "PetitFlix.h"
 using namespace std;

@@ -15,7 +15,7 @@ PassarelaTemporada CercadoraTemporada::cercaTemporada(string titolS, int numTemp
     }
     else {
         temporada.setTitol(res->getString("titol_serie"));
-        temporada.setNumTemporada(res->getString("numero"));
+        temporada.setNumTemporada(res->getInt("numero"));
         delete res;
     }
     return temporada;
@@ -33,7 +33,7 @@ vector<PassarelaTemporada> CercadoraTemporada::cercaTemporades(string titolS) {
     while (res->next()) {
         PassarelaTemporada temporada;
         temporada.setTitol(res->getString("titol_serie"));
-        temporada.setNumTemporada(res->getString("numero"));
+        temporada.setNumTemporada(res->getInt("numero"));
         cjTemporades.push_back(temporada);
     }
     return cjTemporades;
