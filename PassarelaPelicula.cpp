@@ -12,7 +12,7 @@ PassarelaPelicula::PassarelaPelicula() : _titol(""), _dataEstrena(""), _duracio(
 PassarelaPelicula::PassarelaPelicula(string titol, string dataEstrena, int duracio)
 {
     _titol = titol;
-    _dataEstrena = utils::convertitADDMMYYYY(dataEstrena);
+    _dataEstrena = dataEstrena;
     _duracio = duracio;
 }
 
@@ -25,7 +25,7 @@ string PassarelaPelicula::obteTitol() {
     return _titol;
 }
 string PassarelaPelicula::obteDataEstrena() {
-    return utils::convertitADDMMYYYY(_dataEstrena);
+    return _dataEstrena;
 }
 int PassarelaPelicula::obteDuracio() {
     return _duracio;

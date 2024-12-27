@@ -6,8 +6,11 @@ CercadoraVisualitzaCapitol::CercadoraVisualitzaCapitol(){
 
 PassarelaVisualitzaCapitol CercadoraVisualitzaCapitol::cercaVisualitzaCapitol(string sobrenomU, string nomS, int numTemporada, int numCapitol){
     ConnexioDB& con = ConnexioDB::getInstance();
-    string comanda = "SELECT * FROM visualitzacio_capitol WHERE sobrenom_usuari = '" + sobrenomU + "' AND titol_serie = '" + nomS + "' AND num_temporada = " +
-    to_string(numTemporada) + " AND num_capitol = " + std::to_string(numCapitol) + ";";
+    string comanda = "SELECT * FROM visualitzacio_capitol WHERE sobrenom_usuari = '" + sobrenomU + 
+        "' AND titol_serie = '" + nomS + "' AND num_temporada = " + to_string(numTemporada) + 
+        " AND num_capitol = " + std::to_string(numCapitol) + 
+        " ORDER BY data DESC;";
+
     sql::ResultSet* res = con.consultaSQL(comanda);
 
     PassarelaVisualitzaCapitol capitol;
@@ -28,7 +31,7 @@ vector<PassarelaVisualitzaCapitol> CercadoraVisualitzaCapitol::cercaVisualitzaCa
     ConnexioDB& con = ConnexioDB::getInstance();
     vector<PassarelaVisualitzaCapitol> cjVisualitzacionsCapitol;
 
-    string comanda = "SELECT * FROM visualitzacio_capitol WHERE sobrenom_usuari='" + sobrenomU + "'";
+    string comanda = "SELECT * FROM visualitzacio_capitol WHERE sobrenom_usuari = '" + sobrenomU + "' ORDER BY data DESC";
     sql::ResultSet* res = con.consultaSQL(comanda);
 
     // Mirem si existeix un usuari amb el sobrenom.

@@ -247,7 +247,7 @@ void CapaDePresentacio::processarVisualitzarPelicula() {
     cout << "Nom pel·lícula: " << infoP.obteTitol() << endl;
     cout << "Descripció: " << infoP.obteDescripcio() << endl;
     cout << "Qualificació: " << infoP.obteQualificacio() << endl;
-    cout << "Data estrena: " << utils::convertitADDMMYYYY(infoP.obteDataP()) << endl;
+    cout << "Data estrena: " << infoP.obteDataP() << endl;
     cout << "Duració: " << infoP.obteDuracio() << endl;
 
     char op;
@@ -265,7 +265,7 @@ void CapaDePresentacio::processarVisualitzarPelicula() {
             vector<string> pelRelacionades = ctrlVisualitzaPelicula.consultaRelacionades(titolP);
             for (int i=0; i < pelRelacionades.size(); ++i) {
                 DTOPelicula p = ctrlVisualitzaPelicula.consultaPelicula(pelRelacionades[i]);
-                cout<< "- " << p.obteTitol() << "; " << p.obteDescripcio() << "; " << p.obteQualificacio() << "; "<<p.obteDuracio() << " min; " << utils::convertitADDMMYYYY(p.obteDataP()) << endl;
+                cout<< "- " << p.obteTitol() << "; " << p.obteDescripcio() << "; " << p.obteQualificacio() << "; "<<p.obteDuracio() << " min; " << p.obteDataP() << endl;
             }
             utils::enter();
         }
