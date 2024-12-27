@@ -247,7 +247,7 @@ void CapaDePresentacio::processarVisualitzarPelicula() {
     cout << "Nom pel·lícula: " << infoP.obteTitol() << endl;
     cout << "Descripció: " << infoP.obteDescripcio() << endl;
     cout << "Qualificació: " << infoP.obteQualificacio() << endl;
-    cout << "Data estrena: " << infoP.obteDataP() << endl;
+    cout << "Data estrena: " << utils::convertitADDMMYYYY(infoP.obteDataP()) << endl;
     cout << "Duració: " << infoP.obteDuracio() << endl;
 
     char op;
@@ -260,7 +260,7 @@ void CapaDePresentacio::processarVisualitzarPelicula() {
             string sobrenom = ctrlVisualitzaPelicula.consultaPeliculaUsuari(titolP);
             ctrlVisualitzaPelicula.modificaVisualitzacioPelicula(titolP, sobrenom);
 
-            cout << "Visualització registrada: " << utils::dataActual() << endl;
+            cout << "Visualització registrada: " << utils::convertitADDMMYYYY(utils::dataActual()) << " " << utils::horaActual() << endl;
             cout<<"Pel·lícules relacionades:"<<endl;
             vector<string> pelRelacionades = ctrlVisualitzaPelicula.consultaRelacionades(titolP);
             for (int i=0; i < pelRelacionades.size(); ++i) {
@@ -328,7 +328,7 @@ void CapaDePresentacio::processarVisualitzarCapitol() {
     if(op == "S"){
         string sobrenomU = ctrlVisualitzaCapitol.consultaSerieUsuari(nomS, temporada, capitol);
         ctrlVisualitzaCapitol.visualitzaCapitol(sobrenomU, nomS, temporada, capitol);
-        cout << "Visualització registrada: " << utils::convertitADDMMYYYY(utils::dataActual()) << endl;
+        cout << "Visualització registrada: " << utils::convertitADDMMYYYY(utils::dataActual()) << " " << utils::horaActual() << endl;
         utils::enter();
     }
 }

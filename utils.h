@@ -127,5 +127,17 @@ namespace utils {
         // Construir el formato "DD/MM/YYYY"
         return day + "/" + month + "/" + year;
     }
+
+    inline string horaActual() {
+        // Obtener la hora actual
+        time_t tiempoActual = time(nullptr);
+        tm* tiempoLocal = localtime(&tiempoActual);
+
+        // Formatear la hora como HH:MM
+        ostringstream horaStream;
+        horaStream << setw(2) << setfill('0') << tiempoLocal->tm_hour << ":"
+                   << setw(2) << setfill('0') << tiempoLocal->tm_min;
+        return horaStream.str();
+    }
 };
 #endif
