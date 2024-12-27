@@ -65,7 +65,7 @@ void consultes() {
     cout << "Escriu opció: ";
     cin >> op;
     cout << endl;
-
+    utils::clearConsole();
     if(op == "1") presentacio.processarProperesEstrenes(); 
     else if(op == "2") presentacio.processarUltimesNovetats();
     else if(op == "3") presentacio.processarPeliculesMesVistes();

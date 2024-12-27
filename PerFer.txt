@@ -10,6 +10,9 @@
 
 
 	- modificar usuari: modalitat subscripcio cinèfil no va bè 
+	- sumar 1 a las visdualitzaciones globales
+	- errores.
+	- Cercadoras singleton
 
 
 

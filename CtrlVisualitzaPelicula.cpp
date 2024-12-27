@@ -14,12 +14,12 @@ DTOPelicula CtrlVisualitzaPelicula::consultaPelicula(string titolP) {
 }
 
 //Mirar si vale la pena conservarlo
-string CtrlVisualitzaPelicula::consultaPeliculaUsuari(string titolP) {
+    string CtrlVisualitzaPelicula::consultaPeliculaUsuari(string titolP) {
     TxConsultaVisualitzacioPelicula txConsultaVisualitzacioPelicula;
     PetitFlix& petitFlix = PetitFlix::getInstance();
     PassarelaUsuari usuari = *(petitFlix.obteUsuari());
     string sobrenom = usuari.obteSobrenom();
-    txConsultaVisualitzacioPelicula.executar(titolP, sobrenom);
+    txConsultaVisualitzacioPelicula.executarPelVis(titolP, sobrenom);
     _peliculaUsuari = txConsultaVisualitzacioPelicula.obteVisualitzacioPelicula();
     return sobrenom;
 }

@@ -226,11 +226,29 @@ void CapaDePresentacio::processarUltimesNovetats(){
 }
 
 void CapaDePresentacio::processarProperesEstrenes(){
-     
+    cout << "** Properes estrenes **" << endl;
+    cout << "Modalitat: ";
+    string mod;
+    PetitFlix& petitFlix = PetitFlix::getInstance();
+
+    if(petitFlix.obteUsuari() == nullptr) cin >> mod;
+    else mod = petitFlix.obteUsuari().obteModalitatS();
+    cout << mod << endl << endl;
+
+    TxProperesEstrenes txProperesEstrenes;
+    txProperesEstrenes.executar(mod);
+    vector<DTOContingut> vC = txProperesEstrenes.obteResultat();
+    for () {
+        if(tipus == "serie"){
+
+        }
+        else{
+
+        }
+    }
 }
 
 void CapaDePresentacio::processarPeliculesMesVistes() {
-    utils::clearConsole();
     cout << "** Pel·lícules més visualitzades **" << endl;
     
     TxConsultaMesVistes txConsultaMesVistes;
@@ -244,10 +262,10 @@ void CapaDePresentacio::processarPeliculesMesVistes() {
     DTOUsuari usuari = txConsultaUsuari.obteResultat();
 
     for (int i = 0; i < mesVistes.size(); ++i) {
-        txConsultaVisualitzacioPelicula.executar(usuari.obteSobrenom(), mesVistes[i].obteTitol());
-        DTOVisualitzacioPelicula vp;
+        txConsultaVisualitzacioPelicula.executarPelVis(mesVistes[i].obteTitol(), usuari.obteSobrenom());
+        DTOVisualitzacioPelicula vp = txConsultaVisualitzacioPelicula.obteResultatSingle();
         cout << (i+1) << ".- " << mesVistes[i].obteTitol() << "; " << mesVistes[i].obteQualificacio() << "; " << mesVistes[i].obteDuracio() << " min. Visualitzacions: " << mesVistes[i].obteVisualitzacionsGlobals();
-        if (vp.obteTitol() != "") cout << "[VISTA: " << vp.obteDataVP() << "]";
+        if (vp.obteTitol() != "") cout << " [VISTA: " << vp.obteDataVP() << "]";
         cout << endl;
     }
     utils::enter();
@@ -280,7 +298,7 @@ void CapaDePresentacio::processarVisualitzarPelicula() {
             string sobrenom = ctrlVisualitzaPelicula.consultaPeliculaUsuari(titolP);
             ctrlVisualitzaPelicula.modificaVisualitzacioPelicula(titolP, sobrenom);
 
-            cout << "Visualització registrada: " << utils::convertitADDMMYYYY(utils::dataActual()) << " " << utils::horaActual() << endl;
+            cout << "Visualització registrada: " << utils::convertitADDMMYYYY(utils::dataActual()) << " " << utils::horaActual() << endl << endl;
             cout<<"Pel·lícules relacionades:"<<endl;
             vector<string> pelRelacionades = ctrlVisualitzaPelicula.consultaRelacionades(titolP);
             for (int i=0; i < pelRelacionades.size(); ++i) {

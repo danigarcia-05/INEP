@@ -15,14 +15,15 @@ private:
     PassarelaVisualitzaPel _peliculaV;
     vector<DTOVisualitzacioPelicula> _resultat;
     vector<PassarelaVisualitzaPel> _cjVisualitzacioPelicula;
-    DTOVisualitzacioPelicula 
+    DTOVisualitzacioPelicula _pelVis;
 
 public:
     TxConsultaVisualitzacioPelicula();
-    void executar(string titolP, string usuari);
     void executarVP(string usuari);
+    void executarPelVis(string titolP, string usuari);
    
     PassarelaVisualitzaPel obteVisualitzacioPelicula();
+    DTOVisualitzacioPelicula obteResultatSingle();
     vector<PassarelaVisualitzaPel> obteConjuntVisualitzacionsPelicules();
     vector<DTOVisualitzacioPelicula> obteResultat();
 };
