@@ -127,7 +127,5 @@ namespace utils {
         // Construir el formato "DD/MM/YYYY"
         return day + "/" + month + "/" + year;
     }
-
 };
-
 #endif

@@ -6,8 +6,8 @@ CercadoraVisualitzaCapitol::CercadoraVisualitzaCapitol(){
 
 PassarelaVisualitzaCapitol CercadoraVisualitzaCapitol::cercaVisualitzaCapitol(string sobrenomU, string nomS, int numTemporada, int numCapitol){
     ConnexioDB& con = ConnexioDB::getInstance();
-    string comanda = "SELECT * FROM visualitzacio_capitol WHERE sobrenom_usuari = '" + sobrenomU + "' AND nom_serie = '" + nomS + "' AND numero_temporada = " +
-    to_string(numTemporada) + " AND numero = " + std::to_string(numCapitol) + ";";
+    string comanda = "SELECT * FROM visualitzacio_capitol WHERE sobrenom_usuari = '" + sobrenomU + "' AND titol_serie = '" + nomS + "' AND num_temporada = " +
+    to_string(numTemporada) + " AND num_capitol = " + std::to_string(numCapitol) + ";";
     sql::ResultSet* res = con.consultaSQL(comanda);
 
     PassarelaVisualitzaCapitol capitol;
@@ -20,9 +20,6 @@ PassarelaVisualitzaCapitol CercadoraVisualitzaCapitol::cercaVisualitzaCapitol(st
         capitol.setNumTemporada(res->getInt("num_temporada"));
         capitol.setNumCapitol(res->getInt("num_capitol"));
         capitol.setData(res->getString("data"));
-    }
-    else{
-        throw runtime_error("CapitolNoExisteix");
     }
     return capitol;
 }

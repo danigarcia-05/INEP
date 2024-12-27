@@ -7,7 +7,8 @@
 using namespace std;
 #include <iostream>
 #include <string>
-#include <stdexcept>  
+#include <stdexcept>
+#include <vector>  
 
 class TxConsultaCapitols {
 private:

@@ -35,6 +35,7 @@
     <ClCompile Include="DTOCapitol.cpp" />
     <ClCompile Include="DTOPelicula.cpp" />
     <ClCompile Include="DTOUsuari.cpp" />
+    <ClCompile Include="DTOVisualitzacioCapitol.cpp" />
     <ClCompile Include="DTOVisualitzacioPelicula.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PassarelaCapitol.cpp" />
@@ -75,6 +76,7 @@
     <ClInclude Include="DTOCapitol.h" />
     <ClInclude Include="DTOPelicula.h" />
     <ClInclude Include="DTOUsuari.h" />
+    <ClInclude Include="DTOVisualitzacioCapitol.h" />
     <ClInclude Include="DTOVisualitzacioPelicula.h" />
     <ClInclude Include="PassarelaCapitol.h" />
     <ClInclude Include="PassarelaContingut.h" />

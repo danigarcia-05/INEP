@@ -14,6 +14,8 @@ using namespace std;
 #include "CtrlModificaUsuari.h"
 #include "CtrlVisualitzaPelicula.h"
 #include "CtrlVisualitzaCapitol.h"
+#include "DTOVisualitzacioCapitol.h"
+#include "TxConsultaVisualitzacioCapitol.h"
 #include "utils.h"
 using namespace utils;
 #include <stdexcept>

@@ -19,10 +19,10 @@ string PassarelaVisualitzaCapitol::obteTitolSerie(){
 int PassarelaVisualitzaCapitol::obteNumVisualitzacions(){
     return _numVisualitzacions;
 }
-int PassarelaVisualitzaCapitol::numTemporada(){
+int PassarelaVisualitzaCapitol::obteNumTemporada(){
     return _numTemporada;
 }
-int PassarelaVisualitzaCapitol::numCapitol(){
+int PassarelaVisualitzaCapitol::obteNumCapitol(){
     return _numCapitol;
 }
 string PassarelaVisualitzaCapitol::obteData(){
@@ -61,15 +61,17 @@ void PassarelaVisualitzaCapitol::insereix()
 
 void PassarelaVisualitzaCapitol::modifica()
 {
-    _numVisualitzacions += 1;
-    _data = utils::dataActual();
     ConnexioDB& con = ConnexioDB::getInstance();
 
     // Establim la sentència SQL.
-    string query = "UPDATE visualitzacio_capitol SET data = '" +
-        _data + "', num_visualitzacions'" + to_string(_numVisualitzacions) + "', '" + "WHERE sobrenom_usuari = '" + _sobrenom + "' AND titol_serie = '" + _titolSerie + "' AND num_temporada = '" + to_string(_numTemporada) +"' AND num_capitol = '" + to_string(_numCapitol) +"';";
+    string query = "UPDATE visualitzacio_capitol SET data = '" + _data +
+        "', num_visualitzacions = " + to_string(_numVisualitzacions) +
+        " WHERE sobrenom_usuari = '" + _sobrenom +
+        "' AND titol_serie = '" + _titolSerie +
+        "' AND num_temporada = " + to_string(_numTemporada) +
+        " AND num_capitol = " + to_string(_numCapitol) + ";";
 
-    // Executem la modificació d' usuari a la base de dades.
+    // Executem la modificació d'usuari a la base de dades.
     con.executarSQL(query);
 }
 

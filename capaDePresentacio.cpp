@@ -297,14 +297,25 @@ void CapaDePresentacio::processarVisualitzarCapitol() {
     if (temporada > numTemp) cout << "error" << endl; 
     utils::clearConsole();
     vector<DTOCapitol> capitols = ctrlVisualitzaCapitol.obteCapitolsTemp(nomS, temporada);
+        
+    TxConsultaVisualitzacioCapitol txConsultaVisualitzacioCapitol;
+    
+    TxConsultaUsuari txConsultaUsuari;
+    txConsultaUsuari.executar();
+    DTOUsuari usuari = txConsultaUsuari.obteResultat();
 
     cout << "Llista capítols:" << endl; 
-
     for (int i = capitols.size() - 1; i >= 0; --i) {
-        cout << capitols[i].obteNumCap() << ". " << capitols[i].obteTitolC() << "; " << capitols[i].obteDataEstrena() << "; " << "Visualitzacio CAMBIAR!!!" << endl;
+        cout << capitols[i].obteNumCap() << ". " << capitols[i].obteTitolC() << "; " << capitols[i].obteDataEstrena() << "; ";
+       
+        txConsultaVisualitzacioCapitol.executar(usuari.obteSobrenom(), nomS, capitols[i].obteNumTemp(), capitols[i].obteNumCap());
+        DTOVisualitzacioCapitol vCapitol = txConsultaVisualitzacioCapitol.obteResultat();
+
+        if (vCapitol.obteTitolSerie() == "") cout << "no visualitzat" << endl;
+        else cout << "visualitzat el " << utils::convertitADDMMYYYY(vCapitol.obteData()) << endl;
     }
 
-    cout << "Número de capítol a visualitzar: ";
+    cout << endl << "Número de capítol a visualitzar: ";
     int capitol;
     cin >> capitol;
     utils::clearConsole();
@@ -317,7 +328,7 @@ void CapaDePresentacio::processarVisualitzarCapitol() {
     if(op == "S"){
         string sobrenomU = ctrlVisualitzaCapitol.consultaSerieUsuari(nomS, temporada, capitol);
         ctrlVisualitzaCapitol.visualitzaCapitol(sobrenomU, nomS, temporada, capitol);
-        cout << "Visualització registrada: " << utils::dataActual() << endl;
+        cout << "Visualització registrada: " << utils::convertitADDMMYYYY(utils::dataActual()) << endl;
         utils::enter();
     }
 }

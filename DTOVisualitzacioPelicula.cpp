@@ -29,7 +29,6 @@ int DTOVisualitzacioPelicula::obteVisualitzacions() {
     return _visualitzacions;
 }
 
-
 //-------------
 //SETTERS
 //-------------

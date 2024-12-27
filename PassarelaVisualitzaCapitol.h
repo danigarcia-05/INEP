@@ -28,8 +28,8 @@ public:
     string obteSobrenom();
     string obteTitolSerie();
     int obteNumVisualitzacions();
-    int numTemporada();
-    int numCapitol();
+    int obteNumTemporada();
+    int obteNumCapitol();
     string obteData();
     
 

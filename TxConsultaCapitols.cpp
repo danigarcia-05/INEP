@@ -5,7 +5,6 @@ TxConsultaCapitols::TxConsultaCapitols() {
 
 }
 
-
 void TxConsultaCapitols::executar(string nomS, int numTemporada) {
     CercadoraCapitol cercadoraC;
     vector<PassarelaCapitol> cjCapitols = cercadoraC.cercaCapitolsTemporada(nomS, numTemporada);
@@ -16,7 +15,7 @@ void TxConsultaCapitols::executar(string nomS, int numTemporada) {
     for (unsigned int i = 0; i < cjCapitols.size(); ++i) {
         titolSerie = cjCapitols[i].obteTitolSerie();
         titol = cjCapitols[i].obteTitol();
-        dataEstrena = cjCapitols[i].obteDataEstrena();
+        dataEstrena = convertitADDMMYYYY(cjCapitols[i].obteDataEstrena());
         qualificacio = cjCapitols[i].obteQualificacio();
         numTemp = cjCapitols[i].obteNumTemporada();
         numero = cjCapitols[i].obteNumero();
