@@ -14,7 +14,7 @@ PassarelaPelicula::PassarelaPelicula(string titol, string dataEstrena, int durac
     _titol = titol;
     _dataEstrena = dataEstrena;
     _duracio = duracio;
-    _visualitzacionsGlobals = visualitzacionsGlobals;
+    _visualitzacionsGlobals = visualitzacionsGlobals;  
 }
 
 /*
