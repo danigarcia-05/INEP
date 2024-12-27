@@ -27,4 +27,3 @@ vector<PassarelaCapitol> CercadoraCapitol::cercaCapitolsTemporada(string titolS,
     }
     return cjCapitols;
 }
-

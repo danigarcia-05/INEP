@@ -168,6 +168,12 @@
     <ClCompile Include="DTOVisualitzacioCapitol.cpp">
       <Filter>Archivos de origen\DTO</Filter>
     </ClCompile>
+    <ClCompile Include="TxConsultaContingut.cpp">
+      <Filter>Archivos de origen\Tx</Filter>
+    </ClCompile>
+    <ClCompile Include="DTOContingut.cpp">
+      <Filter>Archivos de origen\DTO</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DTOUsuari.h">
@@ -279,6 +285,12 @@
       <Filter>Archivos de encabezado\Passareles</Filter>
     </ClInclude>
     <ClInclude Include="DTOVisualitzacioCapitol.h">
+      <Filter>Archivos de encabezado\DTO</Filter>
+    </ClInclude>
+    <ClInclude Include="TxConsultaContingut.h">
+      <Filter>Archivos de encabezado\Tx</Filter>
+    </ClInclude>
+    <ClInclude Include="DTOContingut.h">
       <Filter>Archivos de encabezado\DTO</Filter>
     </ClInclude>
   </ItemGroup>

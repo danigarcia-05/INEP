@@ -6,7 +6,7 @@ vector<PassarelaVisualitzaPel> CercadoraVisualitzaPel::cercaVisualitzaPel(string
 	    ConnexioDB& con = ConnexioDB::getInstance();
         vector<PassarelaVisualitzaPel> cjVisualitzaPel;
 
-		string comanda = "SELECT * FROM visualitzacio_pelicula WHERE sobrenom_usuari='" + sobrenomU + "'";
+		string comanda = "SELECT * FROM visualitzacio_pelicula WHERE sobrenom_usuari = '" + sobrenomU + "'";
         sql::ResultSet* res = con.consultaSQL(comanda);
 
 		// Mirem si existeix un usuari amb el sobrenom.

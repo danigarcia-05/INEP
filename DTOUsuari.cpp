@@ -1,5 +1,6 @@
 #include "DTOUsuari.h"
 
+
 DTOUsuari::DTOUsuari() {
 
 }

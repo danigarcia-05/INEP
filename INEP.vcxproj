@@ -33,6 +33,7 @@
     <ClCompile Include="CtrlVisualitzaCapitol.cpp" />
     <ClCompile Include="CtrlVisualitzaPelicula.cpp" />
     <ClCompile Include="DTOCapitol.cpp" />
+    <ClCompile Include="DTOContingut.cpp" />
     <ClCompile Include="DTOPelicula.cpp" />
     <ClCompile Include="DTOUsuari.cpp" />
     <ClCompile Include="DTOVisualitzacioCapitol.cpp" />
@@ -46,6 +47,7 @@
     <ClCompile Include="PassarelaVisualitzaPel.cpp" />
     <ClCompile Include="PassarelaVisualitzaCapitol.cpp" />
     <ClCompile Include="PetitFlix.cpp" />
+    <ClCompile Include="TxConsultaContingut.cpp" />
     <ClCompile Include="TxConsultaPelicula.cpp" />
     <ClCompile Include="TxConsultaCapitols.cpp" />
     <ClCompile Include="TxConsultaCapitols.h" />
@@ -74,6 +76,7 @@
     <ClInclude Include="CtrlVisualitzaCapitol.h" />
     <ClInclude Include="CtrlVisualitzaPelicula.h" />
     <ClInclude Include="DTOCapitol.h" />
+    <ClInclude Include="DTOContingut.h" />
     <ClInclude Include="DTOPelicula.h" />
     <ClInclude Include="DTOUsuari.h" />
     <ClInclude Include="DTOVisualitzacioCapitol.h" />
@@ -86,6 +89,7 @@
     <ClInclude Include="PassarelaVisualitzaPel.h" />
     <ClInclude Include="PassarelaVisualitzaCapitol.h" />
     <ClInclude Include="PetitFlix.h" />
+    <ClInclude Include="TxConsultaContingut.h" />
     <ClInclude Include="TxConsultaPelicula.h" />
     <ClInclude Include="TxConsultaRelacionades.h" />
     <ClInclude Include="TxConsultaUsuari.h" />

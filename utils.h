@@ -139,5 +139,24 @@ namespace utils {
                    << setw(2) << setfill('0') << tiempoLocal->tm_min;
         return horaStream.str();
     }
+
+    inline string dataAmbHora(const string& data) {
+        // Verificar que el formato de entrada tenga al menos 19 caracteres
+        if (data.size() < 19) {
+            return "Formato inválido";
+        }
+
+        // Extraer las partes relevantes
+        string any = data.substr(0, 4);
+        string mes = data.substr(5, 2);
+        string dia = data.substr(8, 2);
+        string hora = data.substr(11, 5); // HH:MM
+
+        // Formar el nuevo formato
+        string resultado = dia + "/" + mes + "/" + any + " " + hora;
+
+        return resultado;
+    }
+
 };
 #endif

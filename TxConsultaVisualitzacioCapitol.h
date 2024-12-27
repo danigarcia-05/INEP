@@ -15,11 +15,16 @@ private:
     PassarelaVisualitzaCapitol _capitolVisualitzat;
     DTOVisualitzacioCapitol _resultat;
 
+    vector<PassarelaVisualitzaCapitol> _cjVisualitzacioCapitol;
+    vector<DTOVisualitzacioCapitol> _capitolsVisualitzats;
+
 public:
     TxConsultaVisualitzacioCapitol();
     void executar(string sobrenomU, string titolSerie, int numTemporada, int numero);
+    void executarCV(string sobrenomU);
     PassarelaVisualitzaCapitol obteVisualitzacioCapitol();
     DTOVisualitzacioCapitol obteResultat();
+    vector<DTOVisualitzacioCapitol> obteCapitolsVisualitzats();
 };
 
 #endif

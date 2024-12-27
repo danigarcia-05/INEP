@@ -334,7 +334,40 @@ void CapaDePresentacio::processarVisualitzarCapitol() {
 }
 
 void CapaDePresentacio::processarConsultarVisualitzacions() {
+    cout << "** Consulta visualitzacions **" << endl << endl;
+    cout << "** Visualitzacions pel·lícules **" << endl;
+    cout << "*********************************" << endl;
 
+    TxConsultaUsuari txConsultaUsuari;
+    txConsultaUsuari.executar();
+    DTOUsuari usuari = txConsultaUsuari.obteResultat();
+    string sobrenomU = usuari.obteSobrenom();
+
+    TxConsultaVisualitzacioPelicula txConsultaVisualitzacioPelicula;
+    txConsultaVisualitzacioPelicula.executarVP(sobrenomU);
+    vector<DTOVisualitzacioPelicula> vPelicula = txConsultaVisualitzacioPelicula.obteResultat();
+
+    TxConsultaPelicula txConsultaPelicula;
+    
+    for (int i = 0; i < vPelicula.size(); ++i) {
+        txConsultaPelicula.executar(vPelicula[i].obteTitol());
+        DTOPelicula p = txConsultaPelicula.obteResultat();
+        cout << vPelicula[i].obteDataVP()<< ": " << p.obteTitol() << "; " << p.obteDescripcio() << "; " <<p.obteQualificacio() << "; nombre de visualitzacions: " << vPelicula[i].obteVisualitzacions() << endl;
+    }
+
+    cout << endl << "** Visualitzacions sèries **" << endl;
+    cout << "****************************" << endl;
+
+    TxConsultaContingut txConsultaContingut;
+    TxConsultaVisualitzacioCapitol txConsultaVisualitzacioCapitol;
+    txConsultaVisualitzacioCapitol.executarCV(sobrenomU);
+    vector<DTOVisualitzacioCapitol> vCapitol = txConsultaVisualitzacioCapitol.obteCapitolsVisualitzats();
+    for (int i = 0; i < vCapitol.size(); ++i) {
+        txConsultaContingut.executar(vCapitol[i].obteTitolSerie());
+        DTOContingut cont = txConsultaContingut.obteResultat();
+        cout << vCapitol[i].obteData() << ": " << vCapitol[i].obteTitolSerie() << "; " << cont.obteQualificacio() << "; Temporada " << vCapitol[i].obteNumTemporada() << ", capítol: " << vCapitol[i].obteNumCapitol() << "; nombre de visualitzacions: " << vCapitol[i].obteNumVisualitzacions() << endl;
+    }
+    utils::enter();
 }
 
 //NO ACABAT

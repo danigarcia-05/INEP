@@ -18,6 +18,7 @@ public:
     TxConsultaCapitols();
     void executar(string titolS, int numTemporada);
     vector<DTOCapitol> obteResultat();
+
 };
 
 #endif

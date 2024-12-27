@@ -13,11 +13,17 @@ using namespace std;
 class TxConsultaVisualitzacioPelicula {
 private:
     PassarelaVisualitzaPel _peliculaV;
+    vector<DTOVisualitzacioPelicula> _resultat;
+    vector<PassarelaVisualitzaPel> _cjVisualitzacioPelicula;
 
 public:
     TxConsultaVisualitzacioPelicula();
     void executar(string titolP, string usuari);
+    void executarVP(string usuari);
+   
     PassarelaVisualitzaPel obteVisualitzacioPelicula();
+    vector<PassarelaVisualitzaPel> obteConjuntVisualitzacionsPelicules();
+    vector<DTOVisualitzacioPelicula> obteResultat();
 };
 
 #endif

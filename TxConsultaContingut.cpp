@@ -6,26 +6,23 @@ TxConsultaContingut::TxConsultaContingut() {
 
 void TxConsultaContingut::executar(string titolC) {
     CercadoraContingut cercadoraC;
-    _contingut = cercadoraPel.cercaPelicula(titolC);
+    _contingut = cercadoraC.cercaContingut(titolC);
 
-    string titol, descripcio, qualificacio, data, tipus;
-    int duracio;
+    string titol, descripcio, qualificacio, tipus;
 
-    titol = _pelicula.obteTitol();
-    descripcio = _pelicula.obteDescripcio();
-    qualificacio = _pelicula.obteQualificacio();
-    data = _pelicula.obteDataEstrena();
-    duracio = _pelicula.obteDuracio();
-    tipus = _pelicula.obteTipus();
+    titol = _contingut.obteTitol();
+    descripcio = _contingut.obteDescripcio();
+    qualificacio = _contingut.obteQualificacio();
+    tipus = _contingut.obteTipus();
 
-    DTOPelicula resultat(titol, descripcio, qualificacio, data, duracio, tipus);
+    DTOContingut resultat(titol, descripcio, qualificacio, tipus);
     _resultat = resultat;
 }
 
-DTOPelicula TxConsultaContingut::obteResultat() {
+DTOContingut TxConsultaContingut::obteResultat() {
     return _resultat;
 }
 
-PassarelaPelicula TxConsultaContingut::obtePelicula() {
-    return _pelicula;
+PassarelaContingut TxConsultaContingut::obteContingut() {
+    return _contingut;
 }
