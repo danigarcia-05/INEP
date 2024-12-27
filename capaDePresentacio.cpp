@@ -229,8 +229,28 @@ void CapaDePresentacio::processarProperesEstrenes(){
      
 }
 
-void CapaDePresentacio::processarPeliculesMesVistes(){
-     
+void CapaDePresentacio::processarPeliculesMesVistes() {
+    utils::clearConsole();
+    cout << "** Pel·lícules més visualitzades **" << endl;
+    
+    TxConsultaMesVistes txConsultaMesVistes;
+    txConsultaMesVistes.executar();
+    vector<DTOPelicula> mesVistes = txConsultaMesVistes.obteResultat();
+
+    TxConsultaVisualitzacioPelicula txConsultaVisualitzacioPelicula;
+
+    TxConsultaUsuari txConsultaUsuari;
+    txConsultaUsuari.executar();
+    DTOUsuari usuari = txConsultaUsuari.obteResultat();
+
+    for (int i = 0; i < mesVistes.size(); ++i) {
+        txConsultaVisualitzacioPelicula.executar(usuari.obteSobrenom(), mesVistes[i].obteTitol());
+        DTOVisualitzacioPelicula vp;
+        cout << (i+1) << ".- " << mesVistes[i].obteTitol() << "; " << mesVistes[i].obteQualificacio() << "; " << mesVistes[i].obteDuracio() << " min. Visualitzacions: " << mesVistes[i].obteVisualitzacionsGlobals();
+        if (vp.obteTitol() != "") cout << "[VISTA: " << vp.obteDataVP() << "]";
+        cout << endl;
+    }
+    utils::enter();
 }
 
 void CapaDePresentacio::processarVisualitzarPelicula() {

@@ -11,7 +11,7 @@ void TxConsultaPelicula::executar(string titolP) {
     _contingut = cercadoraC.cercaContingut(titolP);
 
     string titol, descripcio, qualificacio, data, tipus;
-    int duracio;
+    int duracio, visGlobals;
 
     titol = _pelicula.obteTitol();
     descripcio = _contingut.obteDescripcio();
@@ -19,8 +19,9 @@ void TxConsultaPelicula::executar(string titolP) {
     data = utils::convertitADDMMYYYY(_pelicula.obteDataEstrena());
     duracio = _pelicula.obteDuracio();
     tipus = _contingut.obteTipus();
+    visGlobals = _pelicula.obteVisualitzacionsGlobals();
 
-    DTOPelicula resultat(titol, descripcio, qualificacio, data, duracio, tipus);
+    DTOPelicula resultat(titol, descripcio, qualificacio, data, duracio, tipus, visGlobals);
     _resultat = resultat;
 }
 

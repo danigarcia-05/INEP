@@ -16,6 +16,7 @@ PassarelaPelicula CercadoraPelicula::cercaPelicula(string titolP) {
         resultat.setTitol(res->getString("titol"));
         resultat.setDataEstrena(res->getString("data_estrena"));
         resultat.setDuracio(res->getInt("duracio"));
+        resultat.setVisualitzacionsGlobals(res->getInt("visualitzacions_globals"));
 	}
     else {
         cout << "Error" << endl;
@@ -37,7 +38,31 @@ vector<PassarelaPelicula> CercadoraPelicula::cercaPeliculesRelacionades(string t
         pelicula.setTitol(res->getString("titol"));
         pelicula.setDataEstrena(res->getString("data_estrena"));
         pelicula.setDuracio(res->getInt("duracio"));
+        pelicula.setVisualitzacionsGlobals(res->getInt("visualitzacions_globals"));
         cjPelicules.push_back(pelicula);
     }
     return cjPelicules;
 }
+
+vector<PassarelaPelicula> CercadoraPelicula::cercaPeliculesMesVistes() {
+
+    ConnexioDB& con = ConnexioDB::getInstance();
+    vector<PassarelaPelicula> cjPelicules;
+
+   
+    string comanda = "SELECT * FROM pelicula ORDER BY visualitzacions_globals DESC LIMIT 5";
+    sql::ResultSet* res = con.consultaSQL(comanda);
+
+    while (res->next()) {
+        PassarelaPelicula pelicula;
+        pelicula.setTitol(res->getString("titol"));
+        pelicula.setDataEstrena(res->getString("data_estrena"));
+        pelicula.setDuracio(res->getInt("duracio"));
+        pelicula.setVisualitzacionsGlobals(res->getInt("visualitzacions_globals"));
+        cjPelicules.push_back(pelicula);
+    }
+
+    return cjPelicules;
+}
+
+

@@ -5,7 +5,7 @@
                    CONSTRUCTORS
 *****************************************************
 */
-PassarelaPelicula::PassarelaPelicula() : _titol(""), _dataEstrena(""), _duracio(0) {
+PassarelaPelicula::PassarelaPelicula() : _titol(""), _dataEstrena(""), _duracio(0), _visualitzacionsGlobals(0) {
 
 }
 

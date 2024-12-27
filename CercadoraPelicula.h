@@ -13,5 +13,6 @@ public:
 
     PassarelaPelicula cercaPelicula(string titolP);
     vector<PassarelaPelicula> cercaPeliculesRelacionades(string titolP);
+    vector<PassarelaPelicula> cercaPeliculesMesVistes();
 };
 #endif

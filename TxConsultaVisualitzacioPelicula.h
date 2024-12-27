@@ -15,6 +15,7 @@ private:
     PassarelaVisualitzaPel _peliculaV;
     vector<DTOVisualitzacioPelicula> _resultat;
     vector<PassarelaVisualitzaPel> _cjVisualitzacioPelicula;
+    DTOVisualitzacioPelicula 
 
 public:
     TxConsultaVisualitzacioPelicula();
