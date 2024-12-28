@@ -189,5 +189,49 @@ namespace utils {
     }
 #pragma endregion
 
+    inline bool esFormatDataValid2(string data) {
+        // Verificar longitud exacta
+        if (data.size() != 10) return false;
+
+        // Verificar les barres
+        if (data[2] != '/' || data[5] != '/') return false;
+
+        // Verificar els altres caràcters siguin digits
+        for (int i = 0; i < data.size(); ++i) {
+            if (i != 2 && i != 5 && !isdigit(data[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    inline bool esAnyDeTraspas(int any) {
+        return (any % 4 == 0 && any % 100 != 0) || (any % 400 == 0);
+    }
+
+    inline bool esFormatDataValid(string data) {
+        if (!esFormatDataValid2(data)) return false;
+
+        // Extraer día, mes y año de la cadena
+        int dia = stoi(data.substr(0, 2));
+        int mes = stoi(data.substr(3, 2));
+        int any = stoi(data.substr(6, 4));
+
+        // Validar mes
+        if (mes < 1 || mes > 12) return false;
+
+        // Validar día según el mes
+        int diesEnMes[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+        // Ajustar febrero para años bisiestos
+        if (mes == 2 && esAnyDeTraspas(any)) {
+            diesEnMes[1] = 29;
+        }
+
+        // Verificar día dentro del rango válido
+        if (dia < 1 || dia > diesEnMes[mes - 1]) return false;
+
+        return true; // La fecha es válida si pasa todas las comprobaciones
+    }    
 };
 #endif

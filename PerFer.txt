@@ -15,10 +15,16 @@
 	- Cercadoras singleton
 	- Cinefil en todos lados igual
 
+	- Ingresar 
 
 ---- DONDE PETA ----
-	- 
+	*** REGISTRAR ***
+	- Sobrenom vacio
+	2
+	2
+	2
 
 
 ---- OPCIONALES----
 	- Poner contraseña antes de cambiar contraseña.
+	- Se ve feo al ingresar datos vacios

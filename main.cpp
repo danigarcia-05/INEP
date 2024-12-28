@@ -79,7 +79,6 @@ void consultes() {
 int main() {
     std::locale::global(std::locale("ca_ES.utf8"));
     std::cout.imbue(std::locale()); // Aplicar la configuración a std::cout
-    std::cout.imbue(std::locale()); // Aplicar la configuración a std::cout
     
     utils::ensenyaLogo();
 

@@ -1,6 +1,5 @@
 #include "capaDePresentacio.h"
 
-
 /*
 *****************************************************
                    CONSTRUCTORS
@@ -71,17 +70,36 @@ void CapaDePresentacio::processarRegistreUsuari(){
     cout << "** Registrar usuari **" << endl;
     cout << "Nom complet: ";
     cin.ignore(); //Revisar
-    getline(cin, nU);
+    while (nU.size() == 0) {
+        getline(cin, nU);   
+    }        
     cout << "Sobrenom: ";
     cin >> sU;
     cout << "Contrasenya: ";
-    utils::desactivarEco(cU); 
+    while (cU == "") {
+        utils::desactivarEco(cU); 
+        if (cU == "") cout << endl;
+    }    
     utils::activarEco(); 
     cout << endl << "Correu electrònic: ";
     cin >> ceU;
     
     cout << "Data naixement (DD/MM/AAAA): ";
     cin >> dnU;
+    
+
+    if (not utils::esFormatDataValid(dnU)) {
+        utils::clearConsole();
+        cout << "Error: La data introduïda no és vàlida" << endl;
+        utils::enter();
+        return;
+    } 
+    else if (utils::dataMesGran(dnU, utils::convertitADDMMYYYY(utils::dataActual()))) {
+        utils::clearConsole();
+        cout << "Error: La data introduïda és posterior a l'actual" << endl;
+        utils::enter();
+        return;
+    }   
 
     cout << "Modalitats de subscripció disponibles ";
     cout << endl << " > 1. Completa ";
@@ -101,21 +119,22 @@ void CapaDePresentacio::processarRegistreUsuari(){
         cout << endl << "Usuari registrat correctament!" << endl;
         utils::enter();
     }  
-    catch (sql::SQLException& e) { //No funciona
-        string errorMsg = e.what();
-        if (e.getErrorCode() == 1062) { //error no es pot insertar per clau primaria o unique repetit
-            if (errorMsg.find("sobrenom") != string::npos) {
+    catch (const exception& e) {
+        string errorMessage = e.what();
+        if (errorMessage.find("Duplicate entry") != string::npos) {
+            cout << "Hola";
+            if (errorMessage.find("sobrenom") != string::npos) {
                 cout << "Ja existeix un usuari amb aquest sobrenom" << endl;
-            } 
-            else if (errorMsg.find("correu_electronic") != string::npos) {
+            }
+            else if (errorMessage.find("correu_electronic") != string::npos) {
                 cout << "Ja existeix un usuari amb aquest correu electrònic" << endl;
-            } 
+            }
         }
-        if (e.getErrorCode() == 1452) { //el valor de la columna que està associada a la clau foràna no coincideix amb cap entrada de la taula pare
-            cout << "Modalitat no existeix" << endl;
+        else if (errorMessage.find("Foreign key constraint fails") != string::npos) {
+            cout << "La modalitat escollida no existeix." << endl;
         }
         utils::enter();
-    }  
+    }
 }
 
 //Cercadores pelis i series.

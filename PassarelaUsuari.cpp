@@ -101,7 +101,8 @@ void PassarelaUsuari::insereix()
 
     string query = "INSERT INTO usuari (sobrenom, nom, contrasenya, correu_electronic, data_naixement, subscripcio) VALUES ('" +
         _sobrenom + "', '" + _nom + "', '" + _contrasenya + "','" + _correuElectronic + "', '" + _dataNaixament + "', '" + _modalitatSubscripcio + "')";
-    con.executarSQL(query);
+    
+        con.executarSQL(query);
 }
 
 void PassarelaUsuari::modifica()
