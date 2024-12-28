@@ -1,5 +1,5 @@
-#ifndef CONSULTAMESVISTES_HPP
-#define CONSULTAMESVISTES_HPP
+#ifndef TXCONSULTAMESVISTES_HPP
+#define TXCONSULTAMESVISTES_HPP
 #pragma once
 #include "DTOPelicula.h"
 #include "CercadoraPelicula.h"

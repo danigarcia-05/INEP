@@ -1,39 +1,62 @@
-#include "TxConsultaPelicula.h"
+#include "TxProperesEstrenes.h"
 
-TxConsultaPelicula::TxConsultaPelicula() {
+TxProperesEstrenes::TxProperesEstrenes() {
 
 }
 
-void TxConsultaPelicula::executar(string titolP) {
+void TxProperesEstrenes::executar(string mod) {
     CercadoraPelicula cercadoraP;
-    CercadoraContingut cercadoraC;
-    _pelicula = cercadoraP.cercaPelicula(titolP);
-    _contingut = cercadoraC.cercaContingut(titolP);
+    vector<PassarelaPelicula> cjPel = cercadoraP.cercaProperesEstrenes(mod);
+    CercadoraContingut cercadoraContingut;
+    for (int i=0; i<cjPel.size(); ++i) {
+        string titol, dataEstrena, modalitat;
+        int duracio, visGlobals;
 
-    string titol, descripcio, qualificacio, data, tipus, modalitat;
-    int duracio, visGlobals;
+        titol = cjPel[i].obteTitol();
+        dataEstrena = utils::convertitADDMMYYYY(cjPel[i].obteDataEstrena());
+        duracio = cjPel[i].obteDuracio();
+        visGlobals = cjPel[i].obteVisualitzacionsGlobals();
+        modalitat = cjPel[i].obteModalitat();
 
-    titol = _pelicula.obteTitol();
-    descripcio = _contingut.obteDescripcio();
-    qualificacio = _contingut.obteQualificacio();
-    data = utils::convertitADDMMYYYY(_pelicula.obteDataEstrena());
-    duracio = _pelicula.obteDuracio();
-    tipus = _contingut.obteTipus();
-    visGlobals = _pelicula.obteVisualitzacionsGlobals();
-    modalitat = _pelicula.obteModalitat();
+        PassarelaContingut contingut = cercadoraContingut.cercaContingut(titol);
 
-    DTOPelicula resultat(titol, descripcio, qualificacio, data, duracio, tipus, visGlobals, modalitat);
-    _resultat = resultat;
+        string descripcio, qualificacio, tipus, subscripcio;
+        descripcio = contingut.obteDescripcio();
+        qualificacio = contingut.obteQualificacio();
+        tipus = contingut.obteTipus();
+
+        //Com no necessitem els atributs de contingut, els inicialitzem com a buit.
+        DTOPelicula pel(titol, descripcio, qualificacio, dataEstrena, duracio, tipus, visGlobals, modalitat);
+
+        _pelicules.push_back(pel);
+    }
+
+    CercadoraCapitol cercadoraC;
+    vector<PassarelaCapitol> cjCap = cercadoraC.cercaProperesEstrenes(mod);
+    for (int i=0; i<cjCap.size(); ++i) {
+        string titolS, titolC, dataE, qualificacio, modalitat;
+        int numT, numC, duracio;
+
+        titolS = cjCap[i].obteTitolSerie();
+        numT = cjCap[i].obteNumTemporada();
+        numC = cjCap[i].obteNumero();
+        titolC = cjCap[i].obteTitol();
+        dataE = utils::convertitADDMMYYYY(cjCap[i].obteDataEstrena());
+        qualificacio = cjCap[i].obteQualificacio();  
+        duracio = cjCap[i].obteDuracio();           
+        modalitat = cjCap[i].obteModalitat();           
+
+        DTOCapitol cap(titolS, numT, numC, titolC, dataE, qualificacio, duracio, modalitat);
+        _capitols.push_back(cap);
+    }
 }
 
-DTOPelicula TxConsultaPelicula::obteResultat() {
-    return _resultat;
+vector<DTOPelicula> TxProperesEstrenes::obtePelicules() {
+    return _pelicules;
 }
 
-PassarelaPelicula TxConsultaPelicula::obtePelicula() {
-    return _pelicula;
+vector<DTOCapitol> TxProperesEstrenes::obteCapitols() {
+    return _capitols;
 }
 
-PassarelaContingut TxConsultaPelicula::obteContingut() {
-    return _contingut;
-}
+

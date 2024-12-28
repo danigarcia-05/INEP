@@ -62,15 +62,17 @@ vector<PassarelaCapitol> CercadoraCapitol::cercaNovesEstrenes(string mod) {
 
 vector<PassarelaCapitol> CercadoraCapitol::cercaProperesEstrenes(string mod) {
     vector<PassarelaCapitol> cjCapitols;
-    if (mod != "Cinèfil") {
+    if (mod != "Cinefil") {
         ConnexioDB& con = ConnexioDB::getInstance();
         string comanda;
         if (mod == "Infantil") {
-            comanda = "SELECT * FROM capitol WHERE data_estrena > NOW() AND modalitat = '" + mod + "' "
-            "ORDER BY data_estrena DESC LIMIT 5;";
+            comanda = "SELECT * FROM capitol WHERE data_estrena > NOW() AND modalitat = '" + mod + "' AND numero = 1 "
+          "ORDER BY data_estrena ASC LIMIT 5;";
+
         }
-        else if (mod == "Completa") {
-           comanda = "SELECT * FROM capitol WHERE data_estrena > NOW() ORDER BY data_estrena DESC LIMIT 5;";
+        else {
+            comanda = "SELECT * FROM capitol WHERE data_estrena > NOW() AND numero = 1 ORDER BY data_estrena ASC LIMIT 5;";
+
         }
         sql::ResultSet* res = con.consultaSQL(comanda);
 

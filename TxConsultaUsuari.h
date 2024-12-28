@@ -1,5 +1,5 @@
-#ifndef CONSULTAUSUARI_HPP
-#define CONSULTAUSUARI_HPP
+#ifndef TXCONSULTAUSUARI_HPP
+#define TXCONSULTAUSUARI_HPP
 #pragma once
 #include "PassarelaUsuari.h"
 #include "DTOUsuari.h"

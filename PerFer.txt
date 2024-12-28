@@ -16,6 +16,9 @@
 	- Cinefil en todos lados igual
 
 
+---- DONDE PETA ----
+	- 
+
 
 ---- OPCIONALES----
 	- Poner contraseña antes de cambiar contraseña.

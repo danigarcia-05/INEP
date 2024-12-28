@@ -1,5 +1,5 @@
-#ifndef CONSULTAPELICULA_HPP
-#define CONSULTAPELICULA_HPP
+#ifndef TXCONSULTAPELICULA_HPP
+#define TXCONSULTAPELICULA_HPP
 #pragma once
 #include "DTOPelicula.h"
 #include "CercadoraPelicula.h"

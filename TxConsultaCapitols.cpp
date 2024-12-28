@@ -12,7 +12,7 @@ void TxConsultaCapitols::executar(string nomS, int numTemporada) {
     int numTemp, numero, duracio;
 
     vector<DTOCapitol> resultat;
-    for (unsigned int i = 0; i < cjCapitols.size(); ++i) {
+    for (size_t  i = 0; i < cjCapitols.size(); ++i) {
         titolSerie = cjCapitols[i].obteTitolSerie();
         titol = cjCapitols[i].obteTitol();
         dataEstrena = convertitADDMMYYYY(cjCapitols[i].obteDataEstrena());

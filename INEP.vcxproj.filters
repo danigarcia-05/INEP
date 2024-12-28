@@ -180,6 +180,9 @@
     <ClCompile Include="TxConsultaNovetats.cpp">
       <Filter>Archivos de origen\Tx</Filter>
     </ClCompile>
+    <ClCompile Include="TxProperesEstrenes.cpp">
+      <Filter>Archivos de origen\Tx</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DTOUsuari.h">
@@ -303,6 +306,9 @@
       <Filter>Archivos de encabezado\Tx</Filter>
     </ClInclude>
     <ClInclude Include="TxConsultaNovetats.h">
+      <Filter>Archivos de encabezado\Tx</Filter>
+    </ClInclude>
+    <ClInclude Include="TxProperesEstrenes.h">
       <Filter>Archivos de encabezado\Tx</Filter>
     </ClInclude>
   </ItemGroup>

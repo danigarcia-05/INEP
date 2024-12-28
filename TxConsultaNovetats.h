@@ -4,7 +4,6 @@
 #include "CercadoraPelicula.h"
 #include "CercadoraContingut.h"
 #include "CercadoraCapitol.h"
-
 #include "DTOPelicula.h"
 #include "PassarelaPelicula.h"
 #include "PassarelaCapitol.h"

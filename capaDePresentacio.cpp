@@ -283,7 +283,7 @@ void CapaDePresentacio::processarProperesEstrenes(){
     unsigned int i = 0, p = 0, c = 0;
     while ((i < midaT) and (i < 5)) {
         cout << i + 1 << ".- ";
-        if ((cjCapitols[c].obteTitolS() == "") or ((cjPelicules[p].obteTitol() != "") and (cjPelicules[p].obteDataP() <= cjCapitols[c].obteDataEstrena()))) {
+        if ((c==cjCapitols.size()) or (utils::dataMesPetit(cjPelicules[p].obteDataP(), cjCapitols[c].obteDataEstrena()))) {
             cout << cjPelicules[p].obteDataP() << " [Pel·lícula]: " << cjPelicules[p].obteTitol() << "; " << cjPelicules[p].obteQualificacio() << "; " << cjPelicules[p].obteDuracio() << " min." << endl;
             ++p;
         }
@@ -293,6 +293,7 @@ void CapaDePresentacio::processarProperesEstrenes(){
         }
         ++i;
     }
+    utils::enter();
 }
 
 void CapaDePresentacio::processarPeliculesMesVistes() {

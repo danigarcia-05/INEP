@@ -1,5 +1,5 @@
-#ifndef PELICULESRELACIONADES_HPP
-#define PELICULESRELACIONADES_HPP
+#ifndef TXPELICULESRELACIONADES_HPP
+#define TXPELICULESRELACIONADES_HPP
 #pragma once
 #include "DTOPelicula.h"
 #include "CercadoraRelacionades.h"

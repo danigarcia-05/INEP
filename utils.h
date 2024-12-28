@@ -158,5 +158,36 @@ namespace utils {
         return resultado;
     }
 
+#pragma region Compara Dates
+    inline string convertirAFormatoComparacion(string fecha) {
+        string dia = fecha.substr(0, 2);   // "DD"
+        string mes = fecha.substr(3, 2); // "MM"
+        string any = fecha.substr(6, 4);  // "YYYY"
+
+        return any + mes + dia;
+    } 
+
+    inline bool dataMesGran(string fecha1, string fecha2) {
+        string data1 = convertirAFormatoComparacion(fecha1);
+        string data2 = convertirAFormatoComparacion(fecha2);
+
+        return data1 > data2;
+    }
+
+    inline bool dataMesPetit(string fecha1, string fecha2) {
+        string data1 = convertirAFormatoComparacion(fecha1);
+        string data2 = convertirAFormatoComparacion(fecha2);
+
+        return data1 < data2;
+    }
+
+    inline bool dataIgual(string fecha1, string fecha2) {
+        string data1 = convertirAFormatoComparacion(fecha1);
+        string data2 = convertirAFormatoComparacion(fecha2);
+
+        return data1 == data2;
+    }
+#pragma endregion
+
 };
 #endif

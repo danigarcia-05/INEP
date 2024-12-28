@@ -1,5 +1,5 @@
-#ifndef CONSULTACAPITOLS_HPP
-#define CONSULTACAPITOLS_HPP
+#ifndef TXCONSULTACAPITOLS_HPP
+#define TXCONSULTACAPITOLS_HPP
 #pragma once
 #include "CercadoraCapitol.h"
 #include "PetitFlix.h"

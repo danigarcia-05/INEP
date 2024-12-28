@@ -101,11 +101,11 @@ vector<PassarelaPelicula> CercadoraPelicula::cercaProperesEstrenes(string mod) {
 
     string comanda;
     if (mod == "Infantil") {
-        comanda = "SELECT * FROM capitol WHERE data_estrena > NOW() AND modalitat = '" + mod + "' "
-            "ORDER BY data_estrena DESC LIMIT 5;";
+        comanda = "SELECT * FROM pelicula WHERE data_estrena > NOW() AND modalitat = '" + mod + "' " +
+            "ORDER BY data_estrena ASC LIMIT 5;";
     }
     else {
-        comanda = "SELECT * FROM capitol WHERE data_estrena > NOW() ORDER BY data_estrena DESC LIMIT 5;";
+        comanda = "SELECT * FROM pelicula WHERE data_estrena > NOW() ORDER BY data_estrena ASC LIMIT 5;";
     }
     sql::ResultSet* res = con.consultaSQL(comanda);
 
@@ -119,7 +119,6 @@ vector<PassarelaPelicula> CercadoraPelicula::cercaProperesEstrenes(string mod) {
         pelicula.setModalitat(res->getString("modalitat"));
         pelicules.push_back(pelicula);
     }
-
     return pelicules;
 }
 
