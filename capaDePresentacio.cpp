@@ -46,7 +46,11 @@ void CapaDePresentacio::processarIniciarSessio(){
         utils::enter();
     }
     catch (const exception& e) {
-        cout << "Error: Hi ha hagut un error amb el sobrenom o la contrasenya"  << endl;
+        string errorMessage = e.what();
+        if (errorMessage == "UsuariExisteix" or errorMessage == "ErrorContrasenya") {
+            cout << "Error: Hi ha hagut un error amb el sobrenom o la contrasenya."  << endl;
+        }
+        else cout << "Error" << endl;
         utils::enter();
     }
 }
@@ -55,22 +59,24 @@ void CapaDePresentacio::processarTancaSessio(){
     char tanca;
     cout << "** Tancar sessió **" << endl;
     cout << endl << "Vols tancar la sessió (S/N): ";
+
     cin >> tanca;
+
     utils::clearConsole();
-    if(tanca == 'S'){
+    if (tanca == 'S') {
         TxTancaSessio txTancaSessio;
         txTancaSessio.executar();
         cout << "Sessió tancada correctament!" << endl;
         utils::enter();
     }
+    else if (tanca != 'N') processarTancaSessio();
 }
 
 void CapaDePresentacio::processarRegistreUsuari(){
     string nU, sU, cU, ceU, msU, dnU;
     cout << "** Registrar usuari **" << endl;
     cout << "Nom complet: ";
-    cin.ignore(); //Revisar
-    while (nU.size() == 0) {
+    while (nU == "") {
         getline(cin, nU);   
     }        
     cout << "Sobrenom: ";
@@ -87,21 +93,7 @@ void CapaDePresentacio::processarRegistreUsuari(){
     cout << "Data naixement (DD/MM/AAAA): ";
     cin >> dnU;
     
-
-    if (not utils::esFormatDataValid(dnU)) {
-        utils::clearConsole();
-        cout << "Error: La data introduïda no és vàlida" << endl;
-        utils::enter();
-        return;
-    } 
-    else if (utils::dataMesGran(dnU, utils::convertitADDMMYYYY(utils::dataActual()))) {
-        utils::clearConsole();
-        cout << "Error: La data introduïda és posterior a l'actual" << endl;
-        utils::enter();
-        return;
-    }   
-
-    cout << "Modalitats de subscripció disponibles ";
+    cout << "Modalitats de subscripció disponibles: ";
     cout << endl << " > 1. Completa ";
     cout << endl << " > 2. Cinèfil ";
     cout << endl << " > 3. Infantil ";
@@ -112,6 +104,12 @@ void CapaDePresentacio::processarRegistreUsuari(){
     else if (mod == "2") msU = "Cinèfil";
     else if (mod == "3") msU = "Infantil";
     utils::clearConsole();
+    
+    if (not utils::esFormatDataValid(dnU) or utils::dataMesGran(dnU, utils::convertitADDMMYYYY(utils::dataActual()))){
+        cout << "Error: La data introduïda no és vàlida." << endl;
+        utils::enter();
+        return;
+    } 
 
     TxRegistraUsuari txRegistraUsuari(nU, sU, cU, ceU, dnU, msU);
     try {
@@ -122,22 +120,21 @@ void CapaDePresentacio::processarRegistreUsuari(){
     catch (const exception& e) {
         string errorMessage = e.what();
         if (errorMessage.find("Duplicate entry") != string::npos) {
-            cout << "Hola";
-            if (errorMessage.find("sobrenom") != string::npos) {
-                cout << "Ja existeix un usuari amb aquest sobrenom" << endl;
+            if (errorMessage.find("PRIMARY") != string::npos) {
+                cout << "Error: Ja existeix un usuari amb aquest sobrenom." << endl;
             }
             else if (errorMessage.find("correu_electronic") != string::npos) {
-                cout << "Ja existeix un usuari amb aquest correu electrònic" << endl;
+                cout << "Error: Ja existeix un usuari amb aquest correu electrònic." << endl;
             }
         }
-        else if (errorMessage.find("Foreign key constraint fails") != string::npos) {
-            cout << "La modalitat escollida no existeix." << endl;
+        else if (errorMessage.find("foreign key constraint fails") != string::npos) {
+            cout << "Error: La modalitat escollida no existeix." << endl;
         }
+        else cout << "Error" << endl;
         utils::enter();
     }
 }
 
-//Cercadores pelis i series.
 void CapaDePresentacio::processarConsultaUsuari() {
 	TxConsultaUsuari txConsultaUsuari;
     txConsultaUsuari.executar();
@@ -175,7 +172,7 @@ void CapaDePresentacio::processarModificaUsuari() {
 
     utils::enter();
 
-    cout << "Omplir la informació que es vol modificar ..." << endl;
+    cout << "-- Omplir només la informació que es vol modificar --" << endl;
     string nomU, contraU, correuU, subsU, neixU;
 
     cout << "Nom complet: ";
@@ -192,10 +189,26 @@ void CapaDePresentacio::processarModificaUsuari() {
     cout << "Data naixement (DD/MM/AAAA): ";
     getline(cin, neixU);
 
-    cout << "Modalitat subscripció: ";
-    getline(cin, subsU);
-
+    cout << "Modalitats de subscripció disponibles: ";
+    cout << endl << " > 1. Completa ";
+    cout << endl << " > 2. Cinèfil ";
+    cout << endl << " > 3. Infantil ";
+    cout << endl << "Escull número de modalitat: ";
+   
+    string mod;
+    getline(cin, mod);
+    if (mod == "1") subsU = "Completa";
+    else if (mod == "2") subsU = "Cinèfil";
+    else if (mod == "3") subsU = "Infantil";
+    else if (mod != "") subsU = mod;
+    
     utils::clearConsole();
+
+    if (neixU != "" and (not utils::esFormatDataValid(neixU) or utils::dataMesGran(neixU, utils::convertitADDMMYYYY(utils::dataActual())))) {
+        cout << "Error: La data introduïda no és vàlida." << endl;
+        utils::enter();
+        return;
+    }
 
     try {
         ctrlModificaUsuari.modificaUsuari(nomU, contraU, correuU, neixU, subsU);
@@ -208,13 +221,17 @@ void CapaDePresentacio::processarModificaUsuari() {
         cout << "Modalitat subscripció: " << infoUsu.obteModalitatS() << endl;
         utils::enter();
     }
-    catch (sql::SQLException& e) {
-        string errorMsg = e.what();
-        if (e.getErrorCode() == 1062) { //error no es pot insertar per clau primaria o unique repetit
-            if (errorMsg.find("correu_electronic") != string::npos) {
-                cout << "El nou correu electrònic ja existeix" << endl; 
+    catch (const exception& e) {
+        string errorMessage = e.what();
+        if (errorMessage.find("Duplicate entry") != string::npos) {
+            if (errorMessage.find("correu_electronic") != string::npos) {
+                cout << "Error: Ja existeix un usuari amb aquest correu electrònic." << endl;
             }
         }
+        else if (errorMessage.find("foreign key constraint fails") != string::npos) {
+            cout << "Error: La modalitat escollida no existeix." << endl;
+        }
+        else cout << "Error" << endl;
         utils::enter();
     }
 }
