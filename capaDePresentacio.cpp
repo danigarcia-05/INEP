@@ -224,11 +224,7 @@ void CapaDePresentacio::processarEsborraUsuari(){
 void CapaDePresentacio::processarUltimesNovetats(){
     cout << "** Novetats **" << endl;
     string mod;
-    string prova;
-    cin.ignore();
-    getline(cin, prova);
-    cout << prova;
-    
+   
     PetitFlix& petitFlix = PetitFlix::getInstance();
     if (petitFlix.obteUsuari() == nullptr) {
         cout << "Escull modalitat (Completa / Cinefil / Infantil): ";
@@ -260,27 +256,42 @@ void CapaDePresentacio::processarUltimesNovetats(){
 }
 
 void CapaDePresentacio::processarProperesEstrenes(){
-   /* cout << "** Properes estrenes **" << endl;
-    cout << "Modalitat: ";
+    cout << "** Properes estrenes **" << endl;
     string mod;
     
     PetitFlix& petitFlix = PetitFlix::getInstance();
-    if(petitFlix.obteUsuari() == nullptr) cin >> mod;
-    else mod = petitFlix.obteUsuari().obteModalitatS();
-    cout << mod << endl << endl;
+    if (petitFlix.obteUsuari() == nullptr) {
+        cout << "Escull modalitat (Completa / Cinefil / Infantil): ";
+        cin >> mod;
+    }
+    else {
+        mod = petitFlix.obteUsuari()->obteModalitatSubscripcio();
+        cout << "Modalitat de l'usuari: ";
+        cout << mod;
+    }
+
+    cout << endl << endl;
 
     TxProperesEstrenes txProperesEstrenes;
     txProperesEstrenes.executar(mod);
-    vector<DTOContingut> vC = txProperesEstrenes.obteResultat();
-    for () {
-        if(tipus == "serie"){
+    vector<DTOPelicula> cjPelicules = txProperesEstrenes.obtePelicules();
+    vector<DTOCapitol> cjCapitols = txProperesEstrenes.obteCapitols();
 
+    unsigned int midaT = cjPelicules.size() + cjCapitols.size();
+    if (midaT == 0) cout << "No hi ha novetats de la modalitat escollida." << endl;
+    unsigned int i = 0, p = 0, c = 0;
+    while ((i < midaT) and (i < 5)) {
+        cout << i + 1 << ".- ";
+        if ((cjCapitols[c].obteTitolS() == "") or ((cjPelicules[p].obteTitol() != "") and (cjPelicules[p].obteDataP() <= cjCapitols[c].obteDataEstrena()))) {
+            cout << cjPelicules[p].obteDataP() << " [Pel·lícula]: " << cjPelicules[p].obteTitol() << "; " << cjPelicules[p].obteQualificacio() << "; " << cjPelicules[p].obteDuracio() << " min." << endl;
+            ++p;
         }
-        else{
-
+        else {
+            cout << cjCapitols[c].obteDataEstrena() << " [Sèrie]: " << cjCapitols[c].obteTitolS() << "; " << cjCapitols[c].obteQualificacio() << "; Temporada " << cjCapitols[c].obteNumTemp() << "." << endl;
+            ++c;
         }
+        ++i;
     }
-    */
 }
 
 void CapaDePresentacio::processarPeliculesMesVistes() {
