@@ -25,6 +25,7 @@ CapaDePresentacio::CapaDePresentacio() {
 */
 
 
+
 /*
 *****************************************************
                    MODIFICADORS
@@ -269,7 +270,7 @@ void CapaDePresentacio::processarProperesEstrenes(){
         cout << "Modalitat de l'usuari: ";
         cout << mod;
     }
-
+     
     cout << endl << endl;
 
     TxProperesEstrenes txProperesEstrenes;
