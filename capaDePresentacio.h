@@ -19,6 +19,7 @@ using namespace std;
 #include "TxConsultaVisualitzacioCapitol.h"
 #include "TxConsultaVisualitzacioPelicula.h"
 #include "TxConsultaMesVistes.h"
+#include "TxConsultaNovetats.h"
 #include "utils.h"
 using namespace utils;
 #include <stdexcept>

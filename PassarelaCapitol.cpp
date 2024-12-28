@@ -1,22 +1,13 @@
 #include "PassarelaCapitol.h"
 
-PassarelaCapitol::PassarelaCapitol() {
-    _titolSerie = "";
-    _numTemporada = 0;
-    _numero = 0;
-    _titol = "";
-    _dataEstrena = "";
-    _qualificacio = "";
-}
+// Constructor por defecto
+PassarelaCapitol::PassarelaCapitol()
+    : _titolSerie(""), _numTemporada(0), _numero(0), _titol(""), _dataEstrena(""), _qualificacio(""), _duracio(0), _modalitat("") {}
 
-PassarelaCapitol::PassarelaCapitol(string titolSerie, int numT, int numC, string titol, string dataEstrena, string qualificacio) {
-    _titolSerie = titolSerie;
-    _numTemporada = numT;
-    _numero = numC;
-    _titol = titol;
-    _dataEstrena = dataEstrena;
-    _qualificacio = qualificacio;
-}
+// Constructor con parámetros
+PassarelaCapitol::PassarelaCapitol(string titolSerie, int numT, int numC, string titol, string dataEstrena, string qualificacio, int duracio, string modalitat)
+    : _titolSerie(titolSerie), _numTemporada(numT), _numero(numC), _titol(titol), _dataEstrena(dataEstrena), _qualificacio(qualificacio), _duracio(duracio), _modalitat(modalitat) {}
+
 // GETTERS
 string PassarelaCapitol::obteTitolSerie() {
     return _titolSerie;
@@ -41,6 +32,16 @@ string PassarelaCapitol::obteDataEstrena() {
 string PassarelaCapitol::obteQualificacio() {
     return _qualificacio;
 }
+
+int PassarelaCapitol::obteDuracio() {
+    return _duracio;
+}
+
+string PassarelaCapitol::obteModalitat() {
+    return _modalitat;
+}
+
+
 
 // SETTERS
 void PassarelaCapitol::setTitolSerie(string titolSerie) {
@@ -67,7 +68,15 @@ void PassarelaCapitol::setQualificacio(string qualificacio) {
     _qualificacio = qualificacio;
 }
 
-// Operador de asignación
+void PassarelaCapitol::setDuracio(int duracio) {
+    _duracio = duracio;
+}
+
+void PassarelaCapitol::setModalitat(string modalitat) {
+    _modalitat = modalitat;
+}
+
+// Sobrecarga del operador de asignación
 PassarelaCapitol& PassarelaCapitol::operator=(const PassarelaCapitol& obj) {
     if (this != &obj) {
         _titolSerie = obj._titolSerie;
@@ -76,14 +85,17 @@ PassarelaCapitol& PassarelaCapitol::operator=(const PassarelaCapitol& obj) {
         _titol = obj._titol;
         _dataEstrena = obj._dataEstrena;
         _qualificacio = obj._qualificacio;
+        _duracio = obj._duracio;
+        _modalitat = obj._modalitat;
     }
     return *this;
 }
 
 void PassarelaCapitol::insereix() {
     ConnexioDB &con = ConnexioDB::getInstance();
-    string query = "INSERT INTO visualitzacio_capitol (titol_serie, numero_temporada, numero, titol, data_estrena, qualificacio) VALUES('" +
-        _titolSerie + "', " + to_string(_numTemporada) + ", " + to_string(_numero) + ", '" + _titol + "', '" + _dataEstrena + "', '" + _qualificacio + "')";
+    string query = "INSERT INTO visualitzacio_capitol (titol_serie, numero_temporada, numero, titol, data_estrena, qualificacio, modalitat) VALUES('" +
+    _titolSerie + "', " + to_string(_numTemporada) + ", " + to_string(_numero) + ", '" + _titol + "', '" + _dataEstrena + "', '" + _qualificacio + "', '" + _modalitat + "')";
+    
     con.executarSQL(query);
 }
 
@@ -91,7 +103,7 @@ void PassarelaCapitol::modifica() {
     ConnexioDB& con = ConnexioDB::getInstance();
 
     // Establim la sentència SQL.
-    string query = "UPDATE visualitzacio_capitol SET data_estrena = '" + _dataEstrena + "', qualificacio = '" + _qualificacio + "', titol = '" + _titol + "' WHERE titol_serie = '" + _titolSerie + "' AND numero_temporada = " + to_string(_numTemporada) + " AND numero = " + to_string(_numero) + ";";
+    string query = "UPDATE visualitzacio_capitol SET data_estrena = '" + _dataEstrena + "', qualificacio = '" + _qualificacio + "', titol = '" + _titol + "' WHERE titol_serie = '" + _titolSerie + "' AND numero_temporada = " + to_string(_numTemporada) + " AND numero = " + to_string(_numero) + " AND modalitat = " + _modalitat + ";";
 
     // Executem la modificació d'usuari a la base de dades.
     con.executarSQL(query);

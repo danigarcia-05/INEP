@@ -13,17 +13,19 @@ private:
     string _descripcio;
     string _qualificacio;
     string _tipus;
+    string _subscripcio;
 
 public:
     PassarelaContingut();
 
-    PassarelaContingut(string titol, string descripcio, string qualificacio, string tipus);
+    PassarelaContingut(string titol, string descripcio, string qualificacio, string tipus, string subscripcio);
 
     //GETTERS
     string obteTitol();
     string obteDescripcio();
     string obteQualificacio();
     string obteTipus();
+    string obteSubscripcio();
 
     PassarelaContingut& operator=(const PassarelaContingut& obj);
 
@@ -32,6 +34,7 @@ public:
     void setDescripcio(string descripcio);
     void setQualificacio(string qualificacio);
     void setTipus(string tipus);
+    void setSubscripcio(string subscripcio);
 
     void insereix();
     void modifica();

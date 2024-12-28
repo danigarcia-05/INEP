@@ -222,15 +222,49 @@ void CapaDePresentacio::processarEsborraUsuari(){
 }
 
 void CapaDePresentacio::processarUltimesNovetats(){
-   
+    cout << "** Novetats **" << endl;
+    string mod;
+    string prova;
+    cin.ignore();
+    getline(cin, prova);
+    cout << prova;
+    
+    PetitFlix& petitFlix = PetitFlix::getInstance();
+    if (petitFlix.obteUsuari() == nullptr) {
+        cout << "Escull modalitat (Completa / Cinefil / Infantil): ";
+        cin >> mod;
+    }
+    else {
+        mod = petitFlix.obteUsuari()->obteModalitatSubscripcio();
+        cout << "Modalitat de l'usuari: ";
+        cout << mod;
+    }    
+    cout << endl << endl;
+    cout << "** Novetats pel·lícules **" << endl;
+    cout << "**************************" << endl;
+    TxConsultaNovetats txConsultaNovetats;
+    txConsultaNovetats.executar(mod);
+    vector<DTOPelicula> cjPelicules = txConsultaNovetats.obtePelicules();
+    if (cjPelicules.size() == 0) cout << "No hi ha novetats en pel·lícules de la modalitat escollida." << endl;
+    for (int i=0; i<cjPelicules.size(); ++i){
+        cout<<i+1<<".- "<<cjPelicules[i].obteDataP()<<": "<<cjPelicules[i].obteTitol()<<"; "<<cjPelicules[i].obteQualificacio()<<"; "<<cjPelicules[i].obteDuracio()<<" min." << endl;
+    }
+    cout<<endl<<"** Novetats sèries **"<<endl;
+    cout<<"*********************"<<endl;
+    vector<DTOCapitol> cjCapitols = txConsultaNovetats.obteCapitols();
+    if (cjCapitols.size() == 0) cout << "No hi ha novetats en capítols de la modalitat escollida." << endl;
+    for (int i=0; i<cjCapitols.size(); ++i){
+        cout<<i+1<<".- "<<cjCapitols[i].obteDataEstrena()<<": "<<cjCapitols[i].obteTitolS()<<"; Temporada "<<cjCapitols[i].obteNumTemp()<<", capitol "<<cjCapitols[i].obteNumCap()<<"; "<< cjCapitols[i].obteDuracioC() <<" min."<<endl;
+    }
+    utils::enter();
 }
 
 void CapaDePresentacio::processarProperesEstrenes(){
-    cout << "** Properes estrenes **" << endl;
+   /* cout << "** Properes estrenes **" << endl;
     cout << "Modalitat: ";
     string mod;
+    
     PetitFlix& petitFlix = PetitFlix::getInstance();
-
     if(petitFlix.obteUsuari() == nullptr) cin >> mod;
     else mod = petitFlix.obteUsuari().obteModalitatS();
     cout << mod << endl << endl;
@@ -246,6 +280,7 @@ void CapaDePresentacio::processarProperesEstrenes(){
 
         }
     }
+    */
 }
 
 void CapaDePresentacio::processarPeliculesMesVistes() {

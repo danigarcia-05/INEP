@@ -8,7 +8,7 @@ void TxConsultaMesVistes::executar() {
     CercadoraPelicula cercadoraP;
     CercadoraContingut cercadoraC;
     _cjPP = cercadoraP.cercaPeliculesMesVistes();
-    string titol, descripcio, qualificacio, data, tipus;
+    string titol, descripcio, qualificacio, data, tipus, modalitat;
     int duracio, visGlobals;
     for (int i = 0; i < _cjPP.size(); i++) {
         titol = _cjPP[i].obteTitol();
@@ -18,8 +18,9 @@ void TxConsultaMesVistes::executar() {
         PassarelaContingut cont = cercadoraC.cercaContingut(titol);
         descripcio = cont.obteDescripcio();
         qualificacio = cont.obteQualificacio();
+        modalitat = cont.obteSubscripcio();
 
-        DTOPelicula resultat(titol, descripcio, qualificacio, data, duracio, "pelicula", visGlobals);
+        DTOPelicula resultat(titol, descripcio, qualificacio, data, duracio, "pelicula", visGlobals, modalitat);
         _resultat.push_back(resultat);
     }
 }

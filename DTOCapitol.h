@@ -13,10 +13,12 @@ private:
     string _titol;
     string _dataEstrena;
     string _qualificacio;
+    int _duracioC;
+    string _modalitat;
 public:
 
     DTOCapitol();
-    DTOCapitol(string titolS, int numTemporada, int numero, string titol, string dataEstrena, string qualificacio);
+    DTOCapitol(string titolS, int numTemporada, int numero, string titol, string dataEstrena, string qualificacio, int duracioC, string modalitat);
 
     //GETTERS
     string obteTitolS();
@@ -25,6 +27,8 @@ public:
     string obteTitolC();
     string obteDataEstrena();
     string obteQualificacio();
+    int obteDuracioC();
+    string obteModalitat();
     
     //SETTERS
     void setTitolS(string titolS);
@@ -33,7 +37,8 @@ public:
     void setTitolC(string titolC);
     void setDataEstrena(string dataEstrena);
     void setQualificacio(string qualificacio);
-
+    void setDuracioC(int duracioC);
+    void setModalitat(string modalitat);
 
     DTOCapitol& operator=(const DTOCapitol& obj);
 };

@@ -14,17 +14,19 @@ private:
     string _dataEstrena;
     int _duracio;
     int _visualitzacionsGlobals;
+    string _modalitat;
 
 public:
     PassarelaPelicula();
 
-    PassarelaPelicula(string titol, string dataEstrena, int duracio, int visualitzacionsGlobals);
+    PassarelaPelicula(string titol, string dataEstrena, int duracio, int visualitzacionsGlobals, string modalitat);
 
     //GETTERS
     string obteTitol();
     string obteDataEstrena();
     int obteDuracio();
     int obteVisualitzacionsGlobals();
+    string obteModalitat();
 
     PassarelaPelicula& operator=(const PassarelaPelicula& obj);
 
@@ -33,6 +35,7 @@ public:
     void setDataEstrena(string dataEstrena);
     void setDuracio(int duracio);
     void setVisualitzacionsGlobals(int visualitzacionsGlobals);
+    void setModalitat(string modalitat);
 
     void insereix();
     void modifica();

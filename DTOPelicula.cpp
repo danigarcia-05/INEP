@@ -2,11 +2,11 @@
 
 // Constructor por defecto
 DTOPelicula::DTOPelicula() 
-    : _titol(""), _descripcio(""), _qualificacio(""), _data(""), _duracio(0), _tipus(""), _visGlobals(0) {}
+    : _titol(""), _descripcio(""), _qualificacio(""), _data(""), _duracio(0), _tipus(""), _visGlobals(0), _subscripcio("") {}
 
 // Constructor con parámetros
-DTOPelicula::DTOPelicula(string titolP, string descripcioP, string qualificacioP, string dataP, int duracioP, string tipusP, int visGlobals) 
-    : _titol(titolP), _descripcio(descripcioP), _qualificacio(qualificacioP), _data(dataP), _duracio(duracioP), _tipus(tipusP), _visGlobals(visGlobals) {}
+DTOPelicula::DTOPelicula(string titolP, string descripcioP, string qualificacioP, string dataP, int duracioP, string tipusP, int visGlobals, string subscripcio) 
+    : _titol(titolP), _descripcio(descripcioP), _qualificacio(qualificacioP), _data(dataP), _duracio(duracioP), _tipus(tipusP), _visGlobals(visGlobals), _subscripcio(subscripcio) {}
 
 // Getters
 string DTOPelicula::obteTitol() {
@@ -35,6 +35,10 @@ string DTOPelicula::obteTipus() {
 
 int DTOPelicula::obteVisualitzacionsGlobals() {
     return _visGlobals;
+}
+
+string DTOPelicula::obteSubscripcio() {
+    return _subscripcio;
 }
 
 // Setters
@@ -66,6 +70,10 @@ void DTOPelicula::setVisualitzacionsGlobals(int visGlobals) {
     _visGlobals = visGlobals;
 }
 
+void DTOPelicula::setSubscripcio(string subscripcio) {
+    _subscripcio = subscripcio;
+}
+
 // Operador de asignación
 DTOPelicula& DTOPelicula::operator=(const DTOPelicula& obj) {
     if (this != &obj) { // Evitar auto-asignación
@@ -76,6 +84,7 @@ DTOPelicula& DTOPelicula::operator=(const DTOPelicula& obj) {
         _duracio = obj._duracio;
         _tipus = obj._tipus;
         _visGlobals = obj._visGlobals;
+        _subscripcio = obj._subscripcio;
     }
     return *this;
 }

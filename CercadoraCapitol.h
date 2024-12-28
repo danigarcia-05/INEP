@@ -13,6 +13,8 @@ public:
     CercadoraCapitol();
 
     vector<PassarelaCapitol> cercaCapitolsTemporada(string titolS, int numTemporada);
+    vector<PassarelaCapitol> cercaNovesEstrenes(string mod);
+    vector<PassarelaCapitol> cercaProperesEstrenes(string mod);
 };
 #endif
 

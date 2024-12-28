@@ -5,16 +5,17 @@
                    CONSTRUCTORS
 *****************************************************
 */
-PassarelaPelicula::PassarelaPelicula() : _titol(""), _dataEstrena(""), _duracio(0), _visualitzacionsGlobals(0) {
+PassarelaPelicula::PassarelaPelicula() : _titol(""), _dataEstrena(""), _duracio(0), _visualitzacionsGlobals(0), _modalitat("") {
 
 }
 
-PassarelaPelicula::PassarelaPelicula(string titol, string dataEstrena, int duracio, int visualitzacionsGlobals)
+PassarelaPelicula::PassarelaPelicula(string titol, string dataEstrena, int duracio, int visualitzacionsGlobals, string modalitat)
 {
     _titol = titol;
     _dataEstrena = dataEstrena;
     _duracio = duracio;
     _visualitzacionsGlobals = visualitzacionsGlobals;  
+    _modalitat = modalitat;
 }
 
 /*
@@ -34,6 +35,9 @@ int PassarelaPelicula::obteDuracio() {
 int PassarelaPelicula::obteVisualitzacionsGlobals() {
     return _visualitzacionsGlobals;
 }
+string PassarelaPelicula::obteModalitat() {
+    return _modalitat;
+}
 
 
 PassarelaPelicula& PassarelaPelicula::operator=(const PassarelaPelicula& obj) {
@@ -42,6 +46,7 @@ PassarelaPelicula& PassarelaPelicula::operator=(const PassarelaPelicula& obj) {
         _dataEstrena = obj._dataEstrena;
         _duracio = obj._duracio;
         _visualitzacionsGlobals = obj._visualitzacionsGlobals;
+        _modalitat = obj._modalitat;
     }
     return *this;  // Devolver la referencia al objeto actual
 }
@@ -63,6 +68,9 @@ void PassarelaPelicula::setDuracio(int duracio) {
 void PassarelaPelicula::setVisualitzacionsGlobals(int visualitzacionsGlobals) {
     _visualitzacionsGlobals = visualitzacionsGlobals;
 }
+void PassarelaPelicula::setModalitat(string modalitat) {
+    _modalitat = modalitat;
+}
 
 /*
 *****************************************************
@@ -72,8 +80,8 @@ void PassarelaPelicula::setVisualitzacionsGlobals(int visualitzacionsGlobals) {
 void PassarelaPelicula::insereix()
 {
     ConnexioDB &con = ConnexioDB::getInstance();
-    string query = "INSERT INTO pelicula (titol, data_estrena, duracio, descripcio, qualificacio, tipus) VALUES('" +
-        _titol + "', '" + _dataEstrena + "', '" + to_string(_duracio) + "', '" + to_string(_visualitzacionsGlobals) + "')";
+    string query = "INSERT INTO pelicula (titol, data_estrena, duracio, descripcio, qualificacio, tipus, modalitat) VALUES('" +
+        _titol + "', '" + _dataEstrena + "', '" + to_string(_duracio) + "', '" + to_string(_visualitzacionsGlobals) + "', '" + _modalitat + "');";
     con.executarSQL(query);
 }
 
@@ -82,7 +90,7 @@ void PassarelaPelicula::modifica()
     ConnexioDB& con = ConnexioDB::getInstance();
 
     // Establim la sentència SQL.
-    string query = "UPDATE pelicula SET data_estrena = '" + _dataEstrena + "', duracio = '" + to_string(_duracio) + "', visualitzacions_globals = '" + to_string(_visualitzacionsGlobals) + "' WHERE titol = '" + _titol + "';";
+    string query = "UPDATE pelicula SET data_estrena = '" + _dataEstrena + "', duracio = '" + to_string(_duracio) + "', visualitzacions_globals = '" + to_string(_visualitzacionsGlobals) + "', modalitat = '" + _modalitat + "' WHERE titol = '" + _titol + "';";
 
     // Executem la modificació d' usuari a la base de dades.
     con.executarSQL(query);

@@ -13,6 +13,7 @@
 	- sumar 1 a las visdualitzaciones globales
 	- errores.
 	- Cercadoras singleton
+	- Cinefil en todos lados igual
 
 
 

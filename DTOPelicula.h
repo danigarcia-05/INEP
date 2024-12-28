@@ -9,7 +9,7 @@ class DTOPelicula {
 public:
 
     DTOPelicula();
-    DTOPelicula(string titolP, string descripcioP, string  qualificacioP, string dataP, int duracioP, string tipusP, int visGlobals);
+    DTOPelicula(string titolP, string descripcioP, string  qualificacioP, string dataP, int duracioP, string tipusP, int visGlobals, string subscripcio);
     //GETTERS
     string obteTitol();
     string obteDescripcio();
@@ -18,6 +18,7 @@ public:
     int obteDuracio();
     string obteTipus();
     int obteVisualitzacionsGlobals();
+    string obteSubscripcio();
 
     //SETTERS
     void setTitol(string titol);
@@ -27,6 +28,7 @@ public:
     void setDuracio(int duracio);
     void setTipus(string tipus);
     void setVisualitzacionsGlobals(int visGlobals);
+    void setSubscripcio(string subscripcio);
 
     DTOPelicula& operator=(const DTOPelicula& obj);
 
@@ -38,5 +40,6 @@ private:
     int _duracio;  
     string _tipus;
     int _visGlobals;
+    string _subscripcio;
 };
 #endif

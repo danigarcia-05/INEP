@@ -15,11 +15,13 @@ private:
     string _titol;
     string _dataEstrena;
     string _qualificacio;
+    int _duracio;
+    string _modalitat;
 
 public:
     PassarelaCapitol();
 
-    PassarelaCapitol(string titolSerie, int numT, int numC, string titol, string dataEstrena, string qualificacio);
+    PassarelaCapitol(string titolSerie, int numT, int numC, string titol, string dataEstrena, string qualificacio, int duracio, string modalitat);
 
     // GETTERS
     string obteTitolSerie(); 
@@ -30,11 +32,13 @@ public:
 
     string obteTitol();
 
-    string obteSobrenom(); 
-
     string obteDataEstrena(); 
 
     string obteQualificacio();
+
+    int obteDuracio();
+
+    string obteModalitat();
 
     // SETTERS
     void setTitolSerie(string titolSerie); 
@@ -48,6 +52,10 @@ public:
     void setDataEstrena(string dataEstrena); 
 
     void setQualificacio(string qualificacio);
+
+    void setDuracio(int duracio);
+
+    void setModalitat(string modalitat);
 
     PassarelaCapitol& operator=(const PassarelaCapitol& obj);
 

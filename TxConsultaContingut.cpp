@@ -8,14 +8,15 @@ void TxConsultaContingut::executar(string titolC) {
     CercadoraContingut cercadoraC;
     _contingut = cercadoraC.cercaContingut(titolC);
 
-    string titol, descripcio, qualificacio, tipus;
+    string titol, descripcio, qualificacio, tipus, modalitat;
 
     titol = _contingut.obteTitol();
     descripcio = _contingut.obteDescripcio();
     qualificacio = _contingut.obteQualificacio();
     tipus = _contingut.obteTipus();
+    modalitat = _contingut.obteSubscripcio();
 
-    DTOContingut resultat(titol, descripcio, qualificacio, tipus);
+    DTOContingut resultat(titol, descripcio, qualificacio, tipus, modalitat);
     _resultat = resultat;
 }
 
