@@ -15,7 +15,7 @@ private:
     PassarelaUsuari _usuari;
 public:
     TxConsultaUsuari();
-    void executar();
+    bool executar();
     DTOUsuari obteResultat();
     PassarelaUsuari obteUsuari();
 };

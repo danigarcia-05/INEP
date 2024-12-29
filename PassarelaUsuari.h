@@ -27,12 +27,12 @@ public:
     PassarelaUsuari(string nomU, string sobrenomU, string contrasenyaU, string correuElectronicU, string dataNaixementU, string modalitatU);
 
     //GETTERS
-    string obteSobrenom();
-    string obteNom();
-    string obteContrasenya();
-    string obteCorreuElectronic();
-    string obteDataNaixament();
-    string obteModalitatSubscripcio();
+    string obteSobrenom() const;
+    string obteNom() const;
+    string obteContrasenya() const;
+    string obteCorreuElectronic() const;
+    string obteDataNaixament() const;
+    string obteModalitatSubscripcio() const;
 
     PassarelaUsuari& operator=(const PassarelaUsuari& obj);
 

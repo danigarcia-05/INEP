@@ -9,35 +9,35 @@ DTOPelicula::DTOPelicula(string titolP, string descripcioP, string qualificacioP
     : _titol(titolP), _descripcio(descripcioP), _qualificacio(qualificacioP), _data(dataP), _duracio(duracioP), _tipus(tipusP), _visGlobals(visGlobals), _subscripcio(subscripcio) {}
 
 // Getters
-string DTOPelicula::obteTitol() {
+string DTOPelicula::obteTitol() const{
     return _titol;
 }
 
-string DTOPelicula::obteDescripcio() {
+string DTOPelicula::obteDescripcio() const{
     return _descripcio;
 }
 
-string DTOPelicula::obteQualificacio() {
+string DTOPelicula::obteQualificacio() const{
     return _qualificacio;
 }
 
-string DTOPelicula::obteDataP() {
+string DTOPelicula::obteDataP() const{
     return _data;
 }
 
-int DTOPelicula::obteDuracio() {
+int DTOPelicula::obteDuracio() const{
     return _duracio;
 }
 
-string DTOPelicula::obteTipus() {
+string DTOPelicula::obteTipus() const{
     return _tipus;
 }
 
-int DTOPelicula::obteVisualitzacionsGlobals() {
+int DTOPelicula::obteVisualitzacionsGlobals() const{
     return _visGlobals;
 }
 
-string DTOPelicula::obteSubscripcio() {
+string DTOPelicula::obteSubscripcio() const{
     return _subscripcio;
 }
 

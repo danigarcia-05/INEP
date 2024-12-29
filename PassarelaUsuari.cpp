@@ -30,25 +30,25 @@ PassarelaUsuari::PassarelaUsuari(string nomU, string sobrenomU, string contrasen
                     CONSULTORS
 *****************************************************
 */
-string PassarelaUsuari::obteSobrenom(){
+string PassarelaUsuari::obteSobrenom() const{
     return _sobrenom;
 }
-string PassarelaUsuari::obteNom(){
+string PassarelaUsuari::obteNom() const{
     return _nom;
 }
 
-string PassarelaUsuari::obteContrasenya(){
+string PassarelaUsuari::obteContrasenya() const{
     return _contrasenya;
 }
-string PassarelaUsuari::obteCorreuElectronic(){
+string PassarelaUsuari::obteCorreuElectronic() const{
     return _correuElectronic;
 }
 
-string PassarelaUsuari::obteDataNaixament(){
+string PassarelaUsuari::obteDataNaixament() const{
     return _dataNaixament;
 }
 
-string PassarelaUsuari::obteModalitatSubscripcio(){
+string PassarelaUsuari::obteModalitatSubscripcio() const{
     return _modalitatSubscripcio;
 }
 

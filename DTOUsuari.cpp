@@ -16,23 +16,23 @@ DTOUsuari::DTOUsuari(string nomU, string sobrenomU, string  correuElectronicU, s
 //-------------
 //GETTERS
 //-------------
-string DTOUsuari::obteNom() {
+string DTOUsuari::obteNom() const{
     return _nom; 
 }
 
-string DTOUsuari::obteSobrenom() {
+string DTOUsuari::obteSobrenom() const{
     return _sobrenom; 
 }
 
-string DTOUsuari::obteCorreu(){
+string DTOUsuari::obteCorreu() const{
     return _correuElectronic; 
 }
 
-string DTOUsuari::obteDataN() {
+string DTOUsuari::obteDataN() const{
     return _dataNaixement;
 }
     
-string DTOUsuari::obteModalitatS() {
+string DTOUsuari::obteModalitatS() const{
     return _modalitat;
 }
 

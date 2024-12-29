@@ -14,19 +14,19 @@
     }
 
     //GETTERS
-    string PassarelaContingut::obteTitol(){
+    string PassarelaContingut::obteTitol() const{
         return _titol;
     }
-    string PassarelaContingut::obteDescripcio(){
+    string PassarelaContingut::obteDescripcio() const{
         return _descripcio;
     }
-    string PassarelaContingut::obteQualificacio(){
+    string PassarelaContingut::obteQualificacio() const{
         return _qualificacio;
     }
-    string PassarelaContingut::obteTipus(){
+    string PassarelaContingut::obteTipus() const{
         return _tipus;
     }
-    string PassarelaContingut::obteSubscripcio(){
+    string PassarelaContingut::obteSubscripcio() const{
         return _subscripcio;
     }
 

@@ -13,19 +13,19 @@ DTOVisualitzacioPelicula::DTOVisualitzacioPelicula(string titolP, string sobreno
 //-------------
 //GETTERS
 //-------------
-string DTOVisualitzacioPelicula::obteTitol() {
+string DTOVisualitzacioPelicula::obteTitol() const{
     return _titol; 
 }
 
-string DTOVisualitzacioPelicula::obteSobrenom() {
+string DTOVisualitzacioPelicula::obteSobrenom() const{
     return _sobrenom; 
 }
 
-string DTOVisualitzacioPelicula::obteDataVP(){
+string DTOVisualitzacioPelicula::obteDataVP() const{
     return _dataVP; 
 }
 
-int DTOVisualitzacioPelicula::obteVisualitzacions() {
+int DTOVisualitzacioPelicula::obteVisualitzacions() const{
     return _visualitzacions;
 }
 

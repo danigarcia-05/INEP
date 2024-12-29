@@ -4,6 +4,7 @@
 #include "PassarelaCapitol.h"
 #include <vector>
 #include <string>
+#include <locale>
 
 
 class CercadoraCapitol {

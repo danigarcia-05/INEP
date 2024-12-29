@@ -1,10 +1,12 @@
 #include "TxProperesEstrenes.h"
 
 TxProperesEstrenes::TxProperesEstrenes() {
-
 }
 
 void TxProperesEstrenes::executar(string mod) {
+    CercadoraModalitat cercadoraMod;
+    cercadoraMod.existeix(mod);
+
     CercadoraPelicula cercadoraP;
     vector<PassarelaPelicula> cjPel = cercadoraP.cercaProperesEstrenes(mod);
 
@@ -20,7 +22,7 @@ void TxProperesEstrenes::executar(string mod) {
         int detalls;
         if ((c == cjCap.size()) or (utils::dataMesPetit(cjPel[p].obteDataEstrena(), cjCap[c].obteDataEstrena()))) {
             data = utils::convertitADDMMYYYY(cjPel[p].obteDataEstrena());
-            tipus = "Pel·lícula";
+            tipus = "Pelicula";
             titol = cjPel[p].obteTitol();
             detalls = cjPel[p].obteDuracio();
             PassarelaContingut contingut = cercaCont.cercaContingut(titol);
@@ -29,7 +31,7 @@ void TxProperesEstrenes::executar(string mod) {
         }
         else {
             data = utils::convertitADDMMYYYY(cjCap[c].obteDataEstrena());
-            tipus = "Sèrie";
+            tipus = "Serie";
             titol = cjCap[c].obteTitolSerie();
             qualificacio = cjCap[c].obteQualificacio();
             detalls = cjCap[c].obteNumTemporada();

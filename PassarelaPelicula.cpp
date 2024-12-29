@@ -23,19 +23,19 @@ PassarelaPelicula::PassarelaPelicula(string titol, string dataEstrena, int durac
                     CONSULTORS
 *****************************************************
 */
-string PassarelaPelicula::obteTitol() {
+string PassarelaPelicula::obteTitol() const{
     return _titol;
 }
-string PassarelaPelicula::obteDataEstrena() {
+string PassarelaPelicula::obteDataEstrena() const{
     return _dataEstrena;
 }
-int PassarelaPelicula::obteDuracio() {
+int PassarelaPelicula::obteDuracio() const{
     return _duracio;
 }
-int PassarelaPelicula::obteVisualitzacionsGlobals() {
+int PassarelaPelicula::obteVisualitzacionsGlobals() const{
     return _visualitzacionsGlobals;
 }
-string PassarelaPelicula::obteModalitat() {
+string PassarelaPelicula::obteModalitat() const{
     return _modalitat;
 }
 

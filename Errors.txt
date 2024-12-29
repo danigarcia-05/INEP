@@ -1,17 +1,2 @@
-﻿
-VISUALITZACIO PELICULA
-	● La pel·lícula no existeix. El sistema mostra un missatge d’error i acaba el cas d’ús.
-	● La pel·lícula no és apropiada per l’edat de l’usuari. El sistema mostra un missatge d’error i acaba el cas d’ús.
-	● La pel·lícula no ha sigut estrenada. El sistema mostra un missatge amb la data d’estrena i es finalitza el cas d’ús.
-	● L’usuari no confirma la visualització. El cas d’ús finalitza.
-
-VISUALITZAR CAPITOL
-	● La sèrie no existeix. El sistema mostra un missatge d’error i finalitza el cas d’ús.
-	● La sèrie no és apropiada per l’edat de l’usuari. El sistema mostra un missatge d’error i finalitza el cas d’ús.
-	● El número de temporada no existeix. El sistema mostra un missatge d’error i finalitza	el cas d’ús..
-	● El número de capítol no existeix. El sistema mostra un missatge d’error i finalitza el cas d’ús.
-	● El capítol no ha sigut estrenat. El sistema mostra un missatge i i finalitza el cas d’ús..
-	● L’usuari no confirma la visualització. El cas d’ús finalitza.
-
-CONSULTAR VISUALITZACIONS
-	● No hi ha visualitzacions. El sistema mostra un missatge d’error i finalitza el cas d’ús.
+﻿	#include <locale>
+	std::locale::global(std::locale("ca_ES.utf8"));

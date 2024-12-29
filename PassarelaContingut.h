@@ -21,11 +21,11 @@ public:
     PassarelaContingut(string titol, string descripcio, string qualificacio, string tipus, string subscripcio);
 
     //GETTERS
-    string obteTitol();
-    string obteDescripcio();
-    string obteQualificacio();
-    string obteTipus();
-    string obteSubscripcio();
+    string obteTitol() const;
+    string obteDescripcio() const;
+    string obteQualificacio() const;
+    string obteTipus() const;
+    string obteSubscripcio() const;
 
     PassarelaContingut& operator=(const PassarelaContingut& obj);
 

@@ -9,35 +9,35 @@ PassarelaCapitol::PassarelaCapitol(string titolSerie, int numT, int numC, string
     : _titolSerie(titolSerie), _numTemporada(numT), _numero(numC), _titol(titol), _dataEstrena(dataEstrena), _qualificacio(qualificacio), _duracio(duracio), _modalitat(modalitat) {}
 
 // GETTERS
-string PassarelaCapitol::obteTitolSerie() {
+string PassarelaCapitol::obteTitolSerie() const{
     return _titolSerie;
 }
 
-int PassarelaCapitol::obteNumTemporada() {
+int PassarelaCapitol::obteNumTemporada() const{
     return _numTemporada;
 }
 
-int PassarelaCapitol::obteNumero() {
+int PassarelaCapitol::obteNumero() const{
     return _numero;
 }
 
-string PassarelaCapitol::obteTitol() {
+string PassarelaCapitol::obteTitol() const{
     return _titol;
 }
 
-string PassarelaCapitol::obteDataEstrena() {
+string PassarelaCapitol::obteDataEstrena() const{
     return _dataEstrena;
 }
 
-string PassarelaCapitol::obteQualificacio() {
+string PassarelaCapitol::obteQualificacio() const{
     return _qualificacio;
 }
 
-int PassarelaCapitol::obteDuracio() {
+int PassarelaCapitol::obteDuracio() const{
     return _duracio;
 }
 
-string PassarelaCapitol::obteModalitat() {
+string PassarelaCapitol::obteModalitat() const{
     return _modalitat;
 }
 

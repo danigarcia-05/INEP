@@ -19,11 +19,11 @@ public:
     DTOContingut(string titol, string descripcio, string qualificacio, string tipus, string modalitat);
 
     //GETTERS
-    string obteTitol();
-    string obteDescripcio();
-    string obteQualificacio();
-    string obteTipus();
-    string obteModalitat();
+    string obteTitol() const;
+    string obteDescripcio() const;
+    string obteQualificacio() const;
+    string obteTipus() const;
+    string obteModalitat() const;
     
     //SETTERS
     void setTitol(string titol);

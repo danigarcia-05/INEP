@@ -11,14 +11,14 @@ public:
     DTOPelicula();
     DTOPelicula(string titolP, string descripcioP, string  qualificacioP, string dataP, int duracioP, string tipusP, int visGlobals, string subscripcio);
     //GETTERS
-    string obteTitol();
-    string obteDescripcio();
-    string obteQualificacio();
-    string obteDataP();
-    int obteDuracio();
-    string obteTipus();
-    int obteVisualitzacionsGlobals();
-    string obteSubscripcio();
+    string obteTitol() const;
+    string obteDescripcio() const;
+    string obteQualificacio() const;
+    string obteDataP() const;
+    int obteDuracio() const;
+    string obteTipus() const;
+    int obteVisualitzacionsGlobals() const;
+    string obteSubscripcio() const;
 
     //SETTERS
     void setTitol(string titol);

@@ -70,7 +70,6 @@ vector<PassarelaPelicula> CercadoraPelicula::cercaPeliculesMesVistes() {
 
 vector<PassarelaPelicula> CercadoraPelicula::cercaNovesEstrenes(string mod) {
     ConnexioDB& con = ConnexioDB::getInstance();
-  
     string comanda;
     if (mod == "Infantil") {
         comanda = "SELECT * FROM pelicula WHERE data_estrena <= NOW() AND modalitat = '" + mod + "' " +
@@ -98,7 +97,6 @@ vector<PassarelaPelicula> CercadoraPelicula::cercaNovesEstrenes(string mod) {
 
 vector<PassarelaPelicula> CercadoraPelicula::cercaProperesEstrenes(string mod) {
     ConnexioDB& con = ConnexioDB::getInstance();
-
     string comanda;
     if (mod == "Infantil") {
         comanda = "SELECT * FROM pelicula WHERE data_estrena > NOW() AND modalitat = '" + mod + "' " +
@@ -108,6 +106,7 @@ vector<PassarelaPelicula> CercadoraPelicula::cercaProperesEstrenes(string mod) {
         comanda = "SELECT * FROM pelicula WHERE data_estrena > NOW() ORDER BY data_estrena ASC LIMIT 5;";
     }
     sql::ResultSet* res = con.consultaSQL(comanda);
+
 
     vector<PassarelaPelicula> pelicules;
     while (res->next()) {  // Asegurarse de que se encontró un resultado

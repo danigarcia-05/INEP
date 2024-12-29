@@ -20,14 +20,14 @@ public:
     DTOCapitol(string titolS, int numTemporada, int numero, string titol, string dataEstrena, string qualificacio, int duracioC, string modalitat);
 
     //GETTERS
-    string obteTitolS();
-    int obteNumTemp();
-    int obteNumCap();
-    string obteTitolC();
-    string obteDataEstrena();
-    string obteQualificacio();
-    int obteDuracioC();
-    string obteModalitat();
+    string obteTitolS() const;
+    int obteNumTemp() const;
+    int obteNumCap() const;
+    string obteTitolC() const;
+    string obteDataEstrena() const;
+    string obteQualificacio() const;
+    int obteDuracioC() const;
+    string obteModalitat() const;
     
     //SETTERS
     void setTitolS(string titolS);

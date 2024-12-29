@@ -10,16 +10,16 @@ PassarelaVisualitzaPel::PassarelaVisualitzaPel(string sobrenomU, string titolPel
 
 
 //GETTERS
-string PassarelaVisualitzaPel::obteSobrenom(){
+string PassarelaVisualitzaPel::obteSobrenom() const{
     return _sobrenom;
 }
-string PassarelaVisualitzaPel::obteTitolPelicula() {
+string PassarelaVisualitzaPel::obteTitolPelicula() const{
     return _titolPelicula;
 }
-string PassarelaVisualitzaPel::obteData() {
+string PassarelaVisualitzaPel::obteData() const{
     return _data;
 }
-int PassarelaVisualitzaPel::obteNumVisualitzacions() {
+int PassarelaVisualitzaPel::obteNumVisualitzacions() const{
     return _numVisualitzacions;
 }
 

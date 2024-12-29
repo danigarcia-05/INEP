@@ -3,6 +3,7 @@
 #pragma once
 #include "CercadoraPelicula.h"
 #include "CercadoraCapitol.h"
+#include "CercadoraModalitat.h"
 #include "CercadoraContingut.h"
 #include "DTONovetat.h"
 #include "PassarelaPelicula.h"
@@ -13,6 +14,7 @@ using namespace std;
 #include <string>
 #include <stdexcept>  
 #include <vector>  
+#include <locale>
 
 class TxProperesEstrenes {
 private:

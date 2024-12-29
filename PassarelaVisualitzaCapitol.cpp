@@ -10,22 +10,22 @@ PassarelaVisualitzaCapitol::PassarelaVisualitzaCapitol(string sobrenomU, string 
 
 
 //GETTERS
-string PassarelaVisualitzaCapitol::obteSobrenom(){
+string PassarelaVisualitzaCapitol::obteSobrenom() const{
     return _sobrenom;
 }
-string PassarelaVisualitzaCapitol::obteTitolSerie(){
+string PassarelaVisualitzaCapitol::obteTitolSerie() const{
     return _titolSerie;
 }
-int PassarelaVisualitzaCapitol::obteNumVisualitzacions(){
+int PassarelaVisualitzaCapitol::obteNumVisualitzacions() const{
     return _numVisualitzacions;
 }
-int PassarelaVisualitzaCapitol::obteNumTemporada(){
+int PassarelaVisualitzaCapitol::obteNumTemporada() const{
     return _numTemporada;
 }
-int PassarelaVisualitzaCapitol::obteNumCapitol(){
+int PassarelaVisualitzaCapitol::obteNumCapitol() const{
     return _numCapitol;
 }
-string PassarelaVisualitzaCapitol::obteData(){
+string PassarelaVisualitzaCapitol::obteData() const{
     return _data;
 }
 

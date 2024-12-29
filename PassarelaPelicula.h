@@ -22,11 +22,11 @@ public:
     PassarelaPelicula(string titol, string dataEstrena, int duracio, int visualitzacionsGlobals, string modalitat);
 
     //GETTERS
-    string obteTitol();
-    string obteDataEstrena();
-    int obteDuracio();
-    int obteVisualitzacionsGlobals();
-    string obteModalitat();
+    string obteTitol() const;
+    string obteDataEstrena() const;
+    int obteDuracio() const;
+    int obteVisualitzacionsGlobals() const;
+    string obteModalitat() const;
 
     PassarelaPelicula& operator=(const PassarelaPelicula& obj);
 

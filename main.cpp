@@ -77,8 +77,13 @@ void consultes() {
 }
 
 int main() {
-    std::locale::global(std::locale("ca_ES.utf8"));
-    std::cout.imbue(std::locale()); // Aplicar la configuración a std::cout
+    std::locale::global(std::locale("ca_ES.UTF-8"));
+    std::wcin.imbue(std::locale());
+    std::cin.imbue(std::locale());
+    std::wcout.imbue(std::locale());
+    std::cout.imbue(std::locale());
+    SetConsoleCP(CP_UTF8);  // Establecer la entrada como UTF-8
+    SetConsoleOutputCP(CP_UTF8);  // Establecer la salida como UTF-8
     
     utils::ensenyaLogo();
 
@@ -89,7 +94,7 @@ int main() {
     while (acaba == false) {
         if(petitFlix.obteUsuari() == nullptr){
             cout << "*********************" << endl;
-            cout << " Menu Principal" << endl;
+            cout << " Menú Principal" << endl;
             cout << "*********************" << endl;
             cout << "1. Iniciar sessió" << endl;
             cout << "2. Registrar usuari" << endl;

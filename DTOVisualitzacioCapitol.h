@@ -20,12 +20,12 @@ public:
     DTOVisualitzacioCapitol(string sobrenom, string titolS, int numTemporada, int numCapitol, string data, int numVisualitzacions);
 
     // GETTERS
-    string obteSobrenom();
-    string obteTitolSerie();
-    int obteNumTemporada();
-    int obteNumCapitol();
-    string obteData();
-    int obteNumVisualitzacions();
+    string obteSobrenom() const;
+    string obteTitolSerie() const;
+    int obteNumTemporada() const;
+    int obteNumCapitol() const;
+    string obteData() const;
+    int obteNumVisualitzacions() const;
 
     // SETTERS
     void setSobrenom(string sobrenom);

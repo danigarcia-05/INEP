@@ -9,7 +9,11 @@ CapaDePresentacio& CapaDePresentacio::getInstance(){
     if (ins == nullptr) {
         ins = new CapaDePresentacio();
     }
+    std::locale::global(std::locale("ca_ES.utf8"));
+    std::cin.imbue(std::locale());
+    std::cout.imbue(std::locale());
     return *ins;
+
 }
 
 CapaDePresentacio* CapaDePresentacio::ins = nullptr;
@@ -268,32 +272,54 @@ void CapaDePresentacio::processarUltimesNovetats(){
    
     PetitFlix& petitFlix = PetitFlix::getInstance();
     if (petitFlix.obteUsuari() == nullptr) {
-        cout << "Escull modalitat (Completa / Cinefil / Infantil): ";
+        cout << "Modalitats de subscripció disponibles: ";
+        cout << endl << " > 1. Completa ";
+        cout << endl << " > 2. Cinèfil ";
+        cout << endl << " > 3. Infantil ";
+        cout << endl << "Escull número de modalitat: ";
         cin >> mod;
+        if (mod == "1") mod = "Completa";
+        else if (mod == "2") mod = "Cinèfil";
+        else if (mod == "3") mod = "Infantil";
     }
-    else {
-        mod = petitFlix.obteUsuari()->obteModalitatSubscripcio();
-        cout << "Modalitat de l'usuari: ";
-        cout << mod << endl;
-    }    
-    cout << endl;
-    cout << "** Novetats pel·lícules **" << endl;
-    cout << "**************************" << endl;
-    TxConsultaNovetats txConsultaNovetats;
-    txConsultaNovetats.executar(mod);
-    vector<DTOPelicula> cjPelicules = txConsultaNovetats.obtePelicules();
-    if (cjPelicules.size() == 0) cout << "No hi ha novetats en pel·lícules de la modalitat escollida." << endl;
-    for (int i=0; i<cjPelicules.size(); ++i){
-        cout<<i+1<<".- "<<cjPelicules[i].obteDataP()<<": "<<cjPelicules[i].obteTitol()<<"; "<<cjPelicules[i].obteQualificacio()<<"; "<<cjPelicules[i].obteDuracio()<<" min." << endl;
+    else mod = petitFlix.obteUsuari()->obteModalitatSubscripcio();
+
+    utils::clearConsole();
+    cout << "** Novetats **" << endl;
+    cout << "Modalitat de l'usuari: " << mod << endl;
+
+    try {
+        TxConsultaNovetats txConsultaNovetats;
+        txConsultaNovetats.executar(mod);
+        cout << endl;
+
+        cout << "** Novetats pel·lícules **" << endl;
+        cout << "**************************" << endl;
+    
+        vector<DTOPelicula> cjPelicules = txConsultaNovetats.obtePelicules();
+        if (cjPelicules.size() == 0) cout << "No hi ha novetats en pel·lícules de la modalitat escollida." << endl;
+        for (int i=0; i<cjPelicules.size(); ++i){
+            cout<<i+1<<".- "<<cjPelicules[i].obteDataP()<<": "<<cjPelicules[i].obteTitol()<<"; "<<cjPelicules[i].obteQualificacio()<<"; "<<cjPelicules[i].obteDuracio()<<" min." << endl;
+        }
+        cout<<endl<<"** Novetats sèries **"<<endl;
+        cout<<"*********************"<<endl;
+        vector<DTOCapitol> cjCapitols = txConsultaNovetats.obteCapitols();
+        if (cjCapitols.size() == 0) cout << "No hi ha novetats en capítols de la modalitat escollida." << endl;
+        for (int i=0; i<cjCapitols.size(); ++i){
+            cout<<i+1<<".- "<<cjCapitols[i].obteDataEstrena()<<": "<<cjCapitols[i].obteTitolS()<<"; Temporada "<<cjCapitols[i].obteNumTemp()<<", capitol "<<cjCapitols[i].obteNumCap()<<"; "<< cjCapitols[i].obteDuracioC() <<" min."<<endl;
+        }
+        utils::enter();
     }
-    cout<<endl<<"** Novetats sèries **"<<endl;
-    cout<<"*********************"<<endl;
-    vector<DTOCapitol> cjCapitols = txConsultaNovetats.obteCapitols();
-    if (cjCapitols.size() == 0) cout << "No hi ha novetats en capítols de la modalitat escollida." << endl;
-    for (int i=0; i<cjCapitols.size(); ++i){
-        cout<<i+1<<".- "<<cjCapitols[i].obteDataEstrena()<<": "<<cjCapitols[i].obteTitolS()<<"; Temporada "<<cjCapitols[i].obteNumTemp()<<", capitol "<<cjCapitols[i].obteNumCap()<<"; "<< cjCapitols[i].obteDuracioC() <<" min."<<endl;
+    catch (const exception& e) {
+        utils::clearConsole();
+        string errorMessage = e.what();
+        if (errorMessage == "ModalitatNoExisteix") {
+            cout << "Error: La modalitat escollida no existeix." << endl;
+        }
+        else cout << "Error" << endl;
+        utils::enter();
     }
-    utils::enter();
+   
 }
 
 void CapaDePresentacio::processarProperesEstrenes(){
@@ -302,31 +328,50 @@ void CapaDePresentacio::processarProperesEstrenes(){
     
     PetitFlix& petitFlix = PetitFlix::getInstance();
     if (petitFlix.obteUsuari() == nullptr) {
-        cout << "Escull modalitat (Completa / Cinefil / Infantil): ";
+        cout << "Modalitats de subscripció disponibles: ";
+        cout << endl << " > 1. Completa ";
+        cout << endl << " > 2. Cinèfil ";
+        cout << endl << " > 3. Infantil ";
+        cout << endl << "Escull número de modalitat: ";
         cin >> mod;
+        if (mod == "1") mod = "Completa";
+        else if (mod == "2") mod = "Cinèfil";
+        else if (mod == "3") mod = "Infantil";
     }
-    else {
-        mod = petitFlix.obteUsuari()->obteModalitatSubscripcio();
-        cout << "Modalitat de l'usuari: ";
-        cout << mod << endl;
-    }
-     
-    cout << endl;
+    else  mod = petitFlix.obteUsuari()->obteModalitatSubscripcio();
+    
+    utils::clearConsole();
+    cout << "** Properes estrenes **" << endl;
+    cout << "Modalitat de l'usuari: " << mod << endl;
 
-    TxProperesEstrenes txProperesEstrenes;
-    txProperesEstrenes.executar(mod);
-    vector<DTONovetat> cjNovetats = txProperesEstrenes.obteResultat();
+    try {
+        TxProperesEstrenes txProperesEstrenes;
+        txProperesEstrenes.executar(mod);
+        cout << endl;
+        vector<DTONovetat> cjNovetats = txProperesEstrenes.obteResultat();
 
-    for (int i = 0; i < cjNovetats.size(); ++i) {
-        string tipus = cjNovetats[i].obteTipus();
-        cout << i + 1 << ".- " << cjNovetats[i].obteData() << " [";
-        cout << "]: " << cjNovetats[i].ObteTitol() << "; " << cjNovetats[i].obteQualificacio() << "; ";
-        if (tipus == "Sèrie") cout << "Temporada ";
-        cout << cjNovetats[i].obteDetalls();
-        if (tipus == "Pel·lícula") cout << " min";
-        cout << "." << endl;
+        for (int i = 0; i < cjNovetats.size(); ++i) {
+            string tipus = cjNovetats[i].obteTipus();
+            cout << i + 1 << ".- " << cjNovetats[i].obteData() << " [";
+            if (tipus == "Serie") cout << "Sèrie";
+            else cout << "Pel·lícula";
+            cout << "]: " << cjNovetats[i].ObteTitol() << "; " << cjNovetats[i].obteQualificacio() << "; ";
+            if (tipus == "Serie") cout << "Temporada ";
+            cout << cjNovetats[i].obteDetalls();
+            if (tipus == "Pelicula") cout << " min";
+            cout << "." << endl;
+        }
+        utils::enter();
     }
-    utils::enter();
+    catch (const exception& e) {
+        utils::clearConsole();
+        string errorMessage = e.what();
+        if (errorMessage == "ModalitatNoExisteix") {
+            cout << "Error: La modalitat escollida no existeix." << endl;
+        }
+        else cout << "Error" << endl;
+        utils::enter();
+    }
 }
 
 void CapaDePresentacio::processarPeliculesMesVistes() {
@@ -335,20 +380,23 @@ void CapaDePresentacio::processarPeliculesMesVistes() {
     TxConsultaMesVistes txConsultaMesVistes;
     txConsultaMesVistes.executar();
     vector<DTOPelicula> mesVistes = txConsultaMesVistes.obteResultat();
-
     TxConsultaVisualitzacioPelicula txConsultaVisualitzacioPelicula;
 
     TxConsultaUsuari txConsultaUsuari;
-    txConsultaUsuari.executar();
-    DTOUsuari usuari = txConsultaUsuari.obteResultat();
+    bool iniciatSessio = txConsultaUsuari.executar();
+    DTOUsuari usuari;
+    if(iniciatSessio) usuari = txConsultaUsuari.obteResultat();
 
     for (int i = 0; i < mesVistes.size(); ++i) {
-        txConsultaVisualitzacioPelicula.executarPelVis(mesVistes[i].obteTitol(), usuari.obteSobrenom());
-        DTOVisualitzacioPelicula vp = txConsultaVisualitzacioPelicula.obteResultatSingle();
-        cout << (i+1) << ".- " << mesVistes[i].obteTitol() << "; " << mesVistes[i].obteQualificacio() << "; " << mesVistes[i].obteDuracio() << " min. Visualitzacions: " << mesVistes[i].obteVisualitzacionsGlobals();
-        if (vp.obteTitol() != "") cout << " [VISTA: " << vp.obteDataVP() << "]";
         cout << endl;
+        cout << (i + 1) << ".- " << mesVistes[i].obteTitol() << "; " << mesVistes[i].obteQualificacio() << "; " << mesVistes[i].obteDuracio() << " min. Visualitzacions: " << mesVistes[i].obteVisualitzacionsGlobals();
+        if (iniciatSessio) {
+            txConsultaVisualitzacioPelicula.executarPelVis(mesVistes[i].obteTitol(), usuari.obteSobrenom());
+            DTOVisualitzacioPelicula vp = txConsultaVisualitzacioPelicula.obteResultatSingle();
+            if (vp.obteTitol() != "") cout << " [VISTA: " << vp.obteDataVP() << "]";
+        }
     }
+    cout << endl;
     utils::enter();
 }
 

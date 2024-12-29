@@ -9,11 +9,11 @@ PassarelaTemporada::PassarelaTemporada(string titolS, int numTemporada){
 }
 
 //GETTERS
-string PassarelaTemporada::obteTitolSerie(){
+string PassarelaTemporada::obteTitolSerie() const{
     return _titolS;
 }
 
-int PassarelaTemporada::obteNumTemporada(){
+int PassarelaTemporada::obteNumTemporada() const{
     return _numTemporada;
 }
 

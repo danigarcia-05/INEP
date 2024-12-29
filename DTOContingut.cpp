@@ -9,23 +9,23 @@ DTOContingut::DTOContingut(string titol, string descripcio, string qualificacio,
     : _titol(titol), _descripcio(descripcio), _qualificacio(qualificacio), _tipus(tipus), _modalitat(modalitat) {}
 
 // Getters
-string DTOContingut::obteTitol() {
+string DTOContingut::obteTitol() const{
     return _titol;
 }
 
-string DTOContingut::obteDescripcio() {
+string DTOContingut::obteDescripcio() const{
     return _descripcio;
 }
 
-string DTOContingut::obteQualificacio() {
+string DTOContingut::obteQualificacio() const{
     return _qualificacio;
 }
 
-string DTOContingut::obteTipus() {
+string DTOContingut::obteTipus() const{
     return _tipus;
 }
 
-string DTOContingut::obteModalitat() {
+string DTOContingut::obteModalitat() const{
     return _modalitat;
 }
 

@@ -22,6 +22,7 @@
     <ClCompile Include="capaDePresentacio.cpp" />
     <ClCompile Include="CercadoraCapitol.cpp" />
     <ClCompile Include="CercadoraContingut.cpp" />
+    <ClCompile Include="CercadoraModalitat.cpp" />
     <ClCompile Include="CercadoraPelicula.cpp" />
     <ClCompile Include="CercadoraRelacionades.cpp" />
     <ClCompile Include="CercadoraTemporada.cpp" />
@@ -70,6 +71,7 @@
     <ClInclude Include="capaDePresentacio.h" />
     <ClInclude Include="CercadoraCapitol.h" />
     <ClInclude Include="CercadoraContingut.h" />
+    <ClInclude Include="CercadoraModalitat.h" />
     <ClInclude Include="CercadoraPelicula.h" />
     <ClInclude Include="CercadoraRelacionades.h" />
     <ClInclude Include="CercadoraTemporada.h" />

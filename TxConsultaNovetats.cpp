@@ -5,6 +5,9 @@ TxConsultaNovetats::TxConsultaNovetats() {
 }
 
 void TxConsultaNovetats::executar(string mod) {
+    CercadoraModalitat cercadoraMod;
+    cercadoraMod.existeix(mod);
+
     CercadoraPelicula cercadoraP;
     vector<PassarelaPelicula> cjPel = cercadoraP.cercaNovesEstrenes(mod);
     CercadoraContingut cercadoraContingut;

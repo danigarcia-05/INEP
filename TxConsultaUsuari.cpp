@@ -5,10 +5,11 @@ TxConsultaUsuari::TxConsultaUsuari(){
 }
 
 //DOBLE BARRA
-void TxConsultaUsuari::executar(){
+bool TxConsultaUsuari::executar(){
     PetitFlix& petitFlix = PetitFlix::getInstance();
+    if (petitFlix.obteUsuari() == nullptr) return false;
     _usuari = *(petitFlix.obteUsuari());
-    
+
     string nomU, sobrenomU, correuU, modalitatU, dataNaixementU;
     nomU = _usuari.obteNom();
     sobrenomU = _usuari.obteSobrenom();
@@ -19,6 +20,7 @@ void TxConsultaUsuari::executar(){
 
     DTOUsuari resultat(nomU, sobrenomU, correuU, dataNaixementU, modalitatU);
     _resultat = resultat;
+    return true;
 }
 DTOUsuari TxConsultaUsuari::obteResultat(){
     return _resultat;

@@ -1,11 +1,11 @@
 ---- OBLIGATORIAS ----		
 	- connexioDB --> No incluir el archivo de configuracion. (gitignore)
-	- Todos los getters son const
-	- modificar usuari: modalitat subscripcio cinèfil no va bè 
+	
+	
 	- sumar 1 a las visdualitzaciones globales
 
 	- Cercadoras singleton
-	- Cinefil en todos lados igual
 
 	- Se desborda ver ultimo capitulo temporada
+
 	- Ordenar pelis relacionadas

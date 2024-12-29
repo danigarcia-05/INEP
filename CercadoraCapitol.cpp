@@ -31,7 +31,7 @@ vector<PassarelaCapitol> CercadoraCapitol::cercaCapitolsTemporada(string titolS,
 
 vector<PassarelaCapitol> CercadoraCapitol::cercaNovesEstrenes(string mod) {
     vector<PassarelaCapitol> cjCapitols;
-    if (mod != "Cinefil") {
+    if (mod == "Infantil" or mod == "Completa") {
         ConnexioDB& con = ConnexioDB::getInstance();
         string comanda;
         if (mod == "Infantil") {
@@ -62,7 +62,7 @@ vector<PassarelaCapitol> CercadoraCapitol::cercaNovesEstrenes(string mod) {
 
 vector<PassarelaCapitol> CercadoraCapitol::cercaProperesEstrenes(string mod) {
     vector<PassarelaCapitol> cjCapitols;
-    if (mod != "Cinefil") {
+    if (mod == "Infantil" or mod == "Completa") {
         ConnexioDB& con = ConnexioDB::getInstance();
         string comanda;
         if (mod == "Infantil") {

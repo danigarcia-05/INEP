@@ -20,8 +20,8 @@ public:
     PassarelaTemporada(string titolS, int numTemporada);
 
     //GETTERS
-    string obteTitolSerie();
-    int obteNumTemporada();
+    string obteTitolSerie() const;
+    int obteNumTemporada() const;
     
     PassarelaTemporada& operator=(const PassarelaTemporada& obj);
 

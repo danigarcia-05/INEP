@@ -25,12 +25,12 @@ public:
     PassarelaVisualitzaCapitol(string sobrenomU, string titolSerieU, int numVisualitzacionsU, int numTemporadaU, int numCapitolU, string dataU);
 
     //GETTERS
-    string obteSobrenom();
-    string obteTitolSerie();
-    int obteNumVisualitzacions();
-    int obteNumTemporada();
-    int obteNumCapitol();
-    string obteData();
+    string obteSobrenom() const;
+    string obteTitolSerie() const;
+    int obteNumVisualitzacions() const;
+    int obteNumTemporada() const;
+    int obteNumCapitol() const;
+    string obteData() const;
     
 
     //SETTERS

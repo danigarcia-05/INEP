@@ -12,10 +12,10 @@ public:
     DTOVisualitzacioPelicula(string titolP, string sobrenomU, string dataVP, int visualitzacions);
 
     //GETTERS
-    string obteTitol();
-    string obteSobrenom();
-    string obteDataVP();
-    int obteVisualitzacions();
+    string obteTitol() const;
+    string obteSobrenom() const;
+    string obteDataVP() const;
+    int obteVisualitzacions() const;
 
     //SETTERS
     void setTitol(string titol);

@@ -12,11 +12,11 @@ public:
     DTOUsuari(string nomU, string sobrenomU, string  correuElectronicU, string dataNaixementU, string modalitatU);
     
     //GETTERS
-    string obteNom();
-    string obteSobrenom();
-    string obteCorreu();
-    string obteDataN();
-    string obteModalitatS();
+    string obteNom() const;
+    string obteSobrenom() const;
+    string obteCorreu() const;
+    string obteDataN() const;
+    string obteModalitatS() const;
 
     //SETTERS
     void setNom(string nom);

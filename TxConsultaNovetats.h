@@ -3,6 +3,7 @@
 #pragma once
 #include "CercadoraPelicula.h"
 #include "CercadoraContingut.h"
+#include "CercadoraModalitat.h"
 #include "CercadoraCapitol.h"
 #include "DTOPelicula.h"
 #include "PassarelaPelicula.h"

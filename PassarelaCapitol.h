@@ -24,21 +24,21 @@ public:
     PassarelaCapitol(string titolSerie, int numT, int numC, string titol, string dataEstrena, string qualificacio, int duracio, string modalitat);
 
     // GETTERS
-    string obteTitolSerie(); 
+    string obteTitolSerie() const; 
 
-    int obteNumTemporada(); 
+    int obteNumTemporada() const; 
 
-    int obteNumero(); 
+    int obteNumero() const; 
 
-    string obteTitol();
+    string obteTitol() const;
 
-    string obteDataEstrena(); 
+    string obteDataEstrena() const; 
 
-    string obteQualificacio();
+    string obteQualificacio() const;
 
-    int obteDuracio();
+    int obteDuracio() const;
 
-    string obteModalitat();
+    string obteModalitat() const;
 
     // SETTERS
     void setTitolSerie(string titolSerie); 

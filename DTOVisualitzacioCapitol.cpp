@@ -11,27 +11,27 @@ DTOVisualitzacioCapitol::DTOVisualitzacioCapitol(string sobrenom, string titolS,
 }
 
 // GETTERS
-string DTOVisualitzacioCapitol::obteSobrenom() {
+string DTOVisualitzacioCapitol::obteSobrenom() const{
     return _sobrenom;
 }
 
-string DTOVisualitzacioCapitol::obteTitolSerie() {
+string DTOVisualitzacioCapitol::obteTitolSerie() const{
     return _titolSerie;
 }
 
-int DTOVisualitzacioCapitol::obteNumTemporada() {
+int DTOVisualitzacioCapitol::obteNumTemporada() const{
     return _numTemporada;
 }
 
-int DTOVisualitzacioCapitol::obteNumCapitol() {
+int DTOVisualitzacioCapitol::obteNumCapitol() const{
     return _numCapitol;
 }
 
-string DTOVisualitzacioCapitol::obteData() {
+string DTOVisualitzacioCapitol::obteData() const{
     return _data;
 }
 
-int DTOVisualitzacioCapitol::obteNumVisualitzacions() {
+int DTOVisualitzacioCapitol::obteNumVisualitzacions() const{
     return _numVisualitzacions;
 }
 

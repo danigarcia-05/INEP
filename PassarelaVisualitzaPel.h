@@ -23,10 +23,10 @@ public:
     PassarelaVisualitzaPel(string sobrenomU, string titolPeliculaU, string dataU, int numVisualitzacionsU);
 
     //GETTERS
-    string obteSobrenom();
-    string obteTitolPelicula();
-    string obteData();
-    int obteNumVisualitzacions();
+    string obteSobrenom() const;
+    string obteTitolPelicula() const;
+    string obteData() const;
+    int obteNumVisualitzacions() const;
 
     //SETTERS
     void setSobrenom(string sobrenom);

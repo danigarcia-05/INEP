@@ -9,35 +9,35 @@ DTOCapitol::DTOCapitol(string titolS, int numTemporada, int numero, string titol
     : _titolSerie(titolS), _numTemporada(numTemporada), _numero(numero), _titol(titol), _dataEstrena(dataEstrena), _qualificacio(qualificacio), _duracioC(duracioC), _modalitat(modalitat) {}
 
 // GETTERS
-string DTOCapitol::obteTitolS() {
+string DTOCapitol::obteTitolS() const{
     return _titolSerie;
 }
 
-int DTOCapitol::obteNumTemp() {
+int DTOCapitol::obteNumTemp() const{
     return _numTemporada;
 }
 
-int DTOCapitol::obteNumCap() {
+int DTOCapitol::obteNumCap() const{
     return _numero;
 }
 
-string DTOCapitol::obteTitolC() {
+string DTOCapitol::obteTitolC() const{
     return _titol;
 }
 
-string DTOCapitol::obteDataEstrena() {
+string DTOCapitol::obteDataEstrena() const{
     return _dataEstrena;
 }
 
-string DTOCapitol::obteQualificacio() {
+string DTOCapitol::obteQualificacio() const{
     return _qualificacio;
 }
 
-int DTOCapitol::obteDuracioC() {
+int DTOCapitol::obteDuracioC() const{
     return _duracioC;
 }
 
-string DTOCapitol::obteModalitat() {
+string DTOCapitol::obteModalitat() const{
     return _modalitat;
 }
 
