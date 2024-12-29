@@ -8,6 +8,7 @@
 #include "DTOVisualitzacioPelicula.h"
 #include "TxConsultaPelicula.h"
 #include "PetitFlix.h"
+#include "utils.h"
 using namespace std;
 #include <iostream>
 #include <string>
@@ -20,6 +21,7 @@ private:
     PassarelaVisualitzaPel _peliculaUsuari;
     PassarelaPelicula _infoP;
     PassarelaContingut _infoC;
+    vector<DTOPelicula> _resultat;
     
 public:
 
@@ -30,6 +32,7 @@ public:
 
     void modificaVisualitzacioPelicula(string titolP, string sobrenom);
 
-    vector<string> consultaRelacionades(string titolP);
+    void consultaRelacionades(string titolP);
+    vector<DTOPelicula> obteResultat();
 };
 #endif

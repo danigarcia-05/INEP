@@ -15,5 +15,6 @@ vector<string> CercadoraRelacionades::cercaRelacionades(string titolC) {
     while (res->next()) {
         resultat.push_back(res->getString("titol_y"));
     }
+
     return resultat;
 }

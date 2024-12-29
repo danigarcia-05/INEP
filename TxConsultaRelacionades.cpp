@@ -12,3 +12,5 @@ void TxConsultaRelacionades::executar(string titolC) {
 vector<string> TxConsultaRelacionades::obteRelacionades() {
     return _relacionades;
 }
+
+

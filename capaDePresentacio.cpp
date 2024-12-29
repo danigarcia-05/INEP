@@ -433,10 +433,10 @@ void CapaDePresentacio::processarVisualitzarPelicula() {
 
             cout << "Visualització registrada: " << utils::convertitADDMMYYYY(utils::dataActual()) << " " << utils::horaActual() << endl << endl;
             cout<<"Pel·lícules relacionades:"<<endl;
-            vector<string> pelRelacionades = ctrlVisualitzaPelicula.consultaRelacionades(titolP);
+            ctrlVisualitzaPelicula.consultaRelacionades(titolP);
+            vector<DTOPelicula> pelRelacionades = ctrlVisualitzaPelicula.obteResultat();
             for (int i=0; i < pelRelacionades.size(); ++i) {
-                DTOPelicula p = ctrlVisualitzaPelicula.consultaPelicula(pelRelacionades[i]);
-                cout<< "- " << p.obteTitol() << "; " << p.obteDescripcio() << "; " << p.obteQualificacio() << "; "<<p.obteDuracio() << " min; " << p.obteDataP() << endl;
+                cout<< "- " << pelRelacionades[i].obteTitol() << "; " << pelRelacionades[i].obteDescripcio() << "; " << pelRelacionades[i].obteQualificacio() << "; " << pelRelacionades[i].obteDuracio() << " min; " << pelRelacionades[i].obteDataP() << endl;
             }
             utils::enter();
         }

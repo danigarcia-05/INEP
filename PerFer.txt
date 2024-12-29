@@ -1,8 +1,5 @@
----- OBLIGATORIAS ----		
-	- connexioDB --> No incluir el archivo de configuracion. (gitignore)
+---- OBLIGATORIAS ----
 	
 	- sumar 1 a las visdualitzaciones globales
 
 	- Cercadoras singleton
-
-	- Ordenar pelis relacionadas

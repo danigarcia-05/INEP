@@ -49,10 +49,23 @@ void CtrlVisualitzaPelicula::modificaVisualitzacioPelicula(string titolP, string
     }   
 }
 
-vector<string> CtrlVisualitzaPelicula::consultaRelacionades(string titolP) {
+void CtrlVisualitzaPelicula::consultaRelacionades(string titolP) {
     vector<string> cjTitolPelicules;
     TxConsultaRelacionades txConsultaRelacionades;
     txConsultaRelacionades.executar(titolP);
     cjTitolPelicules = txConsultaRelacionades.obteRelacionades();
-    return cjTitolPelicules;
+
+    for (int i = 0; i < cjTitolPelicules.size(); ++i) {
+        DTOPelicula p = consultaPelicula(cjTitolPelicules[i]);
+        _resultat.push_back(p);
+    }
+
+    sort(_resultat.begin(), _resultat.end(),
+        [](const DTOPelicula& p1, const DTOPelicula& p2) {
+            return utils::convertirAFormatoComparacion(p1.obteDataP()) > utils::convertirAFormatoComparacion(p2.obteDataP());  // Compara el atributo 'data' de los objetos
+        });
+}
+
+vector<DTOPelicula> CtrlVisualitzaPelicula::obteResultat() {
+    return _resultat;
 }
