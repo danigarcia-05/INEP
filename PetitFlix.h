@@ -18,7 +18,7 @@ public:
     static PetitFlix& getInstance();
 
     //Consultors
-    PassarelaUsuari* obteUsuari() ;
+    PassarelaUsuari* obteUsuari();
 
     //Modificadors
     static void iniciaSessio(PassarelaUsuari u); 

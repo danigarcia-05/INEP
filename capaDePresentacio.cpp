@@ -484,12 +484,15 @@ void CapaDePresentacio::processarVisualitzarCapitol() {
         cout << "Llista capítols:" << endl; 
         for (int i = capitols.size() - 1; i >= 0; --i) {
             cout << capitols[i].obteNumCap() << ". " << capitols[i].obteTitolC() << "; " << capitols[i].obteDataEstrena() << "; ";
-       
+      
             txConsultaVisualitzacioCapitol.executar(usuari.obteSobrenom(), nomS, capitols[i].obteNumTemp(), capitols[i].obteNumCap());
+           
             DTOVisualitzacioCapitol vCapitol = txConsultaVisualitzacioCapitol.obteResultat();
 
-            if (vCapitol.obteTitolSerie() == "") cout << "no visualitzat" << endl;
-            else cout << "visualitzat el " << vCapitol.obteData() << endl;
+            if (vCapitol.obteTitolSerie().empty())
+                cout << "no visualitzat" << endl;
+            else
+                cout << "visualitzat el " << utils::convertitADDMMYYYY(vCapitol.obteData()) << endl;
         }
 
         cout << endl << "Número de capítol a visualitzar: ";
@@ -505,15 +508,16 @@ void CapaDePresentacio::processarVisualitzarCapitol() {
             utils::clearConsole();
         } while (op != "S" and op != "N");
      
-        if (op == "S") {            
+        if (op == "S") {  
             string sobrenomU = ctrlVisualitzaCapitol.consultaSerieUsuari(nomS, temporada, capitol);
-            ctrlVisualitzaCapitol.visualitzaCapitol(sobrenomU, nomS, temporada, capitol);
+            ctrlVisualitzaCapitol.visualitzaCapitol(sobrenomU, nomS, temporada, capitol); 
             cout << "Visualització registrada: " << utils::convertitADDMMYYYY(utils::dataActual()) << " " << utils::horaActual() << endl;
             utils::enter();
         }
     } 
     catch (const exception& e) {
         string errorMessage = e.what();
+        cout << "----------" << e.what() << endl;
         if (errorMessage == "SerieNoExisteix") {
             cout << "Error: La sèrie cercada no existeix." << endl;
         }

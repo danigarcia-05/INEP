@@ -15,7 +15,7 @@ PetitFlix& PetitFlix::getInstance() {
 
 // En PetitFlix.cpp
 PassarelaUsuari* PetitFlix::obteUsuari() {
-    return _usuari;  // O la lógica que desees aquí
+    return _usuari;
 }
 
 

@@ -22,16 +22,26 @@ vector<DTOCapitol> CtrlVisualitzaCapitol::obteCapitolsTemp(string nomS, int numT
 string CtrlVisualitzaCapitol::consultaSerieUsuari(string titolS, int numTemporada, int numCapitol) {
     PetitFlix& petitFlix = PetitFlix::getInstance();
     PassarelaUsuari usuari = *(petitFlix.obteUsuari());
-    string sobrenomU = usuari.obteSobrenom();    
-    if (numCapitol > _capitols.size()) throw runtime_error("CapitolNoExisteix");
+    string sobrenomU = usuari.obteSobrenom();
+  
+    int mida = _capitols.size();
+    if (numCapitol > mida) throw runtime_error("CapitolNoExisteix");
+
+    cout << utils::convertitADDMMYYYY(_capitols[numCapitol].obteDataEstrena()) << "-----------" << utils::convertitADDMMYYYY(utils::dataActual()) << endl;
+    utils::espera(2000);
     if (utils::dataMesGran(utils::convertitADDMMYYYY(_capitols[numCapitol].obteDataEstrena()), utils::convertitADDMMYYYY(utils::dataActual()))) {
         throw runtime_error("CapitolNoEstrenat");
     }
-    if (esContingutApteEdat(utils::convertitADDMMYYYY(_capitols[numCapitol].obteDataEstrena()), utils::convertitADDMMYYYY(usuari.obteDataNaixament()))) throw runtime_error("SerieNoApropiada");
+    if (not utils::esContingutApteEdat(utils::convertitADDMMYYYY(_capitols[numCapitol].obteDataEstrena()), utils::convertitADDMMYYYY(usuari.obteDataNaixament()))) throw runtime_error("SerieNoApropiada");
     
+    cout << "1" << endl;
+    cout << numCapitol << endl;
+    utils::espera(2000);
+
     TxConsultaVisualitzacioCapitol txConsultaVisualitzacioCapitol;
     txConsultaVisualitzacioCapitol.executar(sobrenomU, titolS, numTemporada, numCapitol);
     _capitolUsuari = txConsultaVisualitzacioCapitol.obteVisualitzacioCapitol();
+
     return sobrenomU;
 }
 

@@ -3,6 +3,7 @@
 #pragma once
 #include "DTOCapitol.h"
 #include "PassarelaCapitol.h"
+#include "PassarelaUsuari.h"
 #include "TxConsultaPelicula.h"
 #include "CercadoraTemporada.h"
 #include "TxConsultaCapitols.h"

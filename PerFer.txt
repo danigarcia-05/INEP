@@ -1,11 +1,8 @@
 ---- OBLIGATORIAS ----		
 	- connexioDB --> No incluir el archivo de configuracion. (gitignore)
 	
-	
 	- sumar 1 a las visdualitzaciones globales
 
 	- Cercadoras singleton
-
-	- Se desborda ver ultimo capitulo temporada
 
 	- Ordenar pelis relacionadas
