@@ -7,27 +7,32 @@ TxConsultaCapitols::TxConsultaCapitols() {
 
 void TxConsultaCapitols::executar(string nomS, int numTemporada) {
     CercadoraCapitol cercadoraC;
-    vector<PassarelaCapitol> cjCapitols = cercadoraC.cercaCapitolsTemporada(nomS, numTemporada);
+    _capitols = cercadoraC.cercaCapitolsTemporada(nomS, numTemporada);
     string titolSerie, titol, dataEstrena, qualificacio, modalitat;
     int numTemp, numero, duracio;
 
     vector<DTOCapitol> resultat;
-    for (int i = 0; i < cjCapitols.size(); ++i) {
-        titolSerie = cjCapitols[i].obteTitolSerie();
-        titol = cjCapitols[i].obteTitol();
-        dataEstrena = convertitADDMMYYYY(cjCapitols[i].obteDataEstrena());
-        qualificacio = cjCapitols[i].obteQualificacio();
-        numTemp = cjCapitols[i].obteNumTemporada();
-        numero = cjCapitols[i].obteNumero();
-        duracio = cjCapitols[i].obteDuracio();
-        modalitat = cjCapitols[i].obteModalitat();
+    int mida = _capitols.size();
+    for (int i = 0; i < mida; ++i) {
+        titolSerie = _capitols[i].obteTitolSerie();
+        titol = _capitols[i].obteTitol();
+        dataEstrena = convertitADDMMYYYY(_capitols[i].obteDataEstrena());
+        qualificacio = _capitols[i].obteQualificacio();
+        numTemp = _capitols[i].obteNumTemporada();
+        numero = _capitols[i].obteNumero();
+        duracio = _capitols[i].obteDuracio();
+        modalitat = _capitols[i].obteModalitat();
         DTOCapitol capitol(titolSerie, numTemp, numero, titol, dataEstrena, qualificacio, duracio, modalitat);
         resultat.push_back(capitol);
     }
-    _capitols = resultat;
+    _resultat = resultat;
 }
 
 vector<DTOCapitol> TxConsultaCapitols::obteResultat() {
+    return _resultat;
+}
+
+vector<PassarelaCapitol> TxConsultaCapitols::obteCapitols() {
     return _capitols;
 }
 

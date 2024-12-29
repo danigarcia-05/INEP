@@ -11,7 +11,7 @@ PassarelaTemporada CercadoraTemporada::cercaTemporada(string titolS, int numTemp
     sql::ResultSet* res = con.consultaSQL(comanda);
 
     if (not res->next()) {
-        throw runtime_error("TemporadaNoExisteix");
+        throw runtime_error("SerieNoExisteix");
     }
     else {
         temporada.setTitol(res->getString("titol_serie"));
@@ -35,6 +35,9 @@ vector<PassarelaTemporada> CercadoraTemporada::cercaTemporades(string titolS) {
         temporada.setTitol(res->getString("titol_serie"));
         temporada.setNumTemporada(res->getInt("numero"));
         cjTemporades.push_back(temporada);
+    }
+    if (cjTemporades.empty()) {
+        throw runtime_error("SerieNoExisteix");
     }
     return cjTemporades;
 }

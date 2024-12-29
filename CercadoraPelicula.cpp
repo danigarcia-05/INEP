@@ -20,7 +20,7 @@ PassarelaPelicula CercadoraPelicula::cercaPelicula(string titolP) {
         resultat.setModalitat(res->getString("modalitat"));
 	}
     else {
-        cout << "Error" << endl;
+        throw runtime_error("PeliculaNoExisteix");
     }
     return resultat;
 }

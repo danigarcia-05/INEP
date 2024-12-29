@@ -13,6 +13,7 @@ using namespace std;
 #include <iostream>
 #include <string>
 #include <stdexcept>  
+#include <vector>
 
 class TxConsultaNovetats {
 private:

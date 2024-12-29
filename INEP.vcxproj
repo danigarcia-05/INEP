@@ -63,6 +63,7 @@
     <ClCompile Include="TxRegistraUsuari.cpp" />
     <ClCompile Include="TxTancaSessio.cpp" />
     <ClCompile Include="TxConsultaVisualitzacioPelicula.cpp" />
+    <ClCompile Include="TxVisualitzacionsUsuari.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="capaDePresentacio.h" />
@@ -106,6 +107,7 @@
     <ClInclude Include="TxRegistraUsuari.h" />
     <ClInclude Include="TxTancaSessio.h" />
     <ClInclude Include="TxConsultaVisualitzacioPelicula.h" />
+    <ClInclude Include="TxVisualitzacionsUsuari.h" />
     <ClInclude Include="utils.h" />
   </ItemGroup>
   <ItemGroup>

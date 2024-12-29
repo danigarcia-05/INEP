@@ -11,6 +11,7 @@ using namespace std;
 #include <iostream>
 #include <string>
 #include <stdexcept>  
+#include <vector>
 
 class TxConsultaMesVistes {
 private:

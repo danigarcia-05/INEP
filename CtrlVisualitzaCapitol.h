@@ -16,8 +16,9 @@ using namespace std;
 
 class CtrlVisualitzaCapitol {
 private:
-
     PassarelaVisualitzaCapitol _capitolUsuari;
+    vector<PassarelaTemporada> _temporades;
+    vector<PassarelaCapitol> _capitols;
 
 public:
     CtrlVisualitzaCapitol();
@@ -29,5 +30,7 @@ public:
     string consultaSerieUsuari(string titolS, int numTemporada, int numCapitol);
 
     void visualitzaCapitol(string sobrenomU, string titolS, int numTemporada, int numCapitol);
+
+
 };
 #endif

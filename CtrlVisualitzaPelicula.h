@@ -16,8 +16,11 @@ using namespace std;
 
 class CtrlVisualitzaPelicula {
 private:
+
     PassarelaVisualitzaPel _peliculaUsuari;
-    string _sobrenom;
+    PassarelaPelicula _infoP;
+    PassarelaContingut _infoC;
+    
 public:
 
     CtrlVisualitzaPelicula();

@@ -3,11 +3,13 @@
 #pragma once
 #include "DTOUsuari.h"
 #include "PassarelaUsuari.h"
+#include "PassarelaCapitol.h"
 #include "TxConsultaUsuari.h"
 using namespace std;
 #include <iostream>
 #include <string>
 #include <stdexcept>
+#include <vector>
 
 class CtrlModificaUsuari {
 private:

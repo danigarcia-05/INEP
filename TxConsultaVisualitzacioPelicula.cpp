@@ -8,6 +8,7 @@ void TxConsultaVisualitzacioPelicula::executarVP(string usuari) {
     CercadoraVisualitzaPel cercadoraPel;   
 
     _cjVisualitzacioPelicula = cercadoraPel.cercaVisualitzaPel(usuari);
+    
     vector<DTOVisualitzacioPelicula> resultat;
     for(int i = 0; i < _cjVisualitzacioPelicula.size(); ++i){        
         string data = utils::dataAmbHora(_cjVisualitzacioPelicula[i].obteData());

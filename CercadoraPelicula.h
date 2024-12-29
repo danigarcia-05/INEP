@@ -3,12 +3,12 @@
 #pragma once
 #include "PassarelaPelicula.h"
 #include <vector>
+#include <stdexcept>
 
 class CercadoraPelicula {
 private:
 
 public:
-
     CercadoraPelicula();
 
     PassarelaPelicula cercaPelicula(string titolP);

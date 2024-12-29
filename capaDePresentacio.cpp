@@ -30,6 +30,7 @@ CapaDePresentacio::CapaDePresentacio() {
                    MODIFICADORS
 *****************************************************
 */
+
 void CapaDePresentacio::processarIniciarSessio(){
     string sobrenomU, contrasenyaU;
     cout << "** Inici sessió **" << endl;
@@ -47,7 +48,7 @@ void CapaDePresentacio::processarIniciarSessio(){
     }
     catch (const exception& e) {
         string errorMessage = e.what();
-        if (errorMessage == "UsuariExisteix" or errorMessage == "ErrorContrasenya") {
+        if (errorMessage == "UsuariNoExisteix" or errorMessage == "ErrorContrasenya") {
             cout << "Error: Hi ha hagut un error amb el sobrenom o la contrasenya."  << endl;
         }
         else cout << "Error" << endl;
@@ -56,20 +57,21 @@ void CapaDePresentacio::processarIniciarSessio(){
 }
 
 void CapaDePresentacio::processarTancaSessio(){
-    char tanca;
-    cout << "** Tancar sessió **" << endl;
-    cout << endl << "Vols tancar la sessió (S/N): ";
-
-    cin >> tanca;
+    string tanca;
+    do {
+        cout << "** Tancar sessió **" << endl;
+        cout << endl << "Vols tancar la sessió (S/N): ";
+        getline(cin, tanca);
+        utils::clearConsole();
+    } while (tanca != "S" and tanca != "N");
 
     utils::clearConsole();
-    if (tanca == 'S') {
+    if (tanca == "S") {
         TxTancaSessio txTancaSessio;
         txTancaSessio.executar();
         cout << "Sessió tancada correctament!" << endl;
         utils::enter();
-    }
-    else if (tanca != 'N') processarTancaSessio();
+    }    
 }
 
 void CapaDePresentacio::processarRegistreUsuari(){
@@ -239,7 +241,7 @@ void CapaDePresentacio::processarModificaUsuari() {
 void CapaDePresentacio::processarEsborraUsuari(){
     string contrasenyaU;
     cout << "** Esborrar usuari **" << endl;
-    cout << "Per confirmar l'esborrat, s'ha d'entrar la contrasenya ... " << endl;
+    cout << "-- Per esborrar l'usuari, entra la contrasenya --" << endl;
     cout << "Contrasenya: ";
     utils::desactivarEco(contrasenyaU); 
     utils::activarEco(); 
@@ -253,8 +255,10 @@ void CapaDePresentacio::processarEsborraUsuari(){
         utils::enter();
     }
     catch (const exception& e) {
-       cout << "La contrasenya no és correcta, l'usuari no s'esborrat!"  << endl;
-       utils::enter();
+        string errorMessage = e.what();
+        if (errorMessage == "ErrorContrasenya") cout << "La contrasenya no és correcta, l'usuari no ha estat esborrat." << endl;
+        else cout << "Error" << endl;
+        utils::enter();
     }   
 }
 
@@ -362,23 +366,27 @@ void CapaDePresentacio::processarVisualitzarPelicula() {
     string titolP;
     getline(cin, titolP);
     utils::clearConsole();
-    CtrlVisualitzaPelicula ctrlVisualitzaPelicula;
-    DTOPelicula infoP = ctrlVisualitzaPelicula.consultaPelicula(titolP);
+    try {
+        CtrlVisualitzaPelicula ctrlVisualitzaPelicula;
+        DTOPelicula infoP = ctrlVisualitzaPelicula.consultaPelicula(titolP);
 
-    cout << "Informació pel·lícula ..." << endl;
-    cout << "Nom pel·lícula: " << infoP.obteTitol() << endl;
-    cout << "Descripció: " << infoP.obteDescripcio() << endl;
-    cout << "Qualificació: " << infoP.obteQualificacio() << endl;
-    cout << "Data estrena: " << infoP.obteDataP() << endl;
-    cout << "Duració: " << infoP.obteDuracio() << endl;
+        string op;
+        do {
+            cout << "-- Informació pel·lícula --" << endl;
+            cout << "Nom pel·lícula: " << infoP.obteTitol() << endl;
+            cout << "Descripció: " << infoP.obteDescripcio() << endl;
+            cout << "Qualificació: " << infoP.obteQualificacio() << endl;
+            cout << "Data estrena: " << infoP.obteDataP() << endl;
+            cout << "Duració: " << infoP.obteDuracio() << endl;
 
-    char op;
-    cout << endl << "Vols continuar amb la visualitzacio? (S/N): ";
-    cin >> op;
-    utils::clearConsole();
+            cout << endl << "Vols continuar amb la visualitzacio? (S/N): ";
+            getline(cin, op);
+            utils::clearConsole();
+        } 
+        while (op != "S" and op != "N");
     
-    if (op == 'S') {
-        try {
+        utils::clearConsole();
+        if (op == "S") {
             string sobrenom = ctrlVisualitzaPelicula.consultaPeliculaUsuari(titolP);
             ctrlVisualitzaPelicula.modificaVisualitzacioPelicula(titolP, sobrenom);
 
@@ -391,15 +399,20 @@ void CapaDePresentacio::processarVisualitzarPelicula() {
             }
             utils::enter();
         }
-        catch (sql::SQLException& e) {
-            string errorMsg = e.what();
-            if (e.getErrorCode() == 1062) { //error no es pot insertar per clau primaria o unique repetit
-                if (errorMsg.find("correu_electronic") != string::npos) {
-                    cout << "El nou correu electrònic ja existeix" << endl;
-                }
-            }
-            utils::enter();
+    }
+    catch (const exception& e) {
+        string errorMessage = e.what();
+        if (errorMessage == "PeliculaNoExisteix") {
+            cout << "Error: La pel·lícula cercada no existeix." << endl;
         }
+        else if (errorMessage == "PeliculaNoEstrenada") {
+            cout << "Error: La pel·lícula cercada no ha sigut estrenada." << endl;
+        }
+        else if (errorMessage == "PeliculaNoApropiada") {
+            cout << "Error: La pel·lícula cercada no és apropiada per l'edat de l'usuari." << endl;
+        }
+        else cout << "Error" << endl;
+        utils::enter();
     }
 }
 
@@ -407,98 +420,122 @@ void CapaDePresentacio::processarVisualitzarCapitol() {
     cout << "** Visualitzar Capitol **" << endl;
     cout << "Nom de la sèrie: ";
     string nomS;
-    cin.ignore();
     getline(cin, nomS);
     utils::clearConsole();
-    CtrlVisualitzaCapitol ctrlVisualitzaCapitol;
-    int numTemp = ctrlVisualitzaCapitol.obteNumTemporades(nomS);
-    cout << "La sèrie té " << numTemp << " temporades." << endl << endl;
-    cout << "Escull temporada: ";
-    int temporada; 
-    cin >> temporada;
-    if (temporada > numTemp) cout << "error" << endl; 
-    utils::clearConsole();
-    vector<DTOCapitol> capitols = ctrlVisualitzaCapitol.obteCapitolsTemp(nomS, temporada);
-        
-    TxConsultaVisualitzacioCapitol txConsultaVisualitzacioCapitol;
+    try {
+        CtrlVisualitzaCapitol ctrlVisualitzaCapitol;
+        int numTemp = ctrlVisualitzaCapitol.obteNumTemporades(nomS);
+        cout << "La sèrie té " << numTemp << " temporades." << endl << endl;
+        cout << "Escull temporada: ";
+        int temporada; 
+        cin >> temporada;
+        utils::clearConsole();
     
-    TxConsultaUsuari txConsultaUsuari;
-    txConsultaUsuari.executar();
-    DTOUsuari usuari = txConsultaUsuari.obteResultat();
+        vector<DTOCapitol> capitols = ctrlVisualitzaCapitol.obteCapitolsTemp(nomS, temporada);
+        
+        TxConsultaVisualitzacioCapitol txConsultaVisualitzacioCapitol;
+    
+        TxConsultaUsuari txConsultaUsuari;
+        txConsultaUsuari.executar();
+        DTOUsuari usuari = txConsultaUsuari.obteResultat();
 
-    cout << "Llista capítols:" << endl; 
-    for (int i = capitols.size() - 1; i >= 0; --i) {
-        cout << capitols[i].obteNumCap() << ". " << capitols[i].obteTitolC() << "; " << capitols[i].obteDataEstrena() << "; ";
+        cout << "Llista capítols:" << endl; 
+        for (int i = capitols.size() - 1; i >= 0; --i) {
+            cout << capitols[i].obteNumCap() << ". " << capitols[i].obteTitolC() << "; " << capitols[i].obteDataEstrena() << "; ";
        
-        txConsultaVisualitzacioCapitol.executar(usuari.obteSobrenom(), nomS, capitols[i].obteNumTemp(), capitols[i].obteNumCap());
-        DTOVisualitzacioCapitol vCapitol = txConsultaVisualitzacioCapitol.obteResultat();
+            txConsultaVisualitzacioCapitol.executar(usuari.obteSobrenom(), nomS, capitols[i].obteNumTemp(), capitols[i].obteNumCap());
+            DTOVisualitzacioCapitol vCapitol = txConsultaVisualitzacioCapitol.obteResultat();
 
-        if (vCapitol.obteTitolSerie() == "") cout << "no visualitzat" << endl;
-        else cout << "visualitzat el " << utils::convertitADDMMYYYY(vCapitol.obteData()) << endl;
+            if (vCapitol.obteTitolSerie() == "") cout << "no visualitzat" << endl;
+            else cout << "visualitzat el " << utils::convertitADDMMYYYY(vCapitol.obteData()) << endl;
+        }
+
+        cout << endl << "Número de capítol a visualitzar: ";
+        int capitol;
+        cin >> capitol;
+        utils::clearConsole();
+
+        string op;
+        do {
+            cout << "Número de capítol a visualitzar: " << capitol << endl;
+            cout << endl << "Vols continuar amb la visualització? (S/N): ";
+            cin >> op;
+            utils::clearConsole();
+        } while (op != "S" and op != "N");
+     
+        if (op == "S") {            
+            string sobrenomU = ctrlVisualitzaCapitol.consultaSerieUsuari(nomS, temporada, capitol);
+            ctrlVisualitzaCapitol.visualitzaCapitol(sobrenomU, nomS, temporada, capitol);
+            cout << "Visualització registrada: " << utils::convertitADDMMYYYY(utils::dataActual()) << " " << utils::horaActual() << endl;
+            utils::enter();
+        }
+    } 
+    catch (const exception& e) {
+        string errorMessage = e.what();
+        if (errorMessage == "SerieNoExisteix") {
+            cout << "Error: La sèrie cercada no existeix." << endl;
+        }
+        else if (errorMessage == "SerieNoApropiada") {
+            cout << "Error: La sèrie no és apropiada per l'edat de l'usuari." << endl;
+        }
+        else if (errorMessage == "TemporadaNoExisteix") {
+            cout << "Error: La temporada seleccionada no existeix." << endl;
+        }
+        else if (errorMessage == "CapitolNoExisteix") { 
+            cout << "Error: El capitol cercat no existeix." << endl;
+        }
+        else if (errorMessage == "CapitolNoEstrenat") {
+            cout << "Error: El capitol cercat no ha sigut estrenat." << endl;
+        }
+    } 
+}
+
+void CapaDePresentacio::processarConsultarVisualitzacions() {
+    try {
+        TxVisualitzacionsUsuari txVisualitzacionsUsuari;
+        txVisualitzacionsUsuari.executar();
+        cout << "hi" << endl;
+        vector<DTOVisualitzacioPelicula> vPelicula = txVisualitzacionsUsuari.obteVisualitzacionsPelicula();
+        vector<DTOVisualitzacioCapitol> vCapitol = txVisualitzacionsUsuari.obteVisualitzacionsCapitol();
+
+        TxConsultaPelicula txConsultaPelicula;
+        TxConsultaContingut txConsultaContingut;
+
+        cout << "** Consulta visualitzacions **" << endl << endl;
+        cout << "** Visualitzacions pel·lícules **" << endl;
+        cout << "*********************************" << endl;
+
+        for (int i = 0; i < vPelicula.size(); ++i) {
+            txConsultaPelicula.executar(vPelicula[i].obteTitol());
+            DTOPelicula p = txConsultaPelicula.obteResultat();
+            cout << vPelicula[i].obteDataVP() << ": " << p.obteTitol() << "; " << p.obteDescripcio() << "; " << p.obteQualificacio() << "; nombre de visualitzacions: " << vPelicula[i].obteVisualitzacions() << endl;
+        }
+
+        cout << endl << "** Visualitzacions sèries **" << endl;
+        cout << "****************************" << endl;
+
+        for (int i = 0; i < vCapitol.size(); ++i) {
+            txConsultaContingut.executar(vCapitol[i].obteTitolSerie());
+            DTOContingut cont = txConsultaContingut.obteResultat();
+            cout << vCapitol[i].obteData() << ": " << vCapitol[i].obteTitolSerie() << "; " << cont.obteQualificacio() << "; Temporada " << vCapitol[i].obteNumTemporada() << ", capítol: " << vCapitol[i].obteNumCapitol() << "; nombre de visualitzacions: " << vCapitol[i].obteNumVisualitzacions() << endl;
+        }
+        utils::enter();
     }
-
-    cout << endl << "Número de capítol a visualitzar: ";
-    int capitol;
-    cin >> capitol;
-    utils::clearConsole();
-
-    cout << "Número de capítol a visualitzar: " << capitol << endl;
-    cout << endl << "Vols continuar amb la visualització? (S/N): ";
-    string op;
-    cin >> op;
-    utils::clearConsole();
-    if(op == "S"){
-        string sobrenomU = ctrlVisualitzaCapitol.consultaSerieUsuari(nomS, temporada, capitol);
-        ctrlVisualitzaCapitol.visualitzaCapitol(sobrenomU, nomS, temporada, capitol);
-        cout << "Visualització registrada: " << utils::convertitADDMMYYYY(utils::dataActual()) << " " << utils::horaActual() << endl;
+    catch (const exception& e) {
+        string errorMessage = e.what();
+        if (errorMessage == "SenseVisualitzacions") {
+            cout << "Error: Aquest usuari encara no té visualitzacions." << endl;
+        }
         utils::enter();
     }
 }
 
-void CapaDePresentacio::processarConsultarVisualitzacions() {
-    cout << "** Consulta visualitzacions **" << endl << endl;
-    cout << "** Visualitzacions pel·lícules **" << endl;
-    cout << "*********************************" << endl;
-
-    TxConsultaUsuari txConsultaUsuari;
-    txConsultaUsuari.executar();
-    DTOUsuari usuari = txConsultaUsuari.obteResultat();
-    string sobrenomU = usuari.obteSobrenom();
-
-    TxConsultaVisualitzacioPelicula txConsultaVisualitzacioPelicula;
-    txConsultaVisualitzacioPelicula.executarVP(sobrenomU);
-    vector<DTOVisualitzacioPelicula> vPelicula = txConsultaVisualitzacioPelicula.obteResultat();
-
-    TxConsultaPelicula txConsultaPelicula;
-    
-    for (int i = 0; i < vPelicula.size(); ++i) {
-        txConsultaPelicula.executar(vPelicula[i].obteTitol());
-        DTOPelicula p = txConsultaPelicula.obteResultat();
-        cout << vPelicula[i].obteDataVP()<< ": " << p.obteTitol() << "; " << p.obteDescripcio() << "; " <<p.obteQualificacio() << "; nombre de visualitzacions: " << vPelicula[i].obteVisualitzacions() << endl;
-    }
-
-    cout << endl << "** Visualitzacions sèries **" << endl;
-    cout << "****************************" << endl;
-
-    TxConsultaContingut txConsultaContingut;
-    TxConsultaVisualitzacioCapitol txConsultaVisualitzacioCapitol;
-    txConsultaVisualitzacioCapitol.executarCV(sobrenomU);
-    vector<DTOVisualitzacioCapitol> vCapitol = txConsultaVisualitzacioCapitol.obteCapitolsVisualitzats();
-    for (int i = 0; i < vCapitol.size(); ++i) {
-        txConsultaContingut.executar(vCapitol[i].obteTitolSerie());
-        DTOContingut cont = txConsultaContingut.obteResultat();
-        cout << vCapitol[i].obteData() << ": " << vCapitol[i].obteTitolSerie() << "; " << cont.obteQualificacio() << "; Temporada " << vCapitol[i].obteNumTemporada() << ", capítol: " << vCapitol[i].obteNumCapitol() << "; nombre de visualitzacions: " << vCapitol[i].obteNumVisualitzacions() << endl;
-    }
-    utils::enter();
-}
-
-//NO ACABAT
 void CapaDePresentacio::processarModificaContrasenya() {
     cout << "** Modifica contrasenya **" << endl;
     CtrlModificaUsuari ctrlModificaUsuari;
     DTOUsuari infoU = ctrlModificaUsuari.consultaUsuari();
 
-    cout << "Entra la nova contrasenya ..." << endl;
+    cout << "-- Entra la nova contrasenya --" << endl;
     string contraU;
 
     cout << "Contrasenya: ";
@@ -512,12 +549,7 @@ void CapaDePresentacio::processarModificaContrasenya() {
         utils::enter();
     }
     catch (sql::SQLException& e) {
-        string errorMsg = e.what();
-        if (e.getErrorCode() == 1062) { //error no es pot insertar per clau primaria o unique repetit
-            if (errorMsg.find("correu_electronic") != string::npos) {
-                cout << "El nou correu electrònic ja existeix" << endl;
-            }
-        }
+        cout << "Error";
         utils::enter();
     }
 }

@@ -2,13 +2,17 @@
 #define TXCONSULTAVISUALITZACIOCAPITOL_HPP
 #pragma once
 #include "PassarelaVisualitzaCapitol.h"
+#include "PassarelaCapitol.h"
 #include "CercadoraVisualitzaCapitol.h"
+#include "CercadoraCapitol.h"
 #include "DTOVisualitzacioCapitol.h"
+#include "DTOCapitol.h"
 #include "PetitFlix.h"
 using namespace std;
 #include <iostream>
 #include <string>
 #include <stdexcept>  
+#include <vector>  
 
 class TxConsultaVisualitzacioCapitol {
 private:
@@ -25,6 +29,7 @@ public:
     PassarelaVisualitzaCapitol obteVisualitzacioCapitol();
     DTOVisualitzacioCapitol obteResultat();
     vector<DTOVisualitzacioCapitol> obteCapitolsVisualitzats();
+    vector<PassarelaVisualitzaCapitol> obteConjuntVisualitzacionsCapitols();
 };
 
 #endif

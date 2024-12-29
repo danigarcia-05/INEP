@@ -4,25 +4,15 @@
 		- Menu no va bien
 		- Enter (cualquier tecla)
 	- connexioDB --> No incluir el archivo de configuracion. (gitignore)
-	- Para cada tabla una cercadora y una tabla
 
 	- Todos los getters cson const
 
 
 	- modificar usuari: modalitat subscripcio cinèfil no va bè 
 	- sumar 1 a las visdualitzaciones globales
-	- errores.
+
 	- Cercadoras singleton
 	- Cinefil en todos lados igual
-
-	- Ingresar 
-
----- DONDE PETA ----
-	*** REGISTRAR ***
-	- Sobrenom vacio
-	2
-	2
-	2
 
 
 ---- OPCIONALES----

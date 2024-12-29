@@ -25,7 +25,7 @@ void TxConsultaVisualitzacioCapitol::executar(string sobrenomU, string titolSeri
 void TxConsultaVisualitzacioCapitol::executarCV(string sobrenomU) {
     CercadoraVisualitzaCapitol cercadoraVisualitzaCapiol;
     _cjVisualitzacioCapitol = cercadoraVisualitzaCapiol.cercaVisualitzaCapitolsUsuari(sobrenomU);
-
+    
     string sobrenom, titolS, data;
     int numTemp, numCapitol, numVisualitzacio;
     for (int i = 0; i < _cjVisualitzacioCapitol.size(); ++i) {
@@ -51,3 +51,7 @@ DTOVisualitzacioCapitol TxConsultaVisualitzacioCapitol::obteResultat(){
 vector<DTOVisualitzacioCapitol> TxConsultaVisualitzacioCapitol::obteCapitolsVisualitzats() {
     return _capitolsVisualitzats;
 }
+
+vector<PassarelaVisualitzaCapitol> TxConsultaVisualitzacioCapitol::obteConjuntVisualitzacionsCapitols() {
+    return _cjVisualitzacioCapitol;
+}    

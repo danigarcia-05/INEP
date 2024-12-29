@@ -10,14 +10,27 @@ DTOPelicula CtrlVisualitzaPelicula::consultaPelicula(string titolP) {
     TxConsultaPelicula txConsultaPelicula;
     txConsultaPelicula.executar(titolP);
     DTOPelicula infoP = txConsultaPelicula.obteResultat();
+    _infoP = txConsultaPelicula.obtePelicula();
+    _infoC = txConsultaPelicula.obteContingut();
     return infoP;
 }
 
 //Mirar si vale la pena conservarlo
-    string CtrlVisualitzaPelicula::consultaPeliculaUsuari(string titolP) {
-    TxConsultaVisualitzacioPelicula txConsultaVisualitzacioPelicula;
+string CtrlVisualitzaPelicula::consultaPeliculaUsuari(string titolP) {
     PetitFlix& petitFlix = PetitFlix::getInstance();
     PassarelaUsuari usuari = *(petitFlix.obteUsuari());
+    
+    //No estrenada
+    if (utils::dataMesGran(utils::convertitADDMMYYYY(_infoP.obteDataEstrena()), utils::convertitADDMMYYYY(utils::dataActual()))) {
+        throw runtime_error("PeliculaNoEstrenada");
+    }
+    //No apropiada edat
+    string qualificacio = _infoC.obteQualificacio();
+    if (not utils::esContingutApteEdat(qualificacio, utils::convertitADDMMYYYY(usuari.obteDataNaixament()))) {
+        throw runtime_error("PeliculaNoApropiada");
+    }
+    
+    TxConsultaVisualitzacioPelicula txConsultaVisualitzacioPelicula;
     string sobrenom = usuari.obteSobrenom();
     txConsultaVisualitzacioPelicula.executarPelVis(titolP, sobrenom);
     _peliculaUsuari = txConsultaVisualitzacioPelicula.obteVisualitzacioPelicula();

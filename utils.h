@@ -232,6 +232,41 @@ namespace utils {
         if (dia < 1 || dia > diesEnMes[mes - 1]) return false;
 
         return true; // La fecha es válida si pasa todas las comprobaciones
-    }    
+    }
+
+    // Función para verificar si una película es apta
+    inline bool esContingutApteEdat(string calificacio, string dataNaixement) {
+        //DD/MM/AAAA
+        string data = utils::convertitADDMMYYYY(dataActual()); 
+        //dataNaixement       
+        int diaN = stoi(dataNaixement.substr(0, 2));  
+        int mesN = stoi(dataNaixement.substr(3, 2));
+        int anyN = stoi(dataNaixement.substr(6, 4));  
+
+        //dataActual
+        int diaA = stoi(data.substr(0, 2));  
+        int mesA = stoi(data.substr(3, 2));  
+        int anyA = stoi(data.substr(6, 4));  
+
+        // Calcular la edad
+        int edatUsuari = anyA - anyN;  // Primero, la diferencia de años
+
+        // Si aún no ha cumplido años este año, restamos 1
+        if (mesA < mesN || (mesA == mesN && diaA < diaN)) {
+            edatUsuari--;
+        }
+        
+        // eliminar '+' si existeix
+        size_t pos = calificacio.find('+');
+        if (pos != string::npos) { // 12+, 16+, 7+, 18+
+            calificacio.erase(pos, 1);
+        }
+        else calificacio = "0"; // L'única que no té '+' és TP
+
+        // Convertir la calificació a int
+        int edatMinima = stoi(calificacio);  // Convertir string a int
+        
+        return edatUsuari >= edatMinima;
+    }
 };
 #endif

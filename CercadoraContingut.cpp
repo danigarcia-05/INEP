@@ -21,7 +21,7 @@ PassarelaContingut CercadoraContingut::cercaContingut(string titolC) {
         resultat.setTipus(res->getString("tipus"));
     }
     else {
-        throw runtime_error("");
+        throw runtime_error("ContingutNoExisteix");
     }
     return resultat;
 }

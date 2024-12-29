@@ -21,6 +21,7 @@ using namespace std;
 #include "TxConsultaMesVistes.h"
 #include "TxConsultaNovetats.h"
 #include "TxProperesEstrenes.h"
+#include "TxVisualitzacionsUSuari.h"
 #include "utils.h"
 using namespace utils;
 #include <stdexcept>
