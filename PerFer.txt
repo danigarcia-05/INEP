@@ -8,8 +8,4 @@
 	- Cinefil en todos lados igual
 
 	- Se desborda ver ultimo capitulo temporada
-
-
----- OPCIONALES----
-	- Poner contraseña antes de cambiar contraseña.
-	- Se ve feo al ingresar datos vacios
+	- Ordenar pelis relacionadas
