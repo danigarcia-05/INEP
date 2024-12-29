@@ -27,16 +27,10 @@ string CtrlVisualitzaCapitol::consultaSerieUsuari(string titolS, int numTemporad
     int mida = _capitols.size();
     if (numCapitol > mida) throw runtime_error("CapitolNoExisteix");
 
-    cout << utils::convertitADDMMYYYY(_capitols[numCapitol].obteDataEstrena()) << "-----------" << utils::convertitADDMMYYYY(utils::dataActual()) << endl;
-    utils::espera(2000);
-    if (utils::dataMesGran(utils::convertitADDMMYYYY(_capitols[numCapitol].obteDataEstrena()), utils::convertitADDMMYYYY(utils::dataActual()))) {
+    if (utils::dataMesGran(utils::convertitADDMMYYYY(_capitols[numCapitol-1].obteDataEstrena()), utils::convertitADDMMYYYY(utils::dataActual()))) {
         throw runtime_error("CapitolNoEstrenat");
     }
-    if (not utils::esContingutApteEdat(utils::convertitADDMMYYYY(_capitols[numCapitol].obteDataEstrena()), utils::convertitADDMMYYYY(usuari.obteDataNaixament()))) throw runtime_error("SerieNoApropiada");
-    
-    cout << "1" << endl;
-    cout << numCapitol << endl;
-    utils::espera(2000);
+    if (not utils::esContingutApteEdat(utils::convertitADDMMYYYY(_capitols[numCapitol-1].obteDataEstrena()), utils::convertitADDMMYYYY(usuari.obteDataNaixament()))) throw runtime_error("SerieNoApropiada");
 
     TxConsultaVisualitzacioCapitol txConsultaVisualitzacioCapitol;
     txConsultaVisualitzacioCapitol.executar(sobrenomU, titolS, numTemporada, numCapitol);

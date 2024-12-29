@@ -517,7 +517,6 @@ void CapaDePresentacio::processarVisualitzarCapitol() {
     } 
     catch (const exception& e) {
         string errorMessage = e.what();
-        cout << "----------" << e.what() << endl;
         if (errorMessage == "SerieNoExisteix") {
             cout << "Error: La sèrie cercada no existeix." << endl;
         }
