@@ -115,6 +115,7 @@
     <ClInclude Include="utils.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="config.txt" />
     <Text Include="Errors.txt" />
     <Text Include="PerFer.txt" />
     <Text Include="PseudoCodi.txt" />

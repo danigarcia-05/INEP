@@ -8,6 +8,12 @@
 #include <cppconn/statement.h>
 #include <mysql_driver.h>
 #include <string>
+#include <map>
+#include <fstream>
+#include <sstream>
+#include <iostream>
+#include <stdexcept>
+using namespace std;
 
 class ConnexioDB {
 private:
@@ -15,16 +21,19 @@ private:
     sql::Connection* con;
     sql::Statement* stmt;
 
-    static ConnexioDB* _ins;  // Puntero estático a la instancia única
-    ConnexioDB();             // Constructor privado
+    static ConnexioDB* _ins;  // Punter estàtic a la instància única
+    ConnexioDB();             // Constructor privat
+
+    // Mètode privat per carregar la configuració des d'un fitxer
+    std::map<std::string, std::string> loadConfig(const std::string& filename);
 
 public:
-    static ConnexioDB& getInstance();  // Método estático que retorna una referencia a la instancia única
+    static ConnexioDB& getInstance();  // Mètode estàtic que retorna una referència a la instància única
 
     ~ConnexioDB();  // Destructor
 
-    sql::ResultSet* consultaSQL(const std::string& sql);  // Método para consultas SQL
-    void executarSQL(const std::string& sql);            // Método para ejecutar comandos SQL
+    sql::ResultSet* consultaSQL(const std::string& sql);  // Mètode per a consultes SQL
+    void executarSQL(const std::string& sql);            // Mètode per executar comandes SQL
 };
 
 #endif

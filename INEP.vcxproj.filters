@@ -189,6 +189,9 @@
     <ClCompile Include="DTONovetat.cpp">
       <Filter>Archivos de origen\DTO</Filter>
     </ClCompile>
+    <ClCompile Include="CercadoraModalitat.cpp">
+      <Filter>Archivos de origen\Cercadores</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DTOUsuari.h">
@@ -323,10 +326,16 @@
     <ClInclude Include="DTONovetat.h">
       <Filter>Archivos de encabezado\DTO</Filter>
     </ClInclude>
+    <ClInclude Include="CercadoraModalitat.h">
+      <Filter>Archivos de encabezado\Cercadores</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="PerFer.txt" />
     <Text Include="PseudoCodi.txt" />
     <Text Include="Errors.txt" />
+    <Text Include="config.txt">
+      <Filter>Archivos de origen</Filter>
+    </Text>
   </ItemGroup>
 </Project>
