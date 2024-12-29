@@ -420,6 +420,7 @@ void CapaDePresentacio::processarVisualitzarCapitol() {
     cout << "** Visualitzar Capitol **" << endl;
     cout << "Nom de la sèrie: ";
     string nomS;
+    cin.ignore();
     getline(cin, nomS);
     utils::clearConsole();
     try {
@@ -487,6 +488,7 @@ void CapaDePresentacio::processarVisualitzarCapitol() {
         else if (errorMessage == "CapitolNoEstrenat") {
             cout << "Error: El capitol cercat no ha sigut estrenat." << endl;
         }
+        utils::enter();
     } 
 }
 
@@ -494,7 +496,7 @@ void CapaDePresentacio::processarConsultarVisualitzacions() {
     try {
         TxVisualitzacionsUsuari txVisualitzacionsUsuari;
         txVisualitzacionsUsuari.executar();
-        cout << "hi" << endl;
+        
         vector<DTOVisualitzacioPelicula> vPelicula = txVisualitzacionsUsuari.obteVisualitzacionsPelicula();
         vector<DTOVisualitzacioCapitol> vCapitol = txVisualitzacionsUsuari.obteVisualitzacionsCapitol();
 

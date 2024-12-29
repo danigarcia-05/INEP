@@ -22,13 +22,12 @@ vector<DTOCapitol> CtrlVisualitzaCapitol::obteCapitolsTemp(string nomS, int numT
 string CtrlVisualitzaCapitol::consultaSerieUsuari(string titolS, int numTemporada, int numCapitol) {
     PetitFlix& petitFlix = PetitFlix::getInstance();
     PassarelaUsuari usuari = *(petitFlix.obteUsuari());
-    string sobrenomU = usuari.obteSobrenom();
-    
-    if (numCapitol > _capitols.size()) throw runtime_error("CaptiolNoExisteix");
+    string sobrenomU = usuari.obteSobrenom();    
+    if (numCapitol > _capitols.size()) throw runtime_error("CapitolNoExisteix");
     if (utils::dataMesGran(utils::convertitADDMMYYYY(_capitols[numCapitol].obteDataEstrena()), utils::convertitADDMMYYYY(utils::dataActual()))) {
         throw runtime_error("CapitolNoEstrenat");
     }
-    if (not esContingutApteEdat(utils::convertitADDMMYYYY(_capitols[numCapitol].obteDataEstrena()), utils::convertitADDMMYYYY(usuari.obteDataNaixament()))) throw runtime_error("SerieNoApropiada");
+    if (esContingutApteEdat(utils::convertitADDMMYYYY(_capitols[numCapitol].obteDataEstrena()), utils::convertitADDMMYYYY(usuari.obteDataNaixament()))) throw runtime_error("SerieNoApropiada");
     
     TxConsultaVisualitzacioCapitol txConsultaVisualitzacioCapitol;
     txConsultaVisualitzacioCapitol.executar(sobrenomU, titolS, numTemporada, numCapitol);
