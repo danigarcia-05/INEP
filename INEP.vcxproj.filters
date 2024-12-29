@@ -186,6 +186,9 @@
     <ClCompile Include="TxVisualitzacionsUsuari.cpp">
       <Filter>Archivos de origen\Tx</Filter>
     </ClCompile>
+    <ClCompile Include="DTONovetat.cpp">
+      <Filter>Archivos de origen\DTO</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DTOUsuari.h">
@@ -316,6 +319,9 @@
     </ClInclude>
     <ClInclude Include="TxVisualitzacionsUsuari.h">
       <Filter>Archivos de encabezado\Tx</Filter>
+    </ClInclude>
+    <ClInclude Include="DTONovetat.h">
+      <Filter>Archivos de encabezado\DTO</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

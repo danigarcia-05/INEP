@@ -4,8 +4,7 @@
 #include "CercadoraPelicula.h"
 #include "CercadoraCapitol.h"
 #include "CercadoraContingut.h"
-#include "DTOPelicula.h"
-#include "DTOCapitol.h"
+#include "DTONovetat.h"
 #include "PassarelaPelicula.h"
 #include "PassarelaContingut.h"
 #include "PassarelaCapitol.h"
@@ -17,13 +16,12 @@ using namespace std;
 
 class TxProperesEstrenes {
 private:
-    vector<DTOPelicula> _pelicules;
-    vector<DTOCapitol> _capitols;
+    vector<DTONovetat> _resultat;
+
 public:
     TxProperesEstrenes();
     void executar(string mod);
-    vector<DTOPelicula> obtePelicules();
-    vector<DTOCapitol> obteCapitols();
+    vector<DTONovetat> obteResultat();
 };
 
 #endif

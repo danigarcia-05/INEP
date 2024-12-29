@@ -3,7 +3,6 @@
 #pragma once
 #include <string>
 using namespace std;
-#include "PassarelaCapitol.h"
 
 class DTOCapitol {
 private:

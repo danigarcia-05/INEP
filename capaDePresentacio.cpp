@@ -274,9 +274,9 @@ void CapaDePresentacio::processarUltimesNovetats(){
     else {
         mod = petitFlix.obteUsuari()->obteModalitatSubscripcio();
         cout << "Modalitat de l'usuari: ";
-        cout << mod;
+        cout << mod << endl;
     }    
-    cout << endl << endl;
+    cout << endl;
     cout << "** Novetats pel·lícules **" << endl;
     cout << "**************************" << endl;
     TxConsultaNovetats txConsultaNovetats;
@@ -308,30 +308,23 @@ void CapaDePresentacio::processarProperesEstrenes(){
     else {
         mod = petitFlix.obteUsuari()->obteModalitatSubscripcio();
         cout << "Modalitat de l'usuari: ";
-        cout << mod;
+        cout << mod << endl;
     }
      
-    cout << endl << endl;
+    cout << endl;
 
     TxProperesEstrenes txProperesEstrenes;
     txProperesEstrenes.executar(mod);
-    vector<DTOPelicula> cjPelicules = txProperesEstrenes.obtePelicules();
-    vector<DTOCapitol> cjCapitols = txProperesEstrenes.obteCapitols();
+    vector<DTONovetat> cjNovetats = txProperesEstrenes.obteResultat();
 
-    unsigned int midaT = cjPelicules.size() + cjCapitols.size();
-    if (midaT == 0) cout << "No hi ha novetats de la modalitat escollida." << endl;
-    unsigned int i = 0, p = 0, c = 0;
-    while ((i < midaT) and (i < 5)) {
-        cout << i + 1 << ".- ";
-        if ((c==cjCapitols.size()) or (utils::dataMesPetit(cjPelicules[p].obteDataP(), cjCapitols[c].obteDataEstrena()))) {
-            cout << cjPelicules[p].obteDataP() << " [Pel·lícula]: " << cjPelicules[p].obteTitol() << "; " << cjPelicules[p].obteQualificacio() << "; " << cjPelicules[p].obteDuracio() << " min." << endl;
-            ++p;
-        }
-        else {
-            cout << cjCapitols[c].obteDataEstrena() << " [Sèrie]: " << cjCapitols[c].obteTitolS() << "; " << cjCapitols[c].obteQualificacio() << "; Temporada " << cjCapitols[c].obteNumTemp() << "." << endl;
-            ++c;
-        }
-        ++i;
+    for (int i = 0; i < cjNovetats.size(); ++i) {
+        string tipus = cjNovetats[i].obteTipus();
+        cout << i + 1 << ".- " << cjNovetats[i].obteData() << " [";
+        cout << "]: " << cjNovetats[i].ObteTitol() << "; " << cjNovetats[i].obteQualificacio() << "; ";
+        if (tipus == "Sèrie") cout << "Temporada ";
+        cout << cjNovetats[i].obteDetalls();
+        if (tipus == "Pel·lícula") cout << " min";
+        cout << "." << endl;
     }
     utils::enter();
 }
@@ -448,7 +441,7 @@ void CapaDePresentacio::processarVisualitzarCapitol() {
             DTOVisualitzacioCapitol vCapitol = txConsultaVisualitzacioCapitol.obteResultat();
 
             if (vCapitol.obteTitolSerie() == "") cout << "no visualitzat" << endl;
-            else cout << "visualitzat el " << utils::convertitADDMMYYYY(vCapitol.obteData()) << endl;
+            else cout << "visualitzat el " << vCapitol.obteData() << endl;
         }
 
         cout << endl << "Número de capítol a visualitzar: ";

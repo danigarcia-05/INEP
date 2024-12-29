@@ -7,56 +7,42 @@ TxProperesEstrenes::TxProperesEstrenes() {
 void TxProperesEstrenes::executar(string mod) {
     CercadoraPelicula cercadoraP;
     vector<PassarelaPelicula> cjPel = cercadoraP.cercaProperesEstrenes(mod);
-    CercadoraContingut cercadoraContingut;
-    for (int i=0; i<cjPel.size(); ++i) {
-        string titol, dataEstrena, modalitat;
-        int duracio, visGlobals;
-
-        titol = cjPel[i].obteTitol();
-        dataEstrena = utils::convertitADDMMYYYY(cjPel[i].obteDataEstrena());
-        duracio = cjPel[i].obteDuracio();
-        visGlobals = cjPel[i].obteVisualitzacionsGlobals();
-        modalitat = cjPel[i].obteModalitat();
-
-        PassarelaContingut contingut = cercadoraContingut.cercaContingut(titol);
-
-        string descripcio, qualificacio, tipus, subscripcio;
-        descripcio = contingut.obteDescripcio();
-        qualificacio = contingut.obteQualificacio();
-        tipus = contingut.obteTipus();
-
-        //Com no necessitem els atributs de contingut, els inicialitzem com a buit.
-        DTOPelicula pel(titol, descripcio, qualificacio, dataEstrena, duracio, tipus, visGlobals, modalitat);
-
-        _pelicules.push_back(pel);
-    }
 
     CercadoraCapitol cercadoraC;
     vector<PassarelaCapitol> cjCap = cercadoraC.cercaProperesEstrenes(mod);
-    for (int i=0; i<cjCap.size(); ++i) {
-        string titolS, titolC, dataE, qualificacio, modalitat;
-        int numT, numC, duracio;
 
-        titolS = cjCap[i].obteTitolSerie();
-        numT = cjCap[i].obteNumTemporada();
-        numC = cjCap[i].obteNumero();
-        titolC = cjCap[i].obteTitol();
-        dataE = utils::convertitADDMMYYYY(cjCap[i].obteDataEstrena());
-        qualificacio = cjCap[i].obteQualificacio();  
-        duracio = cjCap[i].obteDuracio();           
-        modalitat = cjCap[i].obteModalitat();           
+    CercadoraContingut cercaCont;
 
-        DTOCapitol cap(titolS, numT, numC, titolC, dataE, qualificacio, duracio, modalitat);
-        _capitols.push_back(cap);
+    unsigned int midaT = cjPel.size() + cjCap.size();
+    unsigned int i = 0, p = 0, c = 0;
+    while ((i < midaT) and (i < 5)) {
+        string data, tipus, titol, qualificacio;
+        int detalls;
+        if ((c == cjCap.size()) or (utils::dataMesPetit(cjPel[p].obteDataEstrena(), cjCap[c].obteDataEstrena()))) {
+            data = utils::convertitADDMMYYYY(cjPel[p].obteDataEstrena());
+            tipus = "Pel·lícula";
+            titol = cjPel[p].obteTitol();
+            detalls = cjPel[p].obteDuracio();
+            PassarelaContingut contingut = cercaCont.cercaContingut(titol);
+            qualificacio = contingut.obteQualificacio();
+            ++p;
+        }
+        else {
+            data = utils::convertitADDMMYYYY(cjCap[c].obteDataEstrena());
+            tipus = "Sèrie";
+            titol = cjCap[c].obteTitolSerie();
+            qualificacio = cjCap[c].obteQualificacio();
+            detalls = cjCap[c].obteNumTemporada();
+            ++c;
+        }
+        DTONovetat nov(data, tipus, titol, qualificacio, detalls);
+        _resultat.push_back(nov);
+        ++i;
     }
 }
 
-vector<DTOPelicula> TxProperesEstrenes::obtePelicules() {
-    return _pelicules;
-}
-
-vector<DTOCapitol> TxProperesEstrenes::obteCapitols() {
-    return _capitols;
+vector<DTONovetat> TxProperesEstrenes::obteResultat() {
+    return _resultat;
 }
 
 

@@ -13,7 +13,7 @@ void TxConsultaVisualitzacioCapitol::executar(string sobrenomU, string titolSeri
 
     sobrenom = _capitolVisualitzat.obteSobrenom();
     titolS = _capitolVisualitzat.obteTitolSerie();
-    data = _capitolVisualitzat.obteData();
+    data = utils::convertitADDMMYYYY(_capitolVisualitzat.obteData());
     numTemp = _capitolVisualitzat.obteNumTemporada();
     numCapitol = _capitolVisualitzat.obteNumCapitol();
     numVisualitzacio = _capitolVisualitzat.obteNumVisualitzacions();

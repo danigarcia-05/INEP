@@ -34,6 +34,7 @@
     <ClCompile Include="CtrlVisualitzaPelicula.cpp" />
     <ClCompile Include="DTOCapitol.cpp" />
     <ClCompile Include="DTOContingut.cpp" />
+    <ClCompile Include="DTONovetat.cpp" />
     <ClCompile Include="DTOPelicula.cpp" />
     <ClCompile Include="DTOUsuari.cpp" />
     <ClCompile Include="DTOVisualitzacioCapitol.cpp" />
@@ -81,6 +82,7 @@
     <ClInclude Include="CtrlVisualitzaPelicula.h" />
     <ClInclude Include="DTOCapitol.h" />
     <ClInclude Include="DTOContingut.h" />
+    <ClInclude Include="DTONovetat.h" />
     <ClInclude Include="DTOPelicula.h" />
     <ClInclude Include="DTOUsuari.h" />
     <ClInclude Include="DTOVisualitzacioCapitol.h" />
