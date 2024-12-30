@@ -446,7 +446,7 @@ void CapaDePresentacio::processarVisualitzarPelicula() {
             cout << "Descripció: " << infoP.obteDescripcio() << endl;
             cout << "Qualificació: " << infoP.obteQualificacio() << endl;
             cout << "Data estrena: " << infoP.obteDataP() << endl;
-            cout << "Duració: " << infoP.obteDuracio() << endl;
+            cout << "Duració: " << infoP.obteDuracio() << " min." << endl;
 
             cout << endl << "Vols continuar amb la visualitzacio? (S/N): ";
             getline(cin, op);
@@ -524,10 +524,9 @@ void CapaDePresentacio::processarVisualitzarCapitol() {
            
             DTOVisualitzacioCapitol vCapitol = txConsultaVisualitzacioCapitol.obteResultat();
 
-            if (vCapitol.obteTitolSerie().empty())
-                cout << "no visualitzat" << endl;
-            else
-                cout << "visualitzat el " << utils::convertitADDMMYYYY(vCapitol.obteData()) << endl;
+            if (vCapitol.obteTitolSerie().empty()) cout << "no visualitzat" << endl;
+            else cout << "visualitzat el " << utils::convertitADDMMYYYY(vCapitol.obteData()) << endl;
+               
         }
 
         cout << endl << "Número de capítol a visualitzar: ";
@@ -555,7 +554,7 @@ void CapaDePresentacio::processarVisualitzarCapitol() {
         if (errorMessage == "SerieNoExisteix") {
             cout << "Error: La sèrie cercada no existeix." << endl;
         }
-        else if (errorMessage == "SerieNoApropiada") {
+        else if (errorMessage == "CapitolNoApropiat") {
             cout << "Error: La sèrie no és apropiada per l'edat de l'usuari." << endl;
         }
         else if (errorMessage == "TemporadaNoExisteix") {

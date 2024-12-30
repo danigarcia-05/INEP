@@ -24,19 +24,19 @@ void CtrlVisualitzaPelicula::consultaPeliculaUsuari(string titolP) {
     PetitFlix& petitFlix = PetitFlix::getInstance();
     _usuari = *(petitFlix.obteUsuari());
     
-    if (_usuari.obteModalitatSubscripcio() == "Infantil" and _infoP.obteModalitat() != "Infantil") {
-        throw runtime_error("ModalitatIncorrecta");
-    } 
-    //No apropiada edat
-    string qualificacio = _infoC.obteQualificacio();
-    if (not utils::esContingutApteEdat(qualificacio, utils::convertitADDMMYYYY(_usuari.obteDataNaixament()))) {
-        throw runtime_error("PeliculaNoApropiada");
-    }
-    //No estrenada
     if (utils::dataMesGran(utils::convertitADDMMYYYY(_infoP.obteDataEstrena()), utils::convertitADDMMYYYY(utils::dataActual()))) {
         throw runtime_error("PeliculaNoEstrenada");
     }
    
+    if (_usuari.obteModalitatSubscripcio() == "Infantil" and _infoP.obteModalitat() != "Infantil") {
+        throw runtime_error("ModalitatIncorrecta");
+    } 
+   
+    string qualificacio = _infoC.obteQualificacio();
+    if (not utils::esContingutApteEdat(qualificacio, utils::convertitADDMMYYYY(_usuari.obteDataNaixament()))) {
+        throw runtime_error("PeliculaNoApropiada");
+    }
+
     TxConsultaVisualitzacioPelicula txConsultaVisualitzacioPelicula;
     string sobrenom = _usuari.obteSobrenom();
     txConsultaVisualitzacioPelicula.executarPelVis(titolP, sobrenom);

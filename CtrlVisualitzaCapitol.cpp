@@ -29,20 +29,22 @@ void CtrlVisualitzaCapitol::consultaSerieUsuari(string titolS, int numTemporada,
     _usuari = *(petitFlix.obteUsuari());
     string sobrenomU = _usuari.obteSobrenom();
 
+    
+    int mida = _capitols.size();
+    if (numCapitol > mida or numCapitol <= 0) throw runtime_error("CapitolNoExisteix");
+    if (utils::dataMesGran(utils::convertitADDMMYYYY(_capitols[numCapitol - 1].obteDataEstrena()), utils::convertitADDMMYYYY(utils::dataActual()))) {
+        throw runtime_error("CapitolNoEstrenat");
+    }
     if (_usuari.obteModalitatSubscripcio() == "Infantil" and _capitols[numCapitol - 1].obteModalitat() != "Infantil") {
         throw runtime_error("ModalitatIncorrecta");
     }
     if (_usuari.obteModalitatSubscripcio() != "Completa" and _usuari.obteModalitatSubscripcio() != "Infantil") {
         throw runtime_error("ModalitatIncorrecta");
     }
-  
-    int mida = _capitols.size();
-    if (numCapitol > mida) throw runtime_error("CapitolNoExisteix");
-
-    if (utils::dataMesGran(utils::convertitADDMMYYYY(_capitols[numCapitol-1].obteDataEstrena()), utils::convertitADDMMYYYY(utils::dataActual()))) {
-        throw runtime_error("CapitolNoEstrenat");
+    string qualificacio = _capitols[numCapitol-1].obteQualificacio();
+    if (not utils::esContingutApteEdat(qualificacio, utils::convertitADDMMYYYY(_usuari.obteDataNaixament()))) {
+        throw runtime_error("CapitolNoApropiat");
     }
-    if (not utils::esContingutApteEdat(utils::convertitADDMMYYYY(_capitols[numCapitol-1].obteDataEstrena()), utils::convertitADDMMYYYY(_usuari.obteDataNaixament()))) throw runtime_error("SerieNoApropiada");
 
     TxConsultaVisualitzacioCapitol txConsultaVisualitzacioCapitol;
     txConsultaVisualitzacioCapitol.executar(sobrenomU, titolS, numTemporada, numCapitol);
