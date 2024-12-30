@@ -31,8 +31,11 @@
     }
 
     void CtrlModificaUsuari::modificaContrasenya(string contraU) {
-        _usuari.setContrasenya(contraU);
-        _usuari.modifica();
-        PetitFlix& petitFlix = PetitFlix::getInstance();
-        petitFlix.modificaContrasenya(_usuari.obteContrasenya());
+        if (contraU != "") {
+            _usuari.setContrasenya(contraU);
+            _usuari.modifica();
+            PetitFlix& petitFlix = PetitFlix::getInstance();
+            petitFlix.modificaContrasenya(_usuari.obteContrasenya());
+        }
+        
     }
