@@ -55,6 +55,9 @@ void CapaDePresentacio::processarIniciarSessio(){
         if (errorMessage == "UsuariNoExisteix" or errorMessage == "ErrorContrasenya") {
             cout << "Error: Hi ha hagut un error amb el sobrenom o la contrasenya."  << endl;
         }
+        else if (errorMessage == "ArxiuNoExisteix") {
+            cout << "Error: No s'ha trobat l'arxiu de credencials necessari per obtenir permís d'accés a la base de dades." << endl;
+        }
         else cout << "Error" << endl;
         utils::enter();
     }
@@ -135,6 +138,9 @@ void CapaDePresentacio::processarRegistreUsuari(){
         }
         else if (errorMessage.find("foreign key constraint fails") != string::npos) {
             cout << "Error: La modalitat escollida no existeix." << endl;
+        }
+        else if (errorMessage == "ArxiuNoExisteix") {
+            cout << "Error: No s'ha trobat l'arxiu de credencials necessari per obtenir permís d'accés a la base de dades." << endl;
         }
         else cout << "Error" << endl;
         utils::enter();
@@ -237,6 +243,9 @@ void CapaDePresentacio::processarModificaUsuari() {
         else if (errorMessage.find("foreign key constraint fails") != string::npos) {
             cout << "Error: La modalitat escollida no existeix." << endl;
         }
+        else if (errorMessage == "ArxiuNoExisteix") {
+            cout << "Error: No s'ha trobat l'arxiu de credencials necessari per obtenir permís d'accés a la base de dades." << endl;
+        }
         else cout << "Error" << endl;
         utils::enter();
     }
@@ -261,6 +270,9 @@ void CapaDePresentacio::processarEsborraUsuari(){
     catch (const exception& e) {
         string errorMessage = e.what();
         if (errorMessage == "ErrorContrasenya") cout << "La contrasenya no és correcta, l'usuari no ha estat esborrat." << endl;
+        else if (errorMessage == "ArxiuNoExisteix") {
+            cout << "Error: No s'ha trobat l'arxiu de credencials necessari per obtenir permís d'accés a la base de dades." << endl;
+        }
         else cout << "Error" << endl;
         utils::enter();
     }   
@@ -316,6 +328,9 @@ void CapaDePresentacio::processarUltimesNovetats(){
         if (errorMessage == "ModalitatNoExisteix") {
             cout << "Error: La modalitat escollida no existeix." << endl;
         }
+        else if (errorMessage == "ArxiuNoExisteix") {
+            cout << "Error: No s'ha trobat l'arxiu de credencials necessari per obtenir permís d'accés a la base de dades." << endl;
+        }
         else cout << "Error" << endl;
         utils::enter();
     }
@@ -369,6 +384,9 @@ void CapaDePresentacio::processarProperesEstrenes(){
         if (errorMessage == "ModalitatNoExisteix") {
             cout << "Error: La modalitat escollida no existeix." << endl;
         }
+        else if (errorMessage == "ArxiuNoExisteix") {
+            cout << "Error: No s'ha trobat l'arxiu de credencials necessari per obtenir permís d'accés a la base de dades." << endl;
+        }
         else cout << "Error" << endl;
         utils::enter();
     }
@@ -402,6 +420,9 @@ void CapaDePresentacio::processarPeliculesMesVistes() {
         string errorMessage = e.what();
         if (errorMessage == "SenseVisualitzacions") {
             cout << "Error: Encara no hi han pel·lícules més vistes al sistema" << endl;
+        }
+        else if (errorMessage == "ArxiuNoExisteix") {
+            cout << "Error: No s'ha trobat l'arxiu de credencials necessari per obtenir permís d'accés a la base de dades." << endl;
         }
         utils::enter();
     }   
@@ -462,6 +483,9 @@ void CapaDePresentacio::processarVisualitzarPelicula() {
         }
         else if (errorMessage == "ModalitatIncorrecta") {
             cout << "Error: La pel·lícula cercada no entra en aquesta modalitat de subscripció." << endl;
+        }
+        else if (errorMessage == "ArxiuNoExisteix") {
+            cout << "Error: No s'ha trobat l'arxiu de credencials necessari per obtenir permís d'accés a la base de dades." << endl;
         }
         else cout << "Error" << endl;
         utils::enter();
@@ -537,7 +561,7 @@ void CapaDePresentacio::processarVisualitzarCapitol() {
         else if (errorMessage == "TemporadaNoExisteix") {
             cout << "Error: La temporada seleccionada no existeix." << endl;
         }
-        else if (errorMessage == "CapitolNoExisteix") { 
+        else if (errorMessage == "CapitolNoExisteix") {
             cout << "Error: El capitol cercat no existeix." << endl;
         }
         else if (errorMessage == "CapitolNoEstrenat") {
@@ -546,6 +570,10 @@ void CapaDePresentacio::processarVisualitzarCapitol() {
         else if (errorMessage == "ModalitatIncorrecta") {
             cout << "Error: El capitol cercat no entra en aquesta modalitat de subscripció." << endl;
         }
+        else if (errorMessage == "ArxiuNoExisteix") {
+            cout << "Error: No s'ha trobat l'arxiu de credencials necessari per obtenir permís d'accés a la base de dades." << endl;
+        }
+        else cout << "Error" << endl;
         utils::enter();
     } 
 }
@@ -584,6 +612,10 @@ void CapaDePresentacio::processarConsultarVisualitzacions() {
         if (errorMessage == "SenseVisualitzacions") {
             cout << "Error: Encara no s'ha visualitzat cap contingut." << endl;
         }
+        else if (errorMessage == "ArxiuNoExisteix") {
+            cout << "Error: No s'ha trobat l'arxiu de credencials necessari per obtenir permís d'accés a la base de dades." << endl;
+        }
+        else cout << "Error" << endl;
         utils::enter();
     }
 }
