@@ -30,9 +30,9 @@ public:
 
     vector<DTOCapitol> obteCapitolsTemp(string nomS, int numTemporada);
 
-    string consultaSerieUsuari(string titolS, int numTemporada, int numCapitol);
+    void consultaSerieUsuari(string titolS, int numTemporada, int numCapitol);
 
-    void visualitzaCapitol(string sobrenomU, string titolS, int numTemporada, int numCapitol);
+    void visualitzaCapitol(string titolS, int numTemporada, int numCapitol);
 
 
 };

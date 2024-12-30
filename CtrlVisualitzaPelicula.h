@@ -30,9 +30,9 @@ public:
     ~CtrlVisualitzaPelicula();
 
     DTOPelicula consultaPelicula(string titolP);
-    string consultaPeliculaUsuari(string titolP);
+    void consultaPeliculaUsuari(string titolP);
 
-    void modificaVisualitzacioPelicula(string titolP, string sobrenom);
+    void modificaVisualitzacioPelicula(string titolP);
 
     void consultaRelacionades(string titolP);
     vector<DTOPelicula> obteResultat();

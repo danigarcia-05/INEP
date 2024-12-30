@@ -24,10 +24,17 @@ vector<DTOCapitol> CtrlVisualitzaCapitol::obteCapitolsTemp(string nomS, int numT
     return txConsultaCapitols.obteResultat();
 }
 
-string CtrlVisualitzaCapitol::consultaSerieUsuari(string titolS, int numTemporada, int numCapitol) {
+void CtrlVisualitzaCapitol::consultaSerieUsuari(string titolS, int numTemporada, int numCapitol) {
     PetitFlix& petitFlix = PetitFlix::getInstance();
     _usuari = *(petitFlix.obteUsuari());
     string sobrenomU = _usuari.obteSobrenom();
+
+    if (_usuari.obteModalitatSubscripcio() == "Infantil" and _capitols[numCapitol - 1].obteModalitat() != "Infantil") {
+        throw runtime_error("ModalitatIncorrecta");
+    }
+    if (_usuari.obteModalitatSubscripcio() != "Completa" and _usuari.obteModalitatSubscripcio() != "Infantil") {
+        throw runtime_error("ModalitatIncorrecta");
+    }
   
     int mida = _capitols.size();
     if (numCapitol > mida) throw runtime_error("CapitolNoExisteix");
@@ -40,20 +47,11 @@ string CtrlVisualitzaCapitol::consultaSerieUsuari(string titolS, int numTemporad
     TxConsultaVisualitzacioCapitol txConsultaVisualitzacioCapitol;
     txConsultaVisualitzacioCapitol.executar(sobrenomU, titolS, numTemporada, numCapitol);
     _capitolUsuari = txConsultaVisualitzacioCapitol.obteVisualitzacioCapitol();
-
-    return sobrenomU;
 }
 
-void CtrlVisualitzaCapitol::visualitzaCapitol(string sobrenomU, string titolS, int numTemporada, int numCapitol){
-    if (_usuari.obteModalitatSubscripcio() == "Infantil" and _capitols[numCapitol - 1].obteModalitat() != "Infantil") {
-        throw runtime_error("ModalitatIncorrecta");
-    }
-    if (_usuari.obteModalitatSubscripcio() != "Completa" and _usuari.obteModalitatSubscripcio() != "Infantil") {
-        throw runtime_error("ModalitatIncorrecta");
-    }
-
+void CtrlVisualitzaCapitol::visualitzaCapitol(string titolS, int numTemporada, int numCapitol){
     if (_capitolUsuari.obteTitolSerie() == "") {
-        PassarelaVisualitzaCapitol visualitzacio(sobrenomU, titolS, 1, numTemporada, numCapitol, utils::dataActual());
+        PassarelaVisualitzaCapitol visualitzacio(_usuari.obteSobrenom(), titolS, 1, numTemporada, numCapitol, utils::dataActual());
         visualitzacio.insereix();
     }
     else {

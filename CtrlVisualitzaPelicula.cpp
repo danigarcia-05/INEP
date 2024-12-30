@@ -20,34 +20,32 @@ DTOPelicula CtrlVisualitzaPelicula::consultaPelicula(string titolP) {
 }
 
 //Mirar si vale la pena conservarlo
-string CtrlVisualitzaPelicula::consultaPeliculaUsuari(string titolP) {
+void CtrlVisualitzaPelicula::consultaPeliculaUsuari(string titolP) {
     PetitFlix& petitFlix = PetitFlix::getInstance();
     _usuari = *(petitFlix.obteUsuari());
     
-    //No estrenada
-    if (utils::dataMesGran(utils::convertitADDMMYYYY(_infoP.obteDataEstrena()), utils::convertitADDMMYYYY(utils::dataActual()))) {
-        throw runtime_error("PeliculaNoEstrenada");
-    }
+    if (_usuari.obteModalitatSubscripcio() == "Infantil" and _infoP.obteModalitat() != "Infantil") {
+        throw runtime_error("ModalitatIncorrecta");
+    } 
     //No apropiada edat
     string qualificacio = _infoC.obteQualificacio();
     if (not utils::esContingutApteEdat(qualificacio, utils::convertitADDMMYYYY(_usuari.obteDataNaixament()))) {
         throw runtime_error("PeliculaNoApropiada");
     }
-    
+    //No estrenada
+    if (utils::dataMesGran(utils::convertitADDMMYYYY(_infoP.obteDataEstrena()), utils::convertitADDMMYYYY(utils::dataActual()))) {
+        throw runtime_error("PeliculaNoEstrenada");
+    }
+   
     TxConsultaVisualitzacioPelicula txConsultaVisualitzacioPelicula;
     string sobrenom = _usuari.obteSobrenom();
     txConsultaVisualitzacioPelicula.executarPelVis(titolP, sobrenom);
     _peliculaUsuari = txConsultaVisualitzacioPelicula.obteVisualitzacioPelicula();
-    return sobrenom;
 }
 
-void CtrlVisualitzaPelicula::modificaVisualitzacioPelicula(string titolP, string sobrenom){
-    if (_usuari.obteModalitatSubscripcio() == "Infantil" and _infoP.obteModalitat() != "Infantil") {
-        throw runtime_error("ModalitatIncorrecta");
-    }
-    
+void CtrlVisualitzaPelicula::modificaVisualitzacioPelicula(string titolP){    
     if (_peliculaUsuari.obteTitolPelicula() == "") {
-        PassarelaVisualitzaPel visualitzacio(sobrenom, titolP, utils::dataActual(), 1);
+        PassarelaVisualitzaPel visualitzacio(_usuari.obteSobrenom(), titolP, utils::dataActual(), 1);
         visualitzacio.insereix();
     }
     else {

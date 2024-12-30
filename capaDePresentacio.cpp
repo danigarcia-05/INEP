@@ -435,8 +435,8 @@ void CapaDePresentacio::processarVisualitzarPelicula() {
     
         utils::clearConsole();
         if (op == "S") {
-            string sobrenom = ctrlVisualitzaPelicula.consultaPeliculaUsuari(titolP);
-            ctrlVisualitzaPelicula.modificaVisualitzacioPelicula(titolP, sobrenom);
+            ctrlVisualitzaPelicula.consultaPeliculaUsuari(titolP);
+            ctrlVisualitzaPelicula.modificaVisualitzacioPelicula(titolP);
 
             cout << "Visualització registrada: " << utils::convertitADDMMYYYY(utils::dataActual()) << " " << utils::horaActual() << endl << endl;
             cout<<"Pel·lícules relacionades:"<<endl;
@@ -520,8 +520,8 @@ void CapaDePresentacio::processarVisualitzarCapitol() {
         } while (op != "S" and op != "N");
      
         if (op == "S") {  
-            string sobrenomU = ctrlVisualitzaCapitol.consultaSerieUsuari(nomS, temporada, capitol);
-            ctrlVisualitzaCapitol.visualitzaCapitol(sobrenomU, nomS, temporada, capitol); 
+            ctrlVisualitzaCapitol.consultaSerieUsuari(nomS, temporada, capitol);
+            ctrlVisualitzaCapitol.visualitzaCapitol(nomS, temporada, capitol); 
             cout << "Visualització registrada: " << utils::convertitADDMMYYYY(utils::dataActual()) << " " << utils::horaActual() << endl;
             utils::enter();
         }
@@ -600,14 +600,8 @@ void CapaDePresentacio::processarModificaContrasenya() {
     utils::desactivarEco(contraU);
     utils::activarEco();
 
-    try {
-        ctrlModificaUsuari.modificaContrasenya(contraU);
-        utils::clearConsole();
-        cout << "Contrasenya modificada correctament!" << endl;
-        utils::enter();
-    }
-    catch (sql::SQLException& e) {
-        cout << "Error";
-        utils::enter();
-    }
+    ctrlModificaUsuari.modificaContrasenya(contraU);
+    utils::clearConsole();
+    cout << "Contrasenya modificada correctament!" << endl;
+    utils::enter();
 }
