@@ -376,28 +376,35 @@ void CapaDePresentacio::processarProperesEstrenes(){
 
 void CapaDePresentacio::processarPeliculesMesVistes() {
     cout << "** Pel·lícules més visualitzades **" << endl;
-    
-    TxConsultaMesVistes txConsultaMesVistes;
-    txConsultaMesVistes.executar();
-    vector<DTOPelicula> mesVistes = txConsultaMesVistes.obteResultat();
-    TxConsultaVisualitzacioPelicula txConsultaVisualitzacioPelicula;
+    try { 
+        TxConsultaMesVistes txConsultaMesVistes;
+        txConsultaMesVistes.executar();
+        vector<DTOPelicula> mesVistes = txConsultaMesVistes.obteResultat();
+        TxConsultaVisualitzacioPelicula txConsultaVisualitzacioPelicula;
 
-    TxConsultaUsuari txConsultaUsuari;
-    bool iniciatSessio = txConsultaUsuari.executar();
-    DTOUsuari usuari;
-    if(iniciatSessio) usuari = txConsultaUsuari.obteResultat();
-
-    for (int i = 0; i < mesVistes.size(); ++i) {
-        cout << endl;
-        cout << (i + 1) << ".- " << mesVistes[i].obteTitol() << "; " << mesVistes[i].obteQualificacio() << "; " << mesVistes[i].obteDuracio() << " min. Visualitzacions: " << mesVistes[i].obteVisualitzacionsGlobals();
-        if (iniciatSessio) {
-            txConsultaVisualitzacioPelicula.executarPelVis(mesVistes[i].obteTitol(), usuari.obteSobrenom());
-            DTOVisualitzacioPelicula vp = txConsultaVisualitzacioPelicula.obteResultatSingle();
-            if (vp.obteTitol() != "") cout << " [VISTA: " << vp.obteDataVP() << "]";
+        TxConsultaUsuari txConsultaUsuari;
+        bool iniciatSessio = txConsultaUsuari.executar();
+        DTOUsuari usuari;
+        if(iniciatSessio) usuari = txConsultaUsuari.obteResultat();
+        for (int i = 0; i < mesVistes.size(); ++i) {
+            cout << endl;
+            cout << (i + 1) << ".- " << mesVistes[i].obteTitol() << "; " << mesVistes[i].obteQualificacio() << "; " << mesVistes[i].obteDuracio() << " min. Visualitzacions: " << mesVistes[i].obteVisualitzacionsGlobals();
+            if (iniciatSessio) {
+                txConsultaVisualitzacioPelicula.executarPelVis(mesVistes[i].obteTitol(), usuari.obteSobrenom());
+                DTOVisualitzacioPelicula vp = txConsultaVisualitzacioPelicula.obteResultatSingle();
+                if (vp.obteTitol() != "") cout << " [VISTA: " << vp.obteDataVP() << "]";
+            }
         }
+        cout << endl;
+        utils::enter();
     }
-    cout << endl;
-    utils::enter();
+    catch (const exception& e) {
+        string errorMessage = e.what();
+        if (errorMessage == "SenseVisualitzacions") {
+            cout << "Error: Encara no hi han pel·lícules més vistes al sistema" << endl;
+        }
+        utils::enter();
+    }   
 }
 
 void CapaDePresentacio::processarVisualitzarPelicula() {
@@ -435,6 +442,7 @@ void CapaDePresentacio::processarVisualitzarPelicula() {
             cout<<"Pel·lícules relacionades:"<<endl;
             ctrlVisualitzaPelicula.consultaRelacionades(titolP);
             vector<DTOPelicula> pelRelacionades = ctrlVisualitzaPelicula.obteResultat();
+            if (pelRelacionades.size() == 0) cout << "Aquesta pel·lícula no té altres relacionades." << endl;
             for (int i=0; i < pelRelacionades.size(); ++i) {
                 cout<< "- " << pelRelacionades[i].obteTitol() << "; " << pelRelacionades[i].obteDescripcio() << "; " << pelRelacionades[i].obteQualificacio() << "; " << pelRelacionades[i].obteDuracio() << " min; " << pelRelacionades[i].obteDataP() << endl;
             }
@@ -550,7 +558,6 @@ void CapaDePresentacio::processarConsultarVisualitzacions() {
         cout << "** Consulta visualitzacions **" << endl << endl;
         cout << "** Visualitzacions pel·lícules **" << endl;
         cout << "*********************************" << endl;
-
         for (int i = 0; i < vPelicula.size(); ++i) {
             txConsultaPelicula.executar(vPelicula[i].obteTitol());
             DTOPelicula p = txConsultaPelicula.obteResultat();
@@ -559,7 +566,6 @@ void CapaDePresentacio::processarConsultarVisualitzacions() {
 
         cout << endl << "** Visualitzacions sèries **" << endl;
         cout << "****************************" << endl;
-
         for (int i = 0; i < vCapitol.size(); ++i) {
             txConsultaContingut.executar(vCapitol[i].obteTitolSerie());
             DTOContingut cont = txConsultaContingut.obteResultat();
@@ -570,7 +576,7 @@ void CapaDePresentacio::processarConsultarVisualitzacions() {
     catch (const exception& e) {
         string errorMessage = e.what();
         if (errorMessage == "SenseVisualitzacions") {
-            cout << "Error: Aquest usuari encara no té visualitzacions." << endl;
+            cout << "Error: Encara no s'ha visualitzat cap contingut." << endl;
         }
         utils::enter();
     }

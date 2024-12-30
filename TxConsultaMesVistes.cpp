@@ -8,6 +8,7 @@ void TxConsultaMesVistes::executar() {
     CercadoraPelicula cercadoraP;
     CercadoraContingut cercadoraC;
     _cjPP = cercadoraP.cercaPeliculesMesVistes();
+    if (_cjPP.size() == 0) throw runtime_error("SenseVisualitzacions");
     string titol, descripcio, qualificacio, data, tipus, modalitat;
     int duracio, visGlobals;
     for (int i = 0; i < _cjPP.size(); i++) {

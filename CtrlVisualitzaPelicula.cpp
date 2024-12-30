@@ -46,7 +46,9 @@ void CtrlVisualitzaPelicula::modificaVisualitzacioPelicula(string titolP, string
         _peliculaUsuari.setNumVisualitzacions(_peliculaUsuari.obteNumVisualitzacions() + 1);
         _peliculaUsuari.setData(utils::dataActual());
         _peliculaUsuari.modifica();
-    }   
+    }
+    _infoP.setVisualitzacionsGlobals(_infoP.obteVisualitzacionsGlobals() + 1);
+    _infoP.modifica();
 }
 
 void CtrlVisualitzaPelicula::consultaRelacionades(string titolP) {
