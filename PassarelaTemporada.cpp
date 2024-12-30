@@ -53,3 +53,4 @@ void PassarelaTemporada::esborra()
 	con.executarSQL(query);
 }
 
+PassarelaTemporada::~PassarelaTemporada() {}

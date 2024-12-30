@@ -10,6 +10,10 @@ DTOVisualitzacioPelicula::DTOVisualitzacioPelicula(string titolP, string sobreno
 
 }
 
+DTOVisualitzacioPelicula::~DTOVisualitzacioPelicula() {
+
+}
+
 //-------------
 //GETTERS
 //-------------

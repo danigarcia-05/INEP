@@ -24,6 +24,7 @@ public:
     TxProperesEstrenes();
     void executar(string mod);
     vector<DTONovetat> obteResultat();
+    ~TxProperesEstrenes();
 };
 
 #endif

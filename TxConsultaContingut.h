@@ -17,6 +17,8 @@ private:
     PassarelaContingut _contingut;
 public:
     TxConsultaContingut();
+    ~TxConsultaContingut();
+
     void executar(string titolC);
     DTOContingut obteResultat();
     PassarelaContingut obteContingut();

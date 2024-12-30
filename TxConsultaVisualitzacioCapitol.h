@@ -30,6 +30,7 @@ public:
     DTOVisualitzacioCapitol obteResultat();
     vector<DTOVisualitzacioCapitol> obteCapitolsVisualitzats();
     vector<PassarelaVisualitzaCapitol> obteConjuntVisualitzacionsCapitols();
+    ~TxConsultaVisualitzacioCapitol();
 };
 
 #endif

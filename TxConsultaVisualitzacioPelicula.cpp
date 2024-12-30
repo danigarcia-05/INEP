@@ -5,7 +5,7 @@ TxConsultaVisualitzacioPelicula::TxConsultaVisualitzacioPelicula() {
 }
 
 void TxConsultaVisualitzacioPelicula::executarVP(string usuari) {
-    CercadoraVisualitzaPel cercadoraPel;   
+    CercadoraVisualitzaPel& cercadoraPel = CercadoraVisualitzaPel::getInstance();
 
     _cjVisualitzacioPelicula = cercadoraPel.cercaVisualitzaPel(usuari);
     
@@ -22,7 +22,7 @@ void TxConsultaVisualitzacioPelicula::executarVP(string usuari) {
 }
 
 void TxConsultaVisualitzacioPelicula::executarPelVis(string titolP, string usuari) {
-    CercadoraVisualitzaPel cercadoraPel;
+    CercadoraVisualitzaPel& cercadoraPel = CercadoraVisualitzaPel::getInstance();
     _peliculaV = cercadoraPel.cercaVisualitzaPelEspecifica(usuari, titolP);
    
     string data = utils::dataAmbHora(_peliculaV.obteData());
@@ -50,3 +50,6 @@ vector<PassarelaVisualitzaPel> TxConsultaVisualitzacioPelicula::obteConjuntVisua
 vector<DTOVisualitzacioPelicula> TxConsultaVisualitzacioPelicula::obteResultat(){
     return _resultat;
 }
+
+TxConsultaVisualitzacioPelicula::~TxConsultaVisualitzacioPelicula() {}
+

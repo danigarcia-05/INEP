@@ -18,6 +18,7 @@ private:
 public:
     DTOVisualitzacioCapitol();
     DTOVisualitzacioCapitol(string sobrenom, string titolS, int numTemporada, int numCapitol, string data, int numVisualitzacions);
+    ~DTOVisualitzacioCapitol();
 
     // GETTERS
     string obteSobrenom() const;

@@ -10,6 +10,10 @@ DTOVisualitzacioCapitol::DTOVisualitzacioCapitol(string sobrenom, string titolS,
     : _sobrenom(sobrenom), _titolSerie(titolS), _numTemporada(numTemporada), _numCapitol(numero), _data(data), _numVisualitzacions(numVisualitzacions) {
 }
 
+DTOVisualitzacioCapitol::~DTOVisualitzacioCapitol() {
+
+}
+
 // GETTERS
 string DTOVisualitzacioCapitol::obteSobrenom() const{
     return _sobrenom;

@@ -7,6 +7,10 @@ DTONovetat::DTONovetat(string data, string tipus, string titol, string qualifica
     : _data(data), _tipus(tipus), _titol(titol), _qualificacio(qualificacio), _detalls(detalls) {
 }
 
+DTONovetat::~DTONovetat() {
+
+}
+
 // Métodos getter
 string DTONovetat::obteData() const {
     return _data;

@@ -331,7 +331,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="PerFer.txt" />
     <Text Include="config.txt">
       <Filter>Archivos de origen</Filter>
     </Text>

@@ -9,8 +9,8 @@ void TxInfoVisualitzacions::executar(){
     PassarelaUsuari* u = petitFlix.obteUsuari();
     string sobrenomU = u->obteSobrenom();
 
-    CercadoraVisualitzaPel cercadoraPel;
-    CercadoraVisualitzaCapitol cercadoraCapitol;
+    CercadoraVisualitzaPel& cercadoraPel = CercadoraVisualitzaPel::getInstance();
+    CercadoraVisualitzaCapitol& cercadoraCapitol = CercadoraVisualitzaCapitol::getInstance();
     
     vector<PassarelaVisualitzaPel> visualitzacionsPel = cercadoraPel.cercaVisualitzaPel(sobrenomU);
     vector<PassarelaVisualitzaCapitol> visualitzacionsS = cercadoraCapitol.cercaVisualitzaCapitolsUsuari(sobrenomU);
@@ -22,3 +22,5 @@ void TxInfoVisualitzacions::executar(){
 pair<int,int> TxInfoVisualitzacions::obteResultat() const {
     return _numVisualitzacions;
 }
+
+TxInfoVisualitzacions::~TxInfoVisualitzacions() {}

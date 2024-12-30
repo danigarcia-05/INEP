@@ -10,6 +10,7 @@ public:
 
     DTOVisualitzacioPelicula();
     DTOVisualitzacioPelicula(string titolP, string sobrenomU, string dataVP, int visualitzacions);
+    ~DTOVisualitzacioPelicula();
 
     //GETTERS
     string obteTitol() const;

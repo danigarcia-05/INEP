@@ -4,13 +4,17 @@ TxConsultaNovetats::TxConsultaNovetats() {
 
 }
 
+TxConsultaNovetats::~TxConsultaNovetats() {
+
+}
+
 void TxConsultaNovetats::executar(string mod) {
-    CercadoraModalitat cercadoraMod;
+    CercadoraModalitat& cercadoraMod = CercadoraModalitat::getInstance();
     cercadoraMod.existeix(mod);
 
-    CercadoraPelicula cercadoraP;
+    CercadoraPelicula& cercadoraP = CercadoraPelicula::getInstance();
     vector<PassarelaPelicula> cjPel = cercadoraP.cercaNovesEstrenes(mod);
-    CercadoraContingut cercadoraContingut;
+    CercadoraContingut& cercadoraContingut = CercadoraContingut::getInstance();
     for (int i=0; i<cjPel.size(); ++i) {
         string titol, dataEstrena, modalitat;
         int duracio, visGlobals;
@@ -33,7 +37,7 @@ void TxConsultaNovetats::executar(string mod) {
         _pelicules.push_back(pel);
     }
 
-    CercadoraCapitol cercadoraC;
+    CercadoraCapitol& cercadoraC = CercadoraCapitol::getInstance();
     vector<PassarelaCapitol> cjCap = cercadoraC.cercaNovesEstrenes(mod);
     for (int i=0; i<cjCap.size(); ++i) {
         string titolS, titolC, dataE, qualificacio, modalitat;

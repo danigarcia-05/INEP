@@ -4,16 +4,16 @@ TxProperesEstrenes::TxProperesEstrenes() {
 }
 
 void TxProperesEstrenes::executar(string mod) {
-    CercadoraModalitat cercadoraMod;
+    CercadoraModalitat& cercadoraMod = CercadoraModalitat::getInstance();
     cercadoraMod.existeix(mod);
 
-    CercadoraPelicula cercadoraP;
+    CercadoraPelicula& cercadoraP = CercadoraPelicula::getInstance();
     vector<PassarelaPelicula> cjPel = cercadoraP.cercaProperesEstrenes(mod);
 
-    CercadoraCapitol cercadoraC;
+    CercadoraCapitol& cercadoraC = CercadoraCapitol::getInstance();
     vector<PassarelaCapitol> cjCap = cercadoraC.cercaProperesEstrenes(mod);
 
-    CercadoraContingut cercaCont;
+    CercadoraContingut& cercaCont = CercadoraContingut::getInstance();
 
     unsigned int midaT = cjPel.size() + cjCap.size();
     unsigned int i = 0, p = 0, c = 0;
@@ -46,5 +46,7 @@ void TxProperesEstrenes::executar(string mod) {
 vector<DTONovetat> TxProperesEstrenes::obteResultat() {
     return _resultat;
 }
+
+TxProperesEstrenes::~TxProperesEstrenes() {}
 
 

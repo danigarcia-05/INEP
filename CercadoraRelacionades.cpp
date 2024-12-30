@@ -3,6 +3,11 @@
 CercadoraRelacionades::CercadoraRelacionades() {
 }
 
+CercadoraRelacionades& CercadoraRelacionades::getInstance() {
+    static CercadoraRelacionades instance;
+    return instance;
+}
+
 vector<string> CercadoraRelacionades::cercaRelacionades(string titolC) {
     ConnexioDB& connexio = ConnexioDB::getInstance();
     vector<string> resultat;
@@ -18,3 +23,7 @@ vector<string> CercadoraRelacionades::cercaRelacionades(string titolC) {
 
     return resultat;
 }
+
+CercadoraRelacionades::~CercadoraRelacionades() {
+}
+

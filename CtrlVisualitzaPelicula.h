@@ -22,10 +22,12 @@ private:
     PassarelaPelicula _infoP;
     PassarelaContingut _infoC;
     vector<DTOPelicula> _resultat;
+    PassarelaUsuari _usuari;
     
 public:
 
     CtrlVisualitzaPelicula();
+    ~CtrlVisualitzaPelicula();
 
     DTOPelicula consultaPelicula(string titolP);
     string consultaPeliculaUsuari(string titolP);

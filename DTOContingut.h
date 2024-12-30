@@ -17,6 +17,7 @@ public:
 
     DTOContingut();
     DTOContingut(string titol, string descripcio, string qualificacio, string tipus, string modalitat);
+    ~DTOContingut();
 
     //GETTERS
     string obteTitol() const;

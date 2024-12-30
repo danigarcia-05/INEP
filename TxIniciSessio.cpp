@@ -13,7 +13,7 @@ TxIniciSessio::~TxIniciSessio(){
 
 void TxIniciSessio::executar()
 {
-    CercadoraUsuari cercadora;
+    CercadoraUsuari& cercadora = CercadoraUsuari::getInstance();
     PassarelaUsuari u = cercadora.cercaUsuari(_sobrenomU);
     string contrasenya = u.obteContrasenya();
 

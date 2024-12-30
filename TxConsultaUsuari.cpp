@@ -29,3 +29,5 @@ DTOUsuari TxConsultaUsuari::obteResultat(){
 PassarelaUsuari TxConsultaUsuari::obteUsuari(){
     return _usuari;
 }
+
+TxConsultaUsuari::~TxConsultaUsuari() {}

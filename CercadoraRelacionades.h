@@ -10,9 +10,13 @@ using namespace std;
 class CercadoraRelacionades {
 private:
 
+    CercadoraRelacionades();
+
 public:
 
-    CercadoraRelacionades();
+    static CercadoraRelacionades& getInstance();
+
+    ~CercadoraRelacionades();
 
     vector<string> cercaRelacionades(string titolC);
 };

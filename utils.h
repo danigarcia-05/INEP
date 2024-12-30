@@ -72,8 +72,8 @@ namespace utils {
 
     inline void enter() {
         cout << endl;
-        missatgeAnimacio("Presiona ENTER per continuar... ", 25);
-        cin.ignore(); 
+        missatgeAnimacio("Presiona ENTER per continuar...", 25);
+        cin.ignore();
         cin.get();
         clearConsole();
     }

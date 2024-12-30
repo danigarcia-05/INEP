@@ -24,6 +24,7 @@ public:
     DTOPelicula obteResultat();
     PassarelaPelicula obtePelicula();
     PassarelaContingut obteContingut();
+    ~TxConsultaPelicula();
 };
 
 #endif

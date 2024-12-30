@@ -18,6 +18,7 @@ public:
     TxConsultaRelacionades();
     void executar(string titolC);
     vector<string> obteRelacionades();
+    ~TxConsultaRelacionades();
 };
 
 #endif

@@ -88,3 +88,4 @@
         con.executarSQL(query);
     }
 
+PassarelaContingut::~PassarelaContingut() {}

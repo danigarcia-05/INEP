@@ -119,3 +119,4 @@ void PassarelaCapitol::esborra() {
     con.executarSQL(query);
 }
 
+PassarelaCapitol::~PassarelaCapitol() {}

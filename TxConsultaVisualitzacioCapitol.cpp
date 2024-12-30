@@ -5,7 +5,7 @@ TxConsultaVisualitzacioCapitol::TxConsultaVisualitzacioCapitol() {
 }
 
 void TxConsultaVisualitzacioCapitol::executar(string sobrenomU, string titolSerie, int numTemporada, int numero) {
-    CercadoraVisualitzaCapitol cercadoraCapitol;
+    CercadoraVisualitzaCapitol& cercadoraCapitol = CercadoraVisualitzaCapitol::getInstance();
     _capitolVisualitzat = cercadoraCapitol.cercaVisualitzaCapitol(sobrenomU, titolSerie, numTemporada, numero);
     string sobrenom, titolS, data;
     int numTemp, numCapitol, numVisualitzacio;
@@ -22,7 +22,7 @@ void TxConsultaVisualitzacioCapitol::executar(string sobrenomU, string titolSeri
 }
 
 void TxConsultaVisualitzacioCapitol::executarCV(string sobrenomU) {
-    CercadoraVisualitzaCapitol cercadoraVisualitzaCapiol;
+    CercadoraVisualitzaCapitol& cercadoraVisualitzaCapiol = CercadoraVisualitzaCapitol::getInstance();
     _cjVisualitzacioCapitol = cercadoraVisualitzaCapiol.cercaVisualitzaCapitolsUsuari(sobrenomU);
     
     string sobrenom, titolS, data;
@@ -53,4 +53,6 @@ vector<DTOVisualitzacioCapitol> TxConsultaVisualitzacioCapitol::obteCapitolsVisu
 
 vector<PassarelaVisualitzaCapitol> TxConsultaVisualitzacioCapitol::obteConjuntVisualitzacionsCapitols() {
     return _cjVisualitzacioCapitol;
-}    
+}   
+
+TxConsultaVisualitzacioCapitol::~TxConsultaVisualitzacioCapitol() {}

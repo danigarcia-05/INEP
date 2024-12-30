@@ -10,6 +10,8 @@ public:
 
     DTOPelicula();
     DTOPelicula(string titolP, string descripcioP, string  qualificacioP, string dataP, int duracioP, string tipusP, int visGlobals, string subscripcio);
+    ~DTOPelicula();
+
     //GETTERS
     string obteTitol() const;
     string obteDescripcio() const;

@@ -5,6 +5,10 @@
         
     }
 
+    CtrlModificaUsuari::~CtrlModificaUsuari() {
+
+    }
+
     DTOUsuari CtrlModificaUsuari::consultaUsuari() {
         TxConsultaUsuari txConsultaUsuari;
         txConsultaUsuari.executar();

@@ -3,6 +3,11 @@
 CercadoraTemporada::CercadoraTemporada() {
 }
 
+CercadoraTemporada& CercadoraTemporada::getInstance() {
+    static CercadoraTemporada instance;
+    return instance;
+}
+
 PassarelaTemporada CercadoraTemporada::cercaTemporada(string titolS, int numTemporada) {
     PassarelaTemporada temporada;
     ConnexioDB& con = ConnexioDB::getInstance();
@@ -41,3 +46,8 @@ vector<PassarelaTemporada> CercadoraTemporada::cercaTemporades(string titolS) {
     }
     return cjTemporades;
 }
+
+CercadoraTemporada::~CercadoraTemporada() {
+
+}
+

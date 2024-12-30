@@ -5,6 +5,10 @@ CtrlVisualitzaPelicula::CtrlVisualitzaPelicula(){
     PetitFlix& petitFlix = PetitFlix::getInstance();
 }
 
+CtrlVisualitzaPelicula::~CtrlVisualitzaPelicula() {
+
+}
+
 //Falta TxVisualitzaPelicula
 DTOPelicula CtrlVisualitzaPelicula::consultaPelicula(string titolP) {
     TxConsultaPelicula txConsultaPelicula;
@@ -18,7 +22,7 @@ DTOPelicula CtrlVisualitzaPelicula::consultaPelicula(string titolP) {
 //Mirar si vale la pena conservarlo
 string CtrlVisualitzaPelicula::consultaPeliculaUsuari(string titolP) {
     PetitFlix& petitFlix = PetitFlix::getInstance();
-    PassarelaUsuari usuari = *(petitFlix.obteUsuari());
+    _usuari = *(petitFlix.obteUsuari());
     
     //No estrenada
     if (utils::dataMesGran(utils::convertitADDMMYYYY(_infoP.obteDataEstrena()), utils::convertitADDMMYYYY(utils::dataActual()))) {
@@ -26,18 +30,22 @@ string CtrlVisualitzaPelicula::consultaPeliculaUsuari(string titolP) {
     }
     //No apropiada edat
     string qualificacio = _infoC.obteQualificacio();
-    if (not utils::esContingutApteEdat(qualificacio, utils::convertitADDMMYYYY(usuari.obteDataNaixament()))) {
+    if (not utils::esContingutApteEdat(qualificacio, utils::convertitADDMMYYYY(_usuari.obteDataNaixament()))) {
         throw runtime_error("PeliculaNoApropiada");
     }
     
     TxConsultaVisualitzacioPelicula txConsultaVisualitzacioPelicula;
-    string sobrenom = usuari.obteSobrenom();
+    string sobrenom = _usuari.obteSobrenom();
     txConsultaVisualitzacioPelicula.executarPelVis(titolP, sobrenom);
     _peliculaUsuari = txConsultaVisualitzacioPelicula.obteVisualitzacioPelicula();
     return sobrenom;
 }
 
 void CtrlVisualitzaPelicula::modificaVisualitzacioPelicula(string titolP, string sobrenom){
+    if (_usuari.obteModalitatSubscripcio() == "Infantil" and _infoP.obteModalitat() != "Infantil") {
+        throw runtime_error("ModalitatIncorrecta");
+    }
+    
     if (_peliculaUsuari.obteTitolPelicula() == "") {
         PassarelaVisualitzaPel visualitzacio(sobrenom, titolP, utils::dataActual(), 1);
         visualitzacio.insereix();

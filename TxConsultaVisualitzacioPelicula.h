@@ -26,6 +26,7 @@ public:
     DTOVisualitzacioPelicula obteResultatSingle();
     vector<PassarelaVisualitzaPel> obteConjuntVisualitzacionsPelicules();
     vector<DTOVisualitzacioPelicula> obteResultat();
+    ~TxConsultaVisualitzacioPelicula();
 };
 
 #endif

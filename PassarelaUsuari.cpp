@@ -126,3 +126,5 @@ void PassarelaUsuari::esborra()
 	// Executem la modificació d' usuari a la base de dades.
 	con.executarSQL(query);
 }
+
+PassarelaUsuari::~PassarelaUsuari() {}

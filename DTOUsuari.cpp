@@ -13,6 +13,10 @@ DTOUsuari::DTOUsuari(string nomU, string sobrenomU, string  correuElectronicU, s
     _modalitat = modalitatU;
 }
 
+DTOUsuari::~DTOUsuari() {
+
+}
+
 //-------------
 //GETTERS
 //-------------

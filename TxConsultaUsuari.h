@@ -18,6 +18,8 @@ public:
     bool executar();
     DTOUsuari obteResultat();
     PassarelaUsuari obteUsuari();
+    ~TxConsultaUsuari();
+    
 };
 
 #endif

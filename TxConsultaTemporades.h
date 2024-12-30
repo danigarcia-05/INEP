@@ -19,6 +19,7 @@ public:
     void executar(string titolT);
     DTOPelicula obteResultat();
     PassarelaTemporada obteTemporada();
+    TxConsultaUsuari::~TxConsultaUsuari() {}
 };
 
 #endif

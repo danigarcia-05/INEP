@@ -116,7 +116,6 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="config.txt" />
-    <Text Include="PerFer.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

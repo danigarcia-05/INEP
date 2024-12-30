@@ -4,9 +4,13 @@ TxConsultaMesVistes::TxConsultaMesVistes() {
 
 }
 
+TxConsultaMesVistes::~TxConsultaMesVistes() {
+
+}
+
 void TxConsultaMesVistes::executar() {
-    CercadoraPelicula cercadoraP;
-    CercadoraContingut cercadoraC;
+    CercadoraPelicula& cercadoraP = CercadoraPelicula::getInstance();
+    CercadoraContingut& cercadoraC = CercadoraContingut::getInstance();
     _cjPP = cercadoraP.cercaPeliculesMesVistes();
     if (_cjPP.size() == 0) throw runtime_error("SenseVisualitzacions");
     string titol, descripcio, qualificacio, data, tipus, modalitat;

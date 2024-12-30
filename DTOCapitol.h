@@ -18,6 +18,7 @@ public:
 
     DTOCapitol();
     DTOCapitol(string titolS, int numTemporada, int numero, string titol, string dataEstrena, string qualificacio, int duracioC, string modalitat);
+    ~DTOCapitol();
 
     //GETTERS
     string obteTitolS() const;

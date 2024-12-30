@@ -11,12 +11,14 @@ using namespace std;
 class CercadoraUsuari {
 private:
 
-
-public:
-
     CercadoraUsuari();
 
+public:
+    static CercadoraUsuari& getInstance();
+
     PassarelaUsuari cercaUsuari(string sobrenomU) const;
+
+    ~CercadoraUsuari();
 
 };
 #endif

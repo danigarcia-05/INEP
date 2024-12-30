@@ -1,5 +1,0 @@
----- OBLIGATORIAS ----
-	
-	- sumar 1 a las visdualitzaciones globales
-
-	- Cercadoras singleton

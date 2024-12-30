@@ -106,3 +106,5 @@ void PassarelaPelicula::esborra()
 	// Executem la modificació d' usuari a la base de dades.
 	con.executarSQL(query);
 }
+
+PassarelaPelicula::~PassarelaPelicula() {}

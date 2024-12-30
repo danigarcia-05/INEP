@@ -6,14 +6,18 @@
 
 class CercadoraVisualitzaPel {
 private:
-    
-public:
 
     CercadoraVisualitzaPel();
+
+public:
+
+    static CercadoraVisualitzaPel& getInstance();
 
     vector<PassarelaVisualitzaPel> cercaVisualitzaPel(string sobrenomU);
 
     PassarelaVisualitzaPel cercaVisualitzaPelEspecifica(string sobrenomU, string titolP);
+
+    ~CercadoraVisualitzaPel();
 
 };
 #endif

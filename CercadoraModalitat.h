@@ -10,9 +10,12 @@ using namespace std;
 
 class CercadoraModalitat {
 private:
-
-public:
     CercadoraModalitat();
+    
+public:
+    static CercadoraModalitat& getInstance();
+
+    ~CercadoraModalitat();
 
     void existeix(string mod);
 };

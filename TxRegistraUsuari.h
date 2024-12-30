@@ -23,6 +23,8 @@ public:
     TxRegistraUsuari(string nU, string sU, string cU, string ceU, string dnU, string msU);
 
     void executar();
+
+    ~TxRegistraUsuari();
 };
 
 #endif

@@ -18,11 +18,13 @@ using namespace std;
 class CtrlVisualitzaCapitol {
 private:
     PassarelaVisualitzaCapitol _capitolUsuari;
+    PassarelaUsuari _usuari;
     vector<PassarelaTemporada> _temporades;
     vector<PassarelaCapitol> _capitols;
 
 public:
     CtrlVisualitzaCapitol();
+    ~CtrlVisualitzaCapitol();
 
     int obteNumTemporades(string nomS);
 

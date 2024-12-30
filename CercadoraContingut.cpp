@@ -5,6 +5,14 @@ CercadoraContingut::CercadoraContingut() {
 
 }
 
+CercadoraContingut& CercadoraContingut::getInstance() {
+    static CercadoraContingut instance;
+    return instance;
+}
+
+CercadoraContingut::~CercadoraContingut() {
+}
+
 PassarelaContingut CercadoraContingut::cercaContingut(string titolC) { 
     ConnexioDB& connexio = ConnexioDB::getInstance();
     PassarelaContingut resultat;

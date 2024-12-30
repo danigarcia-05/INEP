@@ -6,9 +6,12 @@
 
 class CercadoraContingut {
 private:
-
-public:
     CercadoraContingut();
+    
+public:
+    static CercadoraContingut& getInstance();
+
+    ~CercadoraContingut();
 
     PassarelaContingut cercaContingut(string titolC);
     vector<PassarelaContingut> cercaContingutRelacionat(string titolC);

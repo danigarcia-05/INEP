@@ -1,7 +1,12 @@
 #include "CercadoraUsuari.h"
 
+CercadoraUsuari::CercadoraUsuari(){ 
 
-CercadoraUsuari::CercadoraUsuari(){
+}
+
+CercadoraUsuari& CercadoraUsuari::getInstance() {
+        static CercadoraUsuari instance; 
+        return instance;
 }
 
 PassarelaUsuari CercadoraUsuari::cercaUsuari(string sobrenomU) const {
@@ -23,4 +28,8 @@ PassarelaUsuari CercadoraUsuari::cercaUsuari(string sobrenomU) const {
         delete res;
     }
     return u;
+}
+
+CercadoraUsuari::~CercadoraUsuari() {
+    
 }

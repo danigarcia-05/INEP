@@ -11,16 +11,19 @@ using namespace std;
 class CercadoraTemporada {
 private:
 
+    CercadoraTemporada();
 
 public:
 
-    CercadoraTemporada();
+    static CercadoraTemporada& getInstance();
 
     //Obté la temporada en concret.
     PassarelaTemporada cercaTemporada(string titolS, int numTemporada);
 
     //Obté totes les temproades d' una sèrie.
     vector<PassarelaTemporada> cercaTemporades(string titolS);
+
+    ~CercadoraTemporada();
 
 };
 #endif

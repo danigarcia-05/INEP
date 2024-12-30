@@ -460,6 +460,9 @@ void CapaDePresentacio::processarVisualitzarPelicula() {
         else if (errorMessage == "PeliculaNoApropiada") {
             cout << "Error: La pel·lícula cercada no és apropiada per l'edat de l'usuari." << endl;
         }
+        else if (errorMessage == "ModalitatIncorrecta") {
+            cout << "Error: La pel·lícula cercada no entra en aquesta modalitat de subscripció." << endl;
+        }
         else cout << "Error" << endl;
         utils::enter();
     }
@@ -539,6 +542,9 @@ void CapaDePresentacio::processarVisualitzarCapitol() {
         }
         else if (errorMessage == "CapitolNoEstrenat") {
             cout << "Error: El capitol cercat no ha sigut estrenat." << endl;
+        }
+        else if (errorMessage == "ModalitatIncorrecta") {
+            cout << "Error: El capitol cercat no entra en aquesta modalitat de subscripció." << endl;
         }
         utils::enter();
     } 

@@ -18,3 +18,5 @@ void TxEsborraUsuari::executar(){
     usu.esborra();
     petitFlix.tancaSessio();
 }
+
+TxEsborraUsuari::~TxEsborraUsuari() {}

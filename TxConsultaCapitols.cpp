@@ -5,8 +5,13 @@ TxConsultaCapitols::TxConsultaCapitols() {
 
 }
 
+TxConsultaCapitols::~TxConsultaCapitols() {
+
+}
+
+
 void TxConsultaCapitols::executar(string nomS, int numTemporada) {
-    CercadoraCapitol cercadoraC;
+    CercadoraCapitol& cercadoraC = CercadoraCapitol::getInstance();
     _capitols = cercadoraC.cercaCapitolsTemporada(nomS, numTemporada);
     string titolSerie, titol, dataEstrena, qualificacio, modalitat;
     int numTemp, numero, duracio;

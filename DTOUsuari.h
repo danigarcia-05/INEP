@@ -10,7 +10,8 @@ public:
 
     DTOUsuari();
     DTOUsuari(string nomU, string sobrenomU, string  correuElectronicU, string dataNaixementU, string modalitatU);
-    
+    ~DTOUsuari();
+
     //GETTERS
     string obteNom() const;
     string obteSobrenom() const;

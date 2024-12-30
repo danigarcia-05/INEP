@@ -4,9 +4,10 @@ TxConsultaPelicula::TxConsultaPelicula() {
 
 }
 
+
 void TxConsultaPelicula::executar(string titolP) {
-    CercadoraPelicula cercadoraP;
-    CercadoraContingut cercadoraC;
+    CercadoraPelicula& cercadoraP = CercadoraPelicula::getInstance();
+    CercadoraContingut& cercadoraC = CercadoraContingut::getInstance();
     _pelicula = cercadoraP.cercaPelicula(titolP);
     _contingut = cercadoraC.cercaContingut(titolP);
 
@@ -37,3 +38,5 @@ PassarelaPelicula TxConsultaPelicula::obtePelicula() {
 PassarelaContingut TxConsultaPelicula::obteContingut() {
     return _contingut;
 }
+
+TxConsultaPelicula::~TxConsultaPelicula() {}

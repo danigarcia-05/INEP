@@ -15,13 +15,14 @@ using namespace std;
 
 class TxInfoVisualitzacions {
 public:
+
     TxInfoVisualitzacions();
-
     void executar();
-
     pair<int, int> obteResultat() const;
+    ~TxInfoVisualitzacions();
 
 private:
+
     pair<int, int> _numVisualitzacions;
 };
 

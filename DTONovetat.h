@@ -16,6 +16,7 @@ private:
 public:
     DTONovetat();
     DTONovetat(string data, string tipus, string titol, string qualificacio, int detalls);
+    ~DTONovetat();
 
     string obteData() const;
     string obteTipus() const;

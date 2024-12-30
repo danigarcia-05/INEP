@@ -88,3 +88,7 @@ DTOCapitol& DTOCapitol::operator=(const DTOCapitol& obj) {
     }
     return *this;
 }
+
+DTOCapitol::~DTOCapitol() {
+
+}

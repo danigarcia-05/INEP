@@ -31,5 +31,7 @@ public:
 
     void insereix();
     void esborra();
+
+    ~PassarelaTemporada();
 };
 #endif

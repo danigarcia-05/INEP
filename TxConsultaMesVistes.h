@@ -19,6 +19,8 @@ private:
     vector<PassarelaPelicula> _cjPP;    
 public:
     TxConsultaMesVistes();
+    ~TxConsultaMesVistes();
+
     void executar();
     vector<DTOPelicula> obteResultat();
     vector<PassarelaPelicula> obtePelicules();

@@ -9,13 +9,15 @@ using namespace std;
 
 class TxEsborraUsuari {
 private:
+
     string _contraU; 
 
 public:
+
     TxEsborraUsuari();
     TxEsborraUsuari(string contraU);
-
     void executar();
+    ~TxEsborraUsuari();
 };
 
 #endif

@@ -1,7 +1,12 @@
 #include "CercadoraVisualitzaCapitol.h"
 
 CercadoraVisualitzaCapitol::CercadoraVisualitzaCapitol(){
-    
+
+}
+
+CercadoraVisualitzaCapitol& CercadoraVisualitzaCapitol::getInstance() {
+    static CercadoraVisualitzaCapitol instance;  
+    return instance;
 }
 
 PassarelaVisualitzaCapitol CercadoraVisualitzaCapitol::cercaVisualitzaCapitol(string sobrenomU, string nomS, int numTemporada, int numCapitol){
@@ -46,5 +51,9 @@ vector<PassarelaVisualitzaCapitol> CercadoraVisualitzaCapitol::cercaVisualitzaCa
         cjVisualitzacionsCapitol.push_back(pvc);
     }
     return cjVisualitzacionsCapitol;
+}
+
+CercadoraVisualitzaCapitol::~CercadoraVisualitzaCapitol() {
+    
 }
     

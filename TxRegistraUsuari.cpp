@@ -13,3 +13,5 @@ void TxRegistraUsuari::executar() {
     PassarelaUsuari u(_nomU, _sobrenomU, _contrasenyaU, _correuElectronicU, _dataNaixement, _modalitatSubscripcio);
     u.insereix();
 }
+
+TxRegistraUsuari::~TxRegistraUsuari() {}

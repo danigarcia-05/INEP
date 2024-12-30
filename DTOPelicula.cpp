@@ -8,6 +8,10 @@ DTOPelicula::DTOPelicula()
 DTOPelicula::DTOPelicula(string titolP, string descripcioP, string qualificacioP, string dataP, int duracioP, string tipusP, int visGlobals, string subscripcio) 
     : _titol(titolP), _descripcio(descripcioP), _qualificacio(qualificacioP), _data(dataP), _duracio(duracioP), _tipus(tipusP), _visGlobals(visGlobals), _subscripcio(subscripcio) {}
 
+DTOPelicula::~DTOPelicula() {
+
+}
+
 // Getters
 string DTOPelicula::obteTitol() const{
     return _titol;

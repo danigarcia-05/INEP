@@ -9,9 +9,12 @@
 
 class CercadoraCapitol {
 private:
-
-public:
     CercadoraCapitol();
+public:
+   
+    static CercadoraCapitol& getInstance();
+
+    ~CercadoraCapitol();
 
     vector<PassarelaCapitol> cercaCapitolsTemporada(string titolS, int numTemporada);
     vector<PassarelaCapitol> cercaNovesEstrenes(string mod);

@@ -10,14 +10,17 @@ using namespace sql;
 
 class CercadoraVisualitzaCapitol {
 private:
-    
+
+     CercadoraVisualitzaCapitol();
 
 public:
 
-    CercadoraVisualitzaCapitol();
+   static CercadoraVisualitzaCapitol& getInstance();
 
     PassarelaVisualitzaCapitol cercaVisualitzaCapitol(string sobrenomU, string nomS, int numTemporada, int numCapitol);
 
     vector<PassarelaVisualitzaCapitol> cercaVisualitzaCapitolsUsuari(string sobrenomU);
+
+    ~CercadoraVisualitzaCapitol();
 };
 #endif

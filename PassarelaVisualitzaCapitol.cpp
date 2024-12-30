@@ -86,4 +86,4 @@ void PassarelaVisualitzaCapitol::esborra()
     con.executarSQL(query);
 }
 
-
+PassarelaVisualitzaCapitol::~PassarelaVisualitzaCapitol() {}

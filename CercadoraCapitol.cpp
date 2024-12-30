@@ -7,7 +7,7 @@ CercadoraCapitol::CercadoraCapitol() {
 }
 
 vector<PassarelaCapitol> CercadoraCapitol::cercaCapitolsTemporada(string titolS, int numTemporada) {
-
+    
     ConnexioDB& con = ConnexioDB::getInstance();
     vector<PassarelaCapitol> cjCapitols;
 
@@ -68,11 +68,9 @@ vector<PassarelaCapitol> CercadoraCapitol::cercaProperesEstrenes(string mod) {
         if (mod == "Infantil") {
             comanda = "SELECT * FROM capitol WHERE data_estrena > NOW() AND modalitat = '" + mod + "' AND numero = 1 "
           "ORDER BY data_estrena ASC LIMIT 5;";
-
         }
         else {
             comanda = "SELECT * FROM capitol WHERE data_estrena > NOW() AND numero = 1 ORDER BY data_estrena ASC LIMIT 5;";
-
         }
         sql::ResultSet* res = con.consultaSQL(comanda);
 
@@ -92,3 +90,11 @@ vector<PassarelaCapitol> CercadoraCapitol::cercaProperesEstrenes(string mod) {
     return cjCapitols;
 }
 
+CercadoraCapitol& CercadoraCapitol::getInstance() {
+    static CercadoraCapitol instance;
+    return instance;
+}
+
+CercadoraCapitol::~CercadoraCapitol() {
+
+}

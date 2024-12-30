@@ -4,8 +4,12 @@ TxConsultaContingut::TxConsultaContingut() {
 
 }
 
+TxConsultaContingut::~TxConsultaContingut() {
+
+}
+
 void TxConsultaContingut::executar(string titolC) {
-    CercadoraContingut cercadoraC;
+    CercadoraContingut& cercadoraC = CercadoraContingut::getInstance();
     _contingut = cercadoraC.cercaContingut(titolC);
 
     string titol, descripcio, qualificacio, tipus, modalitat;

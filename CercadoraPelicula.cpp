@@ -3,7 +3,13 @@
 CercadoraPelicula::CercadoraPelicula() {
 }
 
+CercadoraPelicula& CercadoraPelicula::getInstance() {
+    static CercadoraPelicula instance;
+    return instance;
+}
+
 PassarelaPelicula CercadoraPelicula::cercaPelicula(string titolP) {
+    
 	ConnexioDB& connexio = ConnexioDB::getInstance();
     PassarelaPelicula resultat;
 
@@ -107,7 +113,6 @@ vector<PassarelaPelicula> CercadoraPelicula::cercaProperesEstrenes(string mod) {
     }
     sql::ResultSet* res = con.consultaSQL(comanda);
 
-
     vector<PassarelaPelicula> pelicules;
     while (res->next()) {  // Asegurarse de que se encontró un resultado
         PassarelaPelicula pelicula;
@@ -121,6 +126,9 @@ vector<PassarelaPelicula> CercadoraPelicula::cercaProperesEstrenes(string mod) {
     return pelicules;
 }
 
+CercadoraPelicula::~CercadoraPelicula() {
+
+}
 
 
 

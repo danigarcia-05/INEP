@@ -64,3 +64,7 @@ DTOContingut& DTOContingut::operator=(const DTOContingut& obj) {
     }
     return *this;
 }
+
+DTOContingut::~DTOContingut() {
+
+}

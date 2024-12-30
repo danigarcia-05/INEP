@@ -18,6 +18,8 @@ private:
 
 public:
     TxConsultaCapitols();
+    ~TxConsultaCapitols();
+
     void executar(string titolS, int numTemporada);
     vector<DTOCapitol> obteResultat();
     vector<PassarelaCapitol> obteCapitols();

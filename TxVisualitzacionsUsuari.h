@@ -19,6 +19,7 @@ public:
     void executar();
     vector<DTOVisualitzacioPelicula> obteVisualitzacionsPelicula() const;
     vector<DTOVisualitzacioCapitol> obteVisualitzacionsCapitol() const;
+    ~TxVisualitzacionsUsuari();
 
 private:
     vector<DTOVisualitzacioPelicula> _peliculaDTO;

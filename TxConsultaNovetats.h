@@ -22,6 +22,8 @@ private:
     vector<DTOCapitol> _capitols;    
 public:
     TxConsultaNovetats();
+    ~TxConsultaNovetats();
+    
     void executar(string mod);
     vector<DTOPelicula> obtePelicules();
     vector<DTOCapitol> obteCapitols();

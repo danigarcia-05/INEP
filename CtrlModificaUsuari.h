@@ -19,6 +19,7 @@ private:
 public:
 
     CtrlModificaUsuari();
+    ~CtrlModificaUsuari();
 
     DTOUsuari consultaUsuari();
 

@@ -33,3 +33,5 @@ std::vector<DTOVisualitzacioPelicula> TxVisualitzacionsUsuari::obteVisualitzacio
 std::vector<DTOVisualitzacioCapitol> TxVisualitzacionsUsuari::obteVisualitzacionsCapitol() const {
     return _capitolDTO;
 }
+
+TxVisualitzacionsUsuari::~TxVisualitzacionsUsuari() {}

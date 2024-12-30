@@ -4,6 +4,14 @@ CercadoraModalitat::CercadoraModalitat() {
 
 }
 
+CercadoraModalitat& CercadoraModalitat::getInstance() {
+    static CercadoraModalitat instance;
+    return instance;
+}
+
+CercadoraModalitat::~CercadoraModalitat() {
+}
+
 void CercadoraModalitat::existeix(string mod) {
     ConnexioDB& con = ConnexioDB::getInstance();
 
@@ -16,4 +24,5 @@ void CercadoraModalitat::existeix(string mod) {
         throw std::runtime_error("ModalitatNoExisteix");
     }
 }
+
 
