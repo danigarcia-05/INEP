@@ -600,8 +600,9 @@ void CapaDePresentacio::processarModificaContrasenya() {
     utils::desactivarEco(contraU);
     utils::activarEco();
 
-    ctrlModificaUsuari.modificaContrasenya(contraU);
+    bool modificada = ctrlModificaUsuari.modificaContrasenya(contraU);
     utils::clearConsole();
-    cout << "Contrasenya modificada correctament!" << endl;
+    if(modificada) cout << "Contrasenya modificada correctament!" << endl;
+    else cout << "La contrasenya no ha sigut modificada." << endl;
     utils::enter();
 }
